@@ -48,6 +48,30 @@ const resumenCantidad =
 const resumenTotal =
     document.getElementById("resumen-total");
 
+const abrirResumen =
+    document.getElementById("abrir-resumen");
+
+const modalResumen =
+    document.getElementById("modal-resumen");
+
+const cerrarResumen =
+    document.getElementById("cerrar-resumen");
+
+const productosResumen =
+    document.getElementById("productos-resumen");
+
+const cantidadResumenDetalle =
+    document.getElementById("cantidad-resumen-detalle");
+
+const subtotalResumen =
+    document.getElementById("subtotal-resumen");
+
+const entregaResumen =
+    document.getElementById("entrega-resumen");
+
+const totalCuentaResumen =
+    document.getElementById("total-cuenta-resumen");
+
 
 // ======================================================
 // ELEMENTOS DE INFORMACIÓN
@@ -67,6 +91,9 @@ const textoServicio =
 
 const metodoPagoSelect =
     document.getElementById("metodo-pago");
+
+    const tipoSoya =
+    document.getElementById("tipo-soya");
 
 const datosEfectivo =
     document.getElementById("datos-efectivo");
@@ -99,6 +126,9 @@ const estadoUbicacion =
 
 const botonBuscarDireccion =
     document.getElementById("buscar-direccion");
+
+const resultadosDireccion =
+    document.getElementById("resultados-direccion");
 
 
 // ======================================================
@@ -146,6 +176,70 @@ botonesAgregar.forEach(function(boton) {
 
 
 // ======================================================
+// ACTUALIZAR RESUMEN DE CUENTA
+// ======================================================
+function obtenerCostoEntrega() {
+
+    if (servicioSeleccionado === "domicilio") {
+        return 30;
+    }
+
+    return 0;
+}
+
+function actualizarResumenCuenta() {
+
+    productosResumen.innerHTML = "";
+
+    cantidadResumenDetalle.textContent =
+        cantidadCarrito;
+
+
+    for (let nombre in pedido) {
+
+        const producto =
+            pedido[nombre];
+
+        const subtotal =
+            producto.precio *
+            producto.cantidad;
+
+
+        productosResumen.innerHTML += `
+
+            <div class="producto-resumen">
+
+                <span>
+                    ${nombre} x${producto.cantidad}
+                </span>
+
+                <strong>
+                    $${subtotal}
+                </strong>
+
+            </div>
+
+        `;
+
+    }
+
+
+  const costoEntrega =
+    obtenerCostoEntrega();
+
+
+    subtotalResumen.textContent =
+        totalCarrito;
+
+    entregaResumen.textContent =
+        costoEntrega;
+
+    totalCuentaResumen.textContent =
+        totalCarrito + costoEntrega;
+
+}
+
+// ======================================================
 // ACTUALIZAR CARRITO
 // ======================================================
 
@@ -155,7 +249,8 @@ function actualizarPedido() {
     total.textContent = totalCarrito;
     totalModal.textContent = totalCarrito;
     resumenCantidad.textContent = cantidadCarrito;
-    resumenTotal.textContent = totalCarrito;
+    resumenTotal.textContent =
+    totalCarrito + obtenerCostoEntrega();
 
 
     if (cantidadCarrito === 0) {
@@ -327,6 +422,12 @@ botonesServicio.forEach(function(boton) {
 
         servicioSeleccionado =
             boton.dataset.servicio;
+
+         
+
+actualizarPedido();
+
+            
 
 
         // Reiniciar métodos de pago
@@ -563,18 +664,20 @@ if (continuarInfo) {
 
             }
 
+const totalFinal =
+    totalCarrito + obtenerCostoEntrega();
 
-            if (
-                Number(pagaCon) < totalCarrito
-            ) {
+if (
+    Number(pagaCon) < totalFinal
+) {
 
-                alert(
-                    "El monto con el que pagarás no puede ser menor al total del pedido."
-                );
+    alert(
+        "El monto con el que pagarás no puede ser menor al total del pedido."
+    );
 
-                return;
+    return;
 
-            }
+}
 
         }
 
@@ -735,26 +838,26 @@ if (calleInput) {
 
 }
 
-
 // ======================================================
-// BOTÓN DE BÚSQUEDA DE DIRECCIÓN
-// POR AHORA CONFIRMA DIRECCIÓN MANUAL
+// BUSCAR DIRECCIÓN
 // ======================================================
 
 if (botonBuscarDireccion) {
 
     botonBuscarDireccion.addEventListener(
         "click",
-        function() {
+        async function() {
 
             const direccion =
                 calleInput.value.trim();
 
 
+            // Si está vacío
+
             if (direccion === "") {
 
                 alert(
-                    "Escribe una dirección."
+                    "Escribe una dirección para buscar."
                 );
 
                 return;
@@ -762,14 +865,139 @@ if (botonBuscarDireccion) {
             }
 
 
-            usoUbicacionActual = false;
+            // Mostrar que está buscando
 
-            latitudCliente = null;
-            longitudCliente = null;
+            resultadosDireccion.innerHTML =
+                '<p class="mensaje-direccion">🔍 Buscando dirección...</p>';
 
 
-            estadoUbicacion.textContent =
-                "✅ Dirección ingresada manualmente";
+            botonBuscarDireccion.disabled = true;
+
+
+            try {
+
+                const url =
+                    "https://nominatim.openstreetmap.org/search" +
+                    "?format=jsonv2" +
+                    "&addressdetails=1" +
+                    "&countrycodes=mx" +
+                    "&limit=5" +
+                    "&accept-language=es" +
+                    "&q=" +
+                    encodeURIComponent(direccion);
+
+
+                const respuesta =
+                    await fetch(url);
+
+
+                if (!respuesta.ok) {
+
+                    throw new Error(
+                        "No se pudo realizar la búsqueda."
+                    );
+
+                }
+
+
+                const resultados =
+                    await respuesta.json();
+
+
+                resultadosDireccion.innerHTML = "";
+
+
+                // No encontró nada
+
+                if (resultados.length === 0) {
+
+                    resultadosDireccion.innerHTML =
+                        '<p class="mensaje-direccion">❌ No encontramos esa dirección. Intenta escribir más datos.</p>';
+
+                    return;
+
+                }
+
+
+                // Mostrar resultados
+
+                resultados.forEach(function(resultado) {
+
+                    const botonResultado =
+                        document.createElement("button");
+
+
+                    botonResultado.type =
+                        "button";
+
+
+                    botonResultado.className =
+                        "resultado-direccion";
+
+
+                    botonResultado.textContent =
+                        "📍 " + resultado.display_name;
+
+
+                    botonResultado.addEventListener(
+                        "click",
+                        function() {
+
+                            // Poner dirección en el input
+
+                            calleInput.value =
+                                resultado.display_name;
+
+
+                            // Guardar coordenadas
+
+                            latitudCliente =
+                                Number(resultado.lat);
+
+                            longitudCliente =
+                                Number(resultado.lon);
+
+
+                            // No fue GPS del teléfono
+
+                            usoUbicacionActual =
+                                false;
+
+
+                            // Vaciar resultados
+
+                            resultadosDireccion.innerHTML =
+                                "";
+
+
+                            estadoUbicacion.textContent =
+                                "✅ Dirección seleccionada";
+
+                        }
+                    );
+
+
+                    resultadosDireccion.appendChild(
+                        botonResultado
+                    );
+
+                });
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                resultadosDireccion.innerHTML =
+                    '<p class="mensaje-direccion">❌ No pudimos buscar la dirección. Intenta nuevamente.</p>';
+
+            } finally {
+
+                botonBuscarDireccion.disabled =
+                    false;
+
+            }
 
         }
     );
@@ -830,6 +1058,9 @@ function enviarPedidoWhatsApp() {
             .getElementById("telefono-cliente")
             .value
             .trim();
+    
+            const soya =
+           tipoSoya.value;
 
     const cubiertos =
         document
@@ -839,6 +1070,12 @@ function enviarPedidoWhatsApp() {
     const metodoPago =
         metodoPagoSelect.value;
 
+        const costoEntrega =
+    obtenerCostoEntrega();
+
+const totalFinal =
+    totalCarrito + costoEntrega;
+
     const comentarios =
         document
             .getElementById("comentarios")
@@ -847,7 +1084,7 @@ function enviarPedidoWhatsApp() {
 
 
     let mensaje =
-        "🍣 *PEDIDO SUSHI ANGUILA*\n\n";
+        "🍣 *PEDIDO ANGUILA Sushi*\n\n";
 
 
     mensaje +=
@@ -913,11 +1150,22 @@ function enviarPedidoWhatsApp() {
 
 
     // ==================================================
+// SOYA
+// ==================================================
+
+mensaje +=
+    `🥢 Soya: ${soya}\n`;
+
+
+
+    // ==================================================
     // CUBIERTOS
     // ==================================================
 
     mensaje +=
         `🥢 Cubiertos: ${cubiertos}\n`;
+        
+        
 
 
     // ==================================================
@@ -940,28 +1188,9 @@ function enviarPedidoWhatsApp() {
         const pagaCon =
             Number(pagaConInput.value);
 
-        const cambio =
-            pagaCon - totalCarrito;
-
-
         mensaje +=
-            `💵 Pagará con: $${pagaCon}\n`;
-
-
-        if (cambio === 0) {
-
-            mensaje +=
-                "✅ Pago exacto\n";
-
-        } else {
-
-            mensaje +=
-                `🔄 Cambio aproximado: $${cambio}\n`;
-
-        }
-
-    }
-
+    `💵 Pagará con: $${pagaCon}\n`;
+}
 
     // ==================================================
     // COMENTARIOS
@@ -999,6 +1228,12 @@ function enviarPedidoWhatsApp() {
             `${nombreProducto} x${producto.cantidad} - $${subtotal}\n`;
 
     }
+    if (servicioSeleccionado === "domicilio") {
+
+    mensaje +=
+        `Envío: $${costoEntrega}\n`;
+
+}
 
 
     // ==================================================
@@ -1006,7 +1241,7 @@ function enviarPedidoWhatsApp() {
     // ==================================================
 
     mensaje +=
-        `\n💰 *Total: $${totalCarrito}*`;
+    `\n💰 *Total: $${totalFinal}*`;
 
 
     // ==================================================
@@ -1031,7 +1266,60 @@ function enviarPedidoWhatsApp() {
 
 }
 
+// ======================================================
+// ABRIR RESUMEN DE CUENTA
+// ======================================================
 
+if (abrirResumen) {
+
+    abrirResumen.addEventListener(
+        "click",
+        function() {
+
+            actualizarResumenCuenta();
+
+            modalResumen.style.display = "flex";
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// CERRAR RESUMEN DE CUENTA
+// ======================================================
+
+if (cerrarResumen) {
+
+    cerrarResumen.addEventListener(
+        "click",
+        function() {
+
+            modalResumen.style.display = "none";
+
+        }
+    );
+
+}
+
+// ======================================================
+// CERRAR RESUMEN AL TOCAR FUERA
+// ======================================================
+
+if (modalResumen) {
+
+    modalResumen.addEventListener("click", function(evento) {
+
+        if (evento.target === modalResumen) {
+
+            modalResumen.style.display = "none";
+
+        }
+
+    });
+
+}
 // ======================================================
 // INICIAR CARRITO
 // ======================================================

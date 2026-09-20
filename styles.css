@@ -766,3 +766,141 @@ body {
         flex-direction: column;
     }
 }
+
+/* ================================= */
+/* MODAL RESUMEN DE CUENTA */
+/* ================================= */
+
+.modal-resumen {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 3000;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contenido-resumen {
+    background-color: white;
+    color: #111;
+
+    width: 100%;
+    max-width: 500px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.encabezado-resumen {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.cerrar-resumen {
+    border: none;
+    background: none;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#productos-resumen {
+    margin-bottom: 25px;
+}
+
+.producto-resumen {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.totales-resumen p {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 12px 0;
+}
+
+.total-cuenta-resumen {
+    border-top: 1px solid #ccc;
+
+    padding-top: 15px;
+
+    font-size: 18px;
+}
+
+.resumen-cuenta {
+    cursor: pointer;
+}
+
+.flecha-resumen {
+    font-size: 30px;
+}
+
+/* ================================= */
+/* RESULTADOS DE DIRECCIÓN */
+/* ================================= */
+
+.resultados-direccion {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.resultado-direccion {
+    width: 100%;
+
+    padding: 14px 12px;
+    margin-bottom: 7px;
+
+    background: #1b1b1b;
+    color: white;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.resultado-direccion:hover {
+    background: #292929;
+}
+
+.mensaje-direccion {
+    padding: 12px;
+
+    font-size: 14px;
+    color: #aaa;
+}
+
+.credito-direcciones {
+    font-size: 10px;
+    color: #777;
+    margin-top: 5px;
+}

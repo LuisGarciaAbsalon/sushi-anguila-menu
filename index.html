@@ -5,22 +5,31 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="styles.css">
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
 
     <title>Anguila Sushi</title>
 
@@ -52,7 +61,9 @@
     <main>
 
 
+        <!-- ============================= -->
         <!-- CATEGORÍAS -->
+        <!-- ============================= -->
 
         <section class="categorias">
 
@@ -60,28 +71,38 @@
 
             <div class="lista-categorias">
 
-                <a href="#entradas"
-                   class="categoria-btn">
+                <a
+                    href="#entradas"
+                    class="categoria-btn"
+                >
                     Entradas
                 </a>
 
-                <a href="#rollos"
-                   class="categoria-btn">
+                <a
+                    href="#rollos"
+                    class="categoria-btn"
+                >
                     Rollos
                 </a>
 
-                <a href="#yakimeshi"
-                   class="categoria-btn">
+                <a
+                    href="#yakimeshi"
+                    class="categoria-btn"
+                >
                     Yakimeshi
                 </a>
 
-                <a href="#sopas"
-                   class="categoria-btn">
+                <a
+                    href="#sopas"
+                    class="categoria-btn"
+                >
                     Sopas
                 </a>
 
-                <a href="#postres"
-                   class="categoria-btn">
+                <a
+                    href="#postres"
+                    class="categoria-btn"
+                >
                     Postres
                 </a>
 
@@ -94,9 +115,13 @@
         <!-- ENTRADAS -->
         <!-- ============================= -->
 
-        <section class="menu" id="entradas">
+        <section
+            class="menu"
+            id="entradas"
+        >
 
             <h2>Entradas</h2>
+
 
             <article class="producto">
 
@@ -108,14 +133,18 @@
                         Frijol de soya tierno al vapor o asado.
                     </p>
 
-                    <span>$75</span>
+                    <span>
+                        $75
+                    </span>
 
                 </div>
+
 
                 <button
                     class="agregar"
                     data-nombre="Edamames"
-                    data-precio="75">
+                    data-precio="75"
+                >
                     +
                 </button>
 
@@ -128,9 +157,13 @@
         <!-- ROLLOS -->
         <!-- ============================= -->
 
-        <section class="menu" id="rollos">
+        <section
+            class="menu"
+            id="rollos"
+        >
 
             <h2>Rollos</h2>
+
 
             <article class="producto">
 
@@ -144,14 +177,18 @@
                         queso Philadelphia y aguacate.
                     </p>
 
-                    <span>$150</span>
+                    <span>
+                        $150
+                    </span>
 
                 </div>
+
 
                 <button
                     class="agregar"
                     data-nombre="Manchego Maky"
-                    data-precio="150">
+                    data-precio="150"
+                >
                     +
                 </button>
 
@@ -170,18 +207,34 @@
     <div class="carrito">
 
         <div>
+
             🛒
-            <span id="cantidad-carrito">0</span>
+
+            <span id="cantidad-carrito">
+                0
+            </span>
+
             productos
+
         </div>
+
 
         <div>
+
             Total:
-            $<span id="total-carrito">0</span>
+
+            $
+            <span id="total-carrito">
+                0
+            </span>
+
         </div>
 
+
         <button class="ver-pedido">
+
             Ver pedido
+
         </button>
 
     </div>
@@ -191,17 +244,27 @@
     <!-- MODAL: MI PEDIDO -->
     <!-- ============================= -->
 
-    <div class="modal-pedido" id="modal-pedido">
+    <div
+        class="modal-pedido"
+        id="modal-pedido"
+    >
 
         <div class="contenido-pedido">
 
+
             <button
+                type="button"
                 class="cerrar-pedido"
-                id="cerrar-pedido">
+                id="cerrar-pedido"
+            >
                 ×
             </button>
 
-            <h2>🛒 Mi pedido</h2>
+
+            <h2>
+                🛒 Mi pedido
+            </h2>
+
 
             <div id="detalle-pedido">
 
@@ -211,13 +274,25 @@
 
             </div>
 
+
             <hr>
 
+
             <p>
+
                 Total:
-                $<span id="total-modal">0</span>
+
+                $
+                <span id="total-modal">
+                    0
+                </span>
+
             </p>
 
+
+            <!-- ============================= -->
+            <!-- TIPO DE SERVICIO -->
+            <!-- ============================= -->
 
             <div class="tipo-servicio">
 
@@ -225,11 +300,15 @@
                     Selecciona el tipo de servicio:
                 </p>
 
+
                 <div class="opciones-servicio">
 
+
                     <button
+                        type="button"
                         class="servicio-btn"
-                        data-servicio="llevar">
+                        data-servicio="llevar"
+                    >
 
                         🛍 Para llevar
 
@@ -241,8 +320,10 @@
 
 
                     <button
+                        type="button"
                         class="servicio-btn"
-                        data-servicio="domicilio">
+                        data-servicio="domicilio"
+                    >
 
                         🛵 A domicilio
 
@@ -252,9 +333,11 @@
 
                     </button>
 
+
                 </div>
 
             </div>
+
 
         </div>
 
@@ -267,13 +350,22 @@
 
     <div
         class="modal-informacion"
-        id="modal-informacion">
+        id="modal-informacion"
+    >
+
 
         <div class="contenido-informacion">
 
+
+            <!-- ============================= -->
+            <!-- VOLVER -->
+            <!-- ============================= -->
+
             <button
+                type="button"
                 class="volver-info"
-                id="volver-info">
+                id="volver-info"
+            >
                 ←
             </button>
 
@@ -282,23 +374,61 @@
                 Información del pedido
             </h2>
 
+
+            <!-- TIPO DE SERVICIO -->
+
             <p id="servicio-seleccionado"></p>
-              
-            <div class="resumen-cuenta">
 
-    <div>
-        <strong>Resumen de cuenta</strong>
 
-        <p>
-            <span id="resumen-cantidad">0</span> producto(s)
-            &nbsp;
-            MXN $<span id="resumen-total">0</span>
-        </p>
-    </div>
+            <!-- ============================= -->
+            <!-- RESUMEN DE CUENTA VISIBLE -->
+            <!-- ============================= -->
 
-    <span class="flecha-resumen">›</span>
+            <div
+                class="resumen-cuenta"
+                id="abrir-resumen"
+            >
 
-</div>
+
+                <div>
+
+                    <strong>
+                        Resumen de cuenta
+                    </strong>
+
+
+                    <p>
+
+                        <span id="resumen-cantidad">
+                            0
+                        </span>
+
+                        producto(s)
+
+                        &nbsp;
+
+                        MXN $
+
+                        <span id="resumen-total">
+                            0
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <span class="flecha-resumen">
+                    ›
+                </span>
+
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- NOMBRE -->
+            <!-- ============================= -->
 
             <label for="nombre-cliente">
                 Nombre:
@@ -311,6 +441,10 @@
             >
 
 
+            <!-- ============================= -->
+            <!-- TELÉFONO -->
+            <!-- ============================= -->
+
             <label for="telefono-cliente">
                 Teléfono:
             </label>
@@ -321,6 +455,35 @@
                 placeholder="Escribe tu teléfono"
             >
 
+
+            <!-- ============================= -->
+            <!-- SOYA -->
+            <!-- ============================= -->
+
+            <label for="tipo-soya">
+                ¿Cómo deseas tus soyas?
+            </label>
+
+            <select id="tipo-soya">
+
+                <option value="">
+                    Selecciona una opción
+                </option>
+
+                <option value="Natural">
+                    Natural
+                </option>
+
+                <option value="Picante">
+                    Picante
+                </option>
+
+            </select>
+
+
+            <!-- ============================= -->
+            <!-- CUBIERTOS -->
+            <!-- ============================= -->
 
             <label for="cubiertos">
                 ¿Deseas palillos o tenedores?
@@ -343,77 +506,244 @@
             </select>
 
 
-           <label for="metodo-pago">
-    Método de pago:
-</label>
+            <!-- ============================= -->
+            <!-- MÉTODO DE PAGO -->
+            <!-- ============================= -->
 
-<select id="metodo-pago">
+            <label for="metodo-pago">
+                Método de pago:
+            </label>
 
-    <option value="">
-        Selecciona un método
-    </option>
+            <select id="metodo-pago">
 
-    <option value="Efectivo">
-        Efectivo
-    </option>
+                <option value="">
+                    Selecciona un método
+                </option>
 
-    <option value="Transferencia">
-        Transferencia
-    </option>
+                <option value="Efectivo">
+                    Efectivo
+                </option>
 
-    <option value="Tarjeta">
-        Tarjeta
-    </option>
+                <option value="Transferencia">
+                    Transferencia
+                </option>
 
-</select>
+                <option value="Tarjeta">
+                    Tarjeta
+                </option>
 
-
-<!-- SOLO APARECE EN DOMICILIO + EFECTIVO -->
-
-<div id="datos-efectivo" class="datos-efectivo">
-
-    
-    <div class="monto-efectivo">
-
-        <span>MXN</span>
-
-        <input
-            type="number"
-            id="paga-con"
-            placeholder="Monto con el que va a pagar"
-            min="0"
-        >
-
-    </div>
-
-    <p class="instruccion-pago">
-        <strong>Instrucción de pago</strong><br>
-        El repartidor solo lleva cambio si es solicitado.
-    </p>
-
-</div>
+            </select>
 
 
-<label for="comentarios">
-    Comentarios:
-</label>
+            <!-- ============================= -->
+            <!-- EFECTIVO -->
+            <!-- SOLO DOMICILIO + EFECTIVO -->
+            <!-- ============================= -->
 
-<textarea
-    id="comentarios"
-    placeholder="Opcional">
-</textarea>
+            <div
+                id="datos-efectivo"
+                class="datos-efectivo"
+            >
 
-           
+                <div class="monto-efectivo">
+
+                    <span>
+                        MXN
+                    </span>
+
+                    <input
+                        type="number"
+                        id="paga-con"
+                        placeholder="Monto con el que va a pagar"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <p class="instruccion-pago">
+
+                    <strong>
+                        Instrucción de pago
+                    </strong>
+
+                    <br>
+
+                    El repartidor solo lleva cambio si es solicitado.
+
+                </p>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- COMENTARIOS -->
+            <!-- ============================= -->
+
+            <label for="comentarios">
+                Comentarios:
+            </label>
+
+            <textarea
+                id="comentarios"
+                placeholder="Opcional"
+            ></textarea>
+
+
+            <!-- ============================= -->
+            <!-- CONTINUAR -->
+            <!-- ============================= -->
 
             <button
+                type="button"
                 class="continuar-info"
-                id="continuar-info">
+                id="continuar-info"
+            >
 
                 Continuar
 
             </button>
 
+
         </div>
+
+
+        <!-- ===================================== -->
+        <!-- MODAL INTERNO: RESUMEN DE CUENTA -->
+        <!-- ===================================== -->
+
+        <div
+            class="modal-resumen"
+            id="modal-resumen"
+        >
+
+
+            <div class="contenido-resumen">
+
+
+                <!-- ENCABEZADO -->
+
+                <div class="encabezado-resumen">
+
+
+                    <button
+                        type="button"
+                        id="cerrar-resumen"
+                        class="cerrar-resumen"
+                    >
+                        ×
+                    </button>
+
+
+                    <strong>
+                        Resumen de cuenta
+                    </strong>
+
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- PRODUCTOS -->
+                <!-- ============================= -->
+
+                <h3>
+
+                    Tus productos
+
+                    (
+                    <span id="cantidad-resumen-detalle">
+                        0
+                    </span>
+                    )
+
+                </h3>
+
+
+                <div id="productos-resumen">
+
+                    <!--
+                    JavaScript pondrá aquí:
+
+                    Edamames x1        $75
+                    Manchego Maky x1  $150
+                    -->
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- TOTALES -->
+                <!-- ============================= -->
+
+                <div class="totales-resumen">
+
+
+                    <p>
+
+                        <span>
+                            Subtotal productos
+                        </span>
+
+                        <strong>
+
+                            $
+
+                            <span id="subtotal-resumen">
+                                0
+                            </span>
+
+                        </strong>
+
+                    </p>
+
+
+                    <p>
+
+                        <span>
+                            Entrega
+                        </span>
+
+                        <strong>
+
+                            $
+
+                            <span id="entrega-resumen">
+                                0
+                            </span>
+
+                        </strong>
+
+                    </p>
+
+
+                    <p class="total-cuenta-resumen">
+
+                        <span>
+                            TOTAL CUENTA
+                        </span>
+
+                        <strong>
+
+                            $
+
+                            <span id="total-cuenta-resumen">
+                                0
+                            </span>
+
+                        </strong>
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
@@ -422,76 +752,115 @@
     <!-- MODAL: DIRECCIÓN -->
     <!-- ============================= -->
 
-  <div class="modal-direccion" id="modal-direccion">
+    <div
+        class="modal-direccion"
+        id="modal-direccion"
+    >
 
-    <div class="contenido-direccion">
 
-        <div class="encabezado-direccion">
+        <div class="contenido-direccion">
 
-            <button
-                class="volver-direccion"
-                id="volver-direccion">
-                ←
-            </button>
 
-            <h2>Agrega tu dirección</h2>
+            <div class="encabezado-direccion">
 
-        </div>
 
-        <label for="calle">
-            Ingresa tu dirección
-        </label>
+                <button
+                    type="button"
+                    class="volver-direccion"
+                    id="volver-direccion"
+                >
+                    ←
+                </button>
 
-        <div class="buscador-direccion">
 
-            <span class="icono-ubicacion">📍</span>
+                <h2>
+                    Agrega tu dirección
+                </h2>
 
-            <input
-                type="text"
-                id="calle"
-                placeholder="Ej. Calle 123"
-            >
+
+            </div>
+
+
+            <label for="calle">
+                Ingresa tu dirección
+            </label>
+
+
+            <div class="buscador-direccion">
+
+
+                <span class="icono-ubicacion">
+                    📍
+                </span>
+
+
+                <input
+                    type="text"
+                    id="calle"
+                    placeholder="Ej. Calle 123"
+                >
+
+
+                <button
+                    type="button"
+                    id="buscar-direccion"
+                    class="buscar-direccion"
+                >
+                    🔍
+                </button>
+
+
+            </div>
+
+
+            <div class="ayuda-direccion">
+
+                Para encontrar tu dirección,
+                escribe el tipo de vía y el número.
+
+                Ej:
+
+                <strong>
+                    Calle Central 123, Av. Central 123
+                </strong>
+
+            </div>
+
 
             <button
                 type="button"
-                id="buscar-direccion"
-                class="buscar-direccion">
-                🔍
+                id="ubicacion-actual"
+                class="usar-ubicacion"
+            >
+
+                ◎ Usar mi ubicación actual
+
             </button>
 
+
+            <p id="estado-ubicacion"></p>
+
+
+            <button
+                type="button"
+                class="continuar-direccion"
+                id="continuar-direccion"
+            >
+
+                Continuar
+
+            </button>
+
+
         </div>
 
-        <div class="ayuda-direccion">
-            Para encontrar tu dirección, escribe el tipo de vía
-            y el número. Ej:
-            <strong>Calle Central 123, Av. Central 123</strong>
-        </div>
-
-        <button
-            type="button"
-            id="ubicacion-actual"
-            class="usar-ubicacion">
-
-            ◎ Usar mi ubicación actual
-
-        </button>
-
-        <p id="estado-ubicacion"></p>
-
-        <button
-            class="continuar-direccion"
-            id="continuar-direccion">
-
-            Continuar
-
-        </button>
 
     </div>
 
-</div>
 
-
+    <!-- ============================= -->
     <!-- JAVASCRIPT -->
+    <!-- ============================= -->
 
     <script src="script.js"></script>
 
@@ -499,4 +868,3 @@
 </body>
 
 </html>
-
