@@ -1,10 +1,14 @@
 // ======================================================
+// ANGUILA SUSHI - SCRIPT PRINCIPAL
+// ======================================================
+
+
+// ======================================================
 // VARIABLES GENERALES
 // ======================================================
 
 let cantidadCarrito = 0;
 let totalCarrito = 0;
-
 const pedido = {};
 
 let servicioSeleccionado = "";
@@ -12,6 +16,9 @@ let servicioSeleccionado = "";
 let latitudCliente = null;
 let longitudCliente = null;
 let usoUbicacionActual = false;
+let direccionValidaCoacalco = false;
+
+let direccionUbicacionActual = "";
 
 
 // ======================================================
@@ -61,7 +68,9 @@ const productosResumen =
     document.getElementById("productos-resumen");
 
 const cantidadResumenDetalle =
-    document.getElementById("cantidad-resumen-detalle");
+    document.getElementById(
+        "cantidad-resumen-detalle"
+    );
 
 const subtotalResumen =
     document.getElementById("subtotal-resumen");
@@ -70,7 +79,9 @@ const entregaResumen =
     document.getElementById("entrega-resumen");
 
 const totalCuentaResumen =
-    document.getElementById("total-cuenta-resumen");
+    document.getElementById(
+        "total-cuenta-resumen"
+    );
 
 
 // ======================================================
@@ -78,28 +89,44 @@ const totalCuentaResumen =
 // ======================================================
 
 const modalInformacion =
-    document.getElementById("modal-informacion");
+    document.getElementById(
+        "modal-informacion"
+    );
 
 const volverInfo =
-    document.getElementById("volver-info");
+    document.getElementById(
+        "volver-info"
+    );
 
 const continuarInfo =
-    document.getElementById("continuar-info");
+    document.getElementById(
+        "continuar-info"
+    );
 
 const textoServicio =
-    document.getElementById("servicio-seleccionado");
+    document.getElementById(
+        "servicio-seleccionado"
+    );
 
 const metodoPagoSelect =
-    document.getElementById("metodo-pago");
+    document.getElementById(
+        "metodo-pago"
+    );
 
-    const tipoSoya =
-    document.getElementById("tipo-soya");
+const tipoSoya =
+    document.getElementById(
+        "tipo-soya"
+    );
 
 const datosEfectivo =
-    document.getElementById("datos-efectivo");
+    document.getElementById(
+        "datos-efectivo"
+    );
 
 const pagaConInput =
-    document.getElementById("paga-con");
+    document.getElementById(
+        "paga-con"
+    );
 
 
 // ======================================================
@@ -107,95 +134,271 @@ const pagaConInput =
 // ======================================================
 
 const modalDireccion =
-    document.getElementById("modal-direccion");
+    document.getElementById(
+        "modal-direccion"
+    );
 
 const volverDireccion =
-    document.getElementById("volver-direccion");
+    document.getElementById(
+        "volver-direccion"
+    );
 
 const continuarDireccion =
-    document.getElementById("continuar-direccion");
+    document.getElementById(
+        "continuar-direccion"
+    );
 
 const calleInput =
-    document.getElementById("calle");
+    document.getElementById(
+        "calle"
+    );
 
 const botonUbicacionActual =
-    document.getElementById("ubicacion-actual");
+    document.getElementById(
+        "ubicacion-actual"
+    );
 
 const estadoUbicacion =
-    document.getElementById("estado-ubicacion");
+    document.getElementById(
+        "estado-ubicacion"
+    );
 
 const botonBuscarDireccion =
-    document.getElementById("buscar-direccion");
+    document.getElementById(
+        "buscar-direccion"
+    );
 
 const resultadosDireccion =
-    document.getElementById("resultados-direccion");
+    document.getElementById(
+        "resultados-direccion"
+    );
 
 
 // ======================================================
-// BOTONES DEL TIPO DE SERVICIO
+// NUEVOS ELEMENTOS - DIRECCIÓN SELECCIONADA
 // ======================================================
+
+const direccionSeleccionada =
+    document.getElementById(
+        "direccion-seleccionada"
+    );
+
+const textoDireccionSeleccionada =
+    document.getElementById(
+        "texto-direccion-seleccionada"
+    );
+
+const cambiarDireccion =
+    document.getElementById(
+        "cambiar-direccion"
+    );
+
 
 const botonesServicio =
-    document.querySelectorAll(".servicio-btn");
+    document.querySelectorAll(
+        ".servicio-btn"
+    );
+
+
+// ======================================================
+// COSTO DE ENTREGA
+// ======================================================
+
+function obtenerCostoEntrega() {
+
+    return (
+        servicioSeleccionado === "domicilio"
+            ? 30
+            : 0
+    );
+
+}
+
+
+// ======================================================
+// ESTADO DEL BOTÓN CONTINUAR DIRECCIÓN
+// ======================================================
+
+function actualizarBotonContinuarDireccion() {
+
+    if (!continuarDireccion) {
+        return;
+    }
+
+    const direccionLista =
+        direccionValidaCoacalco === true;
+
+    continuarDireccion.disabled =
+        !direccionLista;
+
+}
+
+
+// ======================================================
+// MOSTRAR DIRECCIÓN SELECCIONADA
+// ======================================================
+
+function mostrarDireccionSeleccionada(
+    direccion
+) {
+
+    if (
+        direccionSeleccionada &&
+        textoDireccionSeleccionada
+    ) {
+
+        textoDireccionSeleccionada.textContent =
+            direccion;
+
+        direccionSeleccionada.style.display =
+            "block";
+
+    }
+
+
+    if (resultadosDireccion) {
+
+        resultadosDireccion.innerHTML =
+            "";
+
+    }
+
+
+    if (estadoUbicacion) {
+
+        estadoUbicacion.textContent =
+            "";
+
+    }
+
+
+    actualizarBotonContinuarDireccion();
+
+}
+
+
+// ======================================================
+// OCULTAR DIRECCIÓN SELECCIONADA
+// ======================================================
+
+function ocultarDireccionSeleccionada() {
+
+    if (direccionSeleccionada) {
+
+        direccionSeleccionada.style.display =
+            "none";
+
+    }
+
+
+    if (textoDireccionSeleccionada) {
+
+        textoDireccionSeleccionada.textContent =
+            "";
+
+    }
+
+
+    actualizarBotonContinuarDireccion();
+
+}
 
 
 // ======================================================
 // AGREGAR PRODUCTOS
 // ======================================================
 
-botonesAgregar.forEach(function(boton) {
+botonesAgregar.forEach(
+    function(boton) {
 
-    boton.addEventListener("click", function() {
+        boton.addEventListener(
+            "click",
+            function() {
 
-        const nombre = boton.dataset.nombre;
-        const precio = Number(boton.dataset.precio);
+                const nombre =
+                    boton.dataset.nombre;
 
-        cantidadCarrito++;
-        totalCarrito += precio;
-
-
-        if (pedido[nombre]) {
-
-            pedido[nombre].cantidad++;
-
-        } else {
-
-            pedido[nombre] = {
-                precio: precio,
-                cantidad: 1
-            };
-
-        }
+                const precio =
+                    Number(
+                        boton.dataset.precio
+                    );
 
 
-        actualizarPedido();
+                cantidadCarrito++;
 
-    });
+                totalCarrito +=
+                    precio;
 
-});
+
+                if (pedido[nombre]) {
+
+                    pedido[nombre]
+                        .cantidad++;
+
+                } else {
+
+                    pedido[nombre] = {
+
+                        precio: precio,
+
+                        cantidad: 1
+
+                    };
+
+                }
 
 
-// ======================================================
-// ACTUALIZAR RESUMEN DE CUENTA
-// ======================================================
-function obtenerCostoEntrega() {
+                actualizarPedido();
 
-    if (servicioSeleccionado === "domicilio") {
-        return 30;
+            }
+        );
+
     }
+);
 
-    return 0;
-}
 
-function actualizarResumenCuenta() {
+// ======================================================
+// ACTUALIZAR CARRITO
+// ======================================================
 
-    productosResumen.innerHTML = "";
+function actualizarPedido() {
 
-    cantidadResumenDetalle.textContent =
+    contador.textContent =
         cantidadCarrito;
 
+    total.textContent =
+        totalCarrito;
 
-    for (let nombre in pedido) {
+    totalModal.textContent =
+        totalCarrito;
+
+    resumenCantidad.textContent =
+        cantidadCarrito;
+
+    resumenTotal.textContent =
+        totalCarrito +
+        obtenerCostoEntrega();
+
+
+    if (
+        cantidadCarrito === 0
+    ) {
+
+        detallePedido.innerHTML =
+            "<p>Tu carrito está vacío.</p>";
+
+        return;
+
+    }
+
+
+    detallePedido.innerHTML =
+        "";
+
+
+    for (
+        let nombre in pedido
+    ) {
 
         const producto =
             pedido[nombre];
@@ -205,81 +408,16 @@ function actualizarResumenCuenta() {
             producto.cantidad;
 
 
-        productosResumen.innerHTML += `
-
-            <div class="producto-resumen">
-
-                <span>
-                    ${nombre} x${producto.cantidad}
-                </span>
-
-                <strong>
-                    $${subtotal}
-                </strong>
-
-            </div>
-
-        `;
-
-    }
-
-
-  const costoEntrega =
-    obtenerCostoEntrega();
-
-
-    subtotalResumen.textContent =
-        totalCarrito;
-
-    entregaResumen.textContent =
-        costoEntrega;
-
-    totalCuentaResumen.textContent =
-        totalCarrito + costoEntrega;
-
-}
-
-// ======================================================
-// ACTUALIZAR CARRITO
-// ======================================================
-
-function actualizarPedido() {
-
-    contador.textContent = cantidadCarrito;
-    total.textContent = totalCarrito;
-    totalModal.textContent = totalCarrito;
-    resumenCantidad.textContent = cantidadCarrito;
-    resumenTotal.textContent =
-    totalCarrito + obtenerCostoEntrega();
-
-
-    if (cantidadCarrito === 0) {
-
-        detallePedido.innerHTML =
-            "<p>Tu carrito está vacío.</p>";
-
-        return;
-    }
-
-
-    detallePedido.innerHTML = "";
-
-
-    for (let nombre in pedido) {
-
-        const producto = pedido[nombre];
-
-        const subtotal =
-            producto.precio * producto.cantidad;
-
-
-        detallePedido.innerHTML += `
+        detallePedido.innerHTML +=
+            `
 
             <div class="item-pedido">
 
                 <div>
 
-                    <strong>${nombre}</strong>
+                    <strong>
+                        ${nombre}
+                    </strong>
 
                     <div class="controles-cantidad">
 
@@ -303,6 +441,7 @@ function actualizarPedido() {
 
                 </div>
 
+
                 <strong>
                     $${subtotal}
                 </strong>
@@ -325,89 +464,181 @@ function actualizarPedido() {
 
 function activarControles() {
 
-    const botonesSumar =
-        document.querySelectorAll(".sumar");
+    document
+        .querySelectorAll(".sumar")
+        .forEach(
+            function(boton) {
 
-    const botonesRestar =
-        document.querySelectorAll(".restar");
+                boton.addEventListener(
+                    "click",
+                    function() {
 
-
-    botonesSumar.forEach(function(boton) {
-
-        boton.addEventListener("click", function() {
-
-            const nombre = boton.dataset.nombre;
-
-            pedido[nombre].cantidad++;
-
-            cantidadCarrito++;
-
-            totalCarrito +=
-                pedido[nombre].precio;
-
-            actualizarPedido();
-
-        });
-
-    });
+                        const nombre =
+                            boton.dataset.nombre;
 
 
-    botonesRestar.forEach(function(boton) {
+                        pedido[nombre]
+                            .cantidad++;
 
-        boton.addEventListener("click", function() {
+                        cantidadCarrito++;
 
-            const nombre = boton.dataset.nombre;
-
-            pedido[nombre].cantidad--;
-
-            cantidadCarrito--;
-
-            totalCarrito -=
-                pedido[nombre].precio;
+                        totalCarrito +=
+                            pedido[nombre]
+                                .precio;
 
 
-            if (pedido[nombre].cantidad === 0) {
+                        actualizarPedido();
 
-                delete pedido[nombre];
+                    }
+                );
 
             }
+        );
 
 
-            actualizarPedido();
+    document
+        .querySelectorAll(".restar")
+        .forEach(
+            function(boton) {
 
-        });
+                boton.addEventListener(
+                    "click",
+                    function() {
 
-    });
+                        const nombre =
+                            boton.dataset.nombre;
+
+
+                        pedido[nombre]
+                            .cantidad--;
+
+                        cantidadCarrito--;
+
+                        totalCarrito -=
+                            pedido[nombre]
+                                .precio;
+
+
+                        if (
+                            pedido[nombre]
+                                .cantidad === 0
+                        ) {
+
+                            delete pedido[nombre];
+
+                        }
+
+
+                        actualizarPedido();
+
+                    }
+                );
+
+            }
+        );
 
 }
 
 
 // ======================================================
-// ABRIR CARRITO
+// RESUMEN DE CUENTA
+// ======================================================
+
+function actualizarResumenCuenta() {
+
+    productosResumen.innerHTML =
+        "";
+
+
+    cantidadResumenDetalle
+        .textContent =
+        cantidadCarrito;
+
+
+    for (
+        let nombre in pedido
+    ) {
+
+        const producto =
+            pedido[nombre];
+
+        const subtotal =
+            producto.precio *
+            producto.cantidad;
+
+
+        productosResumen.innerHTML +=
+            `
+
+            <div class="producto-resumen">
+
+                <span>
+                    ${nombre}
+                    x${producto.cantidad}
+                </span>
+
+                <strong>
+                    $${subtotal}
+                </strong>
+
+            </div>
+
+        `;
+
+    }
+
+
+    const costoEntrega =
+        obtenerCostoEntrega();
+
+
+    subtotalResumen.textContent =
+        totalCarrito;
+
+
+    entregaResumen.textContent =
+        costoEntrega;
+
+
+    totalCuentaResumen.textContent =
+        totalCarrito +
+        costoEntrega;
+
+}
+
+
+// ======================================================
+// ABRIR / CERRAR CARRITO
 // ======================================================
 
 if (botonVerPedido) {
 
-    botonVerPedido.addEventListener("click", function() {
+    botonVerPedido
+        .addEventListener(
+            "click",
+            function() {
 
-        modalPedido.style.display = "flex";
+                modalPedido.style.display =
+                    "flex";
 
-    });
+            }
+        );
 
 }
 
 
-// ======================================================
-// CERRAR CARRITO
-// ======================================================
-
 if (cerrarPedido) {
 
-    cerrarPedido.addEventListener("click", function() {
+    cerrarPedido
+        .addEventListener(
+            "click",
+            function() {
 
-        modalPedido.style.display = "none";
+                modalPedido.style.display =
+                    "none";
 
-    });
+            }
+        );
 
 }
 
@@ -416,92 +647,99 @@ if (cerrarPedido) {
 // SELECCIONAR TIPO DE SERVICIO
 // ======================================================
 
-botonesServicio.forEach(function(boton) {
+botonesServicio.forEach(
+    function(boton) {
 
-    boton.addEventListener("click", function() {
+        boton.addEventListener(
+            "click",
+            function() {
 
-        servicioSeleccionado =
-            boton.dataset.servicio;
-
-         
-
-actualizarPedido();
-
-            
+                servicioSeleccionado =
+                    boton.dataset.servicio;
 
 
-        // Reiniciar métodos de pago
-
-        metodoPagoSelect.innerHTML =
-            '<option value="">Selecciona un método</option>';
+                actualizarPedido();
 
 
-        // ==============================================
-        // PARA LLEVAR
-        // Efectivo / Transferencia / Tarjeta
-        // ==============================================
-
-        if (servicioSeleccionado === "llevar") {
-
-            metodoPagoSelect.innerHTML += `
-
-                <option value="Efectivo">
-                    Efectivo
-                </option>
-
-                <option value="Transferencia">
-                    Transferencia
-                </option>
-
-                <option value="Tarjeta">
-                    Tarjeta
-                </option>
-
-            `;
-
-            textoServicio.textContent =
-                "🛍 Para llevar";
-
-        }
+                metodoPagoSelect.innerHTML =
+                    '<option value="">Selecciona un método</option>';
 
 
-        // ==============================================
-        // A DOMICILIO
-        // Efectivo / Transferencia
-        // ==============================================
+                // ==========================
+                // PARA LLEVAR
+                // ==========================
 
-        if (servicioSeleccionado === "domicilio") {
+                if (
+                    servicioSeleccionado ===
+                    "llevar"
+                ) {
 
-            metodoPagoSelect.innerHTML += `
+                    metodoPagoSelect
+                        .innerHTML +=
+                        `
 
-                <option value="Efectivo">
-                    Efectivo
-                </option>
+                        <option value="Efectivo">
+                            Efectivo
+                        </option>
 
-                <option value="Transferencia">
-                    Transferencia
-                </option>
+                        <option value="Transferencia">
+                            Transferencia
+                        </option>
 
-            `;
+                        <option value="Tarjeta">
+                            Tarjeta
+                        </option>
 
-            textoServicio.textContent =
-                "🛵 A domicilio";
-
-        }
-
-
-        // Ocultar campo de efectivo al cambiar servicio
-
-        actualizarDatosEfectivo();
+                    `;
 
 
-        // Ambos pasan primero por Información del pedido
+                    textoServicio.textContent =
+                        "🛍 Para llevar";
 
-        modalInformacion.style.display = "flex";
+                }
 
-    });
 
-});
+                // ==========================
+                // A DOMICILIO
+                // ==========================
+
+                if (
+                    servicioSeleccionado ===
+                    "domicilio"
+                ) {
+
+                    metodoPagoSelect
+                        .innerHTML +=
+                        `
+
+                        <option value="Efectivo">
+                            Efectivo
+                        </option>
+
+                        <option value="Transferencia">
+                            Transferencia
+                        </option>
+
+                    `;
+
+
+                    textoServicio.textContent =
+                        "🛵 A domicilio";
+
+                }
+
+
+                actualizarDatosEfectivo();
+
+
+                modalInformacion.style.display =
+                    "flex";
+
+            }
+        );
+
+    }
+);
 
 
 // ======================================================
@@ -510,26 +748,12 @@ actualizarPedido();
 
 if (volverInfo) {
 
-    volverInfo.addEventListener("click", function() {
-
-        modalInformacion.style.display = "none";
-
-    });
-
-}
-
-
-// ======================================================
-// CAMBIO DE MÉTODO DE PAGO
-// ======================================================
-
-if (metodoPagoSelect) {
-
-    metodoPagoSelect.addEventListener(
-        "change",
+    volverInfo.addEventListener(
+        "click",
         function() {
 
-            actualizarDatosEfectivo();
+            modalInformacion.style.display =
+                "none";
 
         }
     );
@@ -538,32 +762,48 @@ if (metodoPagoSelect) {
 
 
 // ======================================================
-// MOSTRAR "CON CUÁNTO VA A PAGAR"
-// SOLO DOMICILIO + EFECTIVO
+// MÉTODO DE PAGO / EFECTIVO
 // ======================================================
+
+if (metodoPagoSelect) {
+
+    metodoPagoSelect.addEventListener(
+        "change",
+        actualizarDatosEfectivo
+    );
+
+}
+
 
 function actualizarDatosEfectivo() {
 
     if (!datosEfectivo) {
+
         return;
+
     }
 
 
     if (
-        servicioSeleccionado === "domicilio" &&
-        metodoPagoSelect.value === "Efectivo"
+        servicioSeleccionado ===
+            "domicilio" &&
+        metodoPagoSelect.value ===
+            "Efectivo"
     ) {
 
-        datosEfectivo.style.display = "block";
+        datosEfectivo.style.display =
+            "block";
 
     } else {
 
-        datosEfectivo.style.display = "none";
+        datosEfectivo.style.display =
+            "none";
 
 
         if (pagaConInput) {
 
-            pagaConInput.value = "";
+            pagaConInput.value =
+                "";
 
         }
 
@@ -578,144 +818,173 @@ function actualizarDatosEfectivo() {
 
 if (continuarInfo) {
 
-    continuarInfo.addEventListener("click", function() {
+    continuarInfo.addEventListener(
+        "click",
+        function() {
 
-        const nombre =
-            document
-                .getElementById("nombre-cliente")
-                .value
-                .trim();
-
-        const telefono =
-            document
-                .getElementById("telefono-cliente")
-                .value
-                .trim();
-
-        const metodoPago =
-            metodoPagoSelect.value;
+            const nombre =
+                document
+                    .getElementById(
+                        "nombre-cliente"
+                    )
+                    .value
+                    .trim();
 
 
-        // ==============================================
-        // VALIDAR NOMBRE
-        // ==============================================
-
-        if (nombre === "") {
-
-            alert(
-                "Por favor escribe tu nombre."
-            );
-
-            return;
-
-        }
+            const telefono =
+                document
+                    .getElementById(
+                        "telefono-cliente"
+                    )
+                    .value
+                    .trim();
 
 
-        // ==============================================
-        // VALIDAR TELÉFONO
-        // ==============================================
-
-        if (telefono === "") {
-
-            alert(
-                "Por favor escribe tu teléfono."
-            );
-
-            return;
-
-        }
+            const metodoPago =
+                metodoPagoSelect.value;
 
 
-        // ==============================================
-        // VALIDAR MÉTODO DE PAGO
-        // ==============================================
+            // ==========================
+            // VALIDAR NOMBRE
+            // ==========================
 
-        if (metodoPago === "") {
-
-            alert(
-                "Selecciona un método de pago."
-            );
-
-            return;
-
-        }
-
-
-        // ==============================================
-        // DOMICILIO + EFECTIVO
-        // ==============================================
-
-        if (
-            servicioSeleccionado === "domicilio" &&
-            metodoPago === "Efectivo"
-        ) {
-
-            const pagaCon =
-                pagaConInput.value;
-
-
-            if (pagaCon === "") {
+            if (
+                nombre === ""
+            ) {
 
                 alert(
-                    "Indica con cuánto vas a pagar."
+                    "Por favor escribe tu nombre."
                 );
 
                 return;
 
             }
 
-const totalFinal =
-    totalCarrito + obtenerCostoEntrega();
 
-if (
-    Number(pagaCon) < totalFinal
-) {
+            // ==========================
+            // VALIDAR TELÉFONO
+            // ==========================
 
-    alert(
-        "El monto con el que pagarás no puede ser menor al total del pedido."
+            if (
+                telefono === ""
+            ) {
+
+                alert(
+                    "Por favor escribe tu teléfono."
+                );
+
+                return;
+
+            }
+
+
+            // ==========================
+            // VALIDAR MÉTODO DE PAGO
+            // ==========================
+
+            if (
+                metodoPago === ""
+            ) {
+
+                alert(
+                    "Selecciona un método de pago."
+                );
+
+                return;
+
+            }
+
+
+            // ==========================
+            // DOMICILIO + EFECTIVO
+            // ==========================
+
+            if (
+                servicioSeleccionado ===
+                    "domicilio" &&
+                metodoPago ===
+                    "Efectivo"
+            ) {
+
+                const pagaCon =
+                    pagaConInput.value;
+
+
+                if (
+                    pagaCon === ""
+                ) {
+
+                    alert(
+                        "Indica con cuánto vas a pagar."
+                    );
+
+                    return;
+
+                }
+
+
+                const totalFinal =
+                    totalCarrito +
+                    obtenerCostoEntrega();
+
+
+                if (
+                    Number(pagaCon) <
+                    totalFinal
+                ) {
+
+                    alert(
+                        "El monto con el que pagarás no puede ser menor al total del pedido."
+                    );
+
+                    return;
+
+                }
+
+            }
+
+
+            // ==========================
+            // PARA LLEVAR
+            // ==========================
+
+            if (
+                servicioSeleccionado ===
+                "llevar"
+            ) {
+
+                enviarPedidoWhatsApp();
+
+                return;
+
+            }
+
+
+            // ==========================
+            // DOMICILIO
+            // ==========================
+
+            if (
+                servicioSeleccionado ===
+                "domicilio"
+            ) {
+
+                modalInformacion
+                    .style.display =
+                    "none";
+
+
+                modalDireccion
+                    .style.display =
+                    "flex";
+
+
+                actualizarBotonContinuarDireccion();
+
+            }
+
+        }
     );
-
-    return;
-
-}
-
-        }
-
-
-        // ==============================================
-        // PARA LLEVAR
-        // VA DIRECTO A WHATSAPP
-        // ==============================================
-
-        if (
-            servicioSeleccionado === "llevar"
-        ) {
-
-            enviarPedidoWhatsApp();
-
-            return;
-
-        }
-
-
-        // ==============================================
-        // DOMICILIO
-        // VA A DIRECCIÓN
-        // ==============================================
-
-        if (
-            servicioSeleccionado === "domicilio"
-        ) {
-
-            modalInformacion.style.display =
-                "none";
-
-            modalDireccion.style.display =
-                "flex";
-
-        }
-
-    });
 
 }
 
@@ -733,6 +1002,7 @@ if (volverDireccion) {
             modalDireccion.style.display =
                 "none";
 
+
             modalInformacion.style.display =
                 "flex";
 
@@ -740,8 +1010,11 @@ if (volverDireccion) {
     );
 
 }
+
+
 // ======================================================
 // USAR UBICACIÓN ACTUAL
+// SOLO PERMITIR COACALCO
 // ======================================================
 
 if (botonUbicacionActual) {
@@ -756,175 +1029,492 @@ if (botonUbicacionActual) {
                     "❌ Tu navegador no permite obtener la ubicación.";
 
                 return;
+
             }
+
 
             estadoUbicacion.textContent =
-                "Obteniendo tu ubicación...";
+                "📍 Verificando tu ubicación...";
 
 
-            navigator.geolocation.getCurrentPosition(
+            navigator.geolocation
+                .getCurrentPosition(
 
-                function(posicion) {
+                    async function(posicion) {
 
-                    latitudCliente =
-                        posicion.coords.latitude;
+                        const latitud =
+                            posicion.coords.latitude;
 
-                    longitudCliente =
-                        posicion.coords.longitude;
+                        const longitud =
+                            posicion.coords.longitude;
 
-                    usoUbicacionActual = true;
+                        const precision =
+                            posicion.coords.accuracy;
 
-                    const precision =
-                        posicion.coords.accuracy;
 
-                    if (calleInput) {
-                        calleInput.value = "";
+                        try {
+
+                            // ==============================
+                            // CONVERTIR GPS A DIRECCIÓN
+                            // ==============================
+
+                            const url =
+                                "https://nominatim.openstreetmap.org/reverse" +
+                                "?format=jsonv2" +
+                                "&lat=" +
+                                latitud +
+                                "&lon=" +
+                                longitud +
+                                "&zoom=18" +
+                                "&addressdetails=1" +
+                                "&accept-language=es";
+
+
+                            const respuesta =
+                                await fetch(url);
+
+
+                            if (!respuesta.ok) {
+
+                                throw new Error(
+                                    "No se pudo verificar la ubicación."
+                                );
+
+                            }
+
+
+                            const datos =
+                                await respuesta.json();
+
+
+                            const direccion =
+                                datos.address || {};
+
+
+                            // ==============================
+                            // BUSCAR NOMBRE DE LA ZONA
+                            // ==============================
+
+                            const zona =
+                                [
+                                    direccion.city,
+                                    direccion.town,
+                                    direccion.village,
+                                    direccion.municipality,
+                                    direccion.county,
+                                    direccion.city_district,
+                                    direccion.suburb,
+                                    direccion.state_district
+                                ]
+                                    .filter(Boolean)
+                                    .join(" ")
+                                    .normalize("NFD")
+                                    .replace(
+                                        /[\u0300-\u036f]/g,
+                                        ""
+                                    )
+                                    .toLowerCase();
+
+
+                            console.log(
+                                "Zona GPS detectada:",
+                                zona
+                            );
+
+
+                            // ==============================
+                            // VERIFICAR COACALCO
+                            // ==============================
+
+                            if (
+                                !zona.includes(
+                                    "coacalco"
+                                )
+                            ) {
+
+                                latitudCliente =
+                                    null;
+
+                                longitudCliente =
+                                    null;
+
+                                usoUbicacionActual =
+                                    false;
+
+                                direccionValidaCoacalco =
+                                    false;
+
+                                direccionUbicacionActual =
+                                    "";
+
+
+                                ocultarDireccionSeleccionada();
+
+
+                                estadoUbicacion.textContent =
+                                    "❌ Tu ubicación está fuera de nuestra zona de entrega. Solo entregamos en Coacalco.";
+
+
+                                actualizarBotonContinuarDireccion();
+
+                                return;
+
+                            }
+
+
+                            // ==============================
+                            // UBICACIÓN VÁLIDA
+                            // ==============================
+
+                            latitudCliente =
+                                latitud;
+
+                            longitudCliente =
+                                longitud;
+
+
+                            usoUbicacionActual =
+                                true;
+
+
+                            direccionValidaCoacalco =
+                                true;
+
+
+                            direccionUbicacionActual =
+                                datos.display_name || "";
+
+
+                            if (calleInput) {
+
+                                calleInput.value =
+                                    "";
+
+                            }
+
+
+                            if (
+                                resultadosDireccion
+                            ) {
+
+                                resultadosDireccion.innerHTML =
+                                    "";
+
+                            }
+
+
+                            // MOSTRAMOS LA NUEVA TARJETA
+
+                            mostrarDireccionSeleccionada(
+                                direccionUbicacionActual ||
+                                "Ubicación actual"
+                            );
+
+
+                            estadoUbicacion.textContent =
+                                `✅ Ubicación válida dentro de Coacalco (precisión aproximada: ${Math.round(precision)} metros)`;
+
+
+                            actualizarBotonContinuarDireccion();
+
+
+                        } catch (error) {
+
+                            console.error(
+                                "Error verificando ubicación:",
+                                error
+                            );
+
+
+                            latitudCliente =
+                                null;
+
+                            longitudCliente =
+                                null;
+
+                            usoUbicacionActual =
+                                false;
+
+                            direccionValidaCoacalco =
+                                false;
+
+                            direccionUbicacionActual =
+                                "";
+
+
+                            ocultarDireccionSeleccionada();
+
+
+                            estadoUbicacion.textContent =
+                                "❌ No pudimos verificar tu ubicación. Intenta escribir tu dirección.";
+
+
+                            actualizarBotonContinuarDireccion();
+
+                        }
+
+                    },
+
+
+                    function(error) {
+
+                        console.error(error);
+
+
+                        latitudCliente =
+                            null;
+
+                        longitudCliente =
+                            null;
+
+                        usoUbicacionActual =
+                            false;
+
+                        direccionValidaCoacalco =
+                            false;
+
+                        direccionUbicacionActual =
+                            "";
+
+
+                        ocultarDireccionSeleccionada();
+
+
+                        estadoUbicacion.textContent =
+                            "❌ No se pudo obtener tu ubicación.";
+
+
+                        actualizarBotonContinuarDireccion();
+
+                    },
+
+
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 15000,
+                        maximumAge: 0
                     }
 
-                    estadoUbicacion.textContent =
-                        `✅ Ubicación obtenida (precisión aproximada: ${Math.round(precision)} metros)`;
-                },
-
-                function(error) {
-
-                    usoUbicacionActual = false;
-
-                    estadoUbicacion.textContent =
-                        "❌ No se pudo obtener tu ubicación";
-
-                    console.log(error);
-                },
-
-                {
-                    enableHighAccuracy: true,
-                    timeout: 15000,
-                    maximumAge: 0
-                }
-
-            );
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// SI ESCRIBE UNA DIRECCIÓN MANUAL,
-// DEJAMOS DE USAR GPS
-// ======================================================
-
-if (calleInput) {
-
-    calleInput.addEventListener(
-        "input",
-        function() {
-
-            if (
-                calleInput.value.trim() !== ""
-            ) {
-
-                usoUbicacionActual = false;
-
-                latitudCliente = null;
-                longitudCliente = null;
-
-                estadoUbicacion.textContent = "";
-
-            }
-
-        }
-    );
-
-}
-
-// ======================================================
-// BUSCAR DIRECCIÓN
-// ======================================================
-
-if (botonBuscarDireccion) {
-
-    botonBuscarDireccion.addEventListener(
-        "click",
-        async function() {
-
-            const direccion =
-                calleInput.value.trim();
-
-
-            // Si está vacío
-
-            if (direccion === "") {
-
-                alert(
-                    "Escribe una dirección para buscar."
                 );
 
-                return;
+        }
+    );
 
-            }
+}
 
 
-            // Mostrar que está buscando
+// ======================================================
+// AQUÍ TERMINA LA PARTE 1 DE 2
+// ======================================================
+
+// ======================================================
+// PARTE 2
+// ANGUILA SUSHI
+// GOOGLE PLACES + WHATSAPP
+// ======================================================
+
+
+// ======================================================
+// AUTOCOMPLETADO DE DIRECCIÓN CON GOOGLE PLACES
+// ======================================================
+
+let temporizadorDireccion = null;
+
+let AutocompleteSuggestionGoogle = null;
+let AutocompleteSessionTokenGoogle = null;
+let tokenGoogle = null;
+
+
+// ======================================================
+// LÍMITES APROXIMADOS DE COACALCO
+// ======================================================
+
+const limitesCoacalco = {
+
+    north: 19.667,
+    south: 19.583,
+    west: -99.134,
+    east: -99.066
+
+};
+
+
+// ======================================================
+// INICIALIZAR GOOGLE PLACES
+// ======================================================
+
+async function inicializarGooglePlaces() {
+
+    if (
+        AutocompleteSuggestionGoogle &&
+        AutocompleteSessionTokenGoogle
+    ) {
+
+        return;
+
+    }
+
+
+    const libreriaPlaces =
+        await google.maps.importLibrary(
+            "places"
+        );
+
+
+    AutocompleteSuggestionGoogle =
+        libreriaPlaces.AutocompleteSuggestion;
+
+
+    AutocompleteSessionTokenGoogle =
+        libreriaPlaces.AutocompleteSessionToken;
+
+
+    tokenGoogle =
+        new AutocompleteSessionTokenGoogle();
+
+}
+
+
+// ======================================================
+// CREAR NUEVO TOKEN DE GOOGLE
+// ======================================================
+
+function crearNuevoTokenGoogle() {
+
+    if (
+        AutocompleteSessionTokenGoogle
+    ) {
+
+        tokenGoogle =
+            new AutocompleteSessionTokenGoogle();
+
+    }
+
+}
+
+
+// ======================================================
+// BUSCAR DIRECCIONES EN GOOGLE
+// ======================================================
+
+async function buscarDirecciones(
+    texto
+) {
+
+    if (!resultadosDireccion) {
+
+        return;
+
+    }
+
+
+    resultadosDireccion.innerHTML =
+        `
+        <p class="mensaje-direccion">
+            🔍 Buscando en Coacalco...
+        </p>
+        `;
+
+
+    try {
+
+        await inicializarGooglePlaces();
+
+
+        if (!tokenGoogle) {
+
+            crearNuevoTokenGoogle();
+
+        }
+
+
+        // ==============================================
+        // PETICIÓN DE AUTOCOMPLETADO
+        // ==============================================
+
+        const solicitud = {
+
+            input:
+                texto +
+                ", Coacalco, Estado de México",
+
+            locationRestriction:
+                limitesCoacalco,
+
+            includedRegionCodes:
+                ["mx"],
+
+            language:
+                "es-MX",
+
+            region:
+                "mx",
+
+            sessionToken:
+                tokenGoogle
+
+        };
+
+
+        const respuesta =
+            await AutocompleteSuggestionGoogle
+                .fetchAutocompleteSuggestions(
+                    solicitud
+                );
+
+
+        const sugerencias =
+            respuesta.suggestions || [];
+
+
+        resultadosDireccion.innerHTML =
+            "";
+
+
+        // ==============================================
+        // SIN RESULTADOS
+        // ==============================================
+
+        if (
+            sugerencias.length === 0
+        ) {
 
             resultadosDireccion.innerHTML =
-                '<p class="mensaje-direccion">🔍 Buscando dirección...</p>';
+                `
+                <p class="mensaje-direccion">
+                    ❌ No encontramos esa dirección en Coacalco.
+                </p>
+                `;
+
+            return;
+
+        }
 
 
-            botonBuscarDireccion.disabled = true;
+        // ==============================================
+        // MOSTRAR MÁXIMO 5 RESULTADOS
+        // ==============================================
+
+        sugerencias
+            .slice(0, 5)
+            .forEach(
+                function(sugerencia) {
+
+                    const prediccion =
+                        sugerencia.placePrediction;
 
 
-            try {
+                    if (!prediccion) {
 
-                const url =
-                    "https://nominatim.openstreetmap.org/search" +
-                    "?format=jsonv2" +
-                    "&addressdetails=1" +
-                    "&countrycodes=mx" +
-                    "&limit=5" +
-                    "&accept-language=es" +
-                    "&q=" +
-                    encodeURIComponent(direccion);
+                        return;
 
+                    }
 
-                const respuesta =
-                    await fetch(url);
-
-
-                if (!respuesta.ok) {
-
-                    throw new Error(
-                        "No se pudo realizar la búsqueda."
-                    );
-
-                }
-
-
-                const resultados =
-                    await respuesta.json();
-
-
-                resultadosDireccion.innerHTML = "";
-
-
-                // No encontró nada
-
-                if (resultados.length === 0) {
-
-                    resultadosDireccion.innerHTML =
-                        '<p class="mensaje-direccion">❌ No encontramos esa dirección. Intenta escribir más datos.</p>';
-
-                    return;
-
-                }
-
-
-                // Mostrar resultados
-
-                resultados.forEach(function(resultado) {
 
                     const botonResultado =
-                        document.createElement("button");
+                        document.createElement(
+                            "button"
+                        );
 
 
                     botonResultado.type =
@@ -936,66 +1526,485 @@ if (botonBuscarDireccion) {
 
 
                     botonResultado.textContent =
-                        "📍 " + resultado.display_name;
+                        "📍 " +
+                        prediccion.text.toString();
 
 
-                    botonResultado.addEventListener(
-                        "click",
-                        function() {
+                    // ==================================
+                    // SELECCIONAR DIRECCIÓN
+                    // ==================================
 
-                            // Poner dirección en el input
+                    botonResultado
+                        .addEventListener(
+                            "click",
+                            async function() {
 
-                            calleInput.value =
-                                resultado.display_name;
-
-
-                            // Guardar coordenadas
-
-                            latitudCliente =
-                                Number(resultado.lat);
-
-                            longitudCliente =
-                                Number(resultado.lon);
+                                resultadosDireccion.innerHTML =
+                                    `
+                                    <p class="mensaje-direccion">
+                                        📍 Verificando dirección...
+                                    </p>
+                                    `;
 
 
-                            // No fue GPS del teléfono
+                                try {
 
-                            usoUbicacionActual =
-                                false;
-
-
-                            // Vaciar resultados
-
-                            resultadosDireccion.innerHTML =
-                                "";
+                                    const lugar =
+                                        prediccion.toPlace();
 
 
-                            estadoUbicacion.textContent =
-                                "✅ Dirección seleccionada";
+                                    await lugar.fetchFields({
 
-                        }
-                    );
+                                        fields: [
 
+                                            "formattedAddress",
+                                            "location"
 
-                    resultadosDireccion.appendChild(
-                        botonResultado
-                    );
+                                        ]
 
-                });
+                                    });
 
 
-            } catch (error) {
+                                    if (
+                                        !lugar.location
+                                    ) {
 
-                console.error(error);
+                                        throw new Error(
+                                            "La dirección no tiene coordenadas."
+                                        );
 
+                                    }
+
+
+                                    const direccionCompleta =
+                                        lugar.formattedAddress ||
+                                        prediccion.text.toString();
+
+
+                                    // ==========================
+                                    // COMPROBAR COACALCO
+                                    // ==========================
+
+                                    const direccionNormalizada =
+                                        direccionCompleta
+                                            .normalize(
+                                                "NFD"
+                                            )
+                                            .replace(
+                                                /[\u0300-\u036f]/g,
+                                                ""
+                                            )
+                                            .toLowerCase();
+
+
+                                    if (
+                                        !direccionNormalizada
+                                            .includes(
+                                                "coacalco"
+                                            )
+                                    ) {
+
+                                        calleInput.value =
+                                            "";
+
+
+                                        latitudCliente =
+                                            null;
+
+
+                                        longitudCliente =
+                                            null;
+
+
+                                        usoUbicacionActual =
+                                            false;
+
+
+                                        direccionValidaCoacalco =
+                                            false;
+
+
+                                        direccionUbicacionActual =
+                                            "";
+
+
+                                        resultadosDireccion.innerHTML =
+                                            "";
+
+
+                                        ocultarDireccionSeleccionada();
+
+
+                                        estadoUbicacion.textContent =
+                                            "❌ Esa dirección está fuera de Coacalco.";
+
+
+                                        actualizarBotonContinuarDireccion();
+
+
+                                        return;
+
+                                    }
+
+
+                                    // ==========================
+                                    // GUARDAR DIRECCIÓN
+                                    // ==========================
+
+                                    calleInput.value =
+                                        direccionCompleta;
+
+
+                                    latitudCliente =
+                                        lugar.location.lat();
+
+
+                                    longitudCliente =
+                                        lugar.location.lng();
+
+
+                                    usoUbicacionActual =
+                                        false;
+
+
+                                    direccionValidaCoacalco =
+                                        true;
+
+
+                                    direccionUbicacionActual =
+                                        "";
+
+
+                                    resultadosDireccion.innerHTML =
+                                        "";
+
+
+                                    // ==========================
+                                    // MOSTRAR TARJETA
+                                    // ==========================
+
+                                    mostrarDireccionSeleccionada(
+                                        direccionCompleta
+                                    );
+
+
+                                    estadoUbicacion.textContent =
+                                        "";
+
+
+                                    actualizarBotonContinuarDireccion();
+
+
+                                    // Terminó esta búsqueda.
+                                    // Creamos token para
+                                    // una futura búsqueda.
+
+                                    crearNuevoTokenGoogle();
+
+
+                                } catch (error) {
+
+                                    console.error(
+                                        "Error al seleccionar dirección:",
+                                        error
+                                    );
+
+
+                                    resultadosDireccion.innerHTML =
+                                        "";
+
+
+                                    direccionValidaCoacalco =
+                                        false;
+
+
+                                    latitudCliente =
+                                        null;
+
+
+                                    longitudCliente =
+                                        null;
+
+
+                                    ocultarDireccionSeleccionada();
+
+
+                                    estadoUbicacion.textContent =
+                                        "❌ No pudimos verificar esa dirección.";
+
+
+                                    actualizarBotonContinuarDireccion();
+
+                                }
+
+                            }
+                        );
+
+
+                    resultadosDireccion
+                        .appendChild(
+                            botonResultado
+                        );
+
+                }
+            );
+
+
+    } catch (error) {
+
+        console.error(
+            "Error Google Places:",
+            error
+        );
+
+
+        resultadosDireccion.innerHTML =
+            `
+            <p class="mensaje-direccion">
+                ❌ No se pudo buscar la dirección.
+            </p>
+            `;
+
+    }
+
+}
+
+
+// ======================================================
+// BUSCAR AUTOMÁTICAMENTE MIENTRAS ESCRIBE
+// ======================================================
+
+if (calleInput) {
+
+    calleInput.addEventListener(
+        "input",
+        function() {
+
+            const direccion =
+                calleInput.value.trim();
+
+
+            // ==========================================
+            // AL MODIFICAR EL TEXTO,
+            // LA DIRECCIÓN ANTERIOR YA NO ES VÁLIDA
+            // ==========================================
+
+            direccionValidaCoacalco =
+                false;
+
+
+            usoUbicacionActual =
+                false;
+
+
+            direccionUbicacionActual =
+                "";
+
+
+            latitudCliente =
+                null;
+
+
+            longitudCliente =
+                null;
+
+
+            estadoUbicacion.textContent =
+                "";
+
+
+            ocultarDireccionSeleccionada();
+
+
+            actualizarBotonContinuarDireccion();
+
+
+            clearTimeout(
+                temporizadorDireccion
+            );
+
+
+            // ==========================================
+            // MÍNIMO 3 CARACTERES
+            // ==========================================
+
+            if (
+                direccion.length < 3
+            ) {
 
                 resultadosDireccion.innerHTML =
-                    '<p class="mensaje-direccion">❌ No pudimos buscar la dirección. Intenta nuevamente.</p>';
+                    "";
 
-            } finally {
+                return;
 
-                botonBuscarDireccion.disabled =
-                    false;
+            }
+
+
+            // ==========================================
+            // ESPERAMOS MEDIO SEGUNDO
+            // DESPUÉS DE ESCRIBIR
+            // ==========================================
+
+            temporizadorDireccion =
+                setTimeout(
+                    function() {
+
+                        buscarDirecciones(
+                            direccion
+                        );
+
+                    },
+                    500
+                );
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// BUSCAR TAMBIÉN CON LA LUPA
+// ======================================================
+
+if (botonBuscarDireccion) {
+
+    botonBuscarDireccion.addEventListener(
+        "click",
+        function() {
+
+            const direccion =
+                calleInput.value.trim();
+
+
+            if (
+                direccion.length < 3
+            ) {
+
+                alert(
+                    "Escribe al menos 3 caracteres."
+                );
+
+                return;
+
+            }
+
+
+            // La dirección escrita todavía
+            // no cuenta como seleccionada.
+
+            direccionValidaCoacalco =
+                false;
+
+
+            usoUbicacionActual =
+                false;
+
+
+            direccionUbicacionActual =
+                "";
+
+
+            latitudCliente =
+                null;
+
+
+            longitudCliente =
+                null;
+
+
+            ocultarDireccionSeleccionada();
+
+
+            actualizarBotonContinuarDireccion();
+
+
+            clearTimeout(
+                temporizadorDireccion
+            );
+
+
+            buscarDirecciones(
+                direccion
+            );
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// CAMBIAR DIRECCIÓN SELECCIONADA
+// ======================================================
+
+if (cambiarDireccion) {
+
+    cambiarDireccion.addEventListener(
+        "click",
+        function() {
+
+            // ==========================================
+            // BORRAR DIRECCIÓN ANTERIOR
+            // ==========================================
+
+            direccionValidaCoacalco =
+                false;
+
+
+            usoUbicacionActual =
+                false;
+
+
+            direccionUbicacionActual =
+                "";
+
+
+            latitudCliente =
+                null;
+
+
+            longitudCliente =
+                null;
+
+
+            if (calleInput) {
+
+                calleInput.value =
+                    "";
+
+            }
+
+
+            if (resultadosDireccion) {
+
+                resultadosDireccion.innerHTML =
+                    "";
+
+            }
+
+
+            if (estadoUbicacion) {
+
+                estadoUbicacion.textContent =
+                    "";
+
+            }
+
+
+            ocultarDireccionSeleccionada();
+
+
+            actualizarBotonContinuarDireccion();
+
+
+            // ==========================================
+            // VOLVER AL BUSCADOR
+            // ==========================================
+
+            if (calleInput) {
+
+                calleInput.focus();
 
             }
 
@@ -1019,6 +2028,10 @@ if (continuarDireccion) {
                 calleInput.value.trim();
 
 
+            // ==========================================
+            // NO ESCRIBIÓ NI COMPARTIÓ GPS
+            // ==========================================
+
             if (
                 direccionManual === "" &&
                 usoUbicacionActual === false
@@ -1032,6 +2045,31 @@ if (continuarDireccion) {
 
             }
 
+
+            // ==========================================
+            // ESCRIBIÓ ALGO PERO
+            // NO SELECCIONÓ UNA DIRECCIÓN VÁLIDA
+            // ==========================================
+
+            if (
+                usoUbicacionActual ===
+                    false &&
+                direccionValidaCoacalco ===
+                    false
+            ) {
+
+                alert(
+                    "Selecciona una dirección válida dentro de Coacalco."
+                );
+
+                return;
+
+            }
+
+
+            // ==========================================
+            // TODO CORRECTO
+            // ==========================================
 
             enviarPedidoWhatsApp();
 
@@ -1049,46 +2087,67 @@ function enviarPedidoWhatsApp() {
 
     const nombre =
         document
-            .getElementById("nombre-cliente")
+            .getElementById(
+                "nombre-cliente"
+            )
             .value
             .trim();
+
 
     const telefono =
         document
-            .getElementById("telefono-cliente")
+            .getElementById(
+                "telefono-cliente"
+            )
             .value
             .trim();
-    
-            const soya =
-           tipoSoya.value;
+
+
+    const soya =
+        tipoSoya.value;
+
 
     const cubiertos =
         document
-            .getElementById("cubiertos")
+            .getElementById(
+                "cubiertos"
+            )
             .value;
+
 
     const metodoPago =
         metodoPagoSelect.value;
 
-        const costoEntrega =
-    obtenerCostoEntrega();
-
-const totalFinal =
-    totalCarrito + costoEntrega;
 
     const comentarios =
         document
-            .getElementById("comentarios")
+            .getElementById(
+                "comentarios"
+            )
             .value
             .trim();
 
 
+    const costoEntrega =
+        obtenerCostoEntrega();
+
+
+    const totalFinal =
+        totalCarrito +
+        costoEntrega;
+
+
+    // ==================================================
+    // ENCABEZADO
+    // ==================================================
+
     let mensaje =
-        "🍣 *PEDIDO ANGUILA Sushi*\n\n";
+        "🍣 *PEDIDO ANGUILA SUSHI*\n\n";
 
 
     mensaje +=
         `👤 Nombre: ${nombre}\n`;
+
 
     mensaje +=
         `📱 Teléfono: ${telefono}\n`;
@@ -1099,7 +2158,8 @@ const totalFinal =
     // ==================================================
 
     if (
-        servicioSeleccionado === "llevar"
+        servicioSeleccionado ===
+        "llevar"
     ) {
 
         mensaje +=
@@ -1113,36 +2173,74 @@ const totalFinal =
     // ==================================================
 
     if (
-        servicioSeleccionado === "domicilio"
+        servicioSeleccionado ===
+        "domicilio"
     ) {
 
         mensaje +=
             "🛵 Servicio: A domicilio\n";
 
 
-        // UBICACIÓN GPS
+        // ==============================================
+        // UBICACIÓN OBTENIDA POR GPS
+        // ==============================================
 
         if (
-            usoUbicacionActual &&
-            latitudCliente !== null &&
-            longitudCliente !== null
+            usoUbicacionActual
         ) {
 
-            mensaje +=
-                `📍 Ubicación: https://www.google.com/maps?q=${latitudCliente},${longitudCliente}\n`;
+            if (
+                direccionUbicacionActual !==
+                ""
+            ) {
+
+                mensaje +=
+                    `📍 Dirección: ${direccionUbicacionActual}\n`;
+
+            }
+
+
+            if (
+                latitudCliente !== null &&
+                longitudCliente !== null
+            ) {
+
+                mensaje +=
+                    `🗺️ Ubicación: https://www.google.com/maps?q=${latitudCliente},${longitudCliente}\n`;
+
+            }
 
         }
 
 
-        // DIRECCIÓN MANUAL
+        // ==============================================
+        // DIRECCIÓN SELECCIONADA EN GOOGLE PLACES
+        // ==============================================
 
         else {
 
             const direccionManual =
                 calleInput.value.trim();
 
+
             mensaje +=
                 `📍 Dirección: ${direccionManual}\n`;
+
+
+            // ==========================================
+            // TAMBIÉN MANDAMOS
+            // EL ENLACE DE GOOGLE MAPS
+            // ==========================================
+
+            if (
+                latitudCliente !== null &&
+                longitudCliente !== null
+            ) {
+
+                mensaje +=
+                    `🗺️ Ubicación: https://www.google.com/maps?q=${latitudCliente},${longitudCliente}\n`;
+
+            }
 
         }
 
@@ -1150,12 +2248,11 @@ const totalFinal =
 
 
     // ==================================================
-// SOYA
-// ==================================================
+    // SOYA
+    // ==================================================
 
-mensaje +=
-    `🥢 Soya: ${soya}\n`;
-
+    mensaje +=
+        `🥢 Soya: ${soya}\n`;
 
 
     // ==================================================
@@ -1163,9 +2260,7 @@ mensaje +=
     // ==================================================
 
     mensaje +=
-        `🥢 Cubiertos: ${cubiertos}\n`;
-        
-        
+        `🍴 Cubiertos: ${cubiertos}\n`;
 
 
     // ==================================================
@@ -1177,26 +2272,35 @@ mensaje +=
 
 
     // ==================================================
-    // DOMICILIO + EFECTIVO
+    // EFECTIVO
     // ==================================================
 
     if (
-        servicioSeleccionado === "domicilio" &&
-        metodoPago === "Efectivo"
+        servicioSeleccionado ===
+            "domicilio" &&
+        metodoPago ===
+            "Efectivo"
     ) {
 
         const pagaCon =
-            Number(pagaConInput.value);
+            Number(
+                pagaConInput.value
+            );
+
 
         mensaje +=
-    `💵 Pagará con: $${pagaCon}\n`;
-}
+            `💵 Pagará con: $${pagaCon}\n`;
+
+    }
+
 
     // ==================================================
     // COMENTARIOS
     // ==================================================
 
-    if (comentarios !== "") {
+    if (
+        comentarios !== ""
+    ) {
 
         mensaje +=
             `📝 Comentarios: ${comentarios}\n`;
@@ -1219,6 +2323,7 @@ mensaje +=
         const producto =
             pedido[nombreProducto];
 
+
         const subtotal =
             producto.precio *
             producto.cantidad;
@@ -1228,12 +2333,21 @@ mensaje +=
             `${nombreProducto} x${producto.cantidad} - $${subtotal}\n`;
 
     }
-    if (servicioSeleccionado === "domicilio") {
 
-    mensaje +=
-        `Envío: $${costoEntrega}\n`;
 
-}
+    // ==================================================
+    // COSTO DE ENVÍO
+    // ==================================================
+
+    if (
+        servicioSeleccionado ===
+        "domicilio"
+    ) {
+
+        mensaje +=
+            `Envío: $${costoEntrega}\n`;
+
+    }
 
 
     // ==================================================
@@ -1241,30 +2355,33 @@ mensaje +=
     // ==================================================
 
     mensaje +=
-    `\n💰 *Total: $${totalFinal}*`;
+        `\n💰 *Total: $${totalFinal}*`;
 
 
     // ==================================================
-    // WHATSAPP DEL RESTAURANTE
+    // NÚMERO DE WHATSAPP
     // ==================================================
 
     const numeroWhatsApp =
         "525532727920";
 
 
-    const url =
+    const urlWhatsApp =
         "https://wa.me/" +
         numeroWhatsApp +
         "?text=" +
-        encodeURIComponent(mensaje);
+        encodeURIComponent(
+            mensaje
+        );
 
 
     window.open(
-        url,
+        urlWhatsApp,
         "_blank"
     );
 
 }
+
 
 // ======================================================
 // ABRIR RESUMEN DE CUENTA
@@ -1278,7 +2395,9 @@ if (abrirResumen) {
 
             actualizarResumenCuenta();
 
-            modalResumen.style.display = "flex";
+
+            modalResumen.style.display =
+                "flex";
 
         }
     );
@@ -1287,7 +2406,7 @@ if (abrirResumen) {
 
 
 // ======================================================
-// CERRAR RESUMEN DE CUENTA
+// CERRAR RESUMEN
 // ======================================================
 
 if (cerrarResumen) {
@@ -1296,39 +2415,47 @@ if (cerrarResumen) {
         "click",
         function() {
 
-            modalResumen.style.display = "none";
+            modalResumen.style.display =
+                "none";
 
         }
     );
 
 }
 
+
 // ======================================================
-// CERRAR RESUMEN AL TOCAR FUERA
+// CERRAR RESUMEN AL TOCAR AFUERA
 // ======================================================
 
 if (modalResumen) {
 
-    modalResumen.addEventListener("click", function(evento) {
+    modalResumen.addEventListener(
+        "click",
+        function(evento) {
 
-        if (evento.target === modalResumen) {
+            if (
+                evento.target ===
+                modalResumen
+            ) {
 
-            modalResumen.style.display = "none";
+                modalResumen.style.display =
+                    "none";
+
+            }
 
         }
-
-    });
+    );
 
 }
+
+
 // ======================================================
-// INICIAR CARRITO
+// INICIAR PÁGINA
 // ======================================================
 
 actualizarPedido();
 
-
-// ======================================================
-// ASEGURAR QUE EFECTIVO EMPIECE OCULTO
-// ======================================================
-
 actualizarDatosEfectivo();
+
+actualizarBotonContinuarDireccion();

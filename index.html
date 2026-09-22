@@ -786,32 +786,67 @@
             </label>
 
 
-            <div class="buscador-direccion">
+           <div class="buscador-direccion">
+
+    <span class="icono-ubicacion">
+        📍
+    </span>
+
+    <input
+        type="text"
+        id="calle"
+        placeholder="Ej. Calle 123"
+        autocomplete="off"
+    >
+
+    <button
+        type="button"
+        id="buscar-direccion"
+        class="buscar-direccion"
+    >
+        🔍
+    </button>
+
+</div>
 
 
-                <span class="icono-ubicacion">
-                    📍
-                </span>
+<div
+    id="resultados-direccion"
+    class="resultados-direccion">
+</div>
+
+<!-- DIRECCIÓN SELECCIONADA -->
+<div
+    id="direccion-seleccionada"
+    class="direccion-seleccionada"
+>
+    <div class="direccion-seleccionada-info">
+        <span class="direccion-check">✓</span>
+
+        <div>
+            <strong>Dirección de entrega</strong>
+
+            <p id="texto-direccion-seleccionada"></p>
+
+            <span class="direccion-confirmada">
+                Dirección seleccionada
+            </span>
+        </div>
+    </div>
+
+    <button
+        type="button"
+        id="cambiar-direccion"
+        class="cambiar-direccion"
+    >
+        Cambiar dirección
+    </button>
+</div>
 
 
-                <input
-                    type="text"
-                    id="calle"
-                    placeholder="Ej. Calle 123"
-                >
-
-
-                <button
-                    type="button"
-                    id="buscar-direccion"
-                    class="buscar-direccion"
-                >
-                    🔍
-                </button>
-
-
-            </div>
-
+<p class="credito-direcciones">
+    Resultados proporcionados por Google Maps
+</p>
 
             <div class="ayuda-direccion">
 
@@ -861,9 +896,11 @@
     <!-- ============================= -->
     <!-- JAVASCRIPT -->
     <!-- ============================= -->
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72AyBHBgCnwXKdBO3m6tf_56p9dnLNIU&libraries=places&v=weekly">
+</script>
 
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 
 </body>
 

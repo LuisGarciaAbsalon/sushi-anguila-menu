@@ -1,4 +1,3 @@
-
 /* ======================================================
    ANGUILA SUSHI - DISEÑO OSCURO
    ====================================================== */
@@ -7,14 +6,23 @@
     --negro: #070707;
     --negro-2: #101010;
     --negro-3: #171717;
+
     --gris-borde: #2b2b2b;
     --gris-texto: #b9b9b9;
+
     --blanco: #ffffff;
+
     --rojo: #e31b23;
     --rojo-hover: #ff2b33;
+
     --verde: #25d366;
     --azul: #6da9f5;
 }
+
+
+/* ======================================================
+   GENERAL
+   ====================================================== */
 
 * {
     box-sizing: border-box;
@@ -26,10 +34,13 @@ html {
 
 body {
     margin: 0;
+
     font-family: 'Poppins', sans-serif;
+
     background: var(--negro);
     color: var(--blanco);
 }
+
 
 /* ======================================================
    ENCABEZADO / LOGO
@@ -37,17 +48,23 @@ body {
 
 .encabezado {
     width: 100%;
+
     background: #000;
+
     padding: 30px 20px 15px;
 }
 
 .logo {
     width: 820px;
     max-width: 94%;
+
     height: auto;
+
     display: block;
+
     margin: 0 auto;
 }
+
 
 /* ======================================================
    CATEGORÍAS
@@ -55,23 +72,33 @@ body {
 
 .categorias {
     max-width: 900px;
+
     margin: 0 auto;
+
     padding: 28px 15px 18px;
+
     text-align: center;
 }
 
 .categorias h2 {
     margin: 0 0 16px;
+
     color: var(--blanco);
+
     font-size: 24px;
 }
 
 .lista-categorias {
     display: flex;
+
     justify-content: center;
+
     gap: 10px;
+
     overflow-x: auto;
+
     padding-bottom: 10px;
+
     scrollbar-width: none;
 }
 
@@ -81,22 +108,34 @@ body {
 
 .categoria-btn {
     flex-shrink: 0;
+
     display: inline-block;
+
     background: var(--negro-3);
+
     color: var(--blanco);
+
     text-decoration: none;
+
     padding: 10px 18px;
+
     border: 1px solid var(--gris-borde);
+
     border-radius: 999px;
+
     font-size: 14px;
+
     transition: 0.2s ease;
 }
 
 .categoria-btn:hover {
     background: var(--rojo);
+
     border-color: var(--rojo);
+
     transform: translateY(-1px);
 }
+
 
 /* ======================================================
    MENÚ
@@ -104,29 +143,50 @@ body {
 
 .menu {
     max-width: 760px;
+
     margin: 42px auto;
+
     padding: 0 20px;
 }
 
 .menu h2 {
     text-align: center;
+
     margin: 0 0 22px;
+
     color: var(--blanco);
+
     font-size: 27px;
 }
 
+
+/* ======================================================
+   PRODUCTOS
+   ====================================================== */
+
 .producto {
-    background: var(--negro-2);
-    color: var(--blanco);
-    padding: 20px;
-    border: 1px solid var(--gris-borde);
-    border-radius: 16px;
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     gap: 18px;
+
     margin-bottom: 16px;
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+
+    padding: 20px;
+
+    background: var(--negro-2);
+
+    color: var(--blanco);
+
+    border: 1px solid var(--gris-borde);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.35);
 }
 
 .producto-info {
@@ -135,42 +195,67 @@ body {
 
 .producto-info h3 {
     margin: 0 0 8px;
+
     color: var(--blanco);
+
     font-size: 19px;
 }
 
 .producto-info p {
     margin: 0 0 10px;
+
     color: var(--gris-texto);
+
     line-height: 1.5;
+
     font-size: 14px;
 }
 
 .producto-info span {
     font-weight: 700;
+
     font-size: 18px;
+
     color: var(--blanco);
 }
 
+
+/* ======================================================
+   BOTÓN +
+   ====================================================== */
+
 .agregar {
     flex-shrink: 0;
+
     width: 44px;
+
     height: 44px;
+
     background: var(--rojo);
+
     color: var(--blanco);
+
     border: none;
+
     border-radius: 50%;
+
     font-size: 27px;
+
     font-weight: 700;
+
     line-height: 1;
+
     cursor: pointer;
+
     transition: 0.2s ease;
 }
 
 .agregar:hover {
     background: var(--rojo-hover);
+
     transform: scale(1.07);
 }
+
 
 /* ======================================================
    CARRITO FIJO
@@ -178,55 +263,89 @@ body {
 
 .carrito {
     position: fixed;
+
     bottom: 20px;
+
     left: 50%;
-    transform: translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     width: calc(100% - 40px);
+
     max-width: 700px;
+
     background: #0d0d0d;
+
     color: var(--blanco);
+
     padding: 14px 18px;
-    border: 1px solid var(--gris-borde);
+
+    border:
+        1px solid var(--gris-borde);
+
     border-radius: 18px;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     gap: 14px;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.55);
+
     z-index: 1000;
 }
 
 .ver-pedido {
     background: var(--rojo);
+
     color: var(--blanco);
+
     border: none;
+
     border-radius: 999px;
+
     padding: 10px 17px;
+
     cursor: pointer;
+
     font-weight: 700;
-    font-family: 'Poppins', sans-serif;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
     transition: 0.2s ease;
 }
 
 .ver-pedido:hover {
     background: var(--rojo-hover);
 }
+
+
 /* ======================================================
-   MI PEDIDO - ESTILO ANGUILA SUSHI
+   MODAL: MI PEDIDO
    ====================================================== */
 
 .modal-pedido {
     display: none;
 
     position: fixed;
+
     inset: 0;
 
     width: 100%;
+
     height: 100%;
 
-    background-color: #080808;
+    background: #080808;
 
     justify-content: center;
+
     align-items: flex-start;
 
     overflow-y: auto;
@@ -234,62 +353,74 @@ body {
     z-index: 2000;
 }
 
-
 .contenido-pedido {
+    position: relative;
+
     width: 100%;
+
     max-width: 1000px;
+
     min-height: 100vh;
 
-    background-color: #0d0d0d;
+    background: #0d0d0d;
+
     color: white;
 
-    padding: 40px 25px 120px;
-
-    position: relative;
+    padding:
+        40px
+        25px
+        120px;
 }
-
-
-/* TÍTULO */
 
 .contenido-pedido h2 {
     color: white;
+
     margin-bottom: 25px;
 }
 
 
-/* CERRAR */
+/* ======================================================
+   CERRAR CARRITO
+   ====================================================== */
 
 .cerrar-pedido {
     position: absolute;
 
     top: 20px;
+
     right: 25px;
 
     background: none;
+
     border: none;
 
     color: #aaaaaa;
 
     font-size: 32px;
+
     cursor: pointer;
 
     transition: 0.2s;
 }
 
 .cerrar-pedido:hover {
-    color: #e31b23;
+    color: var(--rojo);
 }
 
 
-/* PRODUCTOS */
+/* ======================================================
+   PRODUCTOS DEL PEDIDO
+   ====================================================== */
 
 .item-pedido {
     display: flex;
+
     justify-content: space-between;
 
     padding: 15px 0;
 
-    border-bottom: 1px solid #2c2c2c;
+    border-bottom:
+        1px solid #2c2c2c;
 }
 
 .item-pedido strong {
@@ -297,10 +428,13 @@ body {
 }
 
 
-/* BOTONES + Y - */
+/* ======================================================
+   BOTONES + Y - DEL CARRITO
+   ====================================================== */
 
 .controles-cantidad {
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -310,12 +444,15 @@ body {
 
 .controles-cantidad button {
     width: 30px;
+
     height: 30px;
 
     border: none;
+
     border-radius: 50%;
 
-    background-color: #e31b23;
+    background: var(--rojo);
+
     color: white;
 
     font-size: 18px;
@@ -326,27 +463,35 @@ body {
 }
 
 .controles-cantidad button:hover {
-    background-color: #ff2b33;
+    background: var(--rojo-hover);
+
     transform: scale(1.08);
 }
 
 
-/* TOTAL */
+/* ======================================================
+   TOTAL DEL CARRITO
+   ====================================================== */
 
 .contenido-pedido hr {
     border: none;
-    border-top: 1px solid #333;
+
+    border-top:
+        1px solid #333;
 
     margin-top: 8px;
 }
 
 .contenido-pedido > p {
     font-weight: 600;
+
     font-size: 16px;
 }
 
 
-/* TIPO DE SERVICIO */
+/* ======================================================
+   TIPO DE SERVICIO
+   ====================================================== */
 
 .tipo-servicio {
     margin-top: 45px;
@@ -360,9 +505,6 @@ body {
     margin-bottom: 18px;
 }
 
-
-/* BOTONES PARA LLEVAR / DOMICILIO */
-
 .opciones-servicio {
     display: flex;
 
@@ -372,16 +514,23 @@ body {
 .servicio-btn {
     flex: 1;
 
-    background-color: #171717;
+    background: #171717;
+
     color: white;
 
-    border: 1px solid #e31b23;
+    border:
+        1px solid var(--rojo);
+
     border-radius: 10px;
 
     padding: 16px;
 
-    font-family: 'Poppins', sans-serif;
+    font-family:
+        'Poppins',
+        sans-serif;
+
     font-size: 16px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -390,11 +539,13 @@ body {
 }
 
 .servicio-btn:hover {
-    background-color: #e31b23;
+    background: var(--rojo);
 
     transform: translateY(-2px);
 
-    box-shadow: 0 5px 18px rgba(227, 27, 35, 0.25);
+    box-shadow:
+        0 5px 18px
+        rgba(227, 27, 35, 0.25);
 }
 
 .servicio-btn span {
@@ -403,6 +554,7 @@ body {
     margin-top: 5px;
 
     font-size: 12px;
+
     font-weight: normal;
 
     color: #aaaaaa;
@@ -411,27 +563,42 @@ body {
 .servicio-btn:hover span {
     color: white;
 }
+
+
 /* ======================================================
    MODAL: INFORMACIÓN
    ====================================================== */
 
 .modal-informacion {
     display: none;
+
     position: fixed;
+
     inset: 0;
-    background: rgba(0, 0, 0, 0.88);
+
+    background:
+        rgba(0, 0, 0, 0.88);
+
     justify-content: center;
+
     align-items: flex-start;
+
     overflow-y: auto;
+
     z-index: 3000;
 }
 
 .contenido-informacion {
     width: 100%;
+
     max-width: 520px;
+
     min-height: 100vh;
+
     background: var(--negro-2);
+
     color: var(--blanco);
+
     padding: 25px;
 }
 
@@ -441,22 +608,39 @@ body {
 
 .contenido-informacion label {
     display: block;
+
     margin-top: 18px;
+
     margin-bottom: 6px;
+
     font-weight: 600;
 }
+
+
+/* ======================================================
+   INPUTS DE INFORMACIÓN
+   ====================================================== */
 
 .contenido-informacion input,
 .contenido-informacion textarea,
 .contenido-informacion select {
     width: 100%;
+
     padding: 12px;
-    border: 1px solid var(--gris-borde);
+
+    border:
+        1px solid var(--gris-borde);
+
     border-radius: 9px;
+
     background: #181818;
+
     color: var(--blanco);
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
     font-size: 16px;
 }
 
@@ -467,61 +651,119 @@ body {
 
 .contenido-informacion textarea {
     min-height: 90px;
+
     resize: vertical;
 }
 
+
+/* ======================================================
+   VOLVER INFORMACIÓN
+   ====================================================== */
+
 .volver-info {
     border: none;
+
     background: none;
+
     color: var(--blanco);
+
     font-size: 28px;
+
     cursor: pointer;
 }
+
+
+/* ======================================================
+   CONTINUAR INFORMACIÓN
+   ====================================================== */
 
 .continuar-info {
     width: 100%;
+
     margin-top: 30px;
+
     background: var(--rojo);
+
     color: var(--blanco);
+
     border: none;
+
     border-radius: 9px;
+
     padding: 14px;
+
     font-size: 16px;
+
     font-weight: 700;
-    font-family: 'Poppins', sans-serif;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
+.continuar-info:hover {
+    background: var(--rojo-hover);
+}
+
+
 /* ======================================================
-   RESUMEN DE CUENTA
+   RESUMEN DE CUENTA VISIBLE
    ====================================================== */
 
 .resumen-cuenta {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
-    border: 1px solid #3e3e3e;
+
+    border:
+        1px solid #3e3e3e;
+
     border-radius: 9px;
+
     padding: 11px 13px;
-    margin: 15px 0 20px;
+
+    margin:
+        15px
+        0
+        20px;
+
     background: #171717;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.resumen-cuenta:hover {
+    border-color: #555;
 }
 
 .resumen-cuenta strong {
     font-size: 14px;
+
     color: var(--blanco);
 }
 
 .resumen-cuenta p {
     margin: 4px 0 0;
+
     font-size: 13px;
+
     color: var(--gris-texto);
 }
 
 .flecha-resumen {
-    font-size: 25px;
+    font-size: 30px;
+
     color: var(--blanco);
 }
+
 
 /* ======================================================
    PAGO EN EFECTIVO
@@ -529,43 +771,72 @@ body {
 
 .datos-efectivo {
     display: none;
+
     margin-top: 8px;
+
     padding: 9px;
-    border: 1px solid #3e3e3e;
+
+    border:
+        1px solid #3e3e3e;
+
     border-radius: 9px;
+
     background: #171717;
 }
 
 .monto-efectivo {
     display: flex;
+
     align-items: center;
+
     width: 100%;
+
     background: #101010;
-    border: 1px solid #444;
+
+    border:
+        1px solid #444;
+
     border-radius: 6px;
+
     overflow: hidden;
 }
 
 .monto-efectivo span {
     padding-left: 12px;
+
     color: #bdbdbd;
+
     font-size: 14px;
 }
 
 .monto-efectivo input {
     flex: 1;
+
     border: none !important;
+
     outline: none;
-    padding: 10px 8px !important;
-    font-family: 'Poppins', sans-serif;
+
+    padding:
+        10px 8px !important;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
     font-size: 14px;
-    background: transparent !important;
-    color: var(--blanco) !important;
+
+    background:
+        transparent !important;
+
+    color:
+        var(--blanco) !important;
 }
 
 .instruccion-pago {
     margin: 9px 0 0;
+
     font-size: 11px;
+
     color: #9f9f9f;
 }
 
@@ -573,81 +844,150 @@ body {
     color: var(--blanco);
 }
 
+
 /* ======================================================
    MODAL: DIRECCIÓN
    ====================================================== */
 
 .modal-direccion {
     display: none;
+
     position: fixed;
+
     inset: 0;
-    background: rgba(0, 0, 0, 0.88);
+
+    background:
+        rgba(0, 0, 0, 0.88);
+
     justify-content: center;
+
     align-items: flex-start;
+
     overflow-y: auto;
+
     z-index: 4000;
 }
 
 .contenido-direccion {
-    width: 100%;
-    max-width: 520px;
-    min-height: 100vh;
-    background: var(--negro-2);
-    color: var(--blanco);
-    padding: 25px;
     position: relative;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    min-height: 100vh;
+
+    background: var(--negro-2);
+
+    color: var(--blanco);
+
+    padding:
+        25px
+        25px
+        100px;
 }
+
+
+/* ======================================================
+   ENCABEZADO DIRECCIÓN
+   ====================================================== */
 
 .encabezado-direccion {
     display: flex;
+
     align-items: center;
+
     gap: 15px;
-    border-bottom: 1px solid var(--gris-borde);
+
+    border-bottom:
+        1px solid var(--gris-borde);
+
     padding-bottom: 15px;
+
     margin-bottom: 20px;
 }
 
 .encabezado-direccion h2 {
     margin: 0;
+
     font-size: 20px;
 }
 
 .volver-direccion {
     border: none;
+
     background: none;
+
     color: var(--blanco);
+
     font-size: 28px;
+
     cursor: pointer;
 }
 
 .contenido-direccion label {
     display: block;
+
     margin-top: 18px;
+
     margin-bottom: 7px;
+
     font-weight: 600;
 }
 
+
+/* ======================================================
+   BUSCADOR DE DIRECCIÓN
+   ====================================================== */
+
 .buscador-direccion {
     display: flex;
+
     align-items: center;
-    border: 1px solid #444;
+
+    width: 100%;
+
+    border:
+        1px solid #444;
+
     border-radius: 8px;
+
     overflow: hidden;
+
     background: #181818;
+
+    transition: 0.2s;
+}
+
+.buscador-direccion:focus-within {
+    border-color: var(--rojo);
 }
 
 .icono-ubicacion {
     padding-left: 12px;
+
+    flex-shrink: 0;
 }
 
 .buscador-direccion input {
     flex: 1;
+
+    min-width: 0;
+
     border: none;
+
     outline: none;
+
     padding: 14px 10px;
+
     background: transparent;
+
     color: var(--blanco);
-    font-family: 'Poppins', sans-serif;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
     font-size: 15px;
 }
 
@@ -655,66 +995,355 @@ body {
     color: #8e8e8e;
 }
 
+
+/* ======================================================
+   BOTÓN LUPA
+   ====================================================== */
+
 .buscar-direccion {
     align-self: stretch;
+
     width: 58px;
+
+    flex-shrink: 0;
+
     border: none;
+
     background: var(--rojo);
+
     color: var(--blanco);
+
     cursor: pointer;
+
     font-size: 18px;
+
+    transition: 0.2s;
 }
 
-.ayuda-direccion {
-    margin-top: 10px;
-    background: #171717;
-    border: 1px solid #3a3a3a;
-    color: #c7c7c7;
-    padding: 12px;
+.buscar-direccion:hover {
+    background: var(--rojo-hover);
+}
+
+
+/* ======================================================
+   AUTOCOMPLETADO DE DIRECCIÓN
+   ====================================================== */
+
+.resultados-direccion {
+    width: 100%;
+
+    margin-top: 8px;
+}
+
+.resultado-direccion {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 7px;
+
+    background: #1b1b1b;
+
+    color: var(--blanco);
+
+    border:
+        1px solid #3a3a3a;
+
     border-radius: 8px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    transition: 0.2s ease;
+}
+
+.resultado-direccion:hover {
+    background: #292929;
+
+    border-color: var(--rojo);
+}
+
+.mensaje-direccion {
+    margin: 8px 0;
+
+    padding: 10px;
+
+    color: #aaa;
+
     font-size: 13px;
 }
 
+.credito-direcciones {
+    margin:
+        5px
+        0
+        0;
+
+    font-size: 9px;
+
+    color: #666;
+}
+
+
+/* ======================================================
+   AYUDA DE DIRECCIÓN
+   ====================================================== */
+
+.ayuda-direccion {
+    margin-top: 10px;
+
+    background: #171717;
+
+    border:
+        1px solid #3a3a3a;
+
+    color: #c7c7c7;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ======================================================
+   USAR UBICACIÓN ACTUAL
+   ====================================================== */
+
 .usar-ubicacion {
     width: 100%;
+
     margin-top: 10px;
+
     padding: 14px;
+
     text-align: left;
+
     background: #181818;
+
     color: var(--blanco);
-    border: 1px solid var(--gris-borde);
+
+    border:
+        1px solid var(--gris-borde);
+
     border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
     font-weight: 600;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 .usar-ubicacion:hover {
     border-color: var(--rojo);
+
+    background: #202020;
 }
+
+
+/* ======================================================
+   ESTADO DE UBICACIÓN
+   ====================================================== */
 
 #estado-ubicacion {
     font-size: 13px;
+
     text-align: center;
+
     color: #d0d0d0;
+
+    margin-top: 12px;
 }
+
+
+/* ======================================================
+   CONTINUAR DIRECCIÓN
+   ====================================================== */
 
 .continuar-direccion {
     position: absolute;
+
     bottom: 15px;
+
     left: 25px;
+
     right: 25px;
+
     width: auto;
+
     padding: 14px;
+
     border: none;
+
     border-radius: 9px;
+
     background: var(--rojo);
+
     color: var(--blanco);
-    font-family: 'Poppins', sans-serif;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
     font-size: 16px;
+
     font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.continuar-direccion:hover {
+    background: var(--rojo-hover);
+}
+
+
+/* ======================================================
+   MODAL RESUMEN DE CUENTA
+   ====================================================== */
+
+.modal-resumen {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 5000;
+
+    padding: 20px;
+}
+
+.contenido-resumen {
+    width: 100%;
+
+    max-width: 500px;
+
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    color: #111;
+
+    padding: 25px;
+
+    border-radius: 18px;
+}
+
+
+/* ======================================================
+   ENCABEZADO DEL RESUMEN
+   ====================================================== */
+
+.encabezado-resumen {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.cerrar-resumen {
+    border: none;
+
+    background: none;
+
+    color: #111;
+
+    font-size: 30px;
+
     cursor: pointer;
 }
+
+
+/* ======================================================
+   PRODUCTOS DEL RESUMEN
+   ====================================================== */
+
+#productos-resumen {
+    margin-bottom: 25px;
+}
+
+.producto-resumen {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid #ddd;
+}
+
+.producto-resumen strong {
+    white-space: nowrap;
+}
+
+
+/* ======================================================
+   TOTALES DEL RESUMEN
+   ====================================================== */
+
+.totales-resumen p {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin: 12px 0;
+}
+
+.total-cuenta-resumen {
+    border-top:
+        1px solid #ccc;
+
+    padding-top: 15px;
+
+    font-size: 18px;
+}
+
 
 /* ======================================================
    RESPONSIVE
@@ -723,184 +1352,249 @@ body {
 @media (max-width: 600px) {
 
     .encabezado {
-        padding: 18px 8px 8px;
+        padding:
+            18px
+            8px
+            8px;
     }
+
 
     .logo {
         max-width: 100%;
     }
 
+
     .lista-categorias {
         justify-content: flex-start;
     }
 
+
     .menu {
-        margin: 32px auto;
-        padding: 0 14px;
+        margin:
+            32px
+            auto;
+
+        padding:
+            0
+            14px;
     }
+
 
     .producto {
         padding: 16px;
     }
 
+
     .carrito {
-        width: calc(100% - 20px);
+        width:
+            calc(100% - 20px);
+
         bottom: 10px;
-        padding: 12px 14px;
+
+        padding:
+            12px
+            14px;
+
         font-size: 13px;
     }
 
+
     .ver-pedido {
-        padding: 9px 14px;
+        padding:
+            9px
+            14px;
+
         font-size: 13px;
     }
+
 
     .contenido-pedido,
     .contenido-informacion,
     .contenido-direccion {
         min-height: 100vh;
+
         border-radius: 0;
     }
+
+
+    .contenido-pedido {
+        padding:
+            30px
+            18px
+            120px;
+    }
+
+
+    .contenido-informacion {
+        padding:
+            20px
+            18px
+            100px;
+    }
+
+
+    .contenido-direccion {
+        padding:
+            20px
+            18px
+            100px;
+    }
+
 
     .opciones-servicio {
         flex-direction: column;
     }
+
+
+    .continuar-direccion {
+        left: 18px;
+
+        right: 18px;
+    }
+
+
+    .contenido-resumen {
+        padding: 20px;
+
+        border-radius: 14px;
+    }
+
+
+    .resultado-direccion {
+        font-size: 12px;
+
+        padding: 12px;
+    }
+
 }
 
-/* ================================= */
-/* MODAL RESUMEN DE CUENTA */
-/* ================================= */
+/* ======================================================
+   DIRECCIÓN SELECCIONADA
+   ====================================================== */
 
-.modal-resumen {
+.direccion-seleccionada {
     display: none;
 
-    position: fixed;
-    top: 0;
-    left: 0;
+    margin-top: 12px;
 
-    width: 100%;
-    height: 100%;
+    padding: 16px;
 
-    background-color: rgba(0, 0, 0, 0.55);
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 3000;
-
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.contenido-resumen {
-    background-color: white;
-    color: #111;
-
-    width: 100%;
-    max-width: 500px;
-
-    padding: 25px;
-
-    border-radius: 18px;
-
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.encabezado-resumen {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    margin-bottom: 25px;
-}
-
-.cerrar-resumen {
-    border: none;
-    background: none;
-
-    font-size: 30px;
-    cursor: pointer;
-}
-
-#productos-resumen {
-    margin-bottom: 25px;
-}
-
-.producto-resumen {
-    display: flex;
-    justify-content: space-between;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #ddd;
-}
-
-.totales-resumen p {
-    display: flex;
-    justify-content: space-between;
-
-    margin: 12px 0;
-}
-
-.total-cuenta-resumen {
-    border-top: 1px solid #ccc;
-
-    padding-top: 15px;
-
-    font-size: 18px;
-}
-
-.resumen-cuenta {
-    cursor: pointer;
-}
-
-.flecha-resumen {
-    font-size: 30px;
-}
-
-/* ================================= */
-/* RESULTADOS DE DIRECCIÓN */
-/* ================================= */
-
-.resultados-direccion {
-    width: 100%;
-    margin-top: 8px;
-}
-
-.resultado-direccion {
-    width: 100%;
-
-    padding: 14px 12px;
-    margin-bottom: 7px;
-
-    background: #1b1b1b;
-    color: white;
+    background: #171717;
 
     border: 1px solid #3a3a3a;
-    border-radius: 8px;
 
-    text-align: left;
+    border-radius: 10px;
+}
+
+
+.direccion-seleccionada-info {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+
+.direccion-check {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: #25d366;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.direccion-seleccionada-info strong {
+    font-size: 14px;
+
+    color: white;
+}
+
+
+.direccion-seleccionada-info p {
+    margin: 5px 0;
+
+    color: #d0d0d0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.direccion-confirmada {
+    color: #25d366;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.cambiar-direccion {
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 10px;
+
+    background: transparent;
+
+    color: var(--blanco);
+
+    border: 1px solid #444;
+
+    border-radius: 7px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 600;
 
     cursor: pointer;
 
-    font-family: inherit;
-    font-size: 14px;
+    transition: 0.2s;
 }
 
-.resultado-direccion:hover {
-    background: #292929;
+
+.cambiar-direccion:hover {
+    border-color: var(--rojo);
+
+    color: var(--rojo);
 }
 
-.mensaje-direccion {
-    padding: 12px;
 
-    font-size: 14px;
-    color: #aaa;
-}
+/* ======================================================
+   CONTINUAR DESHABILITADO
+   ====================================================== */
 
-.credito-direcciones {
-    font-size: 10px;
+.continuar-direccion:disabled {
+    background: #353535;
+
     color: #777;
-    margin-top: 5px;
+
+    cursor: not-allowed;
+
+    opacity: 0.7;
+}
+
+
+.continuar-direccion:disabled:hover {
+    background: #353535;
 }
