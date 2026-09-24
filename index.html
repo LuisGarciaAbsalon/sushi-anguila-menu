@@ -154,50 +154,542 @@
 
 
         <!-- ============================= -->
-        <!-- ROLLOS -->
-        <!-- ============================= -->
+<!-- ROLLOS -->
+<!-- ============================= -->
 
-        <section
-            class="menu"
-            id="rollos"
+<section
+    class="menu"
+    id="rollos"
+>
+
+    <h2>Rollos</h2>
+
+
+    <!-- ================================================= -->
+    <!-- ROLLOS TRADICIONALES -->
+    <!-- ================================================= -->
+
+    <h3 class="subtitulo-menu">
+        Rollos Tradicionales
+    </h3>
+
+
+
+    <!-- KAPPA MAKY -->
+
+    <article class="producto">
+
+        <div class="producto-info">
+
+            <h3>
+                Kappa Maky
+            </h3>
+
+            <p>
+                Pepino.
+            </p>
+
+            <span>
+                $66
+            </span>
+
+        </div>
+
+        <button
+            class="agregar"
+            data-nombre="Kappa Maky"
+            data-precio="66"
         >
+            +
+        </button>
 
-            <h2>Rollos</h2>
-
-
-            <article class="producto">
-
-                <div class="producto-info">
-
-                    <h3>Manchego Maky</h3>
-
-                    <p>
-                        Por fuera: queso Manchego.
-                        Por dentro: cangrejo,
-                        queso Philadelphia y aguacate.
-                    </p>
-
-                    <span>
-                        $150
-                    </span>
-
-                </div>
+    </article>
 
 
-                <button
-                    class="agregar"
-                    data-nombre="Manchego Maky"
-                    data-precio="150"
+    <!-- TEKKA MAKY -->
+
+    <article class="producto">
+
+        <div class="producto-info">
+
+            <h3>
+                Tekka Maky
+            </h3>
+
+            <p>
+                Atún.
+            </p>
+
+            <span>
+                $74
+            </span>
+
+        </div>
+
+        <button
+            class="agregar"
+            data-nombre="Tekka Maky"
+            data-precio="74"
+        >
+            +
+        </button>
+
+    </article>
+
+
+    <!-- TAMPICO MAKY -->
+
+    <article class="producto">
+
+        <div class="producto-info">
+
+            <h3>
+                Tampico Maky
+            </h3>
+
+            <p>
+                Rollo tradicional.
+            </p>
+
+            <span>
+                $76
+            </span>
+
+        </div>
+
+        <button
+            class="agregar"
+            data-nombre="Tampico Maky"
+            data-precio="76"
+        >
+            +
+        </button>
+
+    </article>
+
+
+
+    <!-- ================================================= -->
+    <!-- ROLLOS CLÁSICOS -->
+    <!-- ================================================= -->
+
+    <h3 class="subtitulo-menu">
+        Rollos Clásicos
+    </h3>
+
+<!-- ================================================= -->
+<!-- AVOCADO MAKY -->
+<!-- ================================================= -->
+
+<article class="producto">
+
+    <div class="producto-info">
+
+        <h3>
+            Avocado Maky
+        </h3>
+
+        <p>
+            Rollo envuelto en aguacate.
+        </p>
+
+        <span>
+            Desde $119
+        </span>
+
+    </div>
+
+    <button
+        type="button"
+        class="abrir-opciones"
+        data-producto="Avocado Maky"
+    >
+        +
+    </button>
+
+</article>
+    <!-- ================================================= -->
+    <!-- NEVADO MAKY -->
+    <!-- ================================================= -->
+
+    <article class="producto producto-con-variante">
+
+        <div class="producto-info">
+
+            <h3>
+                Nevado Maky
+            </h3>
+
+            <p>
+                Rollo envuelto en queso.
+            </p>
+
+            <select
+                class="variante-rollo"
+                data-producto="Nevado Maky"
+            >
+
+                <option value="">
+                    Selecciona una opción
+                </option>
+
+                <option
+                    value="Vegetariano"
+                    data-precio="119"
                 >
-                    +
-                </button>
+                    Vegetariano - $119
+                </option>
 
-            </article>
+                <option
+                    value="Camarón"
+                    data-precio="131"
+                >
+                    Camarón - $131
+                </option>
 
-        </section>
+                <option
+                    value="Pulpo"
+                    data-precio="147"
+                >
+                    Pulpo - $147
+                </option>
+
+                <option
+                    value="Anguila"
+                    data-precio="143"
+                >
+                    Anguila - $143
+                </option>
+
+                <option
+                    value="Cangrejo"
+                    data-precio="131"
+                >
+                    Cangrejo - $131
+                </option>
+
+                <option
+                    value="Salmón"
+                    data-precio="131"
+                >
+                    Salmón - $131
+                </option>
+
+                <option
+                    value="Salmón ahumado"
+                    data-precio="139"
+                >
+                    Salmón ahumado - $139
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            type="button"
+            class="agregar-variante"
+        >
+            +
+        </button>
+
+    </article>
 
 
-    </main>
+
+    <!-- ================================================= -->
+    <!-- ARCOÍRIS ROLL -->
+    <!-- ================================================= -->
+
+    <article class="producto producto-con-variante">
+
+        <div class="producto-info">
+
+            <h3>
+                Arcoíris Roll
+            </h3>
+
+            <p>
+                Queso, aguacate, pepino y masago.
+            </p>
+
+            <select
+                class="variante-rollo"
+                data-producto="Arcoíris Roll"
+            >
+
+                <option value="">
+                    Selecciona una opción
+                </option>
+
+                <option
+                    value="Camarón"
+                    data-precio="142"
+                >
+                    Camarón - $142
+                </option>
+
+                <option
+                    value="Cangrejo"
+                    data-precio="142"
+                >
+                    Cangrejo - $142
+                </option>
+
+                <option
+                    value="Anguila"
+                    data-precio="146"
+                >
+                    Anguila - $146
+                </option>
+
+                <option
+                    value="Salmón"
+                    data-precio="142"
+                >
+                    Salmón - $142
+                </option>
+
+                <option
+                    value="Salmón ahumado"
+                    data-precio="142"
+                >
+                    Salmón ahumado - $142
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            type="button"
+            class="agregar-variante"
+        >
+            +
+        </button>
+
+    </article>
+
+
+
+    <!-- ================================================= -->
+    <!-- KIURY MAKY -->
+    <!-- ================================================= -->
+
+    <article class="producto producto-con-variante">
+
+        <div class="producto-info">
+
+            <h3>
+                Kiury Maky
+            </h3>
+
+            <p>
+                Rollo envuelto en hoja de pepino.
+            </p>
+
+            <select
+                class="variante-rollo"
+                data-producto="Kiury Maky"
+            >
+
+                <option value="">
+                    Selecciona una opción
+                </option>
+
+                <option
+                    value="Vegetariano"
+                    data-precio="99"
+                >
+                    Vegetariano - $99
+                </option>
+
+                <option
+                    value="Cangrejo"
+                    data-precio="114"
+                >
+                    Cangrejo - $114
+                </option>
+
+                <option
+                    value="Salmón"
+                    data-precio="114"
+                >
+                    Salmón - $114
+                </option>
+
+                <option
+                    value="Salmón ahumado"
+                    data-precio="138"
+                >
+                    Salmón ahumado - $138
+                </option>
+
+                <option
+                    value="Tampico"
+                    data-precio="110"
+                >
+                    Tampico - $110
+                </option>
+
+                <option
+                    value="Camarón"
+                    data-precio="114"
+                >
+                    Camarón - $114
+                </option>
+
+                <option
+                    value="Pulpo"
+                    data-precio="144"
+                >
+                    Pulpo - $144
+                </option>
+
+                <option
+                    value="Anguila"
+                    data-precio="140"
+                >
+                    Anguila - $140
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            type="button"
+            class="agregar-variante"
+        >
+            +
+        </button>
+
+    </article>
+
+
+
+    <!-- ================================================= -->
+    <!-- CALIFORNIA MAKY -->
+    <!-- ================================================= -->
+
+    <article
+        class="producto producto-con-variante producto-california"
+    >
+
+        <div class="producto-info">
+
+            <h3>
+                California Maky
+            </h3>
+
+            <p>
+                Rollo de arroz con un toque de ajonjolí,
+                aguacate, pepino y queso Philadelphia.
+            </p>
+
+
+            <!-- RELLENO -->
+
+            <label>
+                Relleno
+            </label>
+
+            <select
+                class="variante-california"
+                data-producto="California Maky"
+            >
+
+                <option value="">
+                    Selecciona el relleno
+                </option>
+
+                <option
+                    value="Vegetariano"
+                    data-precio-normal="99"
+                    data-precio-especial="117"
+                >
+                    Vegetariano
+                </option>
+
+                <option
+                    value="Camarón"
+                    data-precio-normal="119"
+                    data-precio-especial="137"
+                >
+                    Camarón
+                </option>
+
+                <option
+                    value="Salmón ahumado"
+                    data-precio-normal="129"
+                    data-precio-especial="140"
+                >
+                    Salmón ahumado
+                </option>
+
+                <option
+                    value="Cangrejo"
+                    data-precio-normal="119"
+                    data-precio-especial="137"
+                >
+                    Cangrejo
+                </option>
+
+                <option
+                    value="Salmón"
+                    data-precio-normal="119"
+                    data-precio-especial="137"
+                >
+                    Salmón
+                </option>
+
+                <option
+                    value="Anguila"
+                    data-precio-normal="135"
+                    data-precio-especial="150"
+                >
+                    Anguila
+                </option>
+
+            </select>
+
+
+            <!-- TIPO -->
+
+            <label>
+                Presentación
+            </label>
+
+            <select class="tipo-california">
+
+                <option value="">
+                    Selecciona una presentación
+                </option>
+
+                <option value="normal">
+                    Normal
+                </option>
+
+                <option value="especial">
+                    Especial
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="agregar-california"
+        >
+            +
+        </button>
+
+    </article>
+
+
+</section>
 
 
     <!-- ============================= -->
@@ -356,256 +848,300 @@
 
         <div class="contenido-informacion">
 
-
-            <!-- ============================= -->
-            <!-- VOLVER -->
-            <!-- ============================= -->
-
-            <button
-                type="button"
-                class="volver-info"
-                id="volver-info"
-            >
-                ←
-            </button>
-
-
-            <h2>
-                Información del pedido
-            </h2>
-
-
-            <!-- TIPO DE SERVICIO -->
-
-            <p id="servicio-seleccionado"></p>
+               <div class="fondo-info-japones"></div>
+<button
+    type="button"
+    class="cerrar-info"
+    id="cerrar-info"
+    aria-label="Cerrar ventana"
+>
+    ×
+</button>
 
 
             <!-- ============================= -->
-            <!-- RESUMEN DE CUENTA VISIBLE -->
-            <!-- ============================= -->
+<!-- ENCABEZADO -->
+<!-- ============================= -->
 
-            <div
-                class="resumen-cuenta"
-                id="abrir-resumen"
-            >
+<div class="info-header">
 
+    <button
+        type="button"
+        class="volver-info"
+        id="volver-info"
+    >
+        ←
+    </button>
 
-                <div>
+    <div>
+        <h2>Información del pedido</h2>
 
-                    <strong>
-                        Resumen de cuenta
-                    </strong>
+        <div
+            id="servicio-seleccionado"
+            class="servicio-seleccionado-badge"
+        ></div>
+    </div>
 
+</div>
 
-                    <p>
 
-                        <span id="resumen-cantidad">
-                            0
-                        </span>
+<!-- ============================= -->
+<!-- RESUMEN DE CUENTA -->
+<!-- ============================= -->
 
-                        producto(s)
+<div
+    class="resumen-cuenta resumen-cuenta-nuevo"
+    id="abrir-resumen"
+>
 
-                        &nbsp;
+    <div class="resumen-icono">
+        🛍
+    </div>
 
-                        MXN $
+    <div class="resumen-info">
 
-                        <span id="resumen-total">
-                            0
-                        </span>
+        <strong>
+            Resumen de cuenta
+        </strong>
 
-                    </p>
+        <p>
+            <span id="resumen-cantidad">
+                0
+            </span>
 
-                </div>
+            producto(s)
+        </p>
 
+    </div>
 
-                <span class="flecha-resumen">
-                    ›
-                </span>
+    <div class="resumen-precio">
 
+        <strong>
+            MXN $
+            <span id="resumen-total">
+                0
+            </span>
+        </strong>
 
-            </div>
+        <span class="flecha-resumen">
+            ›
+        </span>
 
+    </div>
 
-            <!-- ============================= -->
-            <!-- NOMBRE -->
-            <!-- ============================= -->
+</div>
 
-            <label for="nombre-cliente">
-                Nombre:
-            </label>
 
-            <input
-                type="text"
-                id="nombre-cliente"
-                placeholder="Escribe tu nombre"
-            >
+<!-- ============================= -->
+<!-- DATOS DEL CLIENTE -->
+<!-- ============================= -->
 
+<div class="fila-formulario">
 
-            <!-- ============================= -->
-            <!-- TELÉFONO -->
-            <!-- ============================= -->
+    <div class="campo-formulario">
 
-            <label for="telefono-cliente">
-                Teléfono:
-            </label>
+        <label for="nombre-cliente">
+            👤 Nombre
+        </label>
 
-            <input
-                type="tel"
-                id="telefono-cliente"
-                placeholder="Escribe tu teléfono"
-            >
+        <input
+            type="text"
+            id="nombre-cliente"
+            placeholder="Escribe tu nombre"
+        >
 
+    </div>
 
-            <!-- ============================= -->
-            <!-- SOYA -->
-            <!-- ============================= -->
 
-            <label for="tipo-soya">
-                ¿Cómo deseas tus soyas?
-            </label>
+    <div class="campo-formulario">
 
-            <select id="tipo-soya">
+        <label for="telefono-cliente">
+            📞 Teléfono
+        </label>
 
-                <option value="">
-                    Selecciona una opción
-                </option>
+        <input
+            type="tel"
+            id="telefono-cliente"
+            placeholder="Escribe tu teléfono"
+        >
 
-                <option value="Natural">
-                    Natural
-                </option>
+    </div>
 
-                <option value="Picante">
-                    Picante
-                </option>
+</div>
 
-            </select>
 
+<!-- ============================= -->
+<!-- SOYA Y CUBIERTOS -->
+<!-- ============================= -->
 
-            <!-- ============================= -->
-            <!-- CUBIERTOS -->
-            <!-- ============================= -->
+<div class="fila-formulario">
 
-            <label for="cubiertos">
-                ¿Deseas palillos o tenedores?
-            </label>
+    <div class="campo-formulario">
 
-            <select id="cubiertos">
+        <label for="tipo-soya">
+            🥢 ¿Cómo deseas tus soyas?
+        </label>
 
-                <option value="sin cubiertos">
-                    Sin cubiertos
-                </option>
+        <select id="tipo-soya">
 
-                <option value="palillos">
-                    Palillos
-                </option>
+            <option value="">
+                Selecciona una opción
+            </option>
 
-                <option value="tenedores">
-                    Tenedores
-                </option>
+            <option value="Natural">
+                Natural
+            </option>
 
-            </select>
+            <option value="Picante">
+                Picante
+            </option>
 
+            <option value="Ambas">
+                Ambas
+            </option>
 
-            <!-- ============================= -->
-            <!-- MÉTODO DE PAGO -->
-            <!-- ============================= -->
+        </select>
 
-            <label for="metodo-pago">
-                Método de pago:
-            </label>
+    </div>
 
-            <select id="metodo-pago">
 
-                <option value="">
-                    Selecciona un método
-                </option>
+    <div class="campo-formulario">
 
-                <option value="Efectivo">
-                    Efectivo
-                </option>
+        <label for="cubiertos">
+            🍴 ¿Palillos o tenedores?
+        </label>
 
-                <option value="Transferencia">
-                    Transferencia
-                </option>
+        <select id="cubiertos">
 
-                <option value="Tarjeta">
-                    Tarjeta
-                </option>
+            <option value="sin cubiertos">
+                Sin cubiertos
+            </option>
 
-            </select>
+            <option value="palillos">
+                Palillos
+            </option>
 
+            <option value="tenedores">
+                Tenedores
+            </option>
 
-            <!-- ============================= -->
-            <!-- EFECTIVO -->
-            <!-- SOLO DOMICILIO + EFECTIVO -->
-            <!-- ============================= -->
+            <option value="ambos">
+                Ambos
+            </option>
 
-            <div
-                id="datos-efectivo"
-                class="datos-efectivo"
-            >
+        </select>
 
-                <div class="monto-efectivo">
+    </div>
 
-                    <span>
-                        MXN
-                    </span>
+</div>
 
-                    <input
-                        type="number"
-                        id="paga-con"
-                        placeholder="Monto con el que va a pagar"
-                        min="0"
-                    >
 
-                </div>
+<!-- ============================= -->
+<!-- MÉTODO DE PAGO -->
+<!-- ============================= -->
 
+<div class="campo-formulario campo-completo">
 
-                <p class="instruccion-pago">
+    <label for="metodo-pago">
+        💳 Método de pago
+    </label>
 
-                    <strong>
-                        Instrucción de pago
-                    </strong>
+    <select id="metodo-pago">
 
-                    <br>
+        <option value="">
+            Selecciona un método
+        </option>
 
-                    El repartidor solo lleva cambio si es solicitado.
+        <option value="Efectivo">
+            Efectivo
+        </option>
 
-                </p>
+        <option value="Transferencia">
+            Transferencia
+        </option>
 
-            </div>
+        <option value="Tarjeta">
+            Tarjeta
+        </option>
 
+    </select>
 
-            <!-- ============================= -->
-            <!-- COMENTARIOS -->
-            <!-- ============================= -->
+</div>
 
-            <label for="comentarios">
-                Comentarios:
-            </label>
 
-            <textarea
-                id="comentarios"
-                placeholder="Opcional"
-            ></textarea>
+<!-- ============================= -->
+<!-- EFECTIVO -->
+<!-- SOLO DOMICILIO + EFECTIVO -->
+<!-- ============================= -->
 
+<div
+    id="datos-efectivo"
+    class="datos-efectivo"
+>
 
-            <!-- ============================= -->
-            <!-- CONTINUAR -->
-            <!-- ============================= -->
+    <div class="monto-efectivo">
 
-            <button
-                type="button"
-                class="continuar-info"
-                id="continuar-info"
-            >
+        <span>
+            MXN
+        </span>
 
-                Continuar
+        <input
+            type="number"
+            id="paga-con"
+            placeholder="Monto con el que va a pagar"
+            min="0"
+        >
 
-            </button>
+    </div>
 
+    <p class="instruccion-pago">
 
-        </div>
+        <strong>
+            Instrucción de pago
+        </strong>
+
+        <br>
+
+        El repartidor solo lleva cambio si es solicitado.
+
+    </p>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- COMENTARIOS -->
+<!-- ============================= -->
+
+<div class="campo-formulario campo-completo">
+
+    <label for="comentarios">
+        💬 Comentarios
+        <span class="opcional">
+            (opcional)
+        </span>
+    </label>
+
+    <textarea
+        id="comentarios"
+        placeholder="Indicaciones adicionales para tu pedido..."
+    ></textarea>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- CONTINUAR -->
+<!-- ============================= -->
+
+<button
+    type="button"
+    class="continuar-info continuar-info-nuevo"
+    id="continuar-info"
+>
+    Continuar
+    <span>→</span>
+</button>
 
 
         <!-- ===================================== -->
@@ -747,151 +1283,175 @@
 
     </div>
 
+    </div>
 
-    <!-- ============================= -->
-    <!-- MODAL: DIRECCIÓN -->
-    <!-- ============================= -->
-
-    <div
-        class="modal-direccion"
-        id="modal-direccion"
-    >
-
-
-        <div class="contenido-direccion">
-
-
-            <div class="encabezado-direccion">
-
-
-                <button
-                    type="button"
-                    class="volver-direccion"
-                    id="volver-direccion"
-                >
-                    ←
-                </button>
-
-
-                <h2>
-                    Agrega tu dirección
-                </h2>
-
-
-            </div>
-
-
-            <label for="calle">
-                Ingresa tu dirección
-            </label>
-
-
-           <div class="buscador-direccion">
-
-    <span class="icono-ubicacion">
-        📍
-    </span>
-
-    <input
-        type="text"
-        id="calle"
-        placeholder="Ej. Calle 123"
-        autocomplete="off"
-    >
-
-    <button
-        type="button"
-        id="buscar-direccion"
-        class="buscar-direccion"
-    >
-        🔍
-    </button>
-
-</div>
-
+<!-- ====================================================== -->
+<!-- MODAL OPCIONES DE PRODUCTO -->
+<!-- ====================================================== -->
 
 <div
-    id="resultados-direccion"
-    class="resultados-direccion">
-</div>
-
-<!-- DIRECCIÓN SELECCIONADA -->
-<div
-    id="direccion-seleccionada"
-    class="direccion-seleccionada"
+    class="modal-opciones-producto"
+    id="modal-opciones-producto"
 >
-    <div class="direccion-seleccionada-info">
-        <span class="direccion-check">✓</span>
 
-        <div>
-            <strong>Dirección de entrega</strong>
+    <div class="contenido-opciones-producto">
 
-            <p id="texto-direccion-seleccionada"></p>
+        <!-- ============================================= -->
+        <!-- BARRA SUPERIOR -->
+        <!-- ============================================= -->
 
-            <span class="direccion-confirmada">
-                Dirección seleccionada
-            </span>
+        <div class="barra-superior-opciones">
+
+            <button
+                type="button"
+                class="cerrar-opciones-producto"
+                id="cerrar-opciones-producto"
+            >
+                ←
+            </button>
+
+            <h2 id="titulo-opciones-producto">
+                Producto
+            </h2>
+
+            <div class="espacio-derecha-opciones"></div>
+
         </div>
-    </div>
-
-    <button
-        type="button"
-        id="cambiar-direccion"
-        class="cambiar-direccion"
-    >
-        Cambiar dirección
-    </button>
-</div>
 
 
-<p class="credito-direcciones">
-    Resultados proporcionados por Google Maps
-</p>
+        <!-- ============================================= -->
+        <!-- CUERPO -->
+        <!-- ============================================= -->
 
-            <div class="ayuda-direccion">
+        <div class="cuerpo-opciones-producto">
 
-                Para encontrar tu dirección,
-                escribe el tipo de vía y el número.
 
-                Ej:
+            <!-- ========================================= -->
+            <!-- COLUMNA IZQUIERDA: IMAGEN -->
+            <!-- ========================================= -->
 
-                <strong>
-                    Calle Central 123, Av. Central 123
-                </strong>
+            <div class="columna-imagen-producto">
+
+                <div class="imagen-opciones-producto-box">
+
+                    <img
+                        id="imagen-opciones-producto"
+                        src=""
+                        alt="Imagen del producto"
+                    >
+
+                    <div class="placeholder-imagen-producto">
+                        Imagen del producto
+                    </div>
+
+                </div>
 
             </div>
 
 
+            <!-- ========================================= -->
+            <!-- COLUMNA DERECHA -->
+            <!-- ========================================= -->
+
+            <div class="columna-detalles-producto">
+
+
+                <!-- INFORMACIÓN -->
+
+                <div class="info-opciones-producto">
+
+                    <p id="descripcion-opciones-producto">
+                        Descripción del producto
+                    </p>
+
+                    <strong
+                        id="precio-opciones-producto"
+                        class="precio-opciones-producto"
+                    >
+                        Selecciona una opción
+                    </strong>
+
+                </div>
+
+
+                <!-- OPCIONES -->
+
+                <div class="seccion-opciones-producto">
+
+                    <h3>
+                        Elige tu relleno
+                    </h3>
+
+                    <p class="texto-seleccion">
+                        Selecciona 1 opción
+                    </p>
+
+                    <div
+                        id="lista-opciones-producto"
+                        class="lista-opciones-producto"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================== -->
+                <!-- COMENTARIOS -->
+                <!-- ===================================== -->
+
+                <div class="comentarios-producto">
+
+                    <label for="comentario-opciones-producto">
+
+                        Comentarios
+
+                        <span>
+                            (opcional)
+                        </span>
+
+                    </label>
+
+                    <textarea
+                        id="comentario-opciones-producto"
+                        maxlength="180"
+                        placeholder="Escribe algún comentario sobre tu pedido..."
+                    ></textarea>
+
+                </div>
+
+
+            </div>
+            <!-- FIN COLUMNA DERECHA -->
+
+
+        </div>
+        <!-- FIN CUERPO -->
+
+
+        <!-- ============================================= -->
+        <!-- BARRA INFERIOR -->
+        <!-- ============================================= -->
+
+        <div class="barra-inferior-opciones">
+
             <button
                 type="button"
-                id="ubicacion-actual"
-                class="usar-ubicacion"
+                class="confirmar-opcion-producto"
+                id="confirmar-opcion-producto"
+                disabled
             >
-
-                ◎ Usar mi ubicación actual
-
+                Selecciona una opción
             </button>
-
-
-            <p id="estado-ubicacion"></p>
-
-
-            <button
-                type="button"
-                class="continuar-direccion"
-                id="continuar-direccion"
-            >
-
-                Continuar
-
-            </button>
-
 
         </div>
 
 
     </div>
+    <!-- FIN CONTENIDO -->
 
+
+</div>
+<!-- FIN MODAL -->
 
     <!-- ============================= -->
     <!-- JAVASCRIPT -->

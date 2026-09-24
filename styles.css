@@ -1598,3 +1598,2436 @@ body {
 .continuar-direccion:disabled:hover {
     background: #353535;
 }
+
+/* ======================================================
+   NUEVO DISEÑO - INFORMACIÓN DEL PEDIDO
+   ====================================================== */
+
+.contenido-informacion {
+    width: min(760px, 92%);
+    max-height: 92vh;
+    overflow-y: auto;
+
+    padding: 30px 34px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #090909
+        );
+
+    border: 1px solid #333;
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.7);
+
+    position: relative;
+}
+
+
+/* ======================================================
+   ENCABEZADO
+   ====================================================== */
+
+.info-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+.info-header h2 {
+    margin: 0 0 9px 0;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    color: #fff;
+}
+
+
+.volver-info {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #191919;
+    color: #fff;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.volver-info:hover {
+    background: #252525;
+    transform: translateX(-2px);
+}
+
+
+/* ======================================================
+   TIPO DE SERVICIO
+   ====================================================== */
+
+.servicio-seleccionado-badge {
+    display: inline-flex;
+    align-items: center;
+
+    width: auto;
+
+    padding: 7px 13px;
+
+    background: rgba(237, 28, 36, 0.14);
+
+    border: 1px solid rgba(237, 28, 36, 0.5);
+    border-radius: 50px;
+
+    color: #ff3b43;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ======================================================
+   RESUMEN DE CUENTA
+   ====================================================== */
+
+.resumen-cuenta-nuevo {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 24px;
+    padding: 14px 16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #171313,
+            #151515
+        );
+
+    border: 1px solid #572326;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.resumen-cuenta-nuevo:hover {
+    border-color: #ed1c24;
+    transform: translateY(-1px);
+}
+
+
+.resumen-icono {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(237, 28, 36, 0.15);
+
+    font-size: 19px;
+}
+
+
+.resumen-info {
+    flex: 1;
+}
+
+
+.resumen-info strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #fff;
+    font-size: 14px;
+}
+
+
+.resumen-info p {
+    margin: 0;
+
+    color: #999;
+    font-size: 12px;
+}
+
+
+.resumen-precio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.resumen-precio strong {
+    color: #ff3038;
+    font-size: 18px;
+}
+
+
+.resumen-precio .flecha-resumen {
+    color: #fff;
+    font-size: 25px;
+}
+
+
+/* ======================================================
+   FILAS DEL FORMULARIO
+   ====================================================== */
+
+.fila-formulario {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+.campo-formulario {
+    min-width: 0;
+}
+
+
+.campo-completo {
+    margin-bottom: 18px;
+}
+
+
+/* ======================================================
+   LABELS
+   ====================================================== */
+
+.campo-formulario label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #f5f5f5;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.opcional {
+    color: #777;
+    font-weight: 400;
+}
+
+
+/* ======================================================
+   INPUTS / SELECTS / TEXTAREA
+   ====================================================== */
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    background: #181818;
+
+    border: 1px solid #383838;
+    border-radius: 9px;
+
+    color: #fff;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.campo-formulario input::placeholder,
+.campo-formulario textarea::placeholder {
+    color: #777;
+}
+
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+
+    background: #1b1b1b;
+
+    border-color: #ed1c24;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(237, 28, 36, 0.1);
+}
+
+
+.campo-formulario select {
+    cursor: pointer;
+}
+
+
+.campo-formulario textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+
+/* ======================================================
+   EFECTIVO
+   ====================================================== */
+
+.datos-efectivo {
+    margin-bottom: 18px;
+
+    padding: 14px;
+
+    background: #151515;
+
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+
+/* ======================================================
+   BOTÓN CONTINUAR
+   ====================================================== */
+
+.continuar-info-nuevo {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 6px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e61922,
+            #ff2832
+        );
+
+    color: #fff;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.continuar-info-nuevo span {
+    font-size: 22px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.continuar-info-nuevo:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(237, 28, 36, 0.25);
+}
+
+
+.continuar-info-nuevo:hover span {
+    transform: translateX(4px);
+}
+
+
+/* ======================================================
+   SCROLL DE LA VENTANA
+   ====================================================== */
+
+.contenido-informacion::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.contenido-informacion::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.contenido-informacion::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 20px;
+}
+
+
+/* ======================================================
+   CELULAR
+   ====================================================== */
+
+@media (max-width: 650px) {
+
+    .contenido-informacion {
+        width: 94%;
+        max-height: 94vh;
+
+        padding: 22px 18px;
+
+        border-radius: 15px;
+    }
+
+
+    .info-header h2 {
+        font-size: 21px;
+    }
+
+
+    .fila-formulario {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .resumen-precio strong {
+        font-size: 15px;
+    }
+
+
+    .resumen-icono {
+        width: 38px;
+        height: 38px;
+    }
+
+}
+/* ======================================================
+   BOTÓN X - CERRAR INFORMACIÓN
+   ====================================================== */
+
+.cerrar-info {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: rgba(12, 12, 12, 0.9);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 28px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.cerrar-info:hover {
+    background: #1f1f1f;
+
+    border-color:
+        rgba(255, 255, 255, 0.35);
+
+    transform: scale(1.05);
+}
+/* ======================================================
+   BOTÓN CONTINUAR DIRECCIÓN - CELULAR
+   SIEMPRE VISIBLE
+   ====================================================== */
+
+@media (max-width: 600px) {
+
+    .continuar-direccion {
+        position: fixed;
+
+        left: 18px;
+        right: 18px;
+
+        bottom: calc(
+            16px + env(safe-area-inset-bottom)
+        );
+
+        width: auto;
+
+        z-index: 4100;
+
+        margin: 0;
+
+        box-shadow:
+            0 8px 25px
+            rgba(0, 0, 0, 0.55);
+    }
+
+
+    .contenido-direccion {
+        padding-bottom: 100px;
+    }
+     }
+
+     /* ======================================================
+   ROLLOS CON VARIANTES
+   ====================================================== */
+
+.producto-con-variante {
+    align-items: flex-end;
+}
+
+.producto-con-variante .producto-info {
+    flex: 1;
+}
+
+
+/* ======================================================
+   SELECTORES DE VARIANTES
+   ====================================================== */
+
+.variante-rollo,
+.variante-california,
+.tipo-california {
+    width: 100%;
+
+    margin-top: 12px;
+    padding: 12px 14px;
+
+    background: #181818;
+    color: #ffffff;
+
+    border: 1px solid #383838;
+    border-radius: 9px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+
+    outline: none;
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.variante-rollo:hover,
+.variante-california:hover,
+.tipo-california:hover {
+    border-color: #555;
+}
+
+
+.variante-rollo:focus,
+.variante-california:focus,
+.tipo-california:focus {
+    border-color: var(--rojo);
+
+    background: #1d1d1d;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(227, 27, 35, 0.12);
+}
+
+
+/* ======================================================
+   OPCIONES DEL SELECT
+   ====================================================== */
+
+.variante-rollo option,
+.variante-california option,
+.tipo-california option {
+    background: #181818;
+    color: #ffffff;
+}
+
+
+/* ======================================================
+   LABELS DE CALIFORNIA
+   ====================================================== */
+
+.producto-california label {
+    display: block;
+
+    margin-top: 12px;
+    margin-bottom: 5px;
+
+    color: #d8d8d8;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ======================================================
+   BOTONES + DE VARIANTES
+   ====================================================== */
+
+.agregar-variante,
+.agregar-california {
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--rojo);
+    color: #ffffff;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.agregar-variante:hover,
+.agregar-california:hover {
+    background: var(--rojo-hover);
+
+    transform: scale(1.07);
+
+    box-shadow:
+        0 5px 15px
+        rgba(227, 27, 35, 0.25);
+}
+
+
+/* ======================================================
+   SUBTÍTULOS DE ROLLOS
+   ====================================================== */
+
+.subtitulo-menu {
+    margin:
+        34px
+        0
+        16px;
+
+    padding-bottom: 8px;
+
+    border-bottom:
+        1px solid #2b2b2b;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   CALIFORNIA MAKY
+   ====================================================== */
+
+.producto-california .producto-info {
+    width: 100%;
+}
+
+
+/* ======================================================
+   CELULAR
+   ====================================================== */
+
+@media (max-width: 600px) {
+
+    .producto-con-variante {
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    .variante-rollo,
+    .variante-california,
+    .tipo-california {
+        font-size: 12px;
+
+        padding:
+            11px
+            12px;
+    }
+
+    .agregar-variante,
+    .agregar-california {
+        width: 40px;
+        height: 40px;
+
+        font-size: 23px;
+    }
+
+    .subtitulo-menu {
+        font-size: 16px;
+
+        margin-top: 28px;
+    }
+
+}
+
+/* ======================================================
+   BOTÓN + PARA PRODUCTOS CON OPCIONES
+   ====================================================== */
+
+.abrir-opciones {
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--rojo);
+    color: white;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 27px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.abrir-opciones:hover {
+    background: var(--rojo-hover);
+    transform: scale(1.07);
+}
+
+
+
+/* ======================================================
+   CONTENIDO
+   ====================================================== */
+.contenido-opciones-producto {
+    width: 96vw;
+    max-width: 1180px;
+
+    height: min(760px, 92vh);
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #101010;
+    color: #ffffff;
+
+    border: 1px solid #292929;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.75);
+}
+
+
+/* ======================================================
+   ENCABEZADO
+   ====================================================== */
+
+.encabezado-opciones-producto {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid #2d2d2d;
+}
+
+
+.encabezado-opciones-producto h2 {
+    margin: 0;
+
+    font-size: 23px;
+}
+
+
+.cerrar-opciones-producto {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        #191919;
+
+    color: white;
+
+    border:
+        1px solid #333;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+
+/* ======================================================
+   INFORMACIÓN
+   ====================================================== */
+
+.info-opciones-producto {
+    padding:
+        20px 0;
+
+    border-bottom:
+        1px solid #2d2d2d;
+}
+
+
+.info-opciones-producto p {
+    margin:
+        0 0 12px;
+
+    color:
+        #aaa;
+
+    font-size:
+        13px;
+}
+
+
+.precio-opciones-producto {
+    color:
+        white;
+
+    font-size:
+        19px;
+}
+
+
+/* ======================================================
+   SECCIÓN DE OPCIONES
+   ====================================================== */
+
+.seccion-opciones-producto {
+    margin-top:
+        20px;
+}
+
+
+.seccion-opciones-producto h3 {
+    margin:
+        0;
+
+    font-size:
+        17px;
+}
+
+
+.texto-seleccion {
+    margin:
+        4px 0 15px;
+
+    color:
+        #888;
+
+    font-size:
+        12px;
+}
+
+
+/* ======================================================
+   OPCIÓN INDIVIDUAL
+   ====================================================== */
+
+.opcion-producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom:
+        10px;
+
+    padding:
+        14px 16px;
+
+    background:
+        #181818;
+
+    border:
+        1px solid #373737;
+
+    border-radius:
+        10px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.opcion-producto:hover {
+    border-color:
+        #555;
+
+    background:
+        #1d1d1d;
+}
+
+
+.opcion-producto.seleccionada {
+    border-color:
+        var(--rojo);
+
+    background:
+        rgba(227, 27, 35, 0.08);
+}
+
+
+.opcion-producto-info {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        3px;
+}
+
+
+.opcion-producto-info strong {
+    font-size:
+        14px;
+}
+
+
+.opcion-producto-info span {
+    color:
+        #aaa;
+
+    font-size:
+        12px;
+}
+
+
+/* RADIO */
+
+.opcion-producto input {
+    width:
+        19px;
+
+    height:
+        19px;
+
+    accent-color:
+        var(--rojo);
+
+    cursor:
+        pointer;
+}
+
+
+/* ======================================================
+   BOTÓN AGREGAR
+   ====================================================== */
+
+.confirmar-opcion-producto {
+    width:
+        100%;
+
+    margin-top:
+        22px;
+
+    padding:
+        15px;
+
+    background:
+        var(--rojo);
+
+    color:
+        white;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.confirmar-opcion-producto:hover:not(:disabled) {
+    background:
+        var(--rojo-hover);
+}
+
+
+.confirmar-opcion-producto:disabled {
+    background:
+        #353535;
+
+    color:
+        #777;
+
+    cursor:
+        not-allowed;
+}
+
+
+/* ======================================================
+   CELULAR
+   ====================================================== */
+
+@media (max-width: 600px) {
+
+    .modal-opciones-producto {
+        padding:
+            0;
+    }
+
+
+    .contenido-opciones-producto {
+        min-height:
+            100vh;
+
+        max-height:
+            100vh;
+
+        border-radius:
+            0;
+
+        padding:
+            20px 18px 100px;
+    }
+
+}
+
+
+
+
+/* ======================================================
+   MODAL PRODUCTO - DISEÑO TIPO APP DE COMIDA
+   ====================================================== */
+
+.modal-opciones-producto {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 18px;
+
+    z-index: 6000;
+}
+
+
+/* ======================================================
+   VENTANA PRINCIPAL
+   ====================================================== */
+
+.contenido-opciones-producto {
+    width: min(1180px, 96vw);
+    height: min(760px, 92vh);
+
+    display: flex;
+    flex-direction: column;
+
+    background: #101010;
+    color: #ffffff;
+
+    border: 1px solid #292929;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.75);
+}
+
+
+/* ======================================================
+   BARRA SUPERIOR
+   ====================================================== */
+
+.barra-superior-opciones {
+    height: 72px;
+
+    display: grid;
+
+    grid-template-columns:
+        48px
+        1fr
+        48px;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        0
+        24px;
+
+    background: #111111;
+
+    border-bottom:
+        1px solid #292929;
+}
+
+
+.barra-superior-opciones h2 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+
+.espacio-derecha-opciones {
+    width: 48px;
+    height: 48px;
+}
+
+
+/* ======================================================
+   FLECHA ATRÁS
+   ====================================================== */
+
+.cerrar-opciones-producto {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: #181818;
+    color: #ffffff;
+
+    border:
+        1px solid #343434;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.cerrar-opciones-producto:hover {
+    background: #252525;
+
+    transform:
+        translateX(-2px);
+}
+
+
+/* ======================================================
+   CUERPO
+   ====================================================== */
+.cuerpo-opciones-producto {
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(320px, 420px)
+        minmax(0, 1fr);
+
+    gap: 34px;
+
+    padding:
+        24px
+        38px;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+}
+/* ======================================================
+   COLUMNA DE IMAGEN
+   ====================================================== */
+
+.columna-imagen-producto {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    min-width: 0;
+}
+
+
+.imagen-opciones-producto-box {
+    position: relative;
+
+    width: 100%;
+    height: 360px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #111111
+        );
+
+    border:
+        1px solid #303030;
+
+    border-radius: 12px;
+}
+
+
+#imagen-opciones-producto {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Si todavía no tenemos imagen */
+#imagen-opciones-producto[src=""] {
+    display: none;
+}
+
+
+#imagen-opciones-producto[src=""]
++
+.placeholder-imagen-producto {
+    display: flex;
+}
+
+
+.placeholder-imagen-producto {
+    display: none;
+
+    position: absolute;
+    inset: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #666666;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-align: center;
+}
+
+
+/* ======================================================
+   COLUMNA DERECHA
+   ====================================================== */
+
+.columna-detalles-producto {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+}
+
+
+/* ======================================================
+   INFORMACIÓN
+   ====================================================== */
+
+.info-opciones-producto {
+    padding:
+        8px
+        0
+        20px;
+
+    border-bottom:
+        1px solid #2b2b2b;
+}
+
+
+.info-opciones-producto p {
+    margin:
+        0
+        0
+        12px;
+
+    color: #a5a5a5;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.precio-opciones-producto {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   SECCIÓN DE OPCIONES
+   ====================================================== */
+
+.seccion-opciones-producto {
+    flex: 1;
+
+    margin-top: 18px;
+
+    padding-right: 5px;
+
+    min-height: 0;
+
+    overflow-y: auto;
+}
+
+
+.seccion-opciones-producto h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.texto-seleccion {
+    margin:
+        4px
+        0
+        15px;
+
+    color: #888888;
+
+    font-size: 12px;
+}
+
+
+/* ======================================================
+   OPCIONES EN 2 COLUMNAS
+   ====================================================== */
+
+.lista-opciones-producto {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 10px;
+}
+
+
+/* ======================================================
+   TARJETA DE OPCIÓN
+   ====================================================== */
+
+.opcion-producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    min-height: 70px;
+
+    padding:
+        12px
+        14px;
+
+    margin: 0;
+
+    background: #181818;
+
+    border:
+        1px solid #373737;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.opcion-producto:hover {
+    background: #1e1e1e;
+
+    border-color: #555555;
+}
+
+
+/* OPCIÓN SELECCIONADA */
+
+.opcion-producto.seleccionada {
+    background:
+        rgba(
+            227,
+            27,
+            35,
+            0.10
+        );
+
+    border-color:
+        var(--rojo);
+}
+
+
+/* ======================================================
+   TEXTO DE OPCIÓN
+   ====================================================== */
+
+.opcion-producto-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.opcion-producto-info strong {
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+
+.opcion-producto-info span {
+    color: #aaaaaa;
+
+    font-size: 12px;
+}
+
+
+.opcion-producto.seleccionada
+.opcion-producto-info span {
+    color: #ff5b62;
+}
+
+
+/* ======================================================
+   RADIO
+   ====================================================== */
+
+.opcion-producto input {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    accent-color:
+        var(--rojo);
+
+    cursor: pointer;
+}
+
+
+/* ======================================================
+   BARRA INFERIOR
+   ====================================================== */
+
+.barra-inferior-opciones {
+    display: flex;
+    justify-content: center;
+
+    padding:
+        14px
+        24px;
+
+    background: #111111;
+
+    border-top:
+        1px solid #292929;
+}
+
+
+/* ======================================================
+   BOTÓN AGREGAR
+   ====================================================== */
+
+.confirmar-opcion-producto {
+    width: min(
+        360px,
+        100%
+    );
+
+    height: 52px;
+
+    margin: 0;
+
+    background:
+        var(--rojo);
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.confirmar-opcion-producto:hover:not(:disabled) {
+    background:
+        var(--rojo-hover);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.confirmar-opcion-producto:disabled {
+    background: #343434;
+
+    color: #777777;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ======================================================
+   SCROLL
+   ====================================================== */
+
+.seccion-opciones-producto::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.seccion-opciones-producto::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.seccion-opciones-producto::-webkit-scrollbar-thumb {
+    background: #3d3d3d;
+
+    border-radius: 20px;
+}
+
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 900px) {
+
+    .contenido-opciones-producto {
+        height: 94vh;
+    }
+
+
+    .cuerpo-opciones-producto {
+        grid-template-columns:
+            320px
+            1fr;
+
+        gap: 22px;
+
+        padding:
+            20px;
+    }
+
+
+    .imagen-opciones-producto-box {
+        height: 300px;
+    }
+
+
+    .lista-opciones-producto {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* ======================================================
+   CELULAR
+   ====================================================== */
+
+@media (max-width: 600px) {
+
+    .modal-opciones-producto {
+        padding: 0;
+    }
+
+
+    .contenido-opciones-producto {
+        width: 100%;
+        height: 100%;
+
+        max-height: 100vh;
+
+        border: none;
+        border-radius: 0;
+    }
+
+
+    .barra-superior-opciones {
+        height: 65px;
+
+        padding:
+            0
+            16px;
+    }
+
+
+    .barra-superior-opciones h2 {
+        font-size: 18px;
+    }
+
+
+    .cuerpo-opciones-producto {
+        display: block;
+
+        padding:
+            16px;
+
+        overflow-y: auto;
+    }
+
+
+    .columna-imagen-producto {
+        margin-bottom: 20px;
+    }
+
+
+    .imagen-opciones-producto-box {
+        height: 230px;
+    }
+
+
+    .info-opciones-producto {
+        padding-top: 0;
+    }
+
+
+    .precio-opciones-producto {
+        font-size: 22px;
+    }
+
+
+    .seccion-opciones-producto {
+        overflow: visible;
+
+        margin-bottom: 20px;
+    }
+
+
+    .lista-opciones-producto {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .opcion-producto {
+        min-height: 65px;
+    }
+
+
+    .barra-inferior-opciones {
+        padding:
+            12px
+            16px
+            calc(
+                12px +
+                env(
+                    safe-area-inset-bottom
+                )
+            );
+    }
+
+
+    .confirmar-opcion-producto {
+        width: 100%;
+    }
+
+}
+
+/* ======================================================
+   COMENTARIOS DEL PRODUCTO
+   ====================================================== */
+
+.comentarios-producto {
+    margin-top: 18px;
+}
+
+.comentarios-producto label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.comentarios-producto label span {
+    color: #777777;
+    font-weight: 400;
+}
+
+.comentarios-producto textarea {
+    width: 100%;
+    min-height: 80px;
+
+    padding: 12px 14px;
+
+    background: #181818;
+    color: #ffffff;
+
+    border: 1px solid #373737;
+    border-radius: 8px;
+
+    outline: none;
+    resize: none;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
+
+.comentarios-producto textarea::placeholder {
+    color: #777777;
+}
+
+.comentarios-producto textarea:focus {
+    border-color: var(--rojo);
+}
+/* ======================================================
+   MEJORA VISUAL - MODAL DE PRODUCTO
+   ====================================================== */
+
+.modal-opciones-producto {
+    background:
+        rgba(0, 0, 0, 0.94);
+
+    backdrop-filter:
+        blur(4px);
+}
+
+
+/* ======================================================
+   VENTANA PRINCIPAL
+   ====================================================== */
+
+.contenido-opciones-producto {
+    width: min(1120px, 94vw);
+    height: min(720px, 90vh);
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #0b0b0b
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 35px 100px
+        rgba(0, 0, 0, 0.8);
+}
+
+
+/* ======================================================
+   ENCABEZADO
+   ====================================================== */
+
+.barra-superior-opciones {
+    height: 76px;
+
+    padding:
+        0
+        28px;
+
+    background:
+        rgba(17, 17, 17, 0.95);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.barra-superior-opciones h2 {
+    font-size: 23px;
+    letter-spacing: -0.3px;
+}
+
+
+.cerrar-opciones-producto {
+    width: 42px;
+    height: 42px;
+
+    background:
+        #191919;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    font-size: 21px;
+}
+
+
+.cerrar-opciones-producto:hover {
+    background:
+        var(--rojo);
+
+    border-color:
+        var(--rojo);
+
+    transform:
+        translateX(-2px);
+}
+
+
+/* ======================================================
+   CUERPO
+   ====================================================== */
+
+.cuerpo-opciones-producto {
+    grid-template-columns:
+        minmax(320px, 400px)
+        minmax(0, 1fr);
+
+    gap: 42px;
+
+    padding:
+        30px
+        36px;
+}
+
+
+/* ======================================================
+   IMAGEN
+   ====================================================== */
+
+.imagen-opciones-producto-box {
+    width: 100%;
+    height: 390px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #1c1c1c,
+            #111111
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 18px 40px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+.placeholder-imagen-producto {
+    color: #555;
+
+    font-size: 13px;
+}
+
+
+/* ======================================================
+   INFORMACIÓN DEL PRODUCTO
+   ====================================================== */
+
+.info-opciones-producto {
+    padding:
+        3px
+        0
+        18px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.info-opciones-producto p {
+    margin-bottom: 10px;
+
+    color: #aaaaaa;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+.precio-opciones-producto {
+    color: var(--rojo);
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   TÍTULO DE OPCIONES
+   ====================================================== */
+
+.seccion-opciones-producto {
+    margin-top: 18px;
+
+    padding-right: 6px;
+}
+
+
+.seccion-opciones-producto h3 {
+    font-size: 17px;
+
+    margin-bottom: 2px;
+}
+
+
+.texto-seleccion {
+    margin:
+        3px
+        0
+        13px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+/* ======================================================
+   CUADRÍCULA
+   ====================================================== */
+
+.lista-opciones-producto {
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 9px;
+}
+
+
+/* ======================================================
+   OPCIONES
+   ====================================================== */
+
+.opcion-producto {
+    min-height: 66px;
+
+    padding:
+        11px
+        14px;
+
+    background:
+        #171717;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.11);
+
+    border-radius: 11px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.opcion-producto:hover {
+    background:
+        #1e1e1e;
+
+    border-color:
+        rgba(255, 255, 255, 0.22);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* OPCIÓN ELEGIDA */
+
+.opcion-producto.seleccionada {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(227, 27, 35, 0.17),
+            rgba(227, 27, 35, 0.05)
+        );
+
+    border-color:
+        var(--rojo);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(227, 27, 35, 0.20);
+}
+
+
+.opcion-producto-info strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.opcion-producto-info span {
+    color: #8f8f8f;
+
+    font-size: 11px;
+}
+
+
+.opcion-producto.seleccionada
+.opcion-producto-info span {
+    color: #ff6a70;
+}
+
+
+/* ======================================================
+   RADIO
+   ====================================================== */
+
+.opcion-producto input {
+    width: 17px;
+    height: 17px;
+
+    accent-color:
+        var(--rojo);
+}
+
+
+/* ======================================================
+   COMENTARIOS
+   ====================================================== */
+
+.comentarios-producto {
+    margin-top: 16px;
+
+    flex-shrink: 0;
+}
+
+
+.comentarios-producto label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.comentarios-producto label span {
+    color: #707070;
+
+    font-weight: 400;
+}
+
+
+.comentarios-producto textarea {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 70px;
+
+    padding:
+        11px
+        13px;
+
+    background:
+        #171717;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 10px;
+
+    outline: none;
+    resize: none;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.comentarios-producto textarea::placeholder {
+    color: #666;
+}
+
+
+.comentarios-producto textarea:focus {
+    background:
+        #1b1b1b;
+
+    border-color:
+        var(--rojo);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(227, 27, 35, 0.08);
+}
+
+
+/* ======================================================
+   BARRA INFERIOR
+   ====================================================== */
+
+.barra-inferior-opciones {
+    min-height: 78px;
+
+    padding:
+        13px
+        28px;
+
+    align-items: center;
+
+    background:
+        rgba(14, 14, 14, 0.98);
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* ======================================================
+   BOTÓN AGREGAR
+   ====================================================== */
+
+.confirmar-opcion-producto {
+    width:
+        min(
+            400px,
+            100%
+        );
+
+    height: 52px;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rojo),
+            #ff3038
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(227, 27, 35, 0.20);
+
+    font-size: 14px;
+}
+
+
+.confirmar-opcion-producto:hover:not(:disabled) {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(227, 27, 35, 0.28);
+}
+
+
+.confirmar-opcion-producto:disabled {
+    background:
+        #303030;
+
+    box-shadow:
+        none;
+
+    color:
+        #777;
+}
+
+
+/* ======================================================
+   SCROLL MÁS DISCRETO
+   ====================================================== */
+
+.seccion-opciones-producto::-webkit-scrollbar {
+    width: 4px;
+}
+
+
+.seccion-opciones-producto::-webkit-scrollbar-thumb {
+    background:
+        #444;
+
+    border-radius:
+        20px;
+}
+
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 900px) {
+
+    .cuerpo-opciones-producto {
+        grid-template-columns:
+            300px
+            minmax(0, 1fr);
+
+        gap: 24px;
+
+        padding:
+            22px;
+    }
+
+
+    .imagen-opciones-producto-box {
+        height: 320px;
+    }
+
+}
+
+
+/* ======================================================
+   CELULAR
+   ====================================================== */
+
+@media (max-width: 600px) {
+
+    .contenido-opciones-producto {
+        width: 100%;
+        height: 100%;
+
+        border-radius: 0;
+    }
+
+
+    .barra-superior-opciones {
+        height: 64px;
+
+        padding:
+            0
+            16px;
+    }
+
+
+    .cuerpo-opciones-producto {
+        display: block;
+
+        padding:
+            16px;
+
+        overflow-y: auto;
+    }
+
+
+    .imagen-opciones-producto-box {
+        height: 220px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .lista-opciones-producto {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .opcion-producto {
+        min-height: 62px;
+    }
+
+
+    .comentarios-producto textarea {
+        height: 75px;
+    }
+
+
+    .barra-inferior-opciones {
+        padding:
+            11px
+            16px
+            calc(
+                11px +
+                env(safe-area-inset-bottom)
+            );
+    }
+
+
+    .confirmar-opcion-producto {
+        width: 100%;
+    }
+
+}

@@ -17,6 +17,8 @@ let latitudCliente = null;
 let longitudCliente = null;
 let usoUbicacionActual = false;
 let direccionValidaCoacalco = false;
+let productoOpcionesActual = null;
+let opcionProductoActual = null;
 
 let direccionUbicacionActual = "";
 
@@ -27,6 +29,16 @@ let direccionUbicacionActual = "";
 
 const botonesAgregar =
     document.querySelectorAll(".agregar");
+
+const botonesAgregarVariante =
+    document.querySelectorAll(
+        ".agregar-variante"
+    );
+
+const botonesAgregarCalifornia =
+    document.querySelectorAll(
+        ".agregar-california"
+    );
 
 const contador =
     document.getElementById("cantidad-carrito");
@@ -82,8 +94,114 @@ const totalCuentaResumen =
     document.getElementById(
         "total-cuenta-resumen"
     );
+const botonesAbrirOpciones =
+    document.querySelectorAll(
+        ".abrir-opciones"
+    );
 
+const modalOpcionesProducto =
+    document.getElementById(
+        "modal-opciones-producto"
+    );
 
+const cerrarOpcionesProducto =
+    document.getElementById(
+        "cerrar-opciones-producto"
+    );
+
+const tituloOpcionesProducto =
+    document.getElementById(
+        "titulo-opciones-producto"
+    );
+
+const descripcionOpcionesProducto =
+    document.getElementById(
+        "descripcion-opciones-producto"
+    );
+
+const precioOpcionesProducto =
+    document.getElementById(
+        "precio-opciones-producto"
+    );
+
+const listaOpcionesProducto =
+    document.getElementById(
+        "lista-opciones-producto"
+    );
+
+const confirmarOpcionProducto =
+    document.getElementById(
+        "confirmar-opcion-producto"
+    );
+
+const comentarioOpcionesProducto =
+    document.getElementById(
+        "comentario-opciones-producto"
+    );
+
+    // ======================================================
+// PRODUCTOS CON OPCIONES
+// ======================================================
+
+const productosConOpciones = {
+
+    "Avocado Maky": {
+
+        descripcion:
+            "Rollo envuelto en aguacate.",
+
+        // Cuando tengamos la imagen,
+        // aquí pondremos por ejemplo:
+        // "img/avocado-maky.jpg"
+        imagen: "",
+
+        opciones: [
+
+            {
+                nombre: "Vegetariano",
+                precio: 119
+            },
+
+            {
+                nombre: "Cangrejo",
+                precio: 131
+            },
+
+            {
+                nombre: "Salmón",
+                precio: 131
+            },
+
+            {
+                nombre: "Salmón ahumado",
+                precio: 139
+            },
+
+            {
+                nombre: "Tampico",
+                precio: 128
+            },
+
+            {
+                nombre: "Camarón",
+                precio: 131
+            },
+
+            {
+                nombre: "Pulpo",
+                precio: 147
+            },
+
+            {
+                nombre: "Anguila",
+                precio: 143
+            }
+
+        ]
+
+    }
+
+};
 // ======================================================
 // ELEMENTOS DE INFORMACIÓN
 // ======================================================
@@ -96,6 +214,11 @@ const modalInformacion =
 const volverInfo =
     document.getElementById(
         "volver-info"
+    );
+
+    const cerrarInfo =
+    document.getElementById(
+        "cerrar-info"
     );
 
 const continuarInfo =
@@ -126,6 +249,11 @@ const datosEfectivo =
 const pagaConInput =
     document.getElementById(
         "paga-con"
+    );
+
+const imagenOpcionesProducto =
+    document.getElementById(
+        "imagen-opciones-producto"
     );
 
 
@@ -355,7 +483,572 @@ botonesAgregar.forEach(
 
     }
 );
+// ======================================================
+// ABRIR OPCIONES DEL PRODUCTO
+// ======================================================
 
+botonesAbrirOpciones.forEach(
+    function(boton) {
+
+        boton.addEventListener(
+            "click",
+            function() {
+
+                const nombreProducto =
+                    boton.dataset.producto;
+
+
+                const producto =
+                    productosConOpciones[
+                        nombreProducto
+                    ];
+
+
+                if (!producto) {
+                    return;
+                }
+
+
+                productoOpcionesActual =
+                    nombreProducto;
+
+
+                opcionProductoActual =
+                    null;
+
+
+                tituloOpcionesProducto
+                    .textContent =
+                    nombreProducto;
+
+
+                descripcionOpcionesProducto
+                    .textContent =
+                    producto.descripcion;
+
+                    comentarioOpcionesProducto.value = "";
+
+
+                precioOpcionesProducto
+                    .textContent =
+                    "Selecciona una opción";
+
+
+                confirmarOpcionProducto
+                    .textContent =
+                    "Selecciona una opción";
+
+
+                confirmarOpcionProducto
+                    .disabled =
+                    true;
+
+
+                listaOpcionesProducto
+                    .innerHTML =
+                    "";
+
+
+                producto.opciones.forEach(
+                    function(opcion) {
+
+                        const contenedor =
+                            document.createElement(
+                                "label"
+                            );
+
+
+                        contenedor.className =
+                            "opcion-producto";
+
+
+                        contenedor.innerHTML =
+                            `
+
+                            <div class="opcion-producto-info">
+
+                                <strong>
+                                    ${opcion.nombre}
+                                </strong>
+
+                                <span>
+                                    MXN $${opcion.precio}
+                                </span>
+
+                            </div>
+
+
+                            <input
+                                type="radio"
+                                name="opcion-producto"
+                                value="${opcion.nombre}"
+                            >
+
+                            `;
+
+
+                        const radio =
+                            contenedor
+                                .querySelector(
+                                    "input"
+                                );
+
+
+                        radio.addEventListener(
+                            "change",
+                            function() {
+
+                                document
+                                    .querySelectorAll(
+                                        ".opcion-producto"
+                                    )
+                                    .forEach(
+                                        function(item) {
+
+                                            item
+                                                .classList
+                                                .remove(
+                                                    "seleccionada"
+                                                );
+
+                                        }
+                                    );
+
+
+                                contenedor
+                                    .classList
+                                    .add(
+                                        "seleccionada"
+                                    );
+
+
+                                opcionProductoActual =
+                                    opcion;
+
+
+                                precioOpcionesProducto
+                                    .textContent =
+                                    `MXN $${opcion.precio}`;
+
+
+                                confirmarOpcionProducto
+                                    .textContent =
+                                    `Agregar MXN $${opcion.precio}`;
+
+
+                                confirmarOpcionProducto
+                                    .disabled =
+                                    false;
+
+                            }
+                        );
+
+
+                        listaOpcionesProducto
+                            .appendChild(
+                                contenedor
+                            );
+
+                    }
+                );
+
+
+                modalOpcionesProducto
+                    .style.display =
+                    "flex";
+
+            }
+        );
+
+    }
+);
+
+// ======================================================
+// AGREGAR OPCIÓN AL CARRITO
+// ======================================================
+
+if (confirmarOpcionProducto) {
+
+    confirmarOpcionProducto
+        .addEventListener(
+            "click",
+            function() {
+
+                if (
+                    !productoOpcionesActual ||
+                    !opcionProductoActual
+                ) {
+
+                    return;
+
+                }
+
+
+                const nombreProducto =
+                    `${productoOpcionesActual} (${opcionProductoActual.nombre})`;
+
+
+                const precio =
+                    opcionProductoActual
+                        .precio;
+
+
+                cantidadCarrito++;
+
+
+                totalCarrito +=
+                    precio;
+
+
+                if (
+                    pedido[nombreProducto]
+                ) {
+
+                    pedido[nombreProducto]
+                        .cantidad++;
+
+                } else {
+
+                    pedido[nombreProducto] = {
+
+                        precio: precio,
+
+                        cantidad: 1
+
+                    };
+
+                }
+
+
+                actualizarPedido();
+
+
+                modalOpcionesProducto
+                    .style.display =
+                    "none";
+
+
+                productoOpcionesActual =
+                    null;
+
+
+                opcionProductoActual =
+                    null;
+
+            }
+        );
+
+}
+
+// ======================================================
+// CERRAR OPCIONES
+// ======================================================
+
+if (cerrarOpcionesProducto) {
+
+    cerrarOpcionesProducto
+        .addEventListener(
+            "click",
+            function() {
+
+                modalOpcionesProducto
+                    .style.display =
+                    "none";
+
+            }
+        );
+
+}
+
+// ======================================================
+// AGREGAR ROLLOS CON VARIANTE
+// ======================================================
+
+botonesAgregarVariante.forEach(
+    function(boton) {
+
+        boton.addEventListener(
+            "click",
+            function() {
+
+                const tarjeta =
+                    boton.closest(
+                        ".producto-con-variante"
+                    );
+
+                const select =
+                    tarjeta.querySelector(
+                        ".variante-rollo"
+                    );
+
+
+                // ==========================
+                // VALIDAR OPCIÓN
+                // ==========================
+
+                if (
+                    !select ||
+                    select.value === ""
+                ) {
+
+                    alert(
+                        "Selecciona una opción para este rollo."
+                    );
+
+                    return;
+
+                }
+
+
+                // ==========================
+                // OBTENER DATOS
+                // ==========================
+
+                const opcionSeleccionada =
+                    select.options[
+                        select.selectedIndex
+                    ];
+
+
+                const precio =
+                    Number(
+                        opcionSeleccionada
+                            .dataset
+                            .precio
+                    );
+
+
+                const nombreBase =
+                    select.dataset.producto;
+
+
+                const variante =
+                    select.value;
+
+
+                /*
+                    Ejemplo:
+
+                    Avocado Maky (Pulpo)
+                */
+
+                const nombreProducto =
+                    `${nombreBase} (${variante})`;
+
+
+                // ==========================
+                // AGREGAR AL CARRITO
+                // ==========================
+
+                cantidadCarrito++;
+
+
+                totalCarrito +=
+                    precio;
+
+
+                if (
+                    pedido[nombreProducto]
+                ) {
+
+                    pedido[nombreProducto]
+                        .cantidad++;
+
+                } else {
+
+                    pedido[nombreProducto] = {
+
+                        precio: precio,
+
+                        cantidad: 1
+
+                    };
+
+                }
+
+
+                actualizarPedido();
+
+            }
+        );
+
+    }
+);
+
+
+// ======================================================
+// AGREGAR CALIFORNIA MAKY
+// ======================================================
+
+botonesAgregarCalifornia.forEach(
+    function(boton) {
+
+        boton.addEventListener(
+            "click",
+            function() {
+
+                const tarjeta =
+                    boton.closest(
+                        ".producto-california"
+                    );
+
+
+                const rellenoSelect =
+                    tarjeta.querySelector(
+                        ".variante-california"
+                    );
+
+
+                const tipoSelect =
+                    tarjeta.querySelector(
+                        ".tipo-california"
+                    );
+
+
+                // ==========================
+                // VALIDAR RELLENO
+                // ==========================
+
+                if (
+                    rellenoSelect.value === ""
+                ) {
+
+                    alert(
+                        "Selecciona el relleno del California Maky."
+                    );
+
+                    return;
+
+                }
+
+
+                // ==========================
+                // VALIDAR PRESENTACIÓN
+                // ==========================
+
+                if (
+                    tipoSelect.value === ""
+                ) {
+
+                    alert(
+                        "Selecciona si deseas el California Maky Normal o Especial."
+                    );
+
+                    return;
+
+                }
+
+
+                // ==========================
+                // DATOS DE LA OPCIÓN
+                // ==========================
+
+                const opcionSeleccionada =
+                    rellenoSelect.options[
+                        rellenoSelect
+                            .selectedIndex
+                    ];
+
+
+                const relleno =
+                    rellenoSelect.value;
+
+
+                const tipo =
+                    tipoSelect.value;
+
+
+                let precio = 0;
+
+
+                // ==========================
+                // PRECIO NORMAL
+                // ==========================
+
+                if (
+                    tipo === "normal"
+                ) {
+
+                    precio =
+                        Number(
+                            opcionSeleccionada
+                                .dataset
+                                .precioNormal
+                        );
+
+                }
+
+
+                // ==========================
+                // PRECIO ESPECIAL
+                // ==========================
+
+                if (
+                    tipo === "especial"
+                ) {
+
+                    precio =
+                        Number(
+                            opcionSeleccionada
+                                .dataset
+                                .precioEspecial
+                        );
+
+                }
+
+
+                // ==========================
+                // NOMBRE PARA EL CARRITO
+                // ==========================
+
+                const tipoTexto =
+                    tipo === "normal"
+                        ? "Normal"
+                        : "Especial";
+
+
+                const nombreProducto =
+                    `California Maky (${relleno} - ${tipoTexto})`;
+
+
+                // ==========================
+                // AGREGAR AL CARRITO
+                // ==========================
+
+                cantidadCarrito++;
+
+
+                totalCarrito +=
+                    precio;
+
+
+                if (
+                    pedido[nombreProducto]
+                ) {
+
+                    pedido[nombreProducto]
+                        .cantidad++;
+
+                } else {
+
+                    pedido[nombreProducto] = {
+
+                        precio: precio,
+
+                        cantidad: 1
+
+                    };
+
+                }
+
+
+                actualizarPedido();
+
+            }
+        );
+
+    }
+);
 
 // ======================================================
 // ACTUALIZAR CARRITO
@@ -760,6 +1453,24 @@ if (volverInfo) {
 
 }
 
+// ======================================================
+// CERRAR INFORMACIÓN CON X
+// MISMO COMPORTAMIENTO QUE LA FLECHA
+// ======================================================
+
+if (cerrarInfo) {
+
+    cerrarInfo.addEventListener(
+        "click",
+        function() {
+
+            modalInformacion.style.display =
+                "none";
+
+        }
+    );
+
+}
 
 // ======================================================
 // MÉTODO DE PAGO / EFECTIVO
