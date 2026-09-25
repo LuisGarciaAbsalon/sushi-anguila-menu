@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -9,6 +10,10 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
+
+    <!-- ====================================================== -->
+    <!-- FUENTE -->
+    <!-- ====================================================== -->
 
     <link
         rel="preconnect"
@@ -22,16 +27,34 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
+
+
+    <!-- ====================================================== -->
+    <!-- ICONOS -->
+    <!-- ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- ====================================================== -->
+    <!-- ESTILOS -->
+    <!-- ====================================================== -->
 
     <link
         rel="stylesheet"
         href="styles.css"
     >
 
-    <title>Anguila Sushi</title>
+
+    <title>
+        Anguila Sushi
+    </title>
 
 </head>
 
@@ -39,9 +62,9 @@
 <body>
 
 
-    <!-- ============================= -->
-    <!-- ENCABEZADO -->
-    <!-- ============================= -->
+    <!-- ====================================================== -->
+    <!-- LOGO PRINCIPAL -->
+    <!-- ====================================================== -->
 
     <header class="encabezado">
 
@@ -54,20 +77,98 @@
     </header>
 
 
-    <!-- ============================= -->
+
+    <!-- ====================================================== -->
     <!-- CONTENIDO PRINCIPAL -->
-    <!-- ============================= -->
+    <!-- ====================================================== -->
 
     <main>
 
 
-        <!-- ============================= -->
-        <!-- CATEGORÍAS -->
-        <!-- ============================= -->
+        <!-- ================================================== -->
+        <!-- INFORMACIÓN RÁPIDA DEL NEGOCIO -->
+        <!-- ================================================== -->
+
+        <section class="barra-negocio">
+
+
+            <!-- ESTADO -->
+
+            <div
+                class="estado-negocio abierto"
+                id="estado-tienda"
+            >
+
+                <span class="punto-estado"></span>
+
+                <span id="texto-estado">
+                    Abierto
+                </span>
+
+            </div>
+
+
+            <!-- UBICACIÓN -->
+
+            <div class="dato-negocio">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+
+                    <strong>
+                        Ubicación
+                    </strong>
+
+                    <span>
+                        Coacalco, Estado de México
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/525532727920?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Anguila%20Sushi"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="whatsapp-negocio"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <span>
+                    WhatsApp
+                </span>
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- ================================================== -->
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <!-- ================================================== -->
 
         <section class="categorias">
 
-            <h2>Categorías</h2>
+            <div class="categorias-encabezado">
+
+                <span class="categorias-etiqueta">
+                    MENÚ
+                </span>
+
+                <h2>
+                    ¿Qué se te antoja?
+                </h2>
+
+            </div>
+
 
             <div class="lista-categorias">
 
@@ -78,12 +179,14 @@
                     Entradas
                 </a>
 
+
                 <a
                     href="#rollos"
                     class="categoria-btn"
                 >
                     Rollos
                 </a>
+
 
                 <a
                     href="#yakimeshi"
@@ -92,12 +195,14 @@
                     Yakimeshi
                 </a>
 
+
                 <a
                     href="#sopas"
                     class="categoria-btn"
                 >
                     Sopas
                 </a>
+
 
                 <a
                     href="#postres"
@@ -111,1356 +216,1729 @@
         </section>
 
 
-        <!-- ============================= -->
+
+        <!-- ================================================== -->
         <!-- ENTRADAS -->
-        <!-- ============================= -->
+        <!-- ================================================== -->
 
         <section
             class="menu"
             id="entradas"
         >
 
-            <h2>Entradas</h2>
+            <div class="titulo-seccion">
+
+                <span>
+                    PARA EMPEZAR
+                </span>
+
+                <h2>
+                    Entradas
+                </h2>
+
+            </div>
 
 
-            <article class="producto">
-
-                <div class="producto-info">
-
-                    <h3>Edamames</h3>
-
-                    <p>
-                        Frijol de soya tierno al vapor o asado.
-                    </p>
-
-                    <span>
-                        $75
-                    </span>
-
-                </div>
+            <div class="productos-grid entradas-grid">
 
 
-                <button
-                    class="agregar"
-                    data-nombre="Edamames"
-                    data-precio="75"
-                >
-                    +
-                </button>
+                <!-- ========================================== -->
+                <!-- EDAMAMES -->
+                <!-- ========================================== -->
 
-            </article>
+                <article class="producto">
+
+                    <div class="producto-info">
+
+                        <h3>
+                            Edamames
+                        </h3>
+
+                        <p>
+                            Frijol de soya tierno al vapor o asado.
+                        </p>
+
+                        <span>
+                            $75
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="agregar"
+                        data-nombre="Edamames"
+                        data-precio="75"
+                        aria-label="Agregar Edamames"
+                    >
+                        +
+                    </button>
+
+                </article>
+
+
+            </div>
 
         </section>
 
 
-        <!-- ============================= -->
-<!-- ROLLOS -->
-<!-- ============================= -->
 
-<section
-    class="menu"
-    id="rollos"
->
+        <!-- ================================================== -->
+        <!-- ROLLOS -->
+        <!-- ================================================== -->
 
-    <h2>Rollos</h2>
-
-
-    <!-- ================================================= -->
-    <!-- ROLLOS TRADICIONALES -->
-    <!-- ================================================= -->
-
-    <h3 class="subtitulo-menu">
-        Rollos Tradicionales
-    </h3>
-
-
-
-    <!-- KAPPA MAKY -->
-
-    <article class="producto">
-
-        <div class="producto-info">
-
-            <h3>
-                Kappa Maky
-            </h3>
-
-            <p>
-                Pepino.
-            </p>
-
-            <span>
-                $66
-            </span>
-
-        </div>
-
-        <button
-            class="agregar"
-            data-nombre="Kappa Maky"
-            data-precio="66"
+        <section
+            class="menu menu-rollos"
+            id="rollos"
         >
-            +
-        </button>
 
-    </article>
 
+            <!-- ============================================== -->
+            <!-- TÍTULO -->
+            <!-- ============================================== -->
 
-    <!-- TEKKA MAKY -->
+            <div class="titulo-seccion">
 
-    <article class="producto">
+                <span>
+                    NUESTRO MENÚ
+                </span>
 
-        <div class="producto-info">
-
-            <h3>
-                Tekka Maky
-            </h3>
-
-            <p>
-                Atún.
-            </p>
-
-            <span>
-                $74
-            </span>
-
-        </div>
-
-        <button
-            class="agregar"
-            data-nombre="Tekka Maky"
-            data-precio="74"
-        >
-            +
-        </button>
-
-    </article>
-
-
-    <!-- TAMPICO MAKY -->
-
-    <article class="producto">
-
-        <div class="producto-info">
-
-            <h3>
-                Tampico Maky
-            </h3>
-
-            <p>
-                Rollo tradicional.
-            </p>
-
-            <span>
-                $76
-            </span>
-
-        </div>
-
-        <button
-            class="agregar"
-            data-nombre="Tampico Maky"
-            data-precio="76"
-        >
-            +
-        </button>
-
-    </article>
-
-
-
-    <!-- ================================================= -->
-    <!-- ROLLOS CLÁSICOS -->
-    <!-- ================================================= -->
-
-    <h3 class="subtitulo-menu">
-        Rollos Clásicos
-    </h3>
-
-<!-- ================================================= -->
-<!-- AVOCADO MAKY -->
-<!-- ================================================= -->
-
-<article class="producto">
-
-    <div class="producto-info">
-
-        <h3>
-            Avocado Maky
-        </h3>
-
-        <p>
-            Rollo envuelto en aguacate.
-        </p>
-
-        <span>
-            Desde $119
-        </span>
-
-    </div>
-
-    <button
-        type="button"
-        class="abrir-opciones"
-        data-producto="Avocado Maky"
-    >
-        +
-    </button>
-
-</article>
-    <!-- ================================================= -->
-    <!-- NEVADO MAKY -->
-    <!-- ================================================= -->
-
-    <article class="producto producto-con-variante">
-
-        <div class="producto-info">
-
-            <h3>
-                Nevado Maky
-            </h3>
-
-            <p>
-                Rollo envuelto en queso.
-            </p>
-
-            <select
-                class="variante-rollo"
-                data-producto="Nevado Maky"
-            >
-
-                <option value="">
-                    Selecciona una opción
-                </option>
-
-                <option
-                    value="Vegetariano"
-                    data-precio="119"
-                >
-                    Vegetariano - $119
-                </option>
-
-                <option
-                    value="Camarón"
-                    data-precio="131"
-                >
-                    Camarón - $131
-                </option>
-
-                <option
-                    value="Pulpo"
-                    data-precio="147"
-                >
-                    Pulpo - $147
-                </option>
-
-                <option
-                    value="Anguila"
-                    data-precio="143"
-                >
-                    Anguila - $143
-                </option>
-
-                <option
-                    value="Cangrejo"
-                    data-precio="131"
-                >
-                    Cangrejo - $131
-                </option>
-
-                <option
-                    value="Salmón"
-                    data-precio="131"
-                >
-                    Salmón - $131
-                </option>
-
-                <option
-                    value="Salmón ahumado"
-                    data-precio="139"
-                >
-                    Salmón ahumado - $139
-                </option>
-
-            </select>
-
-        </div>
-
-        <button
-            type="button"
-            class="agregar-variante"
-        >
-            +
-        </button>
-
-    </article>
-
-
-
-    <!-- ================================================= -->
-    <!-- ARCOÍRIS ROLL -->
-    <!-- ================================================= -->
-
-    <article class="producto producto-con-variante">
-
-        <div class="producto-info">
-
-            <h3>
-                Arcoíris Roll
-            </h3>
-
-            <p>
-                Queso, aguacate, pepino y masago.
-            </p>
-
-            <select
-                class="variante-rollo"
-                data-producto="Arcoíris Roll"
-            >
-
-                <option value="">
-                    Selecciona una opción
-                </option>
-
-                <option
-                    value="Camarón"
-                    data-precio="142"
-                >
-                    Camarón - $142
-                </option>
-
-                <option
-                    value="Cangrejo"
-                    data-precio="142"
-                >
-                    Cangrejo - $142
-                </option>
-
-                <option
-                    value="Anguila"
-                    data-precio="146"
-                >
-                    Anguila - $146
-                </option>
-
-                <option
-                    value="Salmón"
-                    data-precio="142"
-                >
-                    Salmón - $142
-                </option>
-
-                <option
-                    value="Salmón ahumado"
-                    data-precio="142"
-                >
-                    Salmón ahumado - $142
-                </option>
-
-            </select>
-
-        </div>
-
-        <button
-            type="button"
-            class="agregar-variante"
-        >
-            +
-        </button>
-
-    </article>
-
-
-
-    <!-- ================================================= -->
-    <!-- KIURY MAKY -->
-    <!-- ================================================= -->
-
-    <article class="producto producto-con-variante">
-
-        <div class="producto-info">
-
-            <h3>
-                Kiury Maky
-            </h3>
-
-            <p>
-                Rollo envuelto en hoja de pepino.
-            </p>
-
-            <select
-                class="variante-rollo"
-                data-producto="Kiury Maky"
-            >
-
-                <option value="">
-                    Selecciona una opción
-                </option>
-
-                <option
-                    value="Vegetariano"
-                    data-precio="99"
-                >
-                    Vegetariano - $99
-                </option>
-
-                <option
-                    value="Cangrejo"
-                    data-precio="114"
-                >
-                    Cangrejo - $114
-                </option>
-
-                <option
-                    value="Salmón"
-                    data-precio="114"
-                >
-                    Salmón - $114
-                </option>
-
-                <option
-                    value="Salmón ahumado"
-                    data-precio="138"
-                >
-                    Salmón ahumado - $138
-                </option>
-
-                <option
-                    value="Tampico"
-                    data-precio="110"
-                >
-                    Tampico - $110
-                </option>
-
-                <option
-                    value="Camarón"
-                    data-precio="114"
-                >
-                    Camarón - $114
-                </option>
-
-                <option
-                    value="Pulpo"
-                    data-precio="144"
-                >
-                    Pulpo - $144
-                </option>
-
-                <option
-                    value="Anguila"
-                    data-precio="140"
-                >
-                    Anguila - $140
-                </option>
-
-            </select>
-
-        </div>
-
-        <button
-            type="button"
-            class="agregar-variante"
-        >
-            +
-        </button>
-
-    </article>
-
-
-
-    <!-- ================================================= -->
-    <!-- CALIFORNIA MAKY -->
-    <!-- ================================================= -->
-
-    <article
-        class="producto producto-con-variante producto-california"
-    >
-
-        <div class="producto-info">
-
-            <h3>
-                California Maky
-            </h3>
-
-            <p>
-                Rollo de arroz con un toque de ajonjolí,
-                aguacate, pepino y queso Philadelphia.
-            </p>
-
-
-            <!-- RELLENO -->
-
-            <label>
-                Relleno
-            </label>
-
-            <select
-                class="variante-california"
-                data-producto="California Maky"
-            >
-
-                <option value="">
-                    Selecciona el relleno
-                </option>
-
-                <option
-                    value="Vegetariano"
-                    data-precio-normal="99"
-                    data-precio-especial="117"
-                >
-                    Vegetariano
-                </option>
-
-                <option
-                    value="Camarón"
-                    data-precio-normal="119"
-                    data-precio-especial="137"
-                >
-                    Camarón
-                </option>
-
-                <option
-                    value="Salmón ahumado"
-                    data-precio-normal="129"
-                    data-precio-especial="140"
-                >
-                    Salmón ahumado
-                </option>
-
-                <option
-                    value="Cangrejo"
-                    data-precio-normal="119"
-                    data-precio-especial="137"
-                >
-                    Cangrejo
-                </option>
-
-                <option
-                    value="Salmón"
-                    data-precio-normal="119"
-                    data-precio-especial="137"
-                >
-                    Salmón
-                </option>
-
-                <option
-                    value="Anguila"
-                    data-precio-normal="135"
-                    data-precio-especial="150"
-                >
-                    Anguila
-                </option>
-
-            </select>
-
-
-            <!-- TIPO -->
-
-            <label>
-                Presentación
-            </label>
-
-            <select class="tipo-california">
-
-                <option value="">
-                    Selecciona una presentación
-                </option>
-
-                <option value="normal">
-                    Normal
-                </option>
-
-                <option value="especial">
-                    Especial
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <button
-            type="button"
-            class="agregar-california"
-        >
-            +
-        </button>
-
-    </article>
-
-
-</section>
-
-
-    <!-- ============================= -->
-    <!-- CARRITO FIJO -->
-    <!-- ============================= -->
-
-    <div class="carrito">
-
-        <div>
-
-            🛒
-
-            <span id="cantidad-carrito">
-                0
-            </span>
-
-            productos
-
-        </div>
-
-
-        <div>
-
-            Total:
-
-            $
-            <span id="total-carrito">
-                0
-            </span>
-
-        </div>
-
-
-        <button class="ver-pedido">
-
-            Ver pedido
-
-        </button>
-
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- MODAL: MI PEDIDO -->
-    <!-- ============================= -->
-
-    <div
-        class="modal-pedido"
-        id="modal-pedido"
-    >
-
-        <div class="contenido-pedido">
-
-
-            <button
-                type="button"
-                class="cerrar-pedido"
-                id="cerrar-pedido"
-            >
-                ×
-            </button>
-
-
-            <h2>
-                🛒 Mi pedido
-            </h2>
-
-
-            <div id="detalle-pedido">
+                <h2>
+                    Rollos
+                </h2>
 
                 <p>
-                    Aquí aparecerán tus productos.
+                    Explora nuestras diferentes especialidades.
                 </p>
 
             </div>
 
 
-            <hr>
+
+            <!-- ================================================== -->
+            <!-- NAVEGACIÓN INTERNA DE ROLLOS -->
+            <!-- ================================================== -->
+
+            <nav class="subcategorias-rollos">
+
+                <a href="#rollos-tradicionales">
+                    Tradicionales
+                </a>
+
+                <a href="#rollos-clasicos">
+                    Clásicos
+                </a>
+
+                <a href="#especialidades-rollos">
+                    Especialidades
+                </a>
+
+                <a href="#empanizados-rollos">
+                    Empanizados
+                </a>
+
+                <a href="#capeados-rollos">
+                    Capeados
+                </a>
+
+                <a href="#sushi-balls-rollos">
+                    Sushi Balls
+                </a>
+
+            </nav>
 
 
-            <p>
 
-                Total:
+            <!-- ================================================== -->
+            <!-- ROLLOS TRADICIONALES -->
+            <!-- ================================================== -->
 
-                $
-                <span id="total-modal">
+            <div
+                class="grupo-rollos"
+                id="rollos-tradicionales"
+            >
+
+                <div class="encabezado-grupo-rollos">
+
+                    <div>
+
+                        <span class="numero-seccion">
+                            01
+                        </span>
+
+                        <h3>
+                            Rollos Tradicionales
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="productos-grid rollos-grid">
+
+
+                    <!-- ========================================== -->
+                    <!-- KAPPA MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Kappa Maky
+                            </h3>
+
+                            <p>
+                                Pepino.
+                            </p>
+
+                            <span>
+                                $66
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="agregar"
+                            data-nombre="Kappa Maky"
+                            data-precio="66"
+                            aria-label="Agregar Kappa Maky"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- ========================================== -->
+                    <!-- TEKKA MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Tekka Maky
+                            </h3>
+
+                            <p>
+                                Atún.
+                            </p>
+
+                            <span>
+                                $74
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="agregar"
+                            data-nombre="Tekka Maky"
+                            data-precio="74"
+                            aria-label="Agregar Tekka Maky"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- ========================================== -->
+                    <!-- TAMPICO MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Tampico Maky
+                            </h3>
+
+                            <p>
+                                Rollo tradicional.
+                            </p>
+
+                            <span>
+                                $76
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="agregar"
+                            data-nombre="Tampico Maky"
+                            data-precio="76"
+                            aria-label="Agregar Tampico Maky"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================================== -->
+            <!-- ROLLOS CLÁSICOS -->
+            <!-- ================================================== -->
+
+            <div
+                class="grupo-rollos"
+                id="rollos-clasicos"
+            >
+
+                <div class="encabezado-grupo-rollos">
+
+                    <div>
+
+                        <span class="numero-seccion">
+                            02
+                        </span>
+
+                        <h3>
+                            Rollos Clásicos
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="productos-grid rollos-grid">
+
+
+                    <!-- ========================================== -->
+                    <!-- AVOCADO MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Avocado Maky
+                            </h3>
+
+                            <p>
+                                Rollo envuelto en aguacate.
+                            </p>
+
+                            <span>
+                                Desde $119
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="abrir-opciones"
+                            data-producto="Avocado Maky"
+                            aria-label="Elegir Avocado Maky"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- ========================================== -->
+                    <!-- NEVADO MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Nevado Maky
+                            </h3>
+
+                            <p>
+                                Rollo envuelto en queso.
+                            </p>
+
+                            <span>
+                                Desde $119
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="abrir-opciones"
+                            data-producto="Nevado Maky"
+                            aria-label="Elegir Nevado Maky"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- ========================================== -->
+                    <!-- ARCOÍRIS ROLL -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Arcoíris Roll
+                            </h3>
+
+                            <p>
+                                Queso, aguacate, pepino y masago.
+                            </p>
+
+                            <span>
+                                Desde $142
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="abrir-opciones"
+                            data-producto="Arcoíris Roll"
+                            aria-label="Elegir Arcoíris Roll"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- ========================================== -->
+                    <!-- KIURY MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Kiury Maky
+                            </h3>
+
+                            <p>
+                                Rollo envuelto en hoja de pepino.
+                            </p>
+
+                            <span>
+                                Desde $99
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="abrir-opciones"
+                            data-producto="Kiury Maky"
+                            aria-label="Elegir Kiury Maky"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- ========================================== -->
+                    <!-- CALIFORNIA MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                California Maky
+                            </h3>
+
+                            <p>
+                                Rollo de arroz con ajonjolí,
+                                aguacate, pepino y queso Philadelphia.
+                            </p>
+
+                            <span>
+                                Desde $99
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="abrir-opciones"
+                            data-producto="California Maky"
+                            aria-label="Elegir California Maky"
+                        >
+                            +
+                        </button>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================================== -->
+            <!-- ESPECIALIDADES DE LA BARRA -->
+            <!-- ================================================== -->
+
+            <div
+                class="grupo-rollos"
+                id="especialidades-rollos"
+            >
+
+                <div class="encabezado-grupo-rollos">
+
+                    <div>
+
+                        <span class="numero-seccion">
+                            03
+                        </span>
+
+                        <h3>
+                            Especialidades de la Barra
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!--
+                    JavaScript inserta aquí
+                    todas las especialidades.
+                -->
+
+                <div
+                    id="especialidades-barra"
+                    class="productos-grid rollos-grid"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ================================================== -->
+            <!-- ROLLOS EMPANIZADOS -->
+            <!-- ================================================== -->
+
+            <div
+                class="grupo-rollos"
+                id="empanizados-rollos"
+            >
+
+                <div class="encabezado-grupo-rollos">
+
+                    <div>
+
+                        <span class="numero-seccion">
+                            04
+                        </span>
+
+                        <h3>
+                            Rollos Empanizados
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!--
+                    JavaScript inserta aquí
+                    los rollos empanizados.
+                -->
+
+                <div
+                    id="rollos-empanizados"
+                    class="productos-grid rollos-grid"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ================================================== -->
+            <!-- ROLLOS CAPEADOS -->
+            <!-- ================================================== -->
+
+            <div
+                class="grupo-rollos"
+                id="capeados-rollos"
+            >
+
+                <div class="encabezado-grupo-rollos">
+
+                    <div>
+
+                        <span class="numero-seccion">
+                            05
+                        </span>
+
+                        <h3>
+                            Rollos Capeados
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!--
+                    JavaScript inserta aquí
+                    los rollos capeados.
+                -->
+
+                <div
+                    id="rollos-capeados"
+                    class="productos-grid rollos-grid"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ================================================== -->
+            <!-- SUSHI BALLS -->
+            <!-- ================================================== -->
+
+            <div
+                class="grupo-rollos"
+                id="sushi-balls-rollos"
+            >
+
+                <div class="encabezado-grupo-rollos">
+
+                    <div>
+
+                        <span class="numero-seccion">
+                            06
+                        </span>
+
+                        <h3>
+                            Sushi Balls
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!--
+                    JavaScript inserta aquí
+                    las Sushi Balls.
+                -->
+
+                <div
+                    id="sushi-balls"
+                    class="productos-grid rollos-grid"
+                ></div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================================== -->
+        <!-- CARRITO FIJO -->
+        <!-- ================================================== -->
+
+        <div class="carrito">
+
+
+            <div class="carrito-cantidad">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cantidad-carrito">
                     0
                 </span>
 
-            </p>
-
-
-            <!-- ============================= -->
-            <!-- TIPO DE SERVICIO -->
-            <!-- ============================= -->
-
-            <div class="tipo-servicio">
-
-                <p>
-                    Selecciona el tipo de servicio:
-                </p>
-
-
-                <div class="opciones-servicio">
-
-
-                    <button
-                        type="button"
-                        class="servicio-btn"
-                        data-servicio="llevar"
-                    >
-
-                        🛍 Para llevar
-
-                        <span>
-                            Retirar en el local
-                        </span>
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="servicio-btn"
-                        data-servicio="domicilio"
-                    >
-
-                        🛵 A domicilio
-
-                        <span>
-                            Delivery
-                        </span>
-
-                    </button>
-
-
-                </div>
+                <span>
+                    productos
+                </span>
 
             </div>
 
 
-        </div>
-
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- MODAL: INFORMACIÓN -->
-    <!-- ============================= -->
-
-    <div
-        class="modal-informacion"
-        id="modal-informacion"
-    >
-
-
-        <div class="contenido-informacion">
-
-               <div class="fondo-info-japones"></div>
-<button
-    type="button"
-    class="cerrar-info"
-    id="cerrar-info"
-    aria-label="Cerrar ventana"
->
-    ×
-</button>
-
-
-            <!-- ============================= -->
-<!-- ENCABEZADO -->
-<!-- ============================= -->
-
-<div class="info-header">
-
-    <button
-        type="button"
-        class="volver-info"
-        id="volver-info"
-    >
-        ←
-    </button>
-
-    <div>
-        <h2>Información del pedido</h2>
-
-        <div
-            id="servicio-seleccionado"
-            class="servicio-seleccionado-badge"
-        ></div>
-    </div>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- RESUMEN DE CUENTA -->
-<!-- ============================= -->
-
-<div
-    class="resumen-cuenta resumen-cuenta-nuevo"
-    id="abrir-resumen"
->
-
-    <div class="resumen-icono">
-        🛍
-    </div>
-
-    <div class="resumen-info">
-
-        <strong>
-            Resumen de cuenta
-        </strong>
-
-        <p>
-            <span id="resumen-cantidad">
-                0
-            </span>
-
-            producto(s)
-        </p>
-
-    </div>
-
-    <div class="resumen-precio">
-
-        <strong>
-            MXN $
-            <span id="resumen-total">
-                0
-            </span>
-        </strong>
-
-        <span class="flecha-resumen">
-            ›
-        </span>
-
-    </div>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- DATOS DEL CLIENTE -->
-<!-- ============================= -->
-
-<div class="fila-formulario">
-
-    <div class="campo-formulario">
-
-        <label for="nombre-cliente">
-            👤 Nombre
-        </label>
-
-        <input
-            type="text"
-            id="nombre-cliente"
-            placeholder="Escribe tu nombre"
-        >
-
-    </div>
-
-
-    <div class="campo-formulario">
-
-        <label for="telefono-cliente">
-            📞 Teléfono
-        </label>
-
-        <input
-            type="tel"
-            id="telefono-cliente"
-            placeholder="Escribe tu teléfono"
-        >
-
-    </div>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- SOYA Y CUBIERTOS -->
-<!-- ============================= -->
-
-<div class="fila-formulario">
-
-    <div class="campo-formulario">
-
-        <label for="tipo-soya">
-            🥢 ¿Cómo deseas tus soyas?
-        </label>
-
-        <select id="tipo-soya">
-
-            <option value="">
-                Selecciona una opción
-            </option>
-
-            <option value="Natural">
-                Natural
-            </option>
-
-            <option value="Picante">
-                Picante
-            </option>
-
-            <option value="Ambas">
-                Ambas
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <div class="campo-formulario">
-
-        <label for="cubiertos">
-            🍴 ¿Palillos o tenedores?
-        </label>
-
-        <select id="cubiertos">
-
-            <option value="sin cubiertos">
-                Sin cubiertos
-            </option>
-
-            <option value="palillos">
-                Palillos
-            </option>
-
-            <option value="tenedores">
-                Tenedores
-            </option>
-
-            <option value="ambos">
-                Ambos
-            </option>
-
-        </select>
-
-    </div>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- MÉTODO DE PAGO -->
-<!-- ============================= -->
-
-<div class="campo-formulario campo-completo">
-
-    <label for="metodo-pago">
-        💳 Método de pago
-    </label>
-
-    <select id="metodo-pago">
-
-        <option value="">
-            Selecciona un método
-        </option>
-
-        <option value="Efectivo">
-            Efectivo
-        </option>
-
-        <option value="Transferencia">
-            Transferencia
-        </option>
-
-        <option value="Tarjeta">
-            Tarjeta
-        </option>
-
-    </select>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- EFECTIVO -->
-<!-- SOLO DOMICILIO + EFECTIVO -->
-<!-- ============================= -->
-
-<div
-    id="datos-efectivo"
-    class="datos-efectivo"
->
-
-    <div class="monto-efectivo">
-
-        <span>
-            MXN
-        </span>
-
-        <input
-            type="number"
-            id="paga-con"
-            placeholder="Monto con el que va a pagar"
-            min="0"
-        >
-
-    </div>
-
-    <p class="instruccion-pago">
-
-        <strong>
-            Instrucción de pago
-        </strong>
-
-        <br>
-
-        El repartidor solo lleva cambio si es solicitado.
-
-    </p>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- COMENTARIOS -->
-<!-- ============================= -->
-
-<div class="campo-formulario campo-completo">
-
-    <label for="comentarios">
-        💬 Comentarios
-        <span class="opcional">
-            (opcional)
-        </span>
-    </label>
-
-    <textarea
-        id="comentarios"
-        placeholder="Indicaciones adicionales para tu pedido..."
-    ></textarea>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- CONTINUAR -->
-<!-- ============================= -->
-
-<button
-    type="button"
-    class="continuar-info continuar-info-nuevo"
-    id="continuar-info"
->
-    Continuar
-    <span>→</span>
-</button>
-
-
-        <!-- ===================================== -->
-        <!-- MODAL INTERNO: RESUMEN DE CUENTA -->
-        <!-- ===================================== -->
-
-        <div
-            class="modal-resumen"
-            id="modal-resumen"
-        >
-
-
-            <div class="contenido-resumen">
-
-
-                <!-- ENCABEZADO -->
-
-                <div class="encabezado-resumen">
-
-
-                    <button
-                        type="button"
-                        id="cerrar-resumen"
-                        class="cerrar-resumen"
-                    >
-                        ×
-                    </button>
-
-
-                    <strong>
-                        Resumen de cuenta
-                    </strong>
-
-
-                </div>
-
-
-                <!-- ============================= -->
-                <!-- PRODUCTOS -->
-                <!-- ============================= -->
-
-                <h3>
-
-                    Tus productos
-
-                    (
-                    <span id="cantidad-resumen-detalle">
+            <div class="carrito-total">
+
+                <span>
+                    Total:
+                </span>
+
+                <strong>
+                    $
+                    <span id="total-carrito">
                         0
                     </span>
-                    )
-
-                </h3>
-
-
-                <div id="productos-resumen">
-
-                    <!--
-                    JavaScript pondrá aquí:
-
-                    Edamames x1        $75
-                    Manchego Maky x1  $150
-                    -->
-
-                </div>
-
-
-                <!-- ============================= -->
-                <!-- TOTALES -->
-                <!-- ============================= -->
-
-                <div class="totales-resumen">
-
-
-                    <p>
-
-                        <span>
-                            Subtotal productos
-                        </span>
-
-                        <strong>
-
-                            $
-
-                            <span id="subtotal-resumen">
-                                0
-                            </span>
-
-                        </strong>
-
-                    </p>
-
-
-                    <p>
-
-                        <span>
-                            Entrega
-                        </span>
-
-                        <strong>
-
-                            $
-
-                            <span id="entrega-resumen">
-                                0
-                            </span>
-
-                        </strong>
-
-                    </p>
-
-
-                    <p class="total-cuenta-resumen">
-
-                        <span>
-                            TOTAL CUENTA
-                        </span>
-
-                        <strong>
-
-                            $
-
-                            <span id="total-cuenta-resumen">
-                                0
-                            </span>
-
-                        </strong>
-
-                    </p>
-
-
-                </div>
-
+                </strong>
 
             </div>
 
-
-        </div>
-
-
-    </div>
-
-    </div>
-
-<!-- ====================================================== -->
-<!-- MODAL OPCIONES DE PRODUCTO -->
-<!-- ====================================================== -->
-
-<div
-    class="modal-opciones-producto"
-    id="modal-opciones-producto"
->
-
-    <div class="contenido-opciones-producto">
-
-        <!-- ============================================= -->
-        <!-- BARRA SUPERIOR -->
-        <!-- ============================================= -->
-
-        <div class="barra-superior-opciones">
 
             <button
                 type="button"
-                class="cerrar-opciones-producto"
-                id="cerrar-opciones-producto"
+                class="ver-pedido"
             >
-                ←
+                Ver pedido
             </button>
 
-            <h2 id="titulo-opciones-producto">
-                Producto
-            </h2>
-
-            <div class="espacio-derecha-opciones"></div>
 
         </div>
 
 
-        <!-- ============================================= -->
-        <!-- CUERPO -->
-        <!-- ============================================= -->
 
-        <div class="cuerpo-opciones-producto">
+        <!-- ====================================================== -->
+        <!-- FIN DE LA PARTE 1 DE 2 -->
+        <!-- LA PARTE 2 EMPIEZA CON EL MODAL "MI PEDIDO" -->
+        <!-- ====================================================== -->
+                 <!-- ====================================================== -->
+        <!-- MODAL: MI PEDIDO -->
+        <!-- ====================================================== -->
+
+        <div
+            class="modal-pedido"
+            id="modal-pedido"
+        >
+
+            <div class="contenido-pedido">
 
 
-            <!-- ========================================= -->
-            <!-- COLUMNA IZQUIERDA: IMAGEN -->
-            <!-- ========================================= -->
+                <!-- CERRAR -->
 
-            <div class="columna-imagen-producto">
+                <button
+                    type="button"
+                    class="cerrar-pedido"
+                    id="cerrar-pedido"
+                    aria-label="Cerrar pedido"
+                >
+                    ×
+                </button>
 
-                <div class="imagen-opciones-producto-box">
 
-                    <img
-                        id="imagen-opciones-producto"
-                        src=""
-                        alt="Imagen del producto"
-                    >
+                <!-- TÍTULO -->
 
-                    <div class="placeholder-imagen-producto">
-                        Imagen del producto
+                <h2>
+                    🛒 Mi pedido
+                </h2>
+
+
+                <!-- PRODUCTOS -->
+
+                <div id="detalle-pedido">
+
+                    <p>
+                        Tu carrito está vacío.
+                    </p>
+
+                </div>
+
+
+                <hr>
+
+
+                <!-- TOTAL -->
+
+                <p>
+
+                    Total:
+
+                    $
+
+                    <span id="total-modal">
+                        0
+                    </span>
+
+                </p>
+
+
+
+                <!-- ================================================== -->
+                <!-- TIPO DE SERVICIO -->
+                <!-- ================================================== -->
+
+                <div class="tipo-servicio">
+
+                    <p>
+                        Selecciona el tipo de servicio:
+                    </p>
+
+
+                    <div class="opciones-servicio">
+
+
+                        <!-- PARA LLEVAR -->
+
+                        <button
+                            type="button"
+                            class="servicio-btn"
+                            data-servicio="llevar"
+                        >
+
+                            🛍 Para llevar
+
+                            <span>
+                                Retirar en el local
+                            </span>
+
+                        </button>
+
+
+                        <!-- DOMICILIO -->
+
+                        <button
+                            type="button"
+                            class="servicio-btn"
+                            data-servicio="domicilio"
+                        >
+
+                            🛵 A domicilio
+
+                            <span>
+                                Entrega en Coacalco
+                            </span>
+
+                        </button>
+
+
                     </div>
 
                 </div>
+
 
             </div>
 
-
-            <!-- ========================================= -->
-            <!-- COLUMNA DERECHA -->
-            <!-- ========================================= -->
-
-            <div class="columna-detalles-producto">
+        </div>
 
 
-                <!-- INFORMACIÓN -->
 
-                <div class="info-opciones-producto">
+        <!-- ====================================================== -->
+        <!-- MODAL: INFORMACIÓN DEL PEDIDO -->
+        <!-- ====================================================== -->
 
-                    <p id="descripcion-opciones-producto">
-                        Descripción del producto
-                    </p>
+        <div
+            class="modal-informacion"
+            id="modal-informacion"
+        >
 
-                    <strong
-                        id="precio-opciones-producto"
-                        class="precio-opciones-producto"
+            <div class="contenido-informacion">
+
+
+                <!-- FONDO DECORATIVO -->
+
+                <div class="fondo-info-japones"></div>
+
+
+
+                <!-- ================================================== -->
+                <!-- CERRAR -->
+                <!-- ================================================== -->
+
+                <button
+                    type="button"
+                    class="cerrar-info"
+                    id="cerrar-info"
+                    aria-label="Cerrar ventana"
+                >
+                    ×
+                </button>
+
+
+
+                <!-- ================================================== -->
+                <!-- ENCABEZADO -->
+                <!-- ================================================== -->
+
+                <div class="info-header">
+
+                    <button
+                        type="button"
+                        class="volver-info"
+                        id="volver-info"
+                        aria-label="Regresar"
                     >
-                        Selecciona una opción
-                    </strong>
-
-                </div>
+                        ←
+                    </button>
 
 
-                <!-- OPCIONES -->
+                    <div>
 
-                <div class="seccion-opciones-producto">
+                        <h2>
+                            Información del pedido
+                        </h2>
 
-                    <h3>
-                        Elige tu relleno
-                    </h3>
 
-                    <p class="texto-seleccion">
-                        Selecciona 1 opción
-                    </p>
+                        <div
+                            id="servicio-seleccionado"
+                            class="servicio-seleccionado-badge"
+                        ></div>
 
-                    <div
-                        id="lista-opciones-producto"
-                        class="lista-opciones-producto"
-                    >
                     </div>
 
                 </div>
 
 
-                <!-- ===================================== -->
-                <!-- COMENTARIOS -->
-                <!-- ===================================== -->
 
-                <div class="comentarios-producto">
+                <!-- ================================================== -->
+                <!-- RESUMEN DE CUENTA -->
+                <!-- ================================================== -->
 
-                    <label for="comentario-opciones-producto">
+                <div
+                    class="resumen-cuenta resumen-cuenta-nuevo"
+                    id="abrir-resumen"
+                >
 
-                        Comentarios
+                    <div class="resumen-icono">
+                        🛍
+                    </div>
+
+
+                    <div class="resumen-info">
+
+                        <strong>
+                            Resumen de cuenta
+                        </strong>
+
+                        <p>
+
+                            <span id="resumen-cantidad">
+                                0
+                            </span>
+
+                            producto(s)
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="resumen-precio">
+
+                        <strong>
+
+                            MXN $
+
+                            <span id="resumen-total">
+                                0
+                            </span>
+
+                        </strong>
+
+                        <span class="flecha-resumen">
+                            ›
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- DATOS DEL CLIENTE -->
+                <!-- ================================================== -->
+
+                <div class="fila-formulario">
+
+
+                    <!-- NOMBRE -->
+
+                    <div class="campo-formulario">
+
+                        <label for="nombre-cliente">
+                            👤 Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre-cliente"
+                            placeholder="Escribe tu nombre"
+                            autocomplete="name"
+                        >
+
+                    </div>
+
+
+                    <!-- TELÉFONO -->
+
+                    <div class="campo-formulario">
+
+                        <label for="telefono-cliente">
+                            📞 Teléfono
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono-cliente"
+                            placeholder="Escribe tu teléfono"
+                            autocomplete="tel"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- SOYA Y CUBIERTOS -->
+                <!-- ================================================== -->
+
+                <div class="fila-formulario">
+
+
+                    <!-- SOYA -->
+
+                    <div class="campo-formulario">
+
+                        <label for="tipo-soya">
+                            🥢 ¿Cómo deseas tus soyas?
+                        </label>
+
+
+                        <select id="tipo-soya">
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="Soya">
+                                Soya
+                            </option>
+
+                            <option value="Soya Light">
+                                Soya Light
+                            </option>
+
+                            <option value="Ambas">
+                                Ambas
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CUBIERTOS -->
+
+                    <div class="campo-formulario">
+
+                        <label for="cubiertos">
+                            🍴 Cubiertos
+                        </label>
+
+
+                        <select id="cubiertos">
+
+                            <option value="Sin cubiertos">
+                                Sin cubiertos
+                            </option>
+
+                            <option value="Palillos">
+                                Palillos
+                            </option>
+
+                            <option value="Tenedores">
+                                Tenedores
+                            </option>
+
+                            <option value="Ambas">
+                                Ambas
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- MÉTODO DE PAGO -->
+                <!-- ================================================== -->
+
+                <div class="campo-formulario campo-completo">
+
+                    <label for="metodo-pago">
+                        💳 Método de pago
+                    </label>
+
+
+                    <select id="metodo-pago">
+
+                        <option value="">
+                            Selecciona un método
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- EFECTIVO -->
+                <!-- ================================================== -->
+
+                <div
+                    id="datos-efectivo"
+                    class="datos-efectivo"
+                >
+
+                    <div class="monto-efectivo">
 
                         <span>
+                            MXN
+                        </span>
+
+                        <input
+                            type="number"
+                            id="paga-con"
+                            placeholder="Monto con el que vas a pagar"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <p class="instruccion-pago">
+
+                        <strong>
+                            Instrucción de pago
+                        </strong>
+
+                        <br>
+
+                        El repartidor solo lleva cambio si es solicitado.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- COMENTARIOS -->
+                <!-- ================================================== -->
+
+                <div class="campo-formulario campo-completo">
+
+                    <label for="comentarios">
+
+                        💬 Comentarios
+
+                        <span class="opcional">
                             (opcional)
                         </span>
 
                     </label>
 
+
                     <textarea
-                        id="comentario-opciones-producto"
-                        maxlength="180"
-                        placeholder="Escribe algún comentario sobre tu pedido..."
+                        id="comentarios"
+                        maxlength="250"
+                        placeholder="Indicaciones adicionales para tu pedido..."
                     ></textarea>
 
                 </div>
 
 
+
+                <!-- ================================================== -->
+                <!-- CONTINUAR -->
+                <!-- ================================================== -->
+
+                <button
+                    type="button"
+                    class="continuar-info continuar-info-nuevo"
+                    id="continuar-info"
+                >
+
+                    Continuar
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- ================================================== -->
+                <!-- MODAL INTERNO: RESUMEN DE CUENTA -->
+                <!-- ================================================== -->
+
+                <div
+                    class="modal-resumen"
+                    id="modal-resumen"
+                >
+
+                    <div class="contenido-resumen">
+
+
+                        <!-- ENCABEZADO -->
+
+                        <div class="encabezado-resumen">
+
+                            <button
+                                type="button"
+                                id="cerrar-resumen"
+                                class="cerrar-resumen"
+                                aria-label="Cerrar resumen"
+                            >
+                                ×
+                            </button>
+
+                            <strong>
+                                Resumen de cuenta
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- PRODUCTOS -->
+
+                        <h3>
+
+                            Tus productos
+
+                            (
+
+                            <span id="cantidad-resumen-detalle">
+                                0
+                            </span>
+
+                            )
+
+                        </h3>
+
+
+                        <div id="productos-resumen"></div>
+
+
+
+                        <!-- TOTALES -->
+
+                        <div class="totales-resumen">
+
+
+                            <p>
+
+                                <span>
+                                    Subtotal productos
+                                </span>
+
+                                <strong>
+
+                                    $
+
+                                    <span id="subtotal-resumen">
+                                        0
+                                    </span>
+
+                                </strong>
+
+                            </p>
+
+
+                            <p>
+
+                                <span>
+                                    Entrega
+                                </span>
+
+                                <strong>
+
+                                    $
+
+                                    <span id="entrega-resumen">
+                                        0
+                                    </span>
+
+                                </strong>
+
+                            </p>
+
+
+                            <p class="total-cuenta-resumen">
+
+                                <span>
+                                    TOTAL CUENTA
+                                </span>
+
+                                <strong>
+
+                                    $
+
+                                    <span id="total-cuenta-resumen">
+                                        0
+                                    </span>
+
+                                </strong>
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
             </div>
-            <!-- FIN COLUMNA DERECHA -->
-
-
-        </div>
-        <!-- FIN CUERPO -->
-
-
-        <!-- ============================================= -->
-        <!-- BARRA INFERIOR -->
-        <!-- ============================================= -->
-
-        <div class="barra-inferior-opciones">
-
-            <button
-                type="button"
-                class="confirmar-opcion-producto"
-                id="confirmar-opcion-producto"
-                disabled
-            >
-                Selecciona una opción
-            </button>
 
         </div>
 
 
-    </div>
-    <!-- FIN CONTENIDO -->
+
+        <!-- ====================================================== -->
+        <!-- MODAL: DIRECCIÓN -->
+        <!-- ====================================================== -->
+
+        <div
+            class="modal-direccion"
+            id="modal-direccion"
+        >
+
+            <div class="contenido-direccion">
 
 
-</div>
-<!-- FIN MODAL -->
+                <!-- ================================================== -->
+                <!-- ENCABEZADO -->
+                <!-- ================================================== -->
 
-    <!-- ============================= -->
-    <!-- JAVASCRIPT -->
-    <!-- ============================= -->
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72AyBHBgCnwXKdBO3m6tf_56p9dnLNIU&libraries=places&v=weekly">
-</script>
+                <div class="encabezado-direccion">
 
-<script src="script.js"></script>
+                    <button
+                        type="button"
+                        class="volver-direccion"
+                        id="volver-direccion"
+                        aria-label="Regresar"
+                    >
+                        ←
+                    </button>
+
+
+                    <div>
+
+                        <h2>
+                            Información de entrega
+                        </h2>
+
+                        <p>
+                            Selecciona una dirección dentro de Coacalco.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- BUSCAR DIRECCIÓN -->
+                <!-- ================================================== -->
+
+                <label for="calle">
+                    📍 Dirección de entrega
+                </label>
+
+
+                <div class="buscador-direccion">
+
+                    <span class="icono-ubicacion">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="calle"
+                        placeholder="Ej. Moras lt 19..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="buscar-direccion"
+                        id="buscar-direccion"
+                        aria-label="Buscar dirección"
+                    >
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- RESULTADOS GOOGLE -->
+                <!-- ================================================== -->
+
+                <div
+                    class="resultados-direccion"
+                    id="resultados-direccion"
+                ></div>
+
+
+
+                <!-- ================================================== -->
+                <!-- DIRECCIÓN SELECCIONADA -->
+                <!-- ================================================== -->
+
+                <div
+                    class="direccion-seleccionada"
+                    id="direccion-seleccionada"
+                >
+
+                    <div class="direccion-seleccionada-info">
+
+                        <span class="direccion-check">
+                            ✓
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Dirección seleccionada
+                            </strong>
+
+                            <p id="texto-direccion-seleccionada"></p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="cambiar-direccion"
+                        id="cambiar-direccion"
+                    >
+                        Cambiar dirección
+                    </button>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- UBICACIÓN ACTUAL -->
+                <!-- ================================================== -->
+
+                <button
+                    type="button"
+                    class="usar-ubicacion"
+                    id="ubicacion-actual"
+                >
+
+                    <i class="fa-solid fa-location-crosshairs"></i>
+
+                    Usar mi ubicación actual
+
+                </button>
+
+
+                <p
+                    id="estado-ubicacion"
+                    aria-live="polite"
+                ></p>
+
+
+
+                <!-- ================================================== -->
+                <!-- AVISO -->
+                <!-- ================================================== -->
+
+                <div class="ayuda-direccion">
+
+                    <strong>
+                        Zona de entrega
+                    </strong>
+
+                    <p>
+                        Por el momento realizamos entregas únicamente
+                        dentro de Coacalco.
+                    </p>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- CONTINUAR -->
+                <!-- ================================================== -->
+
+                <button
+                    type="button"
+                    class="continuar-direccion"
+                    id="continuar-direccion"
+                    disabled
+                >
+
+                    Continuar
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ====================================================== -->
+        <!-- MODAL: OPCIONES DE PRODUCTO -->
+        <!-- ====================================================== -->
+
+        <div
+            class="modal-opciones-producto"
+            id="modal-opciones-producto"
+        >
+
+            <div class="contenido-opciones-producto">
+
+
+                <!-- ================================================== -->
+                <!-- BARRA SUPERIOR -->
+                <!-- ================================================== -->
+
+                <div class="barra-superior-opciones">
+
+                    <button
+                        type="button"
+                        class="cerrar-opciones-producto"
+                        id="cerrar-opciones-producto"
+                        aria-label="Regresar"
+                    >
+                        ←
+                    </button>
+
+
+                    <h2 id="titulo-opciones-producto">
+                        Producto
+                    </h2>
+
+
+                    <div class="espacio-derecha-opciones"></div>
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- CUERPO -->
+                <!-- ================================================== -->
+
+                <div class="cuerpo-opciones-producto">
+
+
+                    <!-- ============================================== -->
+                    <!-- COLUMNA DE IMAGEN -->
+                    <!-- ============================================== -->
+
+                    <div class="columna-imagen-producto">
+
+                        <div class="imagen-opciones-producto-box">
+
+                            <img
+                                id="imagen-opciones-producto"
+                                src=""
+                                alt="Imagen del producto"
+                            >
+
+
+                            <div class="placeholder-imagen-producto">
+
+                                Imagen del producto
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ============================================== -->
+                    <!-- COLUMNA DE INFORMACIÓN -->
+                    <!-- ============================================== -->
+
+                    <div class="columna-detalles-producto">
+
+
+                        <!-- INFORMACIÓN -->
+
+                        <div class="info-opciones-producto">
+
+                            <p id="descripcion-opciones-producto">
+                                Descripción del producto
+                            </p>
+
+
+                            <strong
+                                id="precio-opciones-producto"
+                                class="precio-opciones-producto"
+                            >
+                                Selecciona una opción
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- OPCIONES -->
+
+                        <div class="seccion-opciones-producto">
+
+                            <h3>
+                                Elige tu relleno
+                            </h3>
+
+
+                            <p class="texto-seleccion">
+                                Selecciona 1 opción
+                            </p>
+
+
+                            <div
+                                id="lista-opciones-producto"
+                                class="lista-opciones-producto"
+                            ></div>
+
+                        </div>
+
+
+
+                        <!-- COMENTARIOS -->
+
+                        <div class="comentarios-producto">
+
+                            <label for="comentario-opciones-producto">
+
+                                Comentarios
+
+                                <span>
+                                    (opcional)
+                                </span>
+
+                            </label>
+
+
+                            <textarea
+                                id="comentario-opciones-producto"
+                                maxlength="180"
+                                placeholder="Ej. salsa aparte, sin queso..."
+                            ></textarea>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================================================== -->
+                <!-- BARRA INFERIOR -->
+                <!-- ================================================== -->
+
+                <div class="barra-inferior-opciones">
+
+                    <button
+                        type="button"
+                        class="confirmar-opcion-producto"
+                        id="confirmar-opcion-producto"
+                        disabled
+                    >
+
+                        Selecciona una opción
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ====================================================== -->
+    <!-- GOOGLE MAPS / PLACES -->
+    <!-- ====================================================== -->
+
+    <!--
+        IMPORTANTE:
+        En TU archivo conserva aquí la misma API key de Google Maps
+        que ya estabas utilizando.
+    -->
+
+    <script
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72AyBHBgCnwXKdBO3m6tf_56p9dnLNIU&libraries=places&v=weekly">
+    </script>
+
+
+
+    <!-- ====================================================== -->
+    <!-- JAVASCRIPT PRINCIPAL -->
+    <!-- ====================================================== -->
+
+    <script src="script.js"></script>
+
 
 </body>
 

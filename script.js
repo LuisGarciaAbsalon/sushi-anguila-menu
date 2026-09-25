@@ -1,5 +1,6 @@
 // ======================================================
 // ANGUILA SUSHI - SCRIPT PRINCIPAL
+// PARTE 1 DE 3
 // ======================================================
 
 
@@ -8,19 +9,31 @@
 // ======================================================
 
 let cantidadCarrito = 0;
+
 let totalCarrito = 0;
+
 const pedido = {};
 
 let servicioSeleccionado = "";
 
 let latitudCliente = null;
+
 let longitudCliente = null;
+
 let usoUbicacionActual = false;
+
 let direccionValidaCoacalco = false;
-let productoOpcionesActual = null;
-let opcionProductoActual = null;
 
 let direccionUbicacionActual = "";
+
+
+// ======================================================
+// PRODUCTO CON OPCIONES - ESTADO ACTUAL
+// ======================================================
+
+let productoOpcionesActual = null;
+
+let opcionProductoActual = null;
 
 
 // ======================================================
@@ -28,131 +41,197 @@ let direccionUbicacionActual = "";
 // ======================================================
 
 const botonesAgregar =
-    document.querySelectorAll(".agregar");
-
-const botonesAgregarVariante =
     document.querySelectorAll(
-        ".agregar-variante"
+        ".agregar"
     );
 
-const botonesAgregarCalifornia =
-    document.querySelectorAll(
-        ".agregar-california"
-    );
 
 const contador =
-    document.getElementById("cantidad-carrito");
+    document.getElementById(
+        "cantidad-carrito"
+    );
+
 
 const total =
-    document.getElementById("total-carrito");
+    document.getElementById(
+        "total-carrito"
+    );
+
 
 const detallePedido =
-    document.getElementById("detalle-pedido");
+    document.getElementById(
+        "detalle-pedido"
+    );
+
 
 const totalModal =
-    document.getElementById("total-modal");
+    document.getElementById(
+        "total-modal"
+    );
+
 
 const botonVerPedido =
-    document.querySelector(".ver-pedido");
+    document.querySelector(
+        ".ver-pedido"
+    );
+
 
 const modalPedido =
-    document.getElementById("modal-pedido");
+    document.getElementById(
+        "modal-pedido"
+    );
+
 
 const cerrarPedido =
-    document.getElementById("cerrar-pedido");
+    document.getElementById(
+        "cerrar-pedido"
+    );
+
+
+// ======================================================
+// RESUMEN DE CUENTA
+// ======================================================
 
 const resumenCantidad =
-    document.getElementById("resumen-cantidad");
+    document.getElementById(
+        "resumen-cantidad"
+    );
+
 
 const resumenTotal =
-    document.getElementById("resumen-total");
+    document.getElementById(
+        "resumen-total"
+    );
+
 
 const abrirResumen =
-    document.getElementById("abrir-resumen");
+    document.getElementById(
+        "abrir-resumen"
+    );
+
 
 const modalResumen =
-    document.getElementById("modal-resumen");
+    document.getElementById(
+        "modal-resumen"
+    );
+
 
 const cerrarResumen =
-    document.getElementById("cerrar-resumen");
+    document.getElementById(
+        "cerrar-resumen"
+    );
+
 
 const productosResumen =
-    document.getElementById("productos-resumen");
+    document.getElementById(
+        "productos-resumen"
+    );
+
 
 const cantidadResumenDetalle =
     document.getElementById(
         "cantidad-resumen-detalle"
     );
 
+
 const subtotalResumen =
-    document.getElementById("subtotal-resumen");
+    document.getElementById(
+        "subtotal-resumen"
+    );
+
 
 const entregaResumen =
-    document.getElementById("entrega-resumen");
+    document.getElementById(
+        "entrega-resumen"
+    );
+
 
 const totalCuentaResumen =
     document.getElementById(
         "total-cuenta-resumen"
     );
+
+
+// ======================================================
+// MODAL DE OPCIONES DE PRODUCTO
+// ======================================================
+
 const botonesAbrirOpciones =
     document.querySelectorAll(
         ".abrir-opciones"
     );
+
 
 const modalOpcionesProducto =
     document.getElementById(
         "modal-opciones-producto"
     );
 
+
 const cerrarOpcionesProducto =
     document.getElementById(
         "cerrar-opciones-producto"
     );
+
 
 const tituloOpcionesProducto =
     document.getElementById(
         "titulo-opciones-producto"
     );
 
+
 const descripcionOpcionesProducto =
     document.getElementById(
         "descripcion-opciones-producto"
     );
+
 
 const precioOpcionesProducto =
     document.getElementById(
         "precio-opciones-producto"
     );
 
+
 const listaOpcionesProducto =
     document.getElementById(
         "lista-opciones-producto"
     );
+
 
 const confirmarOpcionProducto =
     document.getElementById(
         "confirmar-opcion-producto"
     );
 
+
 const comentarioOpcionesProducto =
     document.getElementById(
         "comentario-opciones-producto"
     );
 
-    // ======================================================
+
+const imagenOpcionesProducto =
+    document.getElementById(
+        "imagen-opciones-producto"
+    );
+
+
+// ======================================================
 // PRODUCTOS CON OPCIONES
 // ======================================================
 
 const productosConOpciones = {
+
+
+    // ==================================================
+    // AVOCADO MAKY
+    // ==================================================
 
     "Avocado Maky": {
 
         descripcion:
             "Rollo envuelto en aguacate.",
 
-        // Cuando tengamos la imagen,
-        // aquí pondremos por ejemplo:
-        // "img/avocado-maky.jpg"
         imagen: "",
 
         opciones: [
@@ -199,241 +278,758 @@ const productosConOpciones = {
 
         ]
 
+    },
+
+
+    // ==================================================
+    // NEVADO MAKY
+    // ==================================================
+
+    "Nevado Maky": {
+
+        descripcion:
+            "Rollo envuelto en queso.",
+
+        imagen: "",
+
+        opciones: [
+
+            {
+                nombre: "Vegetariano",
+                precio: 119
+            },
+
+            {
+                nombre: "Cangrejo",
+                precio: 131
+            },
+
+            {
+                nombre: "Salmón",
+                precio: 131
+            },
+
+            {
+                nombre: "Salmón ahumado",
+                precio: 139
+            },
+
+            {
+                nombre: "Camarón",
+                precio: 131
+            },
+
+            {
+                nombre: "Pulpo",
+                precio: 147
+            },
+
+            {
+                nombre: "Anguila",
+                precio: 143
+            }
+
+        ]
+
+    },
+
+
+    // ==================================================
+    // ARCOÍRIS ROLL
+    // ==================================================
+
+    "Arcoíris Roll": {
+
+        descripcion:
+            "Queso, aguacate, pepino y masago.",
+
+        imagen: "",
+
+        opciones: [
+
+            {
+                nombre: "Camarón",
+                precio: 142
+            },
+
+            {
+                nombre: "Cangrejo",
+                precio: 142
+            },
+
+            {
+                nombre: "Anguila",
+                precio: 146
+            },
+
+            {
+                nombre: "Salmón",
+                precio: 142
+            },
+
+            {
+                nombre: "Salmón ahumado",
+                precio: 142
+            }
+
+        ]
+
+    },
+
+
+    // ==================================================
+    // KIURY MAKY
+    // ==================================================
+
+    "Kiury Maky": {
+
+        descripcion:
+            "Rollo envuelto en hoja de pepino.",
+
+        imagen: "",
+
+        opciones: [
+
+            {
+                nombre: "Vegetariano",
+                precio: 99
+            },
+
+            {
+                nombre: "Cangrejo",
+                precio: 114
+            },
+
+            {
+                nombre: "Salmón",
+                precio: 114
+            },
+
+            {
+                nombre: "Salmón ahumado",
+                precio: 138
+            },
+
+            {
+                nombre: "Tampico",
+                precio: 110
+            },
+
+            {
+                nombre: "Camarón",
+                precio: 114
+            },
+
+            {
+                nombre: "Pulpo",
+                precio: 144
+            },
+
+            {
+                nombre: "Anguila",
+                precio: 140
+            }
+
+        ]
+
+    },
+
+
+    // ==================================================
+    // CALIFORNIA MAKY
+    // ==================================================
+
+    "California Maky": {
+
+        descripcion:
+            "Rollo de arroz con ajonjolí, aguacate, pepino y queso Philadelphia.",
+
+        imagen: "",
+
+        opciones: [
+
+            {
+                nombre: "Vegetariano",
+                precio: 99
+            },
+
+            {
+                nombre: "Especial",
+                precio: 117
+            },
+
+            {
+                nombre: "Camarón",
+                precio: 119
+            },
+
+            {
+                nombre: "Salmón",
+                precio: 119
+            },
+
+            {
+                nombre: "Salmón ahumado",
+                precio: 129
+            },
+
+            {
+                nombre: "Cangrejo",
+                precio: 119
+            },
+
+            {
+                nombre: "Anguila",
+                precio: 135
+            }
+
+        ]
+
     }
 
 };
-// ======================================================
-// ELEMENTOS DE INFORMACIÓN
-// ======================================================
-
-const modalInformacion =
-    document.getElementById(
-        "modal-informacion"
-    );
-
-const volverInfo =
-    document.getElementById(
-        "volver-info"
-    );
-
-    const cerrarInfo =
-    document.getElementById(
-        "cerrar-info"
-    );
-
-const continuarInfo =
-    document.getElementById(
-        "continuar-info"
-    );
-
-const textoServicio =
-    document.getElementById(
-        "servicio-seleccionado"
-    );
-
-const metodoPagoSelect =
-    document.getElementById(
-        "metodo-pago"
-    );
-
-const tipoSoya =
-    document.getElementById(
-        "tipo-soya"
-    );
-
-const datosEfectivo =
-    document.getElementById(
-        "datos-efectivo"
-    );
-
-const pagaConInput =
-    document.getElementById(
-        "paga-con"
-    );
-
-const imagenOpcionesProducto =
-    document.getElementById(
-        "imagen-opciones-producto"
-    );
 
 
 // ======================================================
-// ELEMENTOS DE DIRECCIÓN
+// ESPECIALIDADES DE LA BARRA
 // ======================================================
 
-const modalDireccion =
-    document.getElementById(
-        "modal-direccion"
-    );
+const especialidadesBarra = [
 
-const volverDireccion =
-    document.getElementById(
-        "volver-direccion"
-    );
+    {
+        nombre: "Kaklagüe Maky",
+        precio: 135,
+        descripcion:
+            "XF: Verduras capeadas y salsa dulce. XD: Aguacate, cangrejo y Q. Philadelphia."
+    },
 
-const continuarDireccion =
-    document.getElementById(
-        "continuar-direccion"
-    );
+    {
+        nombre: "Pynta Maky",
+        precio: 135,
+        descripcion:
+            "XF: Q. Philadelphia y tampico. XD: Camarón empanizado y aguacate."
+    },
 
-const calleInput =
-    document.getElementById(
-        "calle"
-    );
+    {
+        nombre: "Nevado Maky Especial",
+        precio: 141,
+        descripcion:
+            "XF: Queso y salsa de tamarindo. XD: Cangrejo empanizado y aguacate."
+    },
 
-const botonUbicacionActual =
-    document.getElementById(
-        "ubicacion-actual"
-    );
+    {
+        nombre: "Eby Maky",
+        precio: 144,
+        descripcion:
+            "XF: Camarón. XD: Aguacate, pepino y Q. Philadelphia."
+    },
 
-const estadoUbicacion =
-    document.getElementById(
-        "estado-ubicacion"
-    );
+    {
+        nombre: "Tampico Maky Especial",
+        precio: 147,
+        descripcion:
+            "XF: Masago y tampico. XD: Tampico y cangrejo."
+    },
 
-const botonBuscarDireccion =
-    document.getElementById(
-        "buscar-direccion"
-    );
+    {
+        nombre: "Strawberry",
+        precio: 141,
+        descripcion:
+            "XF: Q. Philadelphia, fresa y salsa dulce. XD: Camarón empanizado."
+    },
 
-const resultadosDireccion =
-    document.getElementById(
-        "resultados-direccion"
-    );
+    {
+        nombre: "Manchego Fry Especial",
+        precio: 141,
+        descripcion:
+            "XF: Q. manchego, chiles toreados y salsa chipotle. XD: Cangrejo empanizado, aguacate y cebollín."
+    },
 
+    {
+        nombre: "Spyder Roll",
+        precio: 147,
+        descripcion:
+            "XF: Masago, salsa de anguila. XD: Camarón tempura, aguacate y Q. Philadelphia."
+    },
 
-// ======================================================
-// NUEVOS ELEMENTOS - DIRECCIÓN SELECCIONADA
-// ======================================================
+    {
+        nombre: "Banana Roll",
+        precio: 141,
+        descripcion:
+            "XF: Plátano frito y salsa de chipotle. XD: Q. Philadelphia, aguacate y camarón empanizado."
+    },
 
-const direccionSeleccionada =
-    document.getElementById(
-        "direccion-seleccionada"
-    );
+    {
+        nombre: "Frutal Sushi",
+        precio: 141,
+        descripcion:
+            "XF: Q. Philadelphia, mango, fresa, kiwi y salsa dulce. XD: Camarón empanizado."
+    },
 
-const textoDireccionSeleccionada =
-    document.getElementById(
-        "texto-direccion-seleccionada"
-    );
+    {
+        nombre:
+            "Mango Extreme (solo por temporada)",
 
-const cambiarDireccion =
-    document.getElementById(
-        "cambiar-direccion"
-    );
+        precio:
+            149,
 
+        descripcion:
+            "XF: Q. Philadelphia, mango, salsa de tamarindo. XD: Camarón empanizado."
+    },
 
-const botonesServicio =
-    document.querySelectorAll(
-        ".servicio-btn"
-    );
+    {
+        nombre: "Meshi Roll",
+        precio: 147,
+        descripcion:
+            "XF: Alga marina y salsa de anguila. XD: Camarón capeado, Q. Philadelphia y aguacate."
+    },
 
+    {
+        nombre: "Hawaiano Roll",
+        precio: 144,
+        descripcion:
+            "XF: Q. Philadelphia, piña y salsa dulce. XD: Salmón ahumado y aguacate."
+    },
 
-// ======================================================
-// COSTO DE ENTREGA
-// ======================================================
+    {
+        nombre: "Sake Maky",
+        precio: 144,
+        descripcion:
+            "XF: Salmón fresco. XD: Aguacate, pepino y Q. Philadelphia."
+    },
 
-function obtenerCostoEntrega() {
+    {
+        nombre: "Kany Maky",
+        precio: 142,
+        descripcion:
+            "XF: Cangrejo fresco. XD: Aguacate, pepino y Q. Philadelphia."
+    },
 
-    return (
-        servicioSeleccionado === "domicilio"
-            ? 30
-            : 0
-    );
+    {
+        nombre: "Tako Maky",
+        precio: 180,
+        descripcion:
+            "XF: Pulpo y salsa de anguila. XD: Q. Philadelphia, aguacate y pepino."
+    },
 
-}
+    {
+        nombre: "Kamikaze",
+        precio: 147,
+        descripcion:
+            "XF: Tampico. XD: Q. Philadelphia, aguacate, kakiague, chiles toreados y cangrejo empanizado."
+    },
 
+    {
+        nombre: "Flamin Roll",
+        precio: 141,
+        descripcion:
+            "XF: Philadelphia, chetos flamin hot y salsa spicy. XD: Pollo a la plancha y aguacate."
+    },
 
-// ======================================================
-// ESTADO DEL BOTÓN CONTINUAR DIRECCIÓN
-// ======================================================
+    {
+        nombre: "Bonsay",
+        precio: 135,
+        descripcion:
+            "XF: Lechuga fresca, tampico y masago. XD: Q. Philadelphia, aguacate, cangrejo y piel de salmón."
+    },
 
-function actualizarBotonContinuarDireccion() {
+    {
+        nombre: "Sapporo",
+        precio: 141,
+        descripcion:
+            "XF: Cebolla frita y chipotle. XD: Camarón preparado, Q. Philadelphia y aguacate."
+    },
 
-    if (!continuarDireccion) {
-        return;
+    {
+        nombre: "Shary Maky",
+        precio: 147,
+        descripcion:
+            "XF: Q. Philadelphia y piel de salmón. XD: Pepino, aguacate y salmón ahumado."
+    },
+
+    {
+        nombre: "Samuray",
+        precio: 149,
+        descripcion:
+            "XF: Q. Philadelphia, furikake y salsa de anguila. XD: Aguacate, pepino y anguila."
+    },
+
+    {
+        nombre: "Unagui Sushi Especial",
+        precio: 160,
+        descripcion:
+            "XF: Q. Philadelphia, kakiague y salsa de anguila. XD: Anguila y aguacate."
+    },
+
+    {
+        nombre: "Carrussel Maky",
+        precio: 155,
+        descripcion:
+            "XF: Q. Philadelphia, aguacate, cangrejo y salmón. XD: Q. Philadelphia, aguacate y pepino."
+    },
+
+    {
+        nombre: "Baby Roll",
+        precio: 160,
+        descripcion:
+            "XF: Pasta baby y salsa de anguila. XD: Anguila, aguacate, pepino y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Hot Spicy",
+        precio: 160,
+        descripcion:
+            "XF: Salmón a la plancha, Q. Philadelphia y salsa dragón. XD: Camarón tempura, aguacate y kakiague."
+    },
+
+    {
+        nombre: "Anguilla Sushi",
+        precio: 160,
+        descripcion:
+            "XF: Anguila y salsa dulce. XD: Aguacate, pepino y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Sanje Roll",
+        precio: 149,
+        descripcion:
+            "XF: Plátano frito, chiles tempura y salsa chipotle. XD: Q. Philadelphia, kakiague, aguacate y camarón empanizado."
+    },
+
+    {
+        nombre: "Hade Roll",
+        precio: 155,
+        descripcion:
+            "XF: Mango, aguacate, nuez caramelizada y salsa dulce. XD: Q. Philadelphia, camarón empanizado y aguacate."
+    },
+
+    {
+        nombre: "Aguachile Maky",
+        precio: 170,
+        descripcion:
+            "XF: Aguachile eby. XD: Pepino, zanahoria y aguacate."
+    },
+
+    {
+        nombre: "Maguro Maky",
+        precio: 147,
+        descripcion:
+            "XF: Atún fresco, aguacate y masago. XD: Pepino y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Gyo Roll",
+        precio: 149,
+        descripcion:
+            "XF: Filete de res a la plancha. XD: Mango, aguacate y kushiague de queso."
+    },
+
+    {
+        nombre: "Ibiza",
+        precio: 132,
+        descripcion:
+            "XF: Pepino y alga. XD: Mango, zanahoria, aguacate y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Tokio Roll",
+        precio: 170,
+        descripcion:
+            "XF: Anguila, salmón ahumado, aguacate y salsa dulce. XD: Aguacate, kakiague y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Miyazaki",
+        precio: 120,
+        descripcion:
+            "XF: Ajonjolí. XD: Cangrejo empanizado, cebollín, chipotle, aguacate y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Spel Maky",
+        precio: 132,
+        descripcion:
+            "XF: Queso, espinaca y salsa chipotle. XD: Salmón ahumado, zanahoria, aguacate y cebollín."
+    },
+
+    {
+        nombre: "Ninja",
+        precio: 141,
+        descripcion:
+            "XF: Hoja de pepino, tampico, tropiezos de camarón empanizado y salsa de anguila. XD: Philadelphia, aguacate y kanikama."
+    },
+
+    {
+        nombre: "Bacon Roll",
+        precio: 155,
+        descripcion:
+            "XF: Tocino frito, Philadelphia, salsa BBQ y cebollín. XD: Pollo a la plancha y aguacate."
     }
 
-    const direccionLista =
-        direccionValidaCoacalco === true;
-
-    continuarDireccion.disabled =
-        !direccionLista;
-
-}
+];
 
 
 // ======================================================
-// MOSTRAR DIRECCIÓN SELECCIONADA
+// ROLLOS EMPANIZADOS
 // ======================================================
 
-function mostrarDireccionSeleccionada(
-    direccion
+const rollosEmpanizados = [
+
+    {
+        nombre: "Suzuki Roll",
+        precio: 155,
+        descripcion:
+            "XF: Pescado, tampico y pasta de champiñón. XD: Q. Philadelphia y aguacate."
+    },
+
+    {
+        nombre: "Manchego Maky",
+        precio: 150,
+        descripcion:
+            "XF: Q. Manchego. XD: Cangrejo, Q. Philadelphia y aguacate."
+    },
+
+    {
+        nombre: "Beef Maky",
+        precio: 155,
+        descripcion:
+            "XF: Filete de res y salsa chipotle. XD: Q. Manchego y aguacate."
+    },
+
+    {
+        nombre: "Tory Maky Especial",
+        precio: 160,
+        descripcion:
+            "XF: Pollo empanizado. XD: Q. Manchego, aguacate, espárrago y chiles toreados."
+    },
+
+    {
+        nombre: "Queso Maky Fry",
+        precio: 165,
+        descripcion:
+            "XF: Q. Philadelphia y tampico. XD: Camarón empanizado y aguacate."
+    },
+
+    {
+        nombre: "Gelsha Maky",
+        precio: 160,
+        descripcion:
+            "XF: Camarón y salsa chipotle. XD: Aguacate y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Sake Maky Especial",
+        precio: 170,
+        descripcion:
+            "XF: Salmón y salsa shirasha. XD: Q. Philadelphia y aguacate."
+    },
+
+    {
+        nombre: "Cheese Hot",
+        precio: 170,
+        descripcion:
+            "XF: Q. Manchego gratinado y chiles toreados. XD: Cangrejo empanizado, Q. Philadelphia, aguacate y espárrago."
+    },
+
+    {
+        nombre: "Ostión Maky",
+        precio: 170,
+        descripcion:
+            "XF: Salsa Rockefeller. XD: Ostión, aguacate, Q. Manchego, espárrago y chiles toreados."
+    },
+
+    {
+        nombre: "Dragón Roll",
+        precio: 170,
+        descripcion:
+            "XF: Empanizado, camarones salteados a la mantequilla, queso gratinado, salsa dragón y cebollín. XD: Arrachera y aguacate."
+    },
+
+    {
+        nombre: "Dali Roll",
+        precio: 150,
+        descripcion:
+            "XF: Empanizado, un toque de salsa spicy y cebollín. XD: Arrachera, aguacate y Q. Philadelphia."
+    },
+
+    {
+        nombre: "Crunchy Roll",
+        precio: 150,
+        descripcion:
+            "XF: Tocino empanizado y salsa spicy. XD: Kakiague y aguacate."
+    }
+
+];
+
+// ======================================================
+// ROLLOS CAPEADOS
+// ======================================================
+
+const rollosCapeados = [
+
+    {
+        nombre: "Tempura Maky",
+        precio: 155,
+        descripcion:
+            "XF: Capeado y tampico. XD: Aguacate y camarón tempura."
+    },
+
+    {
+        nombre: "Tempura Maky Fry",
+        precio: 155,
+        descripcion:
+            "XF: Q. Philadelphia, chiles, tampico y salsa de anguila. XD: Tampico y kakiague."
+    }
+
+];
+
+
+// ======================================================
+// SUSHI BALLS
+// ======================================================
+
+const sushiBalls = [
+
+    {
+        nombre: "Saturno",
+        precio: 130,
+        descripcion:
+            "Empanizado, relleno de Q. Philadelphia, aguacate, salmón y salsa chipotle."
+    },
+
+    {
+        nombre: "Cosmo",
+        precio: 130,
+        descripcion:
+            "Empanizado, relleno de Q. Philadelphia, aguacate, camarón y salsa chipotle."
+    },
+
+    {
+        nombre: "Polo",
+        precio: 120,
+        descripcion:
+            "Empanizado, relleno de Philadelphia, aguacate y pollo con salsa kushiague."
+    },
+
+    {
+        nombre: "Alpha",
+        precio: 120,
+        descripcion:
+            "Empanizado, relleno de Philadelphia, aguacate, carne de res y salsa kushiague."
+    }
+
+];
+
+
+// ======================================================
+// CREAR PRODUCTOS FIJOS AUTOMÁTICAMENTE
+// ======================================================
+
+function renderizarProductosFijos(
+    productos,
+    idContenedor
 ) {
 
-    if (
-        direccionSeleccionada &&
-        textoDireccionSeleccionada
-    ) {
-
-        textoDireccionSeleccionada.textContent =
-            direccion;
-
-        direccionSeleccionada.style.display =
-            "block";
-
-    }
+    const contenedor =
+        document.getElementById(
+            idContenedor
+        );
 
 
-    if (resultadosDireccion) {
+    if (!contenedor) {
 
-        resultadosDireccion.innerHTML =
-            "";
+        return;
 
     }
 
 
-    if (estadoUbicacion) {
-
-        estadoUbicacion.textContent =
-            "";
-
-    }
+    contenedor.innerHTML =
+        "";
 
 
-    actualizarBotonContinuarDireccion();
+    productos.forEach(
+        function(producto) {
+
+            const articulo =
+                document.createElement(
+                    "article"
+                );
+
+
+            articulo.className =
+                "producto";
+
+
+            articulo.innerHTML =
+                `
+
+                <div class="producto-info">
+
+                    <h3>
+                        ${producto.nombre}
+                    </h3>
+
+                    <p>
+                        ${producto.descripcion}
+                    </p>
+
+                    <span>
+                        $${producto.precio}
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="agregar-producto-fijo"
+                    data-nombre="${producto.nombre}"
+                    data-precio="${producto.precio}"
+                >
+                    +
+                </button>
+
+                `;
+
+
+            contenedor.appendChild(
+                articulo
+            );
+
+        }
+    );
 
 }
 
 
 // ======================================================
-// OCULTAR DIRECCIÓN SELECCIONADA
+// MOSTRAR ESPECIALIDADES Y EMPANIZADOS
 // ======================================================
-
-function ocultarDireccionSeleccionada() {
-
-    if (direccionSeleccionada) {
-
-        direccionSeleccionada.style.display =
-            "none";
-
-    }
+renderizarProductosFijos(
+    especialidadesBarra,
+    "especialidades-barra"
+);
 
 
-    if (textoDireccionSeleccionada) {
-
-        textoDireccionSeleccionada.textContent =
-            "";
-
-    }
+renderizarProductosFijos(
+    rollosEmpanizados,
+    "rollos-empanizados"
+);
 
 
-    actualizarBotonContinuarDireccion();
+renderizarProductosFijos(
+    rollosCapeados,
+    "rollos-capeados"
+);
 
-}
 
+renderizarProductosFijos(
+    sushiBalls,
+    "sushi-balls"
+);
 
 // ======================================================
-// AGREGAR PRODUCTOS
+// AGREGAR PRODUCTOS NORMALES DEL HTML
 // ======================================================
 
 botonesAgregar.forEach(
@@ -446,6 +1042,7 @@ botonesAgregar.forEach(
                 const nombre =
                     boton.dataset.nombre;
 
+
                 const precio =
                     Number(
                         boton.dataset.precio
@@ -454,11 +1051,14 @@ botonesAgregar.forEach(
 
                 cantidadCarrito++;
 
+
                 totalCarrito +=
                     precio;
 
 
-                if (pedido[nombre]) {
+                if (
+                    pedido[nombre]
+                ) {
 
                     pedido[nombre]
                         .cantidad++;
@@ -467,9 +1067,17 @@ botonesAgregar.forEach(
 
                     pedido[nombre] = {
 
-                        precio: precio,
+                        nombre:
+                            nombre,
 
-                        cantidad: 1
+                        comentario:
+                            "",
+
+                        precio:
+                            precio,
+
+                        cantidad:
+                            1
 
                     };
 
@@ -483,8 +1091,82 @@ botonesAgregar.forEach(
 
     }
 );
+
+
 // ======================================================
-// ABRIR OPCIONES DEL PRODUCTO
+// AGREGAR PRODUCTOS FIJOS CREADOS CON JAVASCRIPT
+// ======================================================
+
+document.addEventListener(
+    "click",
+    function(evento) {
+
+        const boton =
+            evento.target.closest(
+                ".agregar-producto-fijo"
+            );
+
+
+        if (!boton) {
+
+            return;
+
+        }
+
+
+        const nombre =
+            boton.dataset.nombre;
+
+
+        const precio =
+            Number(
+                boton.dataset.precio
+            );
+
+
+        cantidadCarrito++;
+
+
+        totalCarrito +=
+            precio;
+
+
+        if (
+            pedido[nombre]
+        ) {
+
+            pedido[nombre]
+                .cantidad++;
+
+        } else {
+
+            pedido[nombre] = {
+
+                nombre:
+                    nombre,
+
+                comentario:
+                    "",
+
+                precio:
+                    precio,
+
+                cantidad:
+                    1
+
+            };
+
+        }
+
+
+        actualizarPedido();
+
+    }
+);
+
+
+// ======================================================
+// ABRIR MODAL DE OPCIONES
 // ======================================================
 
 botonesAbrirOpciones.forEach(
@@ -505,7 +1187,9 @@ botonesAbrirOpciones.forEach(
 
 
                 if (!producto) {
+
                     return;
+
                 }
 
 
@@ -526,7 +1210,26 @@ botonesAbrirOpciones.forEach(
                     .textContent =
                     producto.descripcion;
 
-                    comentarioOpcionesProducto.value = "";
+
+                if (
+                    imagenOpcionesProducto
+                ) {
+
+                    imagenOpcionesProducto.src =
+                        producto.imagen || "";
+
+                }
+
+
+                if (
+                    comentarioOpcionesProducto
+                ) {
+
+                    comentarioOpcionesProducto
+                        .value =
+                        "";
+
+                }
 
 
                 precioOpcionesProducto
@@ -654,7 +1357,8 @@ botonesAbrirOpciones.forEach(
 
 
                 modalOpcionesProducto
-                    .style.display =
+                    .style
+                    .display =
                     "flex";
 
             }
@@ -663,11 +1367,14 @@ botonesAbrirOpciones.forEach(
     }
 );
 
+
 // ======================================================
-// AGREGAR OPCIÓN AL CARRITO
+// AGREGAR PRODUCTO CON OPCIÓN AL CARRITO
 // ======================================================
 
-if (confirmarOpcionProducto) {
+if (
+    confirmarOpcionProducto
+) {
 
     confirmarOpcionProducto
         .addEventListener(
@@ -693,6 +1400,39 @@ if (confirmarOpcionProducto) {
                         .precio;
 
 
+                const comentarioProducto =
+                    comentarioOpcionesProducto
+                        ?
+                        comentarioOpcionesProducto
+                            .value
+                            .trim()
+                        :
+                        "";
+
+
+                /*
+                    Usamos nombre + comentario
+                    para distinguir pedidos diferentes.
+
+                    Ejemplo:
+
+                    Avocado Maky (Pulpo)
+                    Nota: salsa aparte
+
+                    no debe mezclarse con:
+
+                    Avocado Maky (Pulpo)
+                    Nota: sin queso
+                */
+
+                const claveProducto =
+                    encodeURIComponent(
+                        nombreProducto +
+                        "|" +
+                        comentarioProducto
+                    );
+
+
                 cantidadCarrito++;
 
 
@@ -701,19 +1441,27 @@ if (confirmarOpcionProducto) {
 
 
                 if (
-                    pedido[nombreProducto]
+                    pedido[claveProducto]
                 ) {
 
-                    pedido[nombreProducto]
+                    pedido[claveProducto]
                         .cantidad++;
 
                 } else {
 
-                    pedido[nombreProducto] = {
+                    pedido[claveProducto] = {
 
-                        precio: precio,
+                        nombre:
+                            nombreProducto,
 
-                        cantidad: 1
+                        comentario:
+                            comentarioProducto,
+
+                        precio:
+                            precio,
+
+                        cantidad:
+                            1
 
                     };
 
@@ -724,7 +1472,51 @@ if (confirmarOpcionProducto) {
 
 
                 modalOpcionesProducto
-                    .style.display =
+                    .style
+                    .display =
+                    "none";
+
+
+                productoOpcionesActual =
+                    null;
+
+
+                opcionProductoActual =
+                    null;
+
+
+                if (
+                    comentarioOpcionesProducto
+                ) {
+
+                    comentarioOpcionesProducto
+                        .value =
+                        "";
+
+                }
+
+            }
+        );
+
+}
+
+
+// ======================================================
+// CERRAR MODAL DE OPCIONES
+// ======================================================
+
+if (
+    cerrarOpcionesProducto
+) {
+
+    cerrarOpcionesProducto
+        .addEventListener(
+            "click",
+            function() {
+
+                modalOpcionesProducto
+                    .style
+                    .display =
                     "none";
 
 
@@ -740,315 +1532,171 @@ if (confirmarOpcionProducto) {
 
 }
 
+
 // ======================================================
-// CERRAR OPCIONES
+// FIN DE LA PARTE 1 DE 3
 // ======================================================
 
-if (cerrarOpcionesProducto) {
+// ======================================================
+// ANGUILA SUSHI - SCRIPT PRINCIPAL
+// PARTE 2 DE 3
+// ======================================================
 
-    cerrarOpcionesProducto
-        .addEventListener(
-            "click",
-            function() {
 
-                modalOpcionesProducto
-                    .style.display =
-                    "none";
+// ======================================================
+// ELEMENTOS DE INFORMACIÓN DEL PEDIDO
+// ======================================================
 
-            }
-        );
+const modalInformacion =
+    document.getElementById(
+        "modal-informacion"
+    );
+
+
+const volverInfo =
+    document.getElementById(
+        "volver-info"
+    );
+
+
+const cerrarInfo =
+    document.getElementById(
+        "cerrar-info"
+    );
+
+
+const continuarInfo =
+    document.getElementById(
+        "continuar-info"
+    );
+
+
+const textoServicio =
+    document.getElementById(
+        "servicio-seleccionado"
+    );
+
+
+const metodoPagoSelect =
+    document.getElementById(
+        "metodo-pago"
+    );
+
+
+const tipoSoya =
+    document.getElementById(
+        "tipo-soya"
+    );
+
+
+const datosEfectivo =
+    document.getElementById(
+        "datos-efectivo"
+    );
+
+
+const pagaConInput =
+    document.getElementById(
+        "paga-con"
+    );
+
+
+const botonesServicio =
+    document.querySelectorAll(
+        ".servicio-btn"
+    );
+
+
+// ======================================================
+// ELEMENTOS DE DIRECCIÓN
+// ======================================================
+
+const modalDireccion =
+    document.getElementById(
+        "modal-direccion"
+    );
+
+
+const volverDireccion =
+    document.getElementById(
+        "volver-direccion"
+    );
+
+
+const continuarDireccion =
+    document.getElementById(
+        "continuar-direccion"
+    );
+
+
+const calleInput =
+    document.getElementById(
+        "calle"
+    );
+
+
+const botonUbicacionActual =
+    document.getElementById(
+        "ubicacion-actual"
+    );
+
+
+const estadoUbicacion =
+    document.getElementById(
+        "estado-ubicacion"
+    );
+
+
+const botonBuscarDireccion =
+    document.getElementById(
+        "buscar-direccion"
+    );
+
+
+const resultadosDireccion =
+    document.getElementById(
+        "resultados-direccion"
+    );
+
+
+const direccionSeleccionada =
+    document.getElementById(
+        "direccion-seleccionada"
+    );
+
+
+const textoDireccionSeleccionada =
+    document.getElementById(
+        "texto-direccion-seleccionada"
+    );
+
+
+const cambiarDireccion =
+    document.getElementById(
+        "cambiar-direccion"
+    );
+
+
+// ======================================================
+// COSTO DE ENTREGA
+// ======================================================
+
+function obtenerCostoEntrega() {
+
+    if (
+        servicioSeleccionado ===
+        "domicilio"
+    ) {
+
+        return 30;
+
+    }
+
+
+    return 0;
 
 }
 
-// ======================================================
-// AGREGAR ROLLOS CON VARIANTE
-// ======================================================
-
-botonesAgregarVariante.forEach(
-    function(boton) {
-
-        boton.addEventListener(
-            "click",
-            function() {
-
-                const tarjeta =
-                    boton.closest(
-                        ".producto-con-variante"
-                    );
-
-                const select =
-                    tarjeta.querySelector(
-                        ".variante-rollo"
-                    );
-
-
-                // ==========================
-                // VALIDAR OPCIÓN
-                // ==========================
-
-                if (
-                    !select ||
-                    select.value === ""
-                ) {
-
-                    alert(
-                        "Selecciona una opción para este rollo."
-                    );
-
-                    return;
-
-                }
-
-
-                // ==========================
-                // OBTENER DATOS
-                // ==========================
-
-                const opcionSeleccionada =
-                    select.options[
-                        select.selectedIndex
-                    ];
-
-
-                const precio =
-                    Number(
-                        opcionSeleccionada
-                            .dataset
-                            .precio
-                    );
-
-
-                const nombreBase =
-                    select.dataset.producto;
-
-
-                const variante =
-                    select.value;
-
-
-                /*
-                    Ejemplo:
-
-                    Avocado Maky (Pulpo)
-                */
-
-                const nombreProducto =
-                    `${nombreBase} (${variante})`;
-
-
-                // ==========================
-                // AGREGAR AL CARRITO
-                // ==========================
-
-                cantidadCarrito++;
-
-
-                totalCarrito +=
-                    precio;
-
-
-                if (
-                    pedido[nombreProducto]
-                ) {
-
-                    pedido[nombreProducto]
-                        .cantidad++;
-
-                } else {
-
-                    pedido[nombreProducto] = {
-
-                        precio: precio,
-
-                        cantidad: 1
-
-                    };
-
-                }
-
-
-                actualizarPedido();
-
-            }
-        );
-
-    }
-);
-
-
-// ======================================================
-// AGREGAR CALIFORNIA MAKY
-// ======================================================
-
-botonesAgregarCalifornia.forEach(
-    function(boton) {
-
-        boton.addEventListener(
-            "click",
-            function() {
-
-                const tarjeta =
-                    boton.closest(
-                        ".producto-california"
-                    );
-
-
-                const rellenoSelect =
-                    tarjeta.querySelector(
-                        ".variante-california"
-                    );
-
-
-                const tipoSelect =
-                    tarjeta.querySelector(
-                        ".tipo-california"
-                    );
-
-
-                // ==========================
-                // VALIDAR RELLENO
-                // ==========================
-
-                if (
-                    rellenoSelect.value === ""
-                ) {
-
-                    alert(
-                        "Selecciona el relleno del California Maky."
-                    );
-
-                    return;
-
-                }
-
-
-                // ==========================
-                // VALIDAR PRESENTACIÓN
-                // ==========================
-
-                if (
-                    tipoSelect.value === ""
-                ) {
-
-                    alert(
-                        "Selecciona si deseas el California Maky Normal o Especial."
-                    );
-
-                    return;
-
-                }
-
-
-                // ==========================
-                // DATOS DE LA OPCIÓN
-                // ==========================
-
-                const opcionSeleccionada =
-                    rellenoSelect.options[
-                        rellenoSelect
-                            .selectedIndex
-                    ];
-
-
-                const relleno =
-                    rellenoSelect.value;
-
-
-                const tipo =
-                    tipoSelect.value;
-
-
-                let precio = 0;
-
-
-                // ==========================
-                // PRECIO NORMAL
-                // ==========================
-
-                if (
-                    tipo === "normal"
-                ) {
-
-                    precio =
-                        Number(
-                            opcionSeleccionada
-                                .dataset
-                                .precioNormal
-                        );
-
-                }
-
-
-                // ==========================
-                // PRECIO ESPECIAL
-                // ==========================
-
-                if (
-                    tipo === "especial"
-                ) {
-
-                    precio =
-                        Number(
-                            opcionSeleccionada
-                                .dataset
-                                .precioEspecial
-                        );
-
-                }
-
-
-                // ==========================
-                // NOMBRE PARA EL CARRITO
-                // ==========================
-
-                const tipoTexto =
-                    tipo === "normal"
-                        ? "Normal"
-                        : "Especial";
-
-
-                const nombreProducto =
-                    `California Maky (${relleno} - ${tipoTexto})`;
-
-
-                // ==========================
-                // AGREGAR AL CARRITO
-                // ==========================
-
-                cantidadCarrito++;
-
-
-                totalCarrito +=
-                    precio;
-
-
-                if (
-                    pedido[nombreProducto]
-                ) {
-
-                    pedido[nombreProducto]
-                        .cantidad++;
-
-                } else {
-
-                    pedido[nombreProducto] = {
-
-                        precio: precio,
-
-                        cantidad: 1
-
-                    };
-
-                }
-
-
-                actualizarPedido();
-
-            }
-        );
-
-    }
-);
 
 // ======================================================
 // ACTUALIZAR CARRITO
@@ -1056,22 +1704,57 @@ botonesAgregarCalifornia.forEach(
 
 function actualizarPedido() {
 
-    contador.textContent =
-        cantidadCarrito;
+    if (contador) {
 
-    total.textContent =
-        totalCarrito;
+        contador.textContent =
+            cantidadCarrito;
 
-    totalModal.textContent =
-        totalCarrito;
+    }
 
-    resumenCantidad.textContent =
-        cantidadCarrito;
 
-    resumenTotal.textContent =
-        totalCarrito +
-        obtenerCostoEntrega();
+    if (total) {
 
+        total.textContent =
+            totalCarrito;
+
+    }
+
+
+    if (totalModal) {
+
+        totalModal.textContent =
+            totalCarrito;
+
+    }
+
+
+    if (resumenCantidad) {
+
+        resumenCantidad.textContent =
+            cantidadCarrito;
+
+    }
+
+
+    if (resumenTotal) {
+
+        resumenTotal.textContent =
+            totalCarrito +
+            obtenerCostoEntrega();
+
+    }
+
+
+    if (!detallePedido) {
+
+        return;
+
+    }
+
+
+    // ==================================================
+    // CARRITO VACÍO
+    // ==================================================
 
     if (
         cantidadCarrito === 0
@@ -1089,16 +1772,30 @@ function actualizarPedido() {
         "";
 
 
+    // ==================================================
+    // MOSTRAR PRODUCTOS
+    // ==================================================
+
     for (
-        let nombre in pedido
+        let claveProducto in pedido
     ) {
 
         const producto =
-            pedido[nombre];
+            pedido[claveProducto];
+
 
         const subtotal =
             producto.precio *
             producto.cantidad;
+
+
+        const nombreMostrar =
+            producto.nombre ||
+            claveProducto;
+
+
+        const comentarioMostrar =
+            producto.comentario || "";
 
 
         detallePedido.innerHTML +=
@@ -1109,14 +1806,28 @@ function actualizarPedido() {
                 <div>
 
                     <strong>
-                        ${nombre}
+                        ${nombreMostrar}
                     </strong>
+
+                    ${
+                        comentarioMostrar !== ""
+                            ?
+                            `
+                            <p class="nota-producto">
+                                📝 ${comentarioMostrar}
+                            </p>
+                            `
+                            :
+                            ""
+                    }
 
                     <div class="controles-cantidad">
 
                         <button
+                            type="button"
                             class="restar"
-                            data-nombre="${nombre}">
+                            data-nombre="${claveProducto}"
+                        >
                             −
                         </button>
 
@@ -1125,8 +1836,10 @@ function actualizarPedido() {
                         </span>
 
                         <button
+                            type="button"
                             class="sumar"
-                            data-nombre="${nombre}">
+                            data-nombre="${claveProducto}"
+                        >
                             +
                         </button>
 
@@ -1141,7 +1854,7 @@ function actualizarPedido() {
 
             </div>
 
-        `;
+            `;
 
     }
 
@@ -1157,8 +1870,15 @@ function actualizarPedido() {
 
 function activarControles() {
 
+
+    // ==================================================
+    // SUMAR
+    // ==================================================
+
     document
-        .querySelectorAll(".sumar")
+        .querySelectorAll(
+            ".sumar"
+        )
         .forEach(
             function(boton) {
 
@@ -1166,18 +1886,33 @@ function activarControles() {
                     "click",
                     function() {
 
-                        const nombre =
+                        const claveProducto =
                             boton.dataset.nombre;
 
 
-                        pedido[nombre]
-                            .cantidad++;
+                        if (
+                            !pedido[
+                                claveProducto
+                            ]
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        pedido[
+                            claveProducto
+                        ].cantidad++;
+
 
                         cantidadCarrito++;
 
+
                         totalCarrito +=
-                            pedido[nombre]
-                                .precio;
+                            pedido[
+                                claveProducto
+                            ].precio;
 
 
                         actualizarPedido();
@@ -1189,8 +1924,14 @@ function activarControles() {
         );
 
 
+    // ==================================================
+    // RESTAR
+    // ==================================================
+
     document
-        .querySelectorAll(".restar")
+        .querySelectorAll(
+            ".restar"
+        )
         .forEach(
             function(boton) {
 
@@ -1198,26 +1939,44 @@ function activarControles() {
                     "click",
                     function() {
 
-                        const nombre =
+                        const claveProducto =
                             boton.dataset.nombre;
 
 
-                        pedido[nombre]
-                            .cantidad--;
+                        if (
+                            !pedido[
+                                claveProducto
+                            ]
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        pedido[
+                            claveProducto
+                        ].cantidad--;
+
 
                         cantidadCarrito--;
 
+
                         totalCarrito -=
-                            pedido[nombre]
-                                .precio;
+                            pedido[
+                                claveProducto
+                            ].precio;
 
 
                         if (
-                            pedido[nombre]
-                                .cantidad === 0
+                            pedido[
+                                claveProducto
+                            ].cantidad === 0
                         ) {
 
-                            delete pedido[nombre];
+                            delete pedido[
+                                claveProducto
+                            ];
 
                         }
 
@@ -1234,30 +1993,55 @@ function activarControles() {
 
 
 // ======================================================
-// RESUMEN DE CUENTA
+// ACTUALIZAR RESUMEN DE CUENTA
 // ======================================================
 
 function actualizarResumenCuenta() {
+
+    if (
+        !productosResumen
+    ) {
+
+        return;
+
+    }
+
 
     productosResumen.innerHTML =
         "";
 
 
-    cantidadResumenDetalle
-        .textContent =
-        cantidadCarrito;
+    if (
+        cantidadResumenDetalle
+    ) {
+
+        cantidadResumenDetalle
+            .textContent =
+            cantidadCarrito;
+
+    }
 
 
     for (
-        let nombre in pedido
+        let claveProducto in pedido
     ) {
 
         const producto =
-            pedido[nombre];
+            pedido[claveProducto];
+
 
         const subtotal =
             producto.precio *
             producto.cantidad;
+
+
+        const nombreMostrar =
+            producto.nombre ||
+            claveProducto;
+
+
+        const comentarioMostrar =
+            producto.comentario || "";
 
 
         productosResumen.innerHTML +=
@@ -1265,10 +2049,26 @@ function actualizarResumenCuenta() {
 
             <div class="producto-resumen">
 
-                <span>
-                    ${nombre}
-                    x${producto.cantidad}
-                </span>
+                <div>
+
+                    <span>
+                        ${nombreMostrar}
+                        x${producto.cantidad}
+                    </span>
+
+                    ${
+                        comentarioMostrar !== ""
+                            ?
+                            `
+                            <small class="nota-producto">
+                                📝 ${comentarioMostrar}
+                            </small>
+                            `
+                            :
+                            ""
+                    }
+
+                </div>
 
                 <strong>
                     $${subtotal}
@@ -1276,7 +2076,7 @@ function actualizarResumenCuenta() {
 
             </div>
 
-        `;
+            `;
 
     }
 
@@ -1285,31 +2085,48 @@ function actualizarResumenCuenta() {
         obtenerCostoEntrega();
 
 
-    subtotalResumen.textContent =
-        totalCarrito;
+    if (subtotalResumen) {
+
+        subtotalResumen.textContent =
+            totalCarrito;
+
+    }
 
 
-    entregaResumen.textContent =
-        costoEntrega;
+    if (entregaResumen) {
+
+        entregaResumen.textContent =
+            costoEntrega;
+
+    }
 
 
-    totalCuentaResumen.textContent =
-        totalCarrito +
-        costoEntrega;
+    if (totalCuentaResumen) {
+
+        totalCuentaResumen.textContent =
+            totalCarrito +
+            costoEntrega;
+
+    }
 
 }
 
 
 // ======================================================
-// ABRIR / CERRAR CARRITO
+// ABRIR CARRITO
 // ======================================================
 
-if (botonVerPedido) {
+if (
+    botonVerPedido
+) {
 
     botonVerPedido
         .addEventListener(
             "click",
             function() {
+
+                actualizarPedido();
+
 
                 modalPedido.style.display =
                     "flex";
@@ -1320,7 +2137,13 @@ if (botonVerPedido) {
 }
 
 
-if (cerrarPedido) {
+// ======================================================
+// CERRAR CARRITO
+// ======================================================
+
+if (
+    cerrarPedido
+) {
 
     cerrarPedido
         .addEventListener(
@@ -1332,6 +2155,79 @@ if (cerrarPedido) {
 
             }
         );
+
+}
+
+
+// ======================================================
+// ABRIR RESUMEN DE CUENTA
+// ======================================================
+
+if (
+    abrirResumen
+) {
+
+    abrirResumen.addEventListener(
+        "click",
+        function() {
+
+            actualizarResumenCuenta();
+
+
+            modalResumen.style.display =
+                "flex";
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// CERRAR RESUMEN
+// ======================================================
+
+if (
+    cerrarResumen
+) {
+
+    cerrarResumen.addEventListener(
+        "click",
+        function() {
+
+            modalResumen.style.display =
+                "none";
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// CERRAR RESUMEN TOCANDO AFUERA
+// ======================================================
+
+if (
+    modalResumen
+) {
+
+    modalResumen.addEventListener(
+        "click",
+        function(evento) {
+
+            if (
+                evento.target ===
+                modalResumen
+            ) {
+
+                modalResumen.style.display =
+                    "none";
+
+            }
+
+        }
+    );
 
 }
 
@@ -1354,70 +2250,108 @@ botonesServicio.forEach(
                 actualizarPedido();
 
 
-                metodoPagoSelect.innerHTML =
-                    '<option value="">Selecciona un método</option>';
+                // ==================================================
+                // REINICIAR MÉTODOS DE PAGO
+                // ==================================================
+
+                if (
+                    metodoPagoSelect
+                ) {
+
+                    metodoPagoSelect.innerHTML =
+                        `
+                        <option value="">
+                            Selecciona un método
+                        </option>
+                        `;
+
+                }
 
 
-                // ==========================
+                // ==================================================
                 // PARA LLEVAR
-                // ==========================
+                // ==================================================
 
                 if (
                     servicioSeleccionado ===
                     "llevar"
                 ) {
 
-                    metodoPagoSelect
-                        .innerHTML +=
-                        `
+                    if (
+                        metodoPagoSelect
+                    ) {
 
-                        <option value="Efectivo">
-                            Efectivo
-                        </option>
+                        metodoPagoSelect
+                            .innerHTML +=
+                            `
 
-                        <option value="Transferencia">
-                            Transferencia
-                        </option>
+                            <option value="Efectivo">
+                                Efectivo
+                            </option>
 
-                        <option value="Tarjeta">
-                            Tarjeta
-                        </option>
+                            <option value="Transferencia">
+                                Transferencia
+                            </option>
 
-                    `;
+                            <option value="Tarjeta">
+                                Tarjeta
+                            </option>
+
+                            `;
+
+                    }
 
 
-                    textoServicio.textContent =
-                        "🛍 Para llevar";
+                    if (
+                        textoServicio
+                    ) {
+
+                        textoServicio.textContent =
+                            "🛍 Para llevar";
+
+                    }
 
                 }
 
 
-                // ==========================
+                // ==================================================
                 // A DOMICILIO
-                // ==========================
+                // ==================================================
 
                 if (
                     servicioSeleccionado ===
                     "domicilio"
                 ) {
 
-                    metodoPagoSelect
-                        .innerHTML +=
-                        `
+                    if (
+                        metodoPagoSelect
+                    ) {
 
-                        <option value="Efectivo">
-                            Efectivo
-                        </option>
+                        metodoPagoSelect
+                            .innerHTML +=
+                            `
 
-                        <option value="Transferencia">
-                            Transferencia
-                        </option>
+                            <option value="Efectivo">
+                                Efectivo
+                            </option>
 
-                    `;
+                            <option value="Transferencia">
+                                Transferencia
+                            </option>
+
+                            `;
+
+                    }
 
 
-                    textoServicio.textContent =
-                        "🛵 A domicilio";
+                    if (
+                        textoServicio
+                    ) {
+
+                        textoServicio.textContent =
+                            "🛵 A domicilio";
+
+                    }
 
                 }
 
@@ -1425,8 +2359,14 @@ botonesServicio.forEach(
                 actualizarDatosEfectivo();
 
 
-                modalInformacion.style.display =
-                    "flex";
+                if (
+                    modalInformacion
+                ) {
+
+                    modalInformacion.style.display =
+                        "flex";
+
+                }
 
             }
         );
@@ -1439,7 +2379,9 @@ botonesServicio.forEach(
 // REGRESAR DESDE INFORMACIÓN
 // ======================================================
 
-if (volverInfo) {
+if (
+    volverInfo
+) {
 
     volverInfo.addEventListener(
         "click",
@@ -1453,12 +2395,14 @@ if (volverInfo) {
 
 }
 
+
 // ======================================================
 // CERRAR INFORMACIÓN CON X
-// MISMO COMPORTAMIENTO QUE LA FLECHA
 // ======================================================
 
-if (cerrarInfo) {
+if (
+    cerrarInfo
+) {
 
     cerrarInfo.addEventListener(
         "click",
@@ -1472,23 +2416,33 @@ if (cerrarInfo) {
 
 }
 
+
 // ======================================================
-// MÉTODO DE PAGO / EFECTIVO
+// MÉTODO DE PAGO
 // ======================================================
 
-if (metodoPagoSelect) {
+if (
+    metodoPagoSelect
+) {
 
-    metodoPagoSelect.addEventListener(
-        "change",
-        actualizarDatosEfectivo
-    );
+    metodoPagoSelect
+        .addEventListener(
+            "change",
+            actualizarDatosEfectivo
+        );
 
 }
 
 
+// ======================================================
+// MOSTRAR CAMPO "PAGA CON"
+// ======================================================
+
 function actualizarDatosEfectivo() {
 
-    if (!datosEfectivo) {
+    if (
+        !datosEfectivo
+    ) {
 
         return;
 
@@ -1498,6 +2452,7 @@ function actualizarDatosEfectivo() {
     if (
         servicioSeleccionado ===
             "domicilio" &&
+        metodoPagoSelect &&
         metodoPagoSelect.value ===
             "Efectivo"
     ) {
@@ -1511,7 +2466,9 @@ function actualizarDatosEfectivo() {
             "none";
 
 
-        if (pagaConInput) {
+        if (
+            pagaConInput
+        ) {
 
             pagaConInput.value =
                 "";
@@ -1527,37 +2484,57 @@ function actualizarDatosEfectivo() {
 // CONTINUAR DESDE INFORMACIÓN
 // ======================================================
 
-if (continuarInfo) {
+if (
+    continuarInfo
+) {
 
     continuarInfo.addEventListener(
         "click",
         function() {
 
+            const nombreCliente =
+                document.getElementById(
+                    "nombre-cliente"
+                );
+
+
+            const telefonoCliente =
+                document.getElementById(
+                    "telefono-cliente"
+                );
+
+
             const nombre =
-                document
-                    .getElementById(
-                        "nombre-cliente"
-                    )
-                    .value
-                    .trim();
+                nombreCliente
+                    ?
+                    nombreCliente
+                        .value
+                        .trim()
+                    :
+                    "";
 
 
             const telefono =
-                document
-                    .getElementById(
-                        "telefono-cliente"
-                    )
-                    .value
-                    .trim();
+                telefonoCliente
+                    ?
+                    telefonoCliente
+                        .value
+                        .trim()
+                    :
+                    "";
 
 
             const metodoPago =
-                metodoPagoSelect.value;
+                metodoPagoSelect
+                    ?
+                    metodoPagoSelect.value
+                    :
+                    "";
 
 
-            // ==========================
+            // ==================================================
             // VALIDAR NOMBRE
-            // ==========================
+            // ==================================================
 
             if (
                 nombre === ""
@@ -1572,9 +2549,9 @@ if (continuarInfo) {
             }
 
 
-            // ==========================
+            // ==================================================
             // VALIDAR TELÉFONO
-            // ==========================
+            // ==================================================
 
             if (
                 telefono === ""
@@ -1589,9 +2566,9 @@ if (continuarInfo) {
             }
 
 
-            // ==========================
+            // ==================================================
             // VALIDAR MÉTODO DE PAGO
-            // ==========================
+            // ==================================================
 
             if (
                 metodoPago === ""
@@ -1606,9 +2583,9 @@ if (continuarInfo) {
             }
 
 
-            // ==========================
+            // ==================================================
             // DOMICILIO + EFECTIVO
-            // ==========================
+            // ==================================================
 
             if (
                 servicioSeleccionado ===
@@ -1618,7 +2595,11 @@ if (continuarInfo) {
             ) {
 
                 const pagaCon =
-                    pagaConInput.value;
+                    pagaConInput
+                        ?
+                        pagaConInput.value
+                        :
+                        "";
 
 
                 if (
@@ -1640,7 +2621,9 @@ if (continuarInfo) {
 
 
                 if (
-                    Number(pagaCon) <
+                    Number(
+                        pagaCon
+                    ) <
                     totalFinal
                 ) {
 
@@ -1655,9 +2638,9 @@ if (continuarInfo) {
             }
 
 
-            // ==========================
+            // ==================================================
             // PARA LLEVAR
-            // ==========================
+            // ==================================================
 
             if (
                 servicioSeleccionado ===
@@ -1671,9 +2654,9 @@ if (continuarInfo) {
             }
 
 
-            // ==========================
+            // ==================================================
             // DOMICILIO
-            // ==========================
+            // ==================================================
 
             if (
                 servicioSeleccionado ===
@@ -1681,12 +2664,14 @@ if (continuarInfo) {
             ) {
 
                 modalInformacion
-                    .style.display =
+                    .style
+                    .display =
                     "none";
 
 
                 modalDireccion
-                    .style.display =
+                    .style
+                    .display =
                     "flex";
 
 
@@ -1701,10 +2686,162 @@ if (continuarInfo) {
 
 
 // ======================================================
+// ESTADO DEL BOTÓN CONTINUAR DIRECCIÓN
+// ======================================================
+
+function actualizarBotonContinuarDireccion() {
+
+    if (
+        !continuarDireccion
+    ) {
+
+        return;
+
+    }
+
+
+    const direccionLista =
+        direccionValidaCoacalco ===
+        true;
+
+
+    continuarDireccion.disabled =
+        !direccionLista;
+
+}
+
+
+// ======================================================
+// MOSTRAR DIRECCIÓN SELECCIONADA
+// ======================================================
+
+function mostrarDireccionSeleccionada(
+    direccion
+) {
+
+    if (
+        direccionSeleccionada &&
+        textoDireccionSeleccionada
+    ) {
+
+        textoDireccionSeleccionada
+            .textContent =
+            direccion;
+
+
+        direccionSeleccionada
+            .style
+            .display =
+            "block";
+
+    }
+
+
+    if (
+        resultadosDireccion
+    ) {
+
+        resultadosDireccion.innerHTML =
+            "";
+
+    }
+
+
+    actualizarBotonContinuarDireccion();
+
+}
+
+
+// ======================================================
+// OCULTAR DIRECCIÓN SELECCIONADA
+// ======================================================
+
+function ocultarDireccionSeleccionada() {
+
+    if (
+        direccionSeleccionada
+    ) {
+
+        direccionSeleccionada.style.display =
+            "none";
+
+    }
+
+
+    if (
+        textoDireccionSeleccionada
+    ) {
+
+        textoDireccionSeleccionada.textContent =
+            "";
+
+    }
+
+
+    actualizarBotonContinuarDireccion();
+
+}
+
+
+// ======================================================
+// CAMBIAR DIRECCIÓN
+// ======================================================
+
+if (
+    cambiarDireccion
+) {
+
+    cambiarDireccion.addEventListener(
+        "click",
+        function() {
+
+            direccionValidaCoacalco =
+                false;
+
+
+            latitudCliente =
+                null;
+
+
+            longitudCliente =
+                null;
+
+
+            usoUbicacionActual =
+                false;
+
+
+            direccionUbicacionActual =
+                "";
+
+
+            ocultarDireccionSeleccionada();
+
+
+            if (
+                calleInput
+            ) {
+
+                calleInput.value =
+                    "";
+
+                calleInput.focus();
+
+            }
+
+        }
+    );
+
+}
+
+
+// ======================================================
 // REGRESAR DESDE DIRECCIÓN
 // ======================================================
 
-if (volverDireccion) {
+if (
+    volverDireccion
+) {
 
     volverDireccion.addEventListener(
         "click",
@@ -1728,13 +2865,17 @@ if (volverDireccion) {
 // SOLO PERMITIR COACALCO
 // ======================================================
 
-if (botonUbicacionActual) {
+if (
+    botonUbicacionActual
+) {
 
     botonUbicacionActual.addEventListener(
         "click",
         function() {
 
-            if (!navigator.geolocation) {
+            if (
+                !navigator.geolocation
+            ) {
 
                 estadoUbicacion.textContent =
                     "❌ Tu navegador no permite obtener la ubicación.";
@@ -1751,23 +2892,33 @@ if (botonUbicacionActual) {
             navigator.geolocation
                 .getCurrentPosition(
 
-                    async function(posicion) {
+                    async function(
+                        posicion
+                    ) {
 
                         const latitud =
-                            posicion.coords.latitude;
+                            posicion
+                                .coords
+                                .latitude;
+
 
                         const longitud =
-                            posicion.coords.longitude;
+                            posicion
+                                .coords
+                                .longitude;
+
 
                         const precision =
-                            posicion.coords.accuracy;
+                            posicion
+                                .coords
+                                .accuracy;
 
 
                         try {
 
-                            // ==============================
+                            // ======================================
                             // CONVERTIR GPS A DIRECCIÓN
-                            // ==============================
+                            // ======================================
 
                             const url =
                                 "https://nominatim.openstreetmap.org/reverse" +
@@ -1782,10 +2933,14 @@ if (botonUbicacionActual) {
 
 
                             const respuesta =
-                                await fetch(url);
+                                await fetch(
+                                    url
+                                );
 
 
-                            if (!respuesta.ok) {
+                            if (
+                                !respuesta.ok
+                            ) {
 
                                 throw new Error(
                                     "No se pudo verificar la ubicación."
@@ -1795,31 +2950,48 @@ if (botonUbicacionActual) {
 
 
                             const datos =
-                                await respuesta.json();
+                                await respuesta
+                                    .json();
 
 
                             const direccion =
-                                datos.address || {};
+                                datos.address ||
+                                {};
 
 
-                            // ==============================
-                            // BUSCAR NOMBRE DE LA ZONA
-                            // ==============================
+                            // ======================================
+                            // BUSCAR COACALCO EN LA DIRECCIÓN
+                            // ======================================
 
                             const zona =
                                 [
+
                                     direccion.city,
+
                                     direccion.town,
+
                                     direccion.village,
+
                                     direccion.municipality,
+
                                     direccion.county,
+
                                     direccion.city_district,
+
                                     direccion.suburb,
+
                                     direccion.state_district
+
                                 ]
-                                    .filter(Boolean)
-                                    .join(" ")
-                                    .normalize("NFD")
+                                    .filter(
+                                        Boolean
+                                    )
+                                    .join(
+                                        " "
+                                    )
+                                    .normalize(
+                                        "NFD"
+                                    )
                                     .replace(
                                         /[\u0300-\u036f]/g,
                                         ""
@@ -1833,9 +3005,9 @@ if (botonUbicacionActual) {
                             );
 
 
-                            // ==============================
-                            // VERIFICAR COACALCO
-                            // ==============================
+                            // ======================================
+                            // FUERA DE COACALCO
+                            // ======================================
 
                             if (
                                 !zona.includes(
@@ -1846,14 +3018,18 @@ if (botonUbicacionActual) {
                                 latitudCliente =
                                     null;
 
+
                                 longitudCliente =
                                     null;
+
 
                                 usoUbicacionActual =
                                     false;
 
+
                                 direccionValidaCoacalco =
                                     false;
+
 
                                 direccionUbicacionActual =
                                     "";
@@ -1868,17 +3044,19 @@ if (botonUbicacionActual) {
 
                                 actualizarBotonContinuarDireccion();
 
+
                                 return;
 
                             }
 
 
-                            // ==============================
+                            // ======================================
                             // UBICACIÓN VÁLIDA
-                            // ==============================
+                            // ======================================
 
                             latitudCliente =
                                 latitud;
+
 
                             longitudCliente =
                                 longitud;
@@ -1893,28 +3071,19 @@ if (botonUbicacionActual) {
 
 
                             direccionUbicacionActual =
-                                datos.display_name || "";
+                                datos.display_name ||
+                                "";
 
 
-                            if (calleInput) {
+                            if (
+                                calleInput
+                            ) {
 
                                 calleInput.value =
                                     "";
 
                             }
 
-
-                            if (
-                                resultadosDireccion
-                            ) {
-
-                                resultadosDireccion.innerHTML =
-                                    "";
-
-                            }
-
-
-                            // MOSTRAMOS LA NUEVA TARJETA
 
                             mostrarDireccionSeleccionada(
                                 direccionUbicacionActual ||
@@ -1928,8 +3097,9 @@ if (botonUbicacionActual) {
 
                             actualizarBotonContinuarDireccion();
 
-
-                        } catch (error) {
+                        } catch (
+                            error
+                        ) {
 
                             console.error(
                                 "Error verificando ubicación:",
@@ -1940,14 +3110,18 @@ if (botonUbicacionActual) {
                             latitudCliente =
                                 null;
 
+
                             longitudCliente =
                                 null;
+
 
                             usoUbicacionActual =
                                 false;
 
+
                             direccionValidaCoacalco =
                                 false;
+
 
                             direccionUbicacionActual =
                                 "";
@@ -1969,20 +3143,26 @@ if (botonUbicacionActual) {
 
                     function(error) {
 
-                        console.error(error);
+                        console.error(
+                            error
+                        );
 
 
                         latitudCliente =
                             null;
 
+
                         longitudCliente =
                             null;
+
 
                         usoUbicacionActual =
                             false;
 
+
                         direccionValidaCoacalco =
                             false;
+
 
                         direccionUbicacionActual =
                             "";
@@ -2001,9 +3181,14 @@ if (botonUbicacionActual) {
 
 
                     {
-                        enableHighAccuracy: true,
-                        timeout: 15000,
-                        maximumAge: 0
+                        enableHighAccuracy:
+                            true,
+
+                        timeout:
+                            15000,
+
+                        maximumAge:
+                            0
                     }
 
                 );
@@ -2015,24 +3200,26 @@ if (botonUbicacionActual) {
 
 
 // ======================================================
-// AQUÍ TERMINA LA PARTE 1 DE 2
+// FIN DE LA PARTE 2 DE 3
 // ======================================================
 
 // ======================================================
-// PARTE 2
-// ANGUILA SUSHI
-// GOOGLE PLACES + WHATSAPP
+// ANGUILA SUSHI - SCRIPT PRINCIPAL
+// PARTE 3 DE 3
 // ======================================================
 
 
 // ======================================================
-// AUTOCOMPLETADO DE DIRECCIÓN CON GOOGLE PLACES
+// GOOGLE PLACES
+// AUTOCOMPLETADO DE DIRECCIÓN
 // ======================================================
 
 let temporizadorDireccion = null;
 
 let AutocompleteSuggestionGoogle = null;
+
 let AutocompleteSessionTokenGoogle = null;
+
 let tokenGoogle = null;
 
 
@@ -2043,8 +3230,11 @@ let tokenGoogle = null;
 const limitesCoacalco = {
 
     north: 19.667,
+
     south: 19.583,
+
     west: -99.134,
+
     east: -99.066
 
 };
@@ -2073,11 +3263,13 @@ async function inicializarGooglePlaces() {
 
 
     AutocompleteSuggestionGoogle =
-        libreriaPlaces.AutocompleteSuggestion;
+        libreriaPlaces
+            .AutocompleteSuggestion;
 
 
     AutocompleteSessionTokenGoogle =
-        libreriaPlaces.AutocompleteSessionToken;
+        libreriaPlaces
+            .AutocompleteSessionToken;
 
 
     tokenGoogle =
@@ -2112,7 +3304,9 @@ async function buscarDirecciones(
     texto
 ) {
 
-    if (!resultadosDireccion) {
+    if (
+        !resultadosDireccion
+    ) {
 
         return;
 
@@ -2132,7 +3326,9 @@ async function buscarDirecciones(
         await inicializarGooglePlaces();
 
 
-        if (!tokenGoogle) {
+        if (
+            !tokenGoogle
+        ) {
 
             crearNuevoTokenGoogle();
 
@@ -2140,7 +3336,7 @@ async function buscarDirecciones(
 
 
         // ==============================================
-        // PETICIÓN DE AUTOCOMPLETADO
+        // PETICIÓN
         // ==============================================
 
         const solicitud = {
@@ -2175,7 +3371,8 @@ async function buscarDirecciones(
 
 
         const sugerencias =
-            respuesta.suggestions || [];
+            respuesta.suggestions ||
+            [];
 
 
         resultadosDireccion.innerHTML =
@@ -2207,15 +3404,23 @@ async function buscarDirecciones(
         // ==============================================
 
         sugerencias
-            .slice(0, 5)
+            .slice(
+                0,
+                5
+            )
             .forEach(
-                function(sugerencia) {
+                function(
+                    sugerencia
+                ) {
 
                     const prediccion =
-                        sugerencia.placePrediction;
+                        sugerencia
+                            .placePrediction;
 
 
-                    if (!prediccion) {
+                    if (
+                        !prediccion
+                    ) {
 
                         return;
 
@@ -2223,9 +3428,10 @@ async function buscarDirecciones(
 
 
                     const botonResultado =
-                        document.createElement(
-                            "button"
-                        );
+                        document
+                            .createElement(
+                                "button"
+                            );
 
 
                     botonResultado.type =
@@ -2238,7 +3444,9 @@ async function buscarDirecciones(
 
                     botonResultado.textContent =
                         "📍 " +
-                        prediccion.text.toString();
+                        prediccion
+                            .text
+                            .toString();
 
 
                     // ==================================
@@ -2250,7 +3458,8 @@ async function buscarDirecciones(
                             "click",
                             async function() {
 
-                                resultadosDireccion.innerHTML =
+                                resultadosDireccion
+                                    .innerHTML =
                                     `
                                     <p class="mensaje-direccion">
                                         📍 Verificando dirección...
@@ -2261,20 +3470,30 @@ async function buscarDirecciones(
                                 try {
 
                                     const lugar =
-                                        prediccion.toPlace();
+                                        prediccion
+                                            .toPlace();
 
 
-                                    await lugar.fetchFields({
+                                    await lugar
+                                        .fetchFields(
+                                            {
 
-                                        fields: [
+                                                fields:
+                                                    [
 
-                                            "formattedAddress",
-                                            "location"
+                                                        "formattedAddress",
 
-                                        ]
+                                                        "location"
 
-                                    });
+                                                    ]
 
+                                            }
+                                        );
+
+
+                                    // ==========================
+                                    // SIN COORDENADAS
+                                    // ==========================
 
                                     if (
                                         !lugar.location
@@ -2288,25 +3507,35 @@ async function buscarDirecciones(
 
 
                                     const direccionCompleta =
-                                        lugar.formattedAddress ||
-                                        prediccion.text.toString();
+                                        lugar
+                                            .formattedAddress ||
+                                        prediccion
+                                            .text
+                                            .toString();
 
 
                                     // ==========================
-                                    // COMPROBAR COACALCO
+                                    // NORMALIZAR DIRECCIÓN
                                     // ==========================
 
                                     const direccionNormalizada =
                                         direccionCompleta
+
                                             .normalize(
                                                 "NFD"
                                             )
+
                                             .replace(
                                                 /[\u0300-\u036f]/g,
                                                 ""
                                             )
+
                                             .toLowerCase();
 
+
+                                    // ==========================
+                                    // VERIFICAR COACALCO
+                                    // ==========================
 
                                     if (
                                         !direccionNormalizada
@@ -2315,8 +3544,14 @@ async function buscarDirecciones(
                                             )
                                     ) {
 
-                                        calleInput.value =
-                                            "";
+                                        if (
+                                            calleInput
+                                        ) {
+
+                                            calleInput.value =
+                                                "";
+
+                                        }
 
 
                                         latitudCliente =
@@ -2339,15 +3574,23 @@ async function buscarDirecciones(
                                             "";
 
 
-                                        resultadosDireccion.innerHTML =
+                                        resultadosDireccion
+                                            .innerHTML =
                                             "";
 
 
                                         ocultarDireccionSeleccionada();
 
 
-                                        estadoUbicacion.textContent =
-                                            "❌ Esa dirección está fuera de Coacalco.";
+                                        if (
+                                            estadoUbicacion
+                                        ) {
+
+                                            estadoUbicacion
+                                                .textContent =
+                                                "❌ Esa dirección está fuera de Coacalco.";
+
+                                        }
 
 
                                         actualizarBotonContinuarDireccion();
@@ -2359,19 +3602,29 @@ async function buscarDirecciones(
 
 
                                     // ==========================
-                                    // GUARDAR DIRECCIÓN
+                                    // DIRECCIÓN CORRECTA
                                     // ==========================
 
-                                    calleInput.value =
-                                        direccionCompleta;
+                                    if (
+                                        calleInput
+                                    ) {
+
+                                        calleInput.value =
+                                            direccionCompleta;
+
+                                    }
 
 
                                     latitudCliente =
-                                        lugar.location.lat();
+                                        lugar
+                                            .location
+                                            .lat();
 
 
                                     longitudCliente =
-                                        lugar.location.lng();
+                                        lugar
+                                            .location
+                                            .lng();
 
 
                                     usoUbicacionActual =
@@ -2386,34 +3639,38 @@ async function buscarDirecciones(
                                         "";
 
 
-                                    resultadosDireccion.innerHTML =
+                                    resultadosDireccion
+                                        .innerHTML =
                                         "";
 
-
-                                    // ==========================
-                                    // MOSTRAR TARJETA
-                                    // ==========================
 
                                     mostrarDireccionSeleccionada(
                                         direccionCompleta
                                     );
 
 
-                                    estadoUbicacion.textContent =
-                                        "";
+                                    if (
+                                        estadoUbicacion
+                                    ) {
+
+                                        estadoUbicacion
+                                            .textContent =
+                                            "";
+
+                                    }
 
 
                                     actualizarBotonContinuarDireccion();
 
 
-                                    // Terminó esta búsqueda.
-                                    // Creamos token para
-                                    // una futura búsqueda.
+                                    // Nuevo token para
+                                    // la próxima búsqueda.
 
                                     crearNuevoTokenGoogle();
 
-
-                                } catch (error) {
+                                } catch (
+                                    error
+                                ) {
 
                                     console.error(
                                         "Error al seleccionar dirección:",
@@ -2421,7 +3678,8 @@ async function buscarDirecciones(
                                     );
 
 
-                                    resultadosDireccion.innerHTML =
+                                    resultadosDireccion
+                                        .innerHTML =
                                         "";
 
 
@@ -2437,11 +3695,26 @@ async function buscarDirecciones(
                                         null;
 
 
+                                    usoUbicacionActual =
+                                        false;
+
+
+                                    direccionUbicacionActual =
+                                        "";
+
+
                                     ocultarDireccionSeleccionada();
 
 
-                                    estadoUbicacion.textContent =
-                                        "❌ No pudimos verificar esa dirección.";
+                                    if (
+                                        estadoUbicacion
+                                    ) {
+
+                                        estadoUbicacion
+                                            .textContent =
+                                            "❌ No pudimos verificar esa dirección.";
+
+                                    }
 
 
                                     actualizarBotonContinuarDireccion();
@@ -2461,7 +3734,9 @@ async function buscarDirecciones(
             );
 
 
-    } catch (error) {
+    } catch (
+        error
+    ) {
 
         console.error(
             "Error Google Places:",
@@ -2485,19 +3760,23 @@ async function buscarDirecciones(
 // BUSCAR AUTOMÁTICAMENTE MIENTRAS ESCRIBE
 // ======================================================
 
-if (calleInput) {
+if (
+    calleInput
+) {
 
     calleInput.addEventListener(
         "input",
         function() {
 
             const direccion =
-                calleInput.value.trim();
+                calleInput
+                    .value
+                    .trim();
 
 
             // ==========================================
-            // AL MODIFICAR EL TEXTO,
-            // LA DIRECCIÓN ANTERIOR YA NO ES VÁLIDA
+            // AL MODIFICAR LA DIRECCIÓN,
+            // LA ANTERIOR DEJA DE SER VÁLIDA
             // ==========================================
 
             direccionValidaCoacalco =
@@ -2520,8 +3799,14 @@ if (calleInput) {
                 null;
 
 
-            estadoUbicacion.textContent =
-                "";
+            if (
+                estadoUbicacion
+            ) {
+
+                estadoUbicacion.textContent =
+                    "";
+
+            }
 
 
             ocultarDireccionSeleccionada();
@@ -2540,11 +3825,20 @@ if (calleInput) {
             // ==========================================
 
             if (
-                direccion.length < 3
+                direccion.length <
+                3
             ) {
 
-                resultadosDireccion.innerHTML =
-                    "";
+                if (
+                    resultadosDireccion
+                ) {
+
+                    resultadosDireccion
+                        .innerHTML =
+                        "";
+
+                }
+
 
                 return;
 
@@ -2552,8 +3846,7 @@ if (calleInput) {
 
 
             // ==========================================
-            // ESPERAMOS MEDIO SEGUNDO
-            // DESPUÉS DE ESCRIBIR
+            // ESPERAR 500 MS
             // ==========================================
 
             temporizadorDireccion =
@@ -2565,6 +3858,7 @@ if (calleInput) {
                         );
 
                     },
+
                     500
                 );
 
@@ -2575,152 +3869,84 @@ if (calleInput) {
 
 
 // ======================================================
-// BUSCAR TAMBIÉN CON LA LUPA
+// BUSCAR CON BOTÓN DE LUPA
 // ======================================================
 
-if (botonBuscarDireccion) {
+if (
+    botonBuscarDireccion
+) {
 
-    botonBuscarDireccion.addEventListener(
-        "click",
-        function() {
+    botonBuscarDireccion
+        .addEventListener(
+            "click",
+            function() {
 
-            const direccion =
-                calleInput.value.trim();
+                if (
+                    !calleInput
+                ) {
+
+                    return;
+
+                }
 
 
-            if (
-                direccion.length < 3
-            ) {
+                const direccion =
+                    calleInput
+                        .value
+                        .trim();
 
-                alert(
-                    "Escribe al menos 3 caracteres."
+
+                if (
+                    direccion.length <
+                    3
+                ) {
+
+                    alert(
+                        "Escribe al menos 3 caracteres."
+                    );
+
+                    return;
+
+                }
+
+
+                direccionValidaCoacalco =
+                    false;
+
+
+                usoUbicacionActual =
+                    false;
+
+
+                direccionUbicacionActual =
+                    "";
+
+
+                latitudCliente =
+                    null;
+
+
+                longitudCliente =
+                    null;
+
+
+                ocultarDireccionSeleccionada();
+
+
+                actualizarBotonContinuarDireccion();
+
+
+                clearTimeout(
+                    temporizadorDireccion
                 );
 
-                return;
+
+                buscarDirecciones(
+                    direccion
+                );
 
             }
-
-
-            // La dirección escrita todavía
-            // no cuenta como seleccionada.
-
-            direccionValidaCoacalco =
-                false;
-
-
-            usoUbicacionActual =
-                false;
-
-
-            direccionUbicacionActual =
-                "";
-
-
-            latitudCliente =
-                null;
-
-
-            longitudCliente =
-                null;
-
-
-            ocultarDireccionSeleccionada();
-
-
-            actualizarBotonContinuarDireccion();
-
-
-            clearTimeout(
-                temporizadorDireccion
-            );
-
-
-            buscarDirecciones(
-                direccion
-            );
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// CAMBIAR DIRECCIÓN SELECCIONADA
-// ======================================================
-
-if (cambiarDireccion) {
-
-    cambiarDireccion.addEventListener(
-        "click",
-        function() {
-
-            // ==========================================
-            // BORRAR DIRECCIÓN ANTERIOR
-            // ==========================================
-
-            direccionValidaCoacalco =
-                false;
-
-
-            usoUbicacionActual =
-                false;
-
-
-            direccionUbicacionActual =
-                "";
-
-
-            latitudCliente =
-                null;
-
-
-            longitudCliente =
-                null;
-
-
-            if (calleInput) {
-
-                calleInput.value =
-                    "";
-
-            }
-
-
-            if (resultadosDireccion) {
-
-                resultadosDireccion.innerHTML =
-                    "";
-
-            }
-
-
-            if (estadoUbicacion) {
-
-                estadoUbicacion.textContent =
-                    "";
-
-            }
-
-
-            ocultarDireccionSeleccionada();
-
-
-            actualizarBotonContinuarDireccion();
-
-
-            // ==========================================
-            // VOLVER AL BUSCADOR
-            // ==========================================
-
-            if (calleInput) {
-
-                calleInput.focus();
-
-            }
-
-        }
-    );
+        );
 
 }
 
@@ -2729,63 +3955,74 @@ if (cambiarDireccion) {
 // CONTINUAR DESDE DIRECCIÓN
 // ======================================================
 
-if (continuarDireccion) {
+if (
+    continuarDireccion
+) {
 
-    continuarDireccion.addEventListener(
-        "click",
-        function() {
+    continuarDireccion
+        .addEventListener(
+            "click",
+            function() {
 
-            const direccionManual =
-                calleInput.value.trim();
+                const direccionManual =
+                    calleInput
+                        ?
+                        calleInput
+                            .value
+                            .trim()
+                        :
+                        "";
 
 
-            // ==========================================
-            // NO ESCRIBIÓ NI COMPARTIÓ GPS
-            // ==========================================
+                // ==========================================
+                // SIN DIRECCIÓN
+                // ==========================================
 
-            if (
-                direccionManual === "" &&
-                usoUbicacionActual === false
-            ) {
+                if (
+                    direccionManual ===
+                        "" &&
+                    usoUbicacionActual ===
+                        false
+                ) {
 
-                alert(
-                    "Escribe tu dirección o comparte tu ubicación actual."
-                );
+                    alert(
+                        "Escribe tu dirección o comparte tu ubicación actual."
+                    );
 
-                return;
+                    return;
+
+                }
+
+
+                // ==========================================
+                // DIRECCIÓN ESCRITA
+                // PERO NO SELECCIONADA
+                // ==========================================
+
+                if (
+                    usoUbicacionActual ===
+                        false &&
+                    direccionValidaCoacalco ===
+                        false
+                ) {
+
+                    alert(
+                        "Selecciona una dirección válida dentro de Coacalco."
+                    );
+
+                    return;
+
+                }
+
+
+                // ==========================================
+                // TODO CORRECTO
+                // ==========================================
+
+                enviarPedidoWhatsApp();
 
             }
-
-
-            // ==========================================
-            // ESCRIBIÓ ALGO PERO
-            // NO SELECCIONÓ UNA DIRECCIÓN VÁLIDA
-            // ==========================================
-
-            if (
-                usoUbicacionActual ===
-                    false &&
-                direccionValidaCoacalco ===
-                    false
-            ) {
-
-                alert(
-                    "Selecciona una dirección válida dentro de Coacalco."
-                );
-
-                return;
-
-            }
-
-
-            // ==========================================
-            // TODO CORRECTO
-            // ==========================================
-
-            enviarPedidoWhatsApp();
-
-        }
-    );
+        );
 
 }
 
@@ -2796,47 +4033,87 @@ if (continuarDireccion) {
 
 function enviarPedidoWhatsApp() {
 
+
+    // ==================================================
+    // DATOS DEL CLIENTE
+    // ==================================================
+
+    const nombreCliente =
+        document.getElementById(
+            "nombre-cliente"
+        );
+
+
+    const telefonoCliente =
+        document.getElementById(
+            "telefono-cliente"
+        );
+
+
+    const cubiertosSelect =
+        document.getElementById(
+            "cubiertos"
+        );
+
+
+    const comentariosGenerales =
+        document.getElementById(
+            "comentarios"
+        );
+
+
     const nombre =
-        document
-            .getElementById(
-                "nombre-cliente"
-            )
-            .value
-            .trim();
+        nombreCliente
+            ?
+            nombreCliente
+                .value
+                .trim()
+            :
+            "";
 
 
     const telefono =
-        document
-            .getElementById(
-                "telefono-cliente"
-            )
-            .value
-            .trim();
+        telefonoCliente
+            ?
+            telefonoCliente
+                .value
+                .trim()
+            :
+            "";
 
 
     const soya =
-        tipoSoya.value;
+        tipoSoya
+            ?
+            tipoSoya.value
+            :
+            "";
 
 
     const cubiertos =
-        document
-            .getElementById(
-                "cubiertos"
-            )
-            .value;
+        cubiertosSelect
+            ?
+            cubiertosSelect.value
+            :
+            "";
 
 
     const metodoPago =
-        metodoPagoSelect.value;
+        metodoPagoSelect
+            ?
+            metodoPagoSelect.value
+            :
+            "";
 
 
     const comentarios =
-        document
-            .getElementById(
-                "comentarios"
-            )
-            .value
-            .trim();
+        comentariosGenerales
+            ?
+            comentariosGenerales
+                .value
+                .trim()
+            :
+            "";
 
 
     const costoEntrega =
@@ -2893,7 +4170,7 @@ function enviarPedidoWhatsApp() {
 
 
         // ==============================================
-        // UBICACIÓN OBTENIDA POR GPS
+        // GPS
         // ==============================================
 
         if (
@@ -2912,8 +4189,10 @@ function enviarPedidoWhatsApp() {
 
 
             if (
-                latitudCliente !== null &&
-                longitudCliente !== null
+                latitudCliente !==
+                    null &&
+                longitudCliente !==
+                    null
             ) {
 
                 mensaje +=
@@ -2925,27 +4204,30 @@ function enviarPedidoWhatsApp() {
 
 
         // ==============================================
-        // DIRECCIÓN SELECCIONADA EN GOOGLE PLACES
+        // GOOGLE PLACES
         // ==============================================
 
         else {
 
             const direccionManual =
-                calleInput.value.trim();
+                calleInput
+                    ?
+                    calleInput
+                        .value
+                        .trim()
+                    :
+                    "";
 
 
             mensaje +=
                 `📍 Dirección: ${direccionManual}\n`;
 
 
-            // ==========================================
-            // TAMBIÉN MANDAMOS
-            // EL ENLACE DE GOOGLE MAPS
-            // ==========================================
-
             if (
-                latitudCliente !== null &&
-                longitudCliente !== null
+                latitudCliente !==
+                    null &&
+                longitudCliente !==
+                    null
             ) {
 
                 mensaje +=
@@ -2994,9 +4276,13 @@ function enviarPedidoWhatsApp() {
     ) {
 
         const pagaCon =
-            Number(
-                pagaConInput.value
-            );
+            pagaConInput
+                ?
+                Number(
+                    pagaConInput.value
+                )
+                :
+                0;
 
 
         mensaje +=
@@ -3006,15 +4292,16 @@ function enviarPedidoWhatsApp() {
 
 
     // ==================================================
-    // COMENTARIOS
+    // COMENTARIOS GENERALES
     // ==================================================
 
     if (
-        comentarios !== ""
+        comentarios !==
+        ""
     ) {
 
         mensaje +=
-            `📝 Comentarios: ${comentarios}\n`;
+            `📝 Comentarios generales: ${comentarios}\n`;
 
     }
 
@@ -3028,11 +4315,13 @@ function enviarPedidoWhatsApp() {
 
 
     for (
-        let nombreProducto in pedido
+        let claveProducto in pedido
     ) {
 
         const producto =
-            pedido[nombreProducto];
+            pedido[
+                claveProducto
+            ];
 
 
         const subtotal =
@@ -3040,8 +4329,34 @@ function enviarPedidoWhatsApp() {
             producto.cantidad;
 
 
+        // IMPORTANTE:
+        // usamos producto.nombre porque
+        // algunos productos tienen una clave
+        // interna codificada.
+
+        const nombreMostrar =
+            producto.nombre ||
+            claveProducto;
+
+
         mensaje +=
-            `${nombreProducto} x${producto.cantidad} - $${subtotal}\n`;
+            `${nombreMostrar} x${producto.cantidad} - $${subtotal}\n`;
+
+
+        // ==============================================
+        // COMENTARIO DEL ROLLO
+        // ==============================================
+
+        if (
+            producto.comentario &&
+            producto.comentario !==
+                ""
+        ) {
+
+            mensaje +=
+                `   📝 Nota: ${producto.comentario}\n`;
+
+        }
 
     }
 
@@ -3095,73 +4410,6 @@ function enviarPedidoWhatsApp() {
 
 
 // ======================================================
-// ABRIR RESUMEN DE CUENTA
-// ======================================================
-
-if (abrirResumen) {
-
-    abrirResumen.addEventListener(
-        "click",
-        function() {
-
-            actualizarResumenCuenta();
-
-
-            modalResumen.style.display =
-                "flex";
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// CERRAR RESUMEN
-// ======================================================
-
-if (cerrarResumen) {
-
-    cerrarResumen.addEventListener(
-        "click",
-        function() {
-
-            modalResumen.style.display =
-                "none";
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// CERRAR RESUMEN AL TOCAR AFUERA
-// ======================================================
-
-if (modalResumen) {
-
-    modalResumen.addEventListener(
-        "click",
-        function(evento) {
-
-            if (
-                evento.target ===
-                modalResumen
-            ) {
-
-                modalResumen.style.display =
-                    "none";
-
-            }
-
-        }
-    );
-
-}
-
-
-// ======================================================
 // INICIAR PÁGINA
 // ======================================================
 
@@ -3170,3 +4418,9 @@ actualizarPedido();
 actualizarDatosEfectivo();
 
 actualizarBotonContinuarDireccion();
+
+
+// ======================================================
+// FIN DEL SCRIPT
+// ANGUILA SUSHI
+// ======================================================
