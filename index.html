@@ -11,6 +11,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+
     <!-- ====================================================== -->
     <!-- FUENTE -->
     <!-- ====================================================== -->
@@ -43,7 +44,7 @@
 
 
     <!-- ====================================================== -->
-    <!-- ESTILOS -->
+    <!-- CSS -->
     <!-- ====================================================== -->
 
     <link
@@ -65,6 +66,7 @@
     <!-- ====================================================== -->
     <!-- LOGO PRINCIPAL -->
     <!-- ====================================================== -->
+    <!-- NO SE MODIFICA TU IMAGEN -->
 
     <header class="encabezado">
 
@@ -78,43 +80,54 @@
 
 
 
+
     <!-- ====================================================== -->
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- INFORMACIÓN DEL NEGOCIO -->
     <!-- ====================================================== -->
 
-    <main>
+    <section class="info-negocio">
 
 
         <!-- ================================================== -->
-        <!-- INFORMACIÓN RÁPIDA DEL NEGOCIO -->
+        <!-- ESTADO -->
         <!-- ================================================== -->
 
-        <section class="barra-negocio">
+        <div
+            class="estado-negocio abierto"
+            id="estado-tienda"
+        >
+
+            <span class="punto-estado"></span>
+
+            <span id="texto-estado">
+                Abierto
+            </span>
+
+        </div>
 
 
-            <!-- ESTADO -->
 
-            <div
-                class="estado-negocio abierto"
-                id="estado-tienda"
-            >
+        <!-- ================================================== -->
+        <!-- DATOS -->
+        <!-- ================================================== -->
 
-                <span class="punto-estado"></span>
-
-                <span id="texto-estado">
-                    Abierto
-                </span>
-
-            </div>
+        <div class="datos-negocio">
 
 
+            <!-- ============================================== -->
             <!-- UBICACIÓN -->
+            <!-- ============================================== -->
 
-            <div class="dato-negocio">
+            <div class="ubicacion-negocio">
 
-                <i class="fa-solid fa-location-dot"></i>
+                <div class="icono-negocio">
 
-                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+
+                <div class="texto-negocio">
 
                     <strong>
                         Ubicación
@@ -129,10 +142,18 @@
             </div>
 
 
+
+            <!-- ============================================== -->
             <!-- WHATSAPP -->
+            <!-- ============================================== -->
+
+            <!--
+                IMPORTANTE:
+                CONSERVA AQUÍ TU NÚMERO ACTUAL DE WHATSAPP.
+            -->
 
             <a
-                href="https://wa.me/525532727920?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Anguila%20Sushi"
+                href="https://wa.me/TU_NUMERO_WHATSAPP"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="whatsapp-negocio"
@@ -147,15 +168,27 @@
             </a>
 
 
-        </section>
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ====================================================== -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ====================================================== -->
+
+    <main>
 
 
 
         <!-- ================================================== -->
-        <!-- NAVEGACIÓN PRINCIPAL -->
+        <!-- CATEGORÍAS PRINCIPALES -->
         <!-- ================================================== -->
 
         <section class="categorias">
+
 
             <div class="categorias-encabezado">
 
@@ -163,14 +196,16 @@
                     MENÚ
                 </span>
 
-                <h2>
+                <h1>
                     ¿Qué se te antoja?
-                </h2>
+                </h1>
 
             </div>
 
 
-            <div class="lista-categorias">
+
+            <nav class="lista-categorias">
+
 
                 <a
                     href="#entradas"
@@ -211,7 +246,9 @@
                     Postres
                 </a>
 
-            </div>
+
+            </nav>
+
 
         </section>
 
@@ -226,6 +263,7 @@
             id="entradas"
         >
 
+
             <div class="titulo-seccion">
 
                 <span>
@@ -239,6 +277,7 @@
             </div>
 
 
+
             <div class="productos-grid entradas-grid">
 
 
@@ -246,7 +285,10 @@
                 <!-- EDAMAMES -->
                 <!-- ========================================== -->
 
-                <article class="producto">
+                <article class="producto producto-con-imagen">
+
+
+                    <!-- INFORMACIÓN -->
 
                     <div class="producto-info">
 
@@ -258,27 +300,59 @@
                             Frijol de soya tierno al vapor o asado.
                         </p>
 
-                        <span>
+                        <span class="precio-producto">
                             $75
                         </span>
 
                     </div>
 
 
-                    <button
-                        type="button"
-                        class="agregar"
-                        data-nombre="Edamames"
-                        data-precio="75"
-                        aria-label="Agregar Edamames"
-                    >
-                        +
-                    </button>
+
+                    <!-- FOTO -->
+
+                    <div class="producto-media">
+
+                        <!--
+                            Cuando tengas la fotografía,
+                            guárdala como:
+
+                            img/productos/edamames.jpg
+                        -->
+
+                        <img
+                            src="img/productos/edamames.jpg"
+                            alt="Edamames"
+                            class="producto-imagen"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+
+
+                        <div class="producto-sin-imagen">
+
+                            <i class="fa-solid fa-utensils"></i>
+
+                        </div>
+
+
+
+                        <button
+                            type="button"
+                            class="agregar"
+                            data-nombre="Edamames"
+                            data-precio="75"
+                            aria-label="Agregar Edamames"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
 
                 </article>
 
 
             </div>
+
 
         </section>
 
@@ -298,7 +372,7 @@
             <!-- TÍTULO -->
             <!-- ============================================== -->
 
-            <div class="titulo-seccion">
+            <div class="titulo-seccion titulo-rollos">
 
                 <span>
                     NUESTRO MENÚ
@@ -317,34 +391,41 @@
 
 
             <!-- ================================================== -->
-            <!-- NAVEGACIÓN INTERNA DE ROLLOS -->
+            <!-- SUBCATEGORÍAS -->
             <!-- ================================================== -->
 
             <nav class="subcategorias-rollos">
+
 
                 <a href="#rollos-tradicionales">
                     Tradicionales
                 </a>
 
+
                 <a href="#rollos-clasicos">
                     Clásicos
                 </a>
+
 
                 <a href="#especialidades-rollos">
                     Especialidades
                 </a>
 
+
                 <a href="#empanizados-rollos">
                     Empanizados
                 </a>
+
 
                 <a href="#capeados-rollos">
                     Capeados
                 </a>
 
+
                 <a href="#sushi-balls-rollos">
                     Sushi Balls
                 </a>
+
 
             </nav>
 
@@ -354,27 +435,33 @@
             <!-- ROLLOS TRADICIONALES -->
             <!-- ================================================== -->
 
-            <div
+            <section
                 class="grupo-rollos"
                 id="rollos-tradicionales"
             >
 
+
+                <!-- ============================================== -->
+                <!-- ENCABEZADO -->
+                <!-- ============================================== -->
+
                 <div class="encabezado-grupo-rollos">
 
-                    <div>
+                    <span class="numero-seccion">
+                        01
+                    </span>
 
-                        <span class="numero-seccion">
-                            01
-                        </span>
-
-                        <h3>
-                            Rollos Tradicionales
-                        </h3>
-
-                    </div>
+                    <h3>
+                        Rollos Tradicionales
+                    </h3>
 
                 </div>
 
+
+
+                <!-- ============================================== -->
+                <!-- PRODUCTOS -->
+                <!-- ============================================== -->
 
                 <div class="productos-grid rollos-grid">
 
@@ -383,7 +470,8 @@
                     <!-- KAPPA MAKY -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -395,22 +483,43 @@
                                 Pepino.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 $66
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="agregar"
-                            data-nombre="Kappa Maky"
-                            data-precio="66"
-                            aria-label="Agregar Kappa Maky"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/kappa-maky.jpg"
+                                alt="Kappa Maky"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="agregar"
+                                data-nombre="Kappa Maky"
+                                data-precio="66"
+                                aria-label="Agregar Kappa Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
@@ -420,7 +529,8 @@
                     <!-- TEKKA MAKY -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -432,22 +542,43 @@
                                 Atún.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 $74
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="agregar"
-                            data-nombre="Tekka Maky"
-                            data-precio="74"
-                            aria-label="Agregar Tekka Maky"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/tekka-maky.jpg"
+                                alt="Tekka Maky"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="agregar"
+                                data-nombre="Tekka Maky"
+                                data-precio="74"
+                                aria-label="Agregar Tekka Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
@@ -457,7 +588,8 @@
                     <!-- TAMPICO MAKY -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -469,29 +601,51 @@
                                 Rollo tradicional.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 $76
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="agregar"
-                            data-nombre="Tampico Maky"
-                            data-precio="76"
-                            aria-label="Agregar Tampico Maky"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/tampico-maky.jpg"
+                                alt="Tampico Maky"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="agregar"
+                                data-nombre="Tampico Maky"
+                                data-precio="76"
+                                aria-label="Agregar Tampico Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
 
                 </div>
 
-            </div>
+
+            </section>
 
 
 
@@ -499,26 +653,26 @@
             <!-- ROLLOS CLÁSICOS -->
             <!-- ================================================== -->
 
-            <div
+            <section
                 class="grupo-rollos"
                 id="rollos-clasicos"
             >
 
+
+                <!-- ENCABEZADO -->
+
                 <div class="encabezado-grupo-rollos">
 
-                    <div>
+                    <span class="numero-seccion">
+                        02
+                    </span>
 
-                        <span class="numero-seccion">
-                            02
-                        </span>
-
-                        <h3>
-                            Rollos Clásicos
-                        </h3>
-
-                    </div>
+                    <h3>
+                        Rollos Clásicos
+                    </h3>
 
                 </div>
+
 
 
                 <div class="productos-grid rollos-grid">
@@ -528,7 +682,8 @@
                     <!-- AVOCADO MAKY -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -540,21 +695,42 @@
                                 Rollo envuelto en aguacate.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 Desde $119
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="abrir-opciones"
-                            data-producto="Avocado Maky"
-                            aria-label="Elegir Avocado Maky"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/avocado-maky.jpg"
+                                alt="Avocado Maky"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="abrir-opciones"
+                                data-producto="Avocado Maky"
+                                aria-label="Elegir Avocado Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
@@ -564,7 +740,8 @@
                     <!-- NEVADO MAKY -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -576,21 +753,42 @@
                                 Rollo envuelto en queso.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 Desde $119
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="abrir-opciones"
-                            data-producto="Nevado Maky"
-                            aria-label="Elegir Nevado Maky"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/nevado-maky.jpg"
+                                alt="Nevado Maky"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="abrir-opciones"
+                                data-producto="Nevado Maky"
+                                aria-label="Elegir Nevado Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
@@ -600,7 +798,8 @@
                     <!-- ARCOÍRIS ROLL -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -612,21 +811,42 @@
                                 Queso, aguacate, pepino y masago.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 Desde $142
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="abrir-opciones"
-                            data-producto="Arcoíris Roll"
-                            aria-label="Elegir Arcoíris Roll"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/arcoiris-roll.jpg"
+                                alt="Arcoíris Roll"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="abrir-opciones"
+                                data-producto="Arcoíris Roll"
+                                aria-label="Elegir Arcoíris Roll"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
@@ -636,7 +856,8 @@
                     <!-- KIURY MAKY -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -648,21 +869,42 @@
                                 Rollo envuelto en hoja de pepino.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 Desde $99
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="abrir-opciones"
-                            data-producto="Kiury Maky"
-                            aria-label="Elegir Kiury Maky"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/kiury-maky.jpg"
+                                alt="Kiury Maky"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="abrir-opciones"
+                                data-producto="Kiury Maky"
+                                aria-label="Elegir Kiury Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
@@ -672,7 +914,8 @@
                     <!-- CALIFORNIA MAKY -->
                     <!-- ========================================== -->
 
-                    <article class="producto">
+                    <article class="producto producto-con-imagen">
+
 
                         <div class="producto-info">
 
@@ -685,68 +928,88 @@
                                 aguacate, pepino y queso Philadelphia.
                             </p>
 
-                            <span>
+                            <span class="precio-producto">
                                 Desde $99
                             </span>
 
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="abrir-opciones"
-                            data-producto="California Maky"
-                            aria-label="Elegir California Maky"
-                        >
-                            +
-                        </button>
+
+                        <div class="producto-media">
+
+                            <img
+                                src="img/productos/california-maky.jpg"
+                                alt="California Maky"
+                                class="producto-imagen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+
+                            <div class="producto-sin-imagen">
+
+                                <i class="fa-solid fa-fish"></i>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="abrir-opciones"
+                                data-producto="California Maky"
+                                aria-label="Elegir California Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
 
                     </article>
 
 
                 </div>
 
-            </div>
+
+            </section>
 
 
 
             <!-- ================================================== -->
-            <!-- ESPECIALIDADES DE LA BARRA -->
+            <!-- ESPECIALIDADES -->
             <!-- ================================================== -->
 
-            <div
+            <section
                 class="grupo-rollos"
                 id="especialidades-rollos"
             >
 
+
                 <div class="encabezado-grupo-rollos">
 
-                    <div>
+                    <span class="numero-seccion">
+                        03
+                    </span>
 
-                        <span class="numero-seccion">
-                            03
-                        </span>
-
-                        <h3>
-                            Especialidades de la Barra
-                        </h3>
-
-                    </div>
+                    <h3>
+                        Especialidades de la Barra
+                    </h3>
 
                 </div>
 
 
                 <!--
                     JavaScript inserta aquí
-                    todas las especialidades.
+                    todos los productos.
                 -->
 
                 <div
                     id="especialidades-barra"
-                    class="productos-grid rollos-grid"
+                    class="productos-grid rollos-grid productos-dinamicos"
                 ></div>
 
-            </div>
+
+            </section>
 
 
 
@@ -754,39 +1017,32 @@
             <!-- ROLLOS EMPANIZADOS -->
             <!-- ================================================== -->
 
-            <div
+            <section
                 class="grupo-rollos"
                 id="empanizados-rollos"
             >
 
+
                 <div class="encabezado-grupo-rollos">
 
-                    <div>
+                    <span class="numero-seccion">
+                        04
+                    </span>
 
-                        <span class="numero-seccion">
-                            04
-                        </span>
-
-                        <h3>
-                            Rollos Empanizados
-                        </h3>
-
-                    </div>
+                    <h3>
+                        Rollos Empanizados
+                    </h3>
 
                 </div>
 
 
-                <!--
-                    JavaScript inserta aquí
-                    los rollos empanizados.
-                -->
-
                 <div
                     id="rollos-empanizados"
-                    class="productos-grid rollos-grid"
+                    class="productos-grid rollos-grid productos-dinamicos"
                 ></div>
 
-            </div>
+
+            </section>
 
 
 
@@ -794,39 +1050,32 @@
             <!-- ROLLOS CAPEADOS -->
             <!-- ================================================== -->
 
-            <div
+            <section
                 class="grupo-rollos"
                 id="capeados-rollos"
             >
 
+
                 <div class="encabezado-grupo-rollos">
 
-                    <div>
+                    <span class="numero-seccion">
+                        05
+                    </span>
 
-                        <span class="numero-seccion">
-                            05
-                        </span>
-
-                        <h3>
-                            Rollos Capeados
-                        </h3>
-
-                    </div>
+                    <h3>
+                        Rollos Capeados
+                    </h3>
 
                 </div>
 
 
-                <!--
-                    JavaScript inserta aquí
-                    los rollos capeados.
-                -->
-
                 <div
                     id="rollos-capeados"
-                    class="productos-grid rollos-grid"
+                    class="productos-grid rollos-grid productos-dinamicos"
                 ></div>
 
-            </div>
+
+            </section>
 
 
 
@@ -834,39 +1083,32 @@
             <!-- SUSHI BALLS -->
             <!-- ================================================== -->
 
-            <div
+            <section
                 class="grupo-rollos"
                 id="sushi-balls-rollos"
             >
 
+
                 <div class="encabezado-grupo-rollos">
 
-                    <div>
+                    <span class="numero-seccion">
+                        06
+                    </span>
 
-                        <span class="numero-seccion">
-                            06
-                        </span>
-
-                        <h3>
-                            Sushi Balls
-                        </h3>
-
-                    </div>
+                    <h3>
+                        Sushi Balls
+                    </h3>
 
                 </div>
 
 
-                <!--
-                    JavaScript inserta aquí
-                    las Sushi Balls.
-                -->
-
                 <div
                     id="sushi-balls"
-                    class="productos-grid rollos-grid"
+                    class="productos-grid rollos-grid productos-dinamicos"
                 ></div>
 
-            </div>
+
+            </section>
 
 
         </section>
@@ -895,6 +1137,7 @@
             </div>
 
 
+
             <div class="carrito-total">
 
                 <span>
@@ -902,13 +1145,17 @@
                 </span>
 
                 <strong>
+
                     $
+
                     <span id="total-carrito">
                         0
                     </span>
+
                 </strong>
 
             </div>
+
 
 
             <button
@@ -924,8 +1171,7 @@
 
 
         <!-- ====================================================== -->
-        <!-- FIN DE LA PARTE 1 DE 2 -->
-        <!-- LA PARTE 2 EMPIEZA CON EL MODAL "MI PEDIDO" -->
+        <!-- FIN PARTE 1 DE 2 -->
         <!-- ====================================================== -->
                  <!-- ====================================================== -->
         <!-- MODAL: MI PEDIDO -->
@@ -939,7 +1185,9 @@
             <div class="contenido-pedido">
 
 
+                <!-- ================================================== -->
                 <!-- CERRAR -->
+                <!-- ================================================== -->
 
                 <button
                     type="button"
@@ -951,14 +1199,20 @@
                 </button>
 
 
+
+                <!-- ================================================== -->
                 <!-- TÍTULO -->
+                <!-- ================================================== -->
 
                 <h2>
                     🛒 Mi pedido
                 </h2>
 
 
+
+                <!-- ================================================== -->
                 <!-- PRODUCTOS -->
+                <!-- ================================================== -->
 
                 <div id="detalle-pedido">
 
@@ -969,20 +1223,28 @@
                 </div>
 
 
+
                 <hr>
 
 
-                <!-- TOTAL -->
 
-                <p>
+                <!-- ================================================== -->
+                <!-- TOTAL -->
+                <!-- ================================================== -->
+
+                <p class="total-modal-pedido">
 
                     Total:
 
-                    $
+                    <strong>
 
-                    <span id="total-modal">
-                        0
-                    </span>
+                        $
+
+                        <span id="total-modal">
+                            0
+                        </span>
+
+                    </strong>
 
                 </p>
 
@@ -1002,7 +1264,9 @@
                     <div class="opciones-servicio">
 
 
+                        <!-- ========================================== -->
                         <!-- PARA LLEVAR -->
+                        <!-- ========================================== -->
 
                         <button
                             type="button"
@@ -1019,7 +1283,10 @@
                         </button>
 
 
-                        <!-- DOMICILIO -->
+
+                        <!-- ========================================== -->
+                        <!-- A DOMICILIO -->
+                        <!-- ========================================== -->
 
                         <button
                             type="button"
@@ -1059,7 +1326,9 @@
             <div class="contenido-informacion">
 
 
+                <!-- ================================================== -->
                 <!-- FONDO DECORATIVO -->
+                <!-- ================================================== -->
 
                 <div class="fondo-info-japones"></div>
 
@@ -1086,6 +1355,7 @@
 
                 <div class="info-header">
 
+
                     <button
                         type="button"
                         class="volver-info"
@@ -1110,6 +1380,7 @@
 
                     </div>
 
+
                 </div>
 
 
@@ -1123,9 +1394,11 @@
                     id="abrir-resumen"
                 >
 
+
                     <div class="resumen-icono">
                         🛍
                     </div>
+
 
 
                     <div class="resumen-info">
@@ -1147,6 +1420,7 @@
                     </div>
 
 
+
                     <div class="resumen-precio">
 
                         <strong>
@@ -1159,11 +1433,13 @@
 
                         </strong>
 
+
                         <span class="flecha-resumen">
                             ›
                         </span>
 
                     </div>
+
 
                 </div>
 
@@ -1176,13 +1452,16 @@
                 <div class="fila-formulario">
 
 
+                    <!-- ============================================== -->
                     <!-- NOMBRE -->
+                    <!-- ============================================== -->
 
                     <div class="campo-formulario">
 
                         <label for="nombre-cliente">
                             👤 Nombre
                         </label>
+
 
                         <input
                             type="text"
@@ -1194,13 +1473,17 @@
                     </div>
 
 
+
+                    <!-- ============================================== -->
                     <!-- TELÉFONO -->
+                    <!-- ============================================== -->
 
                     <div class="campo-formulario">
 
                         <label for="telefono-cliente">
                             📞 Teléfono
                         </label>
+
 
                         <input
                             type="tel"
@@ -1217,13 +1500,15 @@
 
 
                 <!-- ================================================== -->
-                <!-- SOYA Y CUBIERTOS -->
+                <!-- SOYAS Y CUBIERTOS -->
                 <!-- ================================================== -->
 
                 <div class="fila-formulario">
 
 
+                    <!-- ============================================== -->
                     <!-- SOYA -->
+                    <!-- ============================================== -->
 
                     <div class="campo-formulario">
 
@@ -1234,28 +1519,36 @@
 
                         <select id="tipo-soya">
 
+
                             <option value="">
                                 Selecciona una opción
                             </option>
+
 
                             <option value="Soya">
                                 Soya
                             </option>
 
+
                             <option value="Soya Light">
                                 Soya Light
                             </option>
 
+
                             <option value="Ambas">
                                 Ambas
                             </option>
+
 
                         </select>
 
                     </div>
 
 
+
+                    <!-- ============================================== -->
                     <!-- CUBIERTOS -->
+                    <!-- ============================================== -->
 
                     <div class="campo-formulario">
 
@@ -1266,21 +1559,26 @@
 
                         <select id="cubiertos">
 
+
                             <option value="Sin cubiertos">
                                 Sin cubiertos
                             </option>
+
 
                             <option value="Palillos">
                                 Palillos
                             </option>
 
+
                             <option value="Tenedores">
                                 Tenedores
                             </option>
 
+
                             <option value="Ambas">
                                 Ambas
                             </option>
+
 
                         </select>
 
@@ -1323,11 +1621,13 @@
                     class="datos-efectivo"
                 >
 
+
                     <div class="monto-efectivo">
 
                         <span>
                             MXN
                         </span>
+
 
                         <input
                             type="number"
@@ -1337,6 +1637,7 @@
                         >
 
                     </div>
+
 
 
                     <p class="instruccion-pago">
@@ -1351,12 +1652,13 @@
 
                     </p>
 
+
                 </div>
 
 
 
                 <!-- ================================================== -->
-                <!-- COMENTARIOS -->
+                <!-- COMENTARIOS GENERALES -->
                 <!-- ================================================== -->
 
                 <div class="campo-formulario campo-completo">
@@ -1414,9 +1716,12 @@
                     <div class="contenido-resumen">
 
 
+                        <!-- ========================================== -->
                         <!-- ENCABEZADO -->
+                        <!-- ========================================== -->
 
                         <div class="encabezado-resumen">
+
 
                             <button
                                 type="button"
@@ -1427,15 +1732,19 @@
                                 ×
                             </button>
 
+
                             <strong>
                                 Resumen de cuenta
                             </strong>
+
 
                         </div>
 
 
 
+                        <!-- ========================================== -->
                         <!-- PRODUCTOS -->
+                        <!-- ========================================== -->
 
                         <h3>
 
@@ -1456,7 +1765,9 @@
 
 
 
+                        <!-- ========================================== -->
                         <!-- TOTALES -->
+                        <!-- ========================================== -->
 
                         <div class="totales-resumen">
 
@@ -1466,6 +1777,7 @@
                                 <span>
                                     Subtotal productos
                                 </span>
+
 
                                 <strong>
 
@@ -1480,11 +1792,13 @@
                             </p>
 
 
+
                             <p>
 
                                 <span>
                                     Entrega
                                 </span>
+
 
                                 <strong>
 
@@ -1499,11 +1813,13 @@
                             </p>
 
 
+
                             <p class="total-cuenta-resumen">
 
                                 <span>
                                     TOTAL CUENTA
                                 </span>
+
 
                                 <strong>
 
@@ -1550,6 +1866,7 @@
 
                 <div class="encabezado-direccion">
 
+
                     <button
                         type="button"
                         class="volver-direccion"
@@ -1566,18 +1883,20 @@
                             Información de entrega
                         </h2>
 
+
                         <p>
                             Selecciona una dirección dentro de Coacalco.
                         </p>
 
                     </div>
 
+
                 </div>
 
 
 
                 <!-- ================================================== -->
-                <!-- BUSCAR DIRECCIÓN -->
+                <!-- DIRECCIÓN -->
                 <!-- ================================================== -->
 
                 <label for="calle">
@@ -1585,7 +1904,9 @@
                 </label>
 
 
+
                 <div class="buscador-direccion">
+
 
                     <span class="icono-ubicacion">
 
@@ -1594,12 +1915,14 @@
                     </span>
 
 
+
                     <input
                         type="text"
                         id="calle"
                         placeholder="Ej. Moras lt 19..."
                         autocomplete="off"
                     >
+
 
 
                     <button
@@ -1613,12 +1936,13 @@
 
                     </button>
 
+
                 </div>
 
 
 
                 <!-- ================================================== -->
-                <!-- RESULTADOS GOOGLE -->
+                <!-- RESULTADOS -->
                 <!-- ================================================== -->
 
                 <div
@@ -1637,11 +1961,14 @@
                     id="direccion-seleccionada"
                 >
 
+
                     <div class="direccion-seleccionada-info">
+
 
                         <span class="direccion-check">
                             ✓
                         </span>
+
 
 
                         <div>
@@ -1650,11 +1977,14 @@
                                 Dirección seleccionada
                             </strong>
 
+
                             <p id="texto-direccion-seleccionada"></p>
 
                         </div>
 
+
                     </div>
+
 
 
                     <button
@@ -1664,6 +1994,7 @@
                     >
                         Cambiar dirección
                     </button>
+
 
                 </div>
 
@@ -1686,6 +2017,7 @@
                 </button>
 
 
+
                 <p
                     id="estado-ubicacion"
                     aria-live="polite"
@@ -1694,7 +2026,7 @@
 
 
                 <!-- ================================================== -->
-                <!-- AVISO -->
+                <!-- ZONA DE ENTREGA -->
                 <!-- ================================================== -->
 
                 <div class="ayuda-direccion">
@@ -1702,6 +2034,7 @@
                     <strong>
                         Zona de entrega
                     </strong>
+
 
                     <p>
                         Por el momento realizamos entregas únicamente
@@ -1722,9 +2055,7 @@
                     id="continuar-direccion"
                     disabled
                 >
-
                     Continuar
-
                 </button>
 
 
@@ -1752,6 +2083,7 @@
 
                 <div class="barra-superior-opciones">
 
+
                     <button
                         type="button"
                         class="cerrar-opciones-producto"
@@ -1762,12 +2094,15 @@
                     </button>
 
 
+
                     <h2 id="titulo-opciones-producto">
                         Producto
                     </h2>
 
 
+
                     <div class="espacio-derecha-opciones"></div>
+
 
                 </div>
 
@@ -1781,12 +2116,14 @@
 
 
                     <!-- ============================================== -->
-                    <!-- COLUMNA DE IMAGEN -->
+                    <!-- IMAGEN -->
                     <!-- ============================================== -->
 
                     <div class="columna-imagen-producto">
 
+
                         <div class="imagen-opciones-producto-box">
+
 
                             <img
                                 id="imagen-opciones-producto"
@@ -1797,26 +2134,31 @@
 
                             <div class="placeholder-imagen-producto">
 
-                                Imagen del producto
+                                <i class="fa-solid fa-fish"></i>
+
+                                <span>
+                                    Imagen del producto
+                                </span>
 
                             </div>
 
+
                         </div>
+
 
                     </div>
 
 
 
                     <!-- ============================================== -->
-                    <!-- COLUMNA DE INFORMACIÓN -->
+                    <!-- INFORMACIÓN -->
                     <!-- ============================================== -->
 
                     <div class="columna-detalles-producto">
 
 
-                        <!-- INFORMACIÓN -->
-
                         <div class="info-opciones-producto">
+
 
                             <p id="descripcion-opciones-producto">
                                 Descripción del producto
@@ -1830,13 +2172,17 @@
                                 Selecciona una opción
                             </strong>
 
+
                         </div>
 
 
 
-                        <!-- OPCIONES -->
+                        <!-- ========================================== -->
+                        <!-- RELLENO -->
+                        <!-- ========================================== -->
 
                         <div class="seccion-opciones-producto">
+
 
                             <h3>
                                 Elige tu relleno
@@ -1853,13 +2199,17 @@
                                 class="lista-opciones-producto"
                             ></div>
 
+
                         </div>
 
 
 
-                        <!-- COMENTARIOS -->
+                        <!-- ========================================== -->
+                        <!-- COMENTARIO -->
+                        <!-- ========================================== -->
 
                         <div class="comentarios-producto">
+
 
                             <label for="comentario-opciones-producto">
 
@@ -1878,6 +2228,7 @@
                                 placeholder="Ej. salsa aparte, sin queso..."
                             ></textarea>
 
+
                         </div>
 
 
@@ -1889,10 +2240,11 @@
 
 
                 <!-- ================================================== -->
-                <!-- BARRA INFERIOR -->
+                <!-- AGREGAR -->
                 <!-- ================================================== -->
 
                 <div class="barra-inferior-opciones">
+
 
                     <button
                         type="button"
@@ -1900,10 +2252,9 @@
                         id="confirmar-opcion-producto"
                         disabled
                     >
-
                         Selecciona una opción
-
                     </button>
+
 
                 </div>
 
@@ -1918,18 +2269,19 @@
 
 
     <!-- ====================================================== -->
-    <!-- GOOGLE MAPS / PLACES -->
+    <!-- GOOGLE MAPS -->
     <!-- ====================================================== -->
 
     <!--
-        IMPORTANTE:
-        En TU archivo conserva aquí la misma API key de Google Maps
-        que ya estabas utilizando.
+        AQUÍ DEBES CONSERVAR EXACTAMENTE LA MISMA API KEY
+        QUE YA TENÍAS EN TU ARCHIVO ANTERIOR.
     -->
 
-    <script
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72AyBHBgCnwXKdBO3m6tf_56p9dnLNIU&libraries=places&v=weekly">
-    </script>
+    
+   
+       <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72AyBHBgCnwXKdBO3m6tf_56p9dnLNIU&libraries=places&v=weekly">
+</script>
 
 
 
@@ -1938,6 +2290,59 @@
     <!-- ====================================================== -->
 
     <script src="script.js"></script>
+
+
+
+    <!-- ====================================================== -->
+    <!-- CATEGORÍA ACTIVA -->
+    <!-- ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                const botonesCategoria =
+                    document.querySelectorAll(
+                        ".categoria-btn"
+                    );
+
+
+                botonesCategoria.forEach(
+                    function(boton) {
+
+                        boton.addEventListener(
+                            "click",
+                            function() {
+
+                                botonesCategoria.forEach(
+                                    function(otroBoton) {
+
+                                        otroBoton.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                                boton.classList.add(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+    
+    
 
 
 </body>

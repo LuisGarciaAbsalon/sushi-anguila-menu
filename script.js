@@ -676,11 +676,12 @@ const especialidadesBarra = [
     },
 
     {
-        nombre: "Hot Spicy",
-        precio: 160,
-        descripcion:
-            "XF: Salmón a la plancha, Q. Philadelphia y salsa dragón. XD: Camarón tempura, aguacate y kakiague."
-    },
+    nombre: "Hot Spicy",
+    precio: 160,
+    descripcion:
+        "XF: Salmón a la plancha, Q. Philadelphia y salsa dragón. XD: Camarón tempura, aguacate y kakiague.",
+    imagen: "img/Spicy.jpg"
+},
 
     {
         nombre: "Anguilla Sushi",
@@ -924,84 +925,89 @@ const sushiBalls = [
 // ======================================================
 // CREAR PRODUCTOS FIJOS AUTOMÁTICAMENTE
 // ======================================================
-
-function renderizarProductosFijos(
-    productos,
-    idContenedor
-) {
+function renderizarProductosFijos(productos, idContenedor) {
 
     const contenedor =
-        document.getElementById(
-            idContenedor
-        );
-
+        document.getElementById(idContenedor);
 
     if (!contenedor) {
-
         return;
-
     }
 
+    contenedor.innerHTML = "";
 
-    contenedor.innerHTML =
-        "";
+    productos.forEach(function(producto) {
 
+        const articulo =
+            document.createElement("article");
 
-    productos.forEach(
-        function(producto) {
-
-            const articulo =
-                document.createElement(
-                    "article"
-                );
+        articulo.className =
+            "producto producto-con-imagen";
 
 
-            articulo.className =
-                "producto";
-
-
-            articulo.innerHTML =
+        const imagenProducto =
+            producto.imagen
+                ?
                 `
-
-                <div class="producto-info">
-
-                    <h3>
-                        ${producto.nombre}
-                    </h3>
-
-                    <p>
-                        ${producto.descripcion}
-                    </p>
-
-                    <span>
-                        $${producto.precio}
-                    </span>
-
+                <img
+                    src="${producto.imagen}"
+                    alt="${producto.nombre}"
+                    class="producto-imagen"
+                >
+                `
+                :
+                `
+                <div
+                    class="producto-sin-imagen"
+                    style="display:flex;"
+                >
+                    🍣
                 </div>
+                `;
 
+
+        articulo.innerHTML =
+            `
+            <div class="producto-info">
+
+                <h3>
+                    ${producto.nombre}
+                </h3>
+
+                <p>
+                    ${producto.descripcion}
+                </p>
+
+                <span class="precio-producto">
+                    $${producto.precio}
+                </span>
+
+            </div>
+
+
+            <div class="producto-media">
+
+                ${imagenProducto}
 
                 <button
                     type="button"
-                    class="agregar-producto-fijo"
+                    class="agregar-producto-fijo agregar"
                     data-nombre="${producto.nombre}"
                     data-precio="${producto.precio}"
+                    aria-label="Agregar ${producto.nombre}"
                 >
                     +
                 </button>
 
-                `;
+            </div>
+            `;
 
 
-            contenedor.appendChild(
-                articulo
-            );
+        contenedor.appendChild(articulo);
 
-        }
-    );
+    });
 
 }
-
-
 // ======================================================
 // MOSTRAR ESPECIALIDADES Y EMPANIZADOS
 // ======================================================
