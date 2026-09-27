@@ -5371,3 +5371,1627 @@ main {
     }
 
 }
+
+/* =========================================================
+   PROMOCIÓN 2X1
+   ========================================================= */
+
+.descuento-2x1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 18px;
+    padding: 16px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #ff3038;
+}
+
+.descuento-2x1 div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.descuento-2x1 small {
+    color: #8f8f8f;
+    font-size: 12px;
+}
+
+/* =========================================================
+   CARRITO - DISEÑO 2X1
+   ========================================================= */
+
+.item-pedido {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 22px 18px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #0a0a0a
+        );
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* =========================================================
+   PRODUCTO GRATIS / PROMOCIÓN
+   ========================================================= */
+
+.item-pedido-promo {
+    border-color:
+        rgba(255, 35, 45, 0.5);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 30, 40, 0.10),
+            #0c0c0c 65%
+        );
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+   ========================================================= */
+
+.item-pedido-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.item-pedido-titulo {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.item-pedido-titulo > strong {
+    font-size: 16px;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ETIQUETA 2X1
+   ========================================================= */
+
+.badge-2x1 {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 11px;
+
+    border-radius: 999px;
+
+    border: 1px solid
+        rgba(255, 35, 45, 0.45);
+
+    background:
+        rgba(255, 35, 45, 0.12);
+
+    color: #ff3038;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   PRECIO DEL PRODUCTO
+   ========================================================= */
+
+.precio-item-carrito {
+    min-width: 100px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 4px;
+}
+
+
+.precio-item-carrito strong {
+    font-size: 17px;
+
+    color: #ffffff;
+}
+
+
+.precio-tachado {
+    color: #777777;
+
+    font-size: 14px;
+
+    text-decoration:
+        line-through;
+
+    text-decoration-thickness:
+        2px;
+
+    text-decoration-color:
+        #ff3038;
+}
+
+
+.texto-gratis {
+    color: #ff3038 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 900;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   BOTONES + Y -
+   ========================================================= */
+
+.item-pedido .controles-cantidad {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 14px;
+}
+
+
+.item-pedido .controles-cantidad button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(255, 35, 45, 0.45);
+
+    border-radius: 9px;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.item-pedido .controles-cantidad button:hover {
+    background:
+        rgba(255, 35, 45, 0.12);
+
+    border-color:
+        #ff3038;
+}
+
+
+/* =========================================================
+   RESUMEN PROMOCIÓN
+   ========================================================= */
+
+.resumen-promo-2x1 {
+    display: grid;
+
+    grid-template-columns:
+        48px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 18px;
+
+    padding: 17px 20px;
+
+    border:
+        1px solid
+        rgba(255, 35, 45, 0.45);
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255, 35, 45, 0.15),
+            rgba(255, 35, 45, 0.03)
+        );
+}
+
+
+.icono-promo-2x1 {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ff202b;
+
+    font-size: 20px;
+}
+
+
+.texto-promo-2x1 {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.texto-promo-2x1 strong {
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+
+.texto-promo-2x1 small {
+    color: #8d8d8d;
+
+    font-size: 12px;
+}
+
+
+.cantidad-descuento-2x1 {
+    color: #ff3038;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   CARRITO VACÍO
+   ========================================================= */
+
+.carrito-vacio {
+    min-height: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 8px;
+
+    color: #ffffff;
+}
+
+
+.carrito-vacio > span {
+    font-size: 36px;
+}
+
+
+.carrito-vacio p {
+    color: #777777;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .item-pedido {
+        padding: 17px 14px;
+
+        gap: 12px;
+    }
+
+
+    .item-pedido-titulo {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+
+    .item-pedido-titulo > strong {
+        font-size: 15px;
+    }
+
+
+    .badge-2x1 {
+        font-size: 9px;
+
+        padding: 5px 8px;
+    }
+
+
+    .precio-item-carrito {
+        min-width: 70px;
+    }
+
+
+    .resumen-promo-2x1 {
+        grid-template-columns:
+            40px
+            1fr
+            auto;
+
+        gap: 10px;
+
+        padding: 14px;
+    }
+
+
+    .icono-promo-2x1 {
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+
+    .cantidad-descuento-2x1 {
+        font-size: 17px;
+    }
+
+}
+
+/* =========================================================
+   CARRITO 2X1 - REFINAMIENTO VISUAL
+   PEGAR AL FINAL DE styles.css
+   ========================================================= */
+
+
+/* =========================================================
+   PRODUCTOS DEL CARRITO
+   ========================================================= */
+
+.item-pedido {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 105px;
+
+    padding: 20px 22px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101010 0%,
+            #0b0b0b 100%
+        );
+
+    box-shadow:
+        0 7px 25px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.item-pedido:hover {
+    border-color: rgba(255, 255, 255, 0.13);
+
+    background:
+        linear-gradient(
+            135deg,
+            #121212 0%,
+            #0c0c0c 100%
+        );
+}
+
+
+/* =========================================================
+   PRODUCTO GRATIS
+   En lugar de pintar toda la tarjeta de rojo,
+   usamos un detalle más fino.
+   ========================================================= */
+
+.item-pedido-promo {
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 40, 48, 0.25);
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(255, 32, 42, 0.055),
+            #0d0d0d 40%
+        );
+}
+
+
+/* Línea roja del lado izquierdo */
+
+.item-pedido-promo::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+
+    width: 3px;
+
+    border-radius: 0 4px 4px 0;
+
+    background:
+        linear-gradient(
+            #ff202b,
+            #b9000c
+        );
+
+    box-shadow:
+        0 0 15px rgba(255, 32, 43, 0.35);
+}
+
+
+/* =========================================================
+   NOMBRE
+   ========================================================= */
+
+.item-pedido-titulo {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.item-pedido-titulo > strong {
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.2px;
+}
+
+
+/* =========================================================
+   ETIQUETA GRATIS 2X1
+   ========================================================= */
+
+.badge-2x1 {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 26px;
+
+    padding: 5px 10px;
+
+    border:
+        1px solid
+        rgba(255, 45, 54, 0.40);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 30, 40, 0.09);
+
+    color: #ff3b44;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.45px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PRECIO DERECHO
+   ========================================================= */
+
+.precio-item-carrito {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    min-width: 95px;
+}
+
+
+.precio-item-carrito strong {
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+/* Precio anterior */
+
+.precio-tachado {
+    color: #6c6c6c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-decoration:
+        line-through;
+
+    text-decoration-color:
+        rgba(255, 45, 54, 0.85);
+
+    text-decoration-thickness:
+        1.5px;
+}
+
+
+/* GRATIS */
+
+.texto-gratis {
+    color: #ff3039 !important;
+
+    font-size: 14px !important;
+
+    font-weight: 900 !important;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* =========================================================
+   CONTROLES + -
+   ========================================================= */
+
+.item-pedido .controles-cantidad {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 14px;
+}
+
+
+.item-pedido .controles-cantidad span {
+    min-width: 22px;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.item-pedido .controles-cantidad button {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(255, 40, 48, 0.35);
+
+    border-radius: 8px;
+
+    background: #101010;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.item-pedido .controles-cantidad button:hover {
+    transform: translateY(-1px);
+
+    border-color: #ff252f;
+
+    background:
+        rgba(255, 35, 45, 0.11);
+}
+
+
+.item-pedido .controles-cantidad button:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================================
+   BLOQUE RESUMEN PROMOCIÓN
+   ========================================================= */
+
+.resumen-promo-2x1 {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        44px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 20px;
+
+    padding: 17px 20px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 38, 48, 0.28);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(255, 30, 40, 0.075),
+            rgba(255, 30, 40, 0.015) 58%,
+            #0c0c0c
+        );
+}
+
+
+/* pequeño brillo decorativo */
+
+.resumen-promo-2x1::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -40px;
+    top: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 32, 42, 0.09);
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+
+/* Icono */
+
+.icono-promo-2x1 {
+    width: 41px;
+    height: 41px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2b35,
+            #d80d18
+        );
+
+    box-shadow:
+        0 5px 18px
+        rgba(255, 25, 35, 0.18);
+
+    font-size: 18px;
+}
+
+
+/* Texto */
+
+.texto-promo-2x1 {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.texto-promo-2x1 strong {
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+.texto-promo-2x1 small {
+    color: #777777;
+
+    font-size: 11px;
+}
+
+
+/* Ahorro */
+
+.cantidad-descuento-2x1 {
+    position: relative;
+
+    z-index: 2;
+
+    color: #ff323b;
+
+    font-size: 19px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   TOTAL DEL CARRITO
+   ========================================================= */
+
+.total-pedido,
+.total-modal {
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   BOTONES PARA LLEVAR / DOMICILIO
+   ========================================================= */
+
+.servicio-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.servicio-btn:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255, 40, 50, 0.35) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 35, 45, 0.055),
+            #101010
+        ) !important;
+}
+
+
+/* =========================================================
+   SEPARACIÓN ANTES DE TIPO DE SERVICIO
+   ========================================================= */
+
+.detalle-pedido {
+    padding-bottom: 5px;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .item-pedido {
+        min-height: 95px;
+
+        padding:
+            16px
+            14px
+            16px
+            17px;
+
+        border-radius: 13px;
+
+        gap: 10px;
+    }
+
+
+    .item-pedido-promo::before {
+        top: 14px;
+        bottom: 14px;
+    }
+
+
+    .item-pedido-titulo {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 6px;
+    }
+
+
+    .item-pedido-titulo > strong {
+        font-size: 14px;
+    }
+
+
+    .badge-2x1 {
+        min-height: 23px;
+
+        padding: 4px 8px;
+
+        font-size: 8px;
+    }
+
+
+    .precio-item-carrito {
+        min-width: 65px;
+    }
+
+
+    .precio-item-carrito strong {
+        font-size: 15px;
+    }
+
+
+    .precio-tachado {
+        font-size: 10px;
+    }
+
+
+    .texto-gratis {
+        font-size: 12px !important;
+    }
+
+
+    .item-pedido .controles-cantidad {
+        margin-top: 11px;
+    }
+
+
+    .item-pedido .controles-cantidad button {
+        width: 29px;
+        height: 29px;
+
+        border-radius: 7px;
+
+        font-size: 15px;
+    }
+
+
+    .resumen-promo-2x1 {
+        grid-template-columns:
+            38px
+            1fr
+            auto;
+
+        padding: 14px;
+
+        gap: 10px;
+
+        border-radius: 12px;
+    }
+
+
+    .icono-promo-2x1 {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 9px;
+
+        font-size: 16px;
+    }
+
+
+    .texto-promo-2x1 strong {
+        font-size: 13px;
+    }
+
+
+    .texto-promo-2x1 small {
+        font-size: 9px;
+    }
+
+
+    .cantidad-descuento-2x1 {
+        font-size: 16px;
+    }
+
+}
+/* =========================================================
+   RESUMEN DE CUENTA - DISEÑO MEJORADO
+   ========================================================= */
+
+
+/* Fondo detrás de la ventana */
+#modal-resumen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    z-index: 9999;
+}
+
+
+/* =========================================================
+   VENTANA
+   ========================================================= */
+
+#modal-resumen .contenido-resumen {
+    position: relative;
+
+    width: 100%;
+    max-width: 470px;
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 24px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #151515 0%,
+            #101010 55%,
+            #0c0c0c 100%
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.65);
+
+    color: #ffffff;
+}
+
+
+/* Scroll discreto */
+#modal-resumen .contenido-resumen::-webkit-scrollbar {
+    width: 5px;
+}
+
+#modal-resumen .contenido-resumen::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#modal-resumen .contenido-resumen::-webkit-scrollbar-thumb {
+    background: #333333;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+#modal-resumen .encabezado-resumen {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Botón cerrar */
+#modal-resumen .cerrar-resumen {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: #cfcfcf;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#modal-resumen .cerrar-resumen:hover {
+    background:
+        rgba(255, 35, 45, 0.14);
+
+    border-color:
+        rgba(255, 35, 45, 0.35);
+
+    color: #ffffff;
+
+    transform: rotate(4deg);
+}
+
+
+/* Título */
+#modal-resumen .encabezado-resumen > strong {
+    font-size: 21px;
+
+    font-weight: 850;
+
+    letter-spacing: -0.4px;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   "TUS PRODUCTOS"
+   ========================================================= */
+
+#modal-resumen .contenido-resumen > h3 {
+    margin:
+        0
+        0
+        14px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   LISTA DE PRODUCTOS
+   ========================================================= */
+
+#productos-resumen {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+#productos-resumen .producto-resumen {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    min-height: 50px;
+
+    padding:
+        12px
+        13px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+}
+
+
+#productos-resumen .producto-resumen > div {
+    min-width: 0;
+}
+
+
+#productos-resumen .producto-resumen span {
+    color: #eeeeee;
+
+    font-size: 13px;
+
+    line-height: 1.35;
+}
+
+
+#productos-resumen .producto-resumen > strong {
+    flex-shrink: 0;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+#productos-resumen .nota-producto {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #858585;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PROMOCIÓN 2X1
+   ========================================================= */
+
+#productos-resumen .descuento-2x1 {
+    position: relative;
+
+    margin-top: 9px;
+
+    padding:
+        14px
+        14px
+        14px
+        17px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 35, 45, 0.28);
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(255, 30, 40, 0.11),
+            rgba(255, 30, 40, 0.025)
+        );
+}
+
+
+/* Línea decorativa izquierda */
+#productos-resumen .descuento-2x1::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+
+    width: 3px;
+
+    border-radius:
+        0
+        4px
+        4px
+        0;
+
+    background: #ff252f;
+
+    box-shadow:
+        0 0 13px
+        rgba(255, 35, 45, 0.35);
+}
+
+
+#productos-resumen .descuento-2x1 div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+#productos-resumen .descuento-2x1 div > strong {
+    color: #ff3942;
+
+    font-size: 13px;
+
+    font-weight: 850;
+}
+
+
+#productos-resumen .descuento-2x1 small {
+    color: #8c8c8c;
+
+    font-size: 11px;
+}
+
+
+#productos-resumen .descuento-2x1 > strong {
+    color: #ff3039;
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   TOTALES
+   ========================================================= */
+
+#modal-resumen .totales-resumen {
+    margin-top: 20px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+}
+
+
+#modal-resumen .totales-resumen p {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin: 0;
+
+    padding:
+        10px
+        2px;
+
+    color: #bcbcbc;
+
+    font-size: 13px;
+}
+
+
+#modal-resumen .totales-resumen p strong {
+    color: #ffffff;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   TOTAL FINAL
+   ========================================================= */
+
+#modal-resumen .total-cuenta-resumen {
+    margin-top: 9px !important;
+
+    padding:
+        18px
+        16px !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)
+        );
+}
+
+
+#modal-resumen .total-cuenta-resumen > span {
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+
+#modal-resumen .total-cuenta-resumen > strong {
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   PEQUEÑO DETALLE ROJO EN EL TOTAL
+   ========================================================= */
+
+#modal-resumen .total-cuenta-resumen > strong::before {
+    content: "MXN ";
+
+    color: #777777;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+    vertical-align: middle;
+
+    margin-right: 3px;
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+   ========================================================= */
+
+#modal-resumen .contenido-resumen {
+    animation:
+        aparecerResumen
+        0.22s
+        ease-out;
+}
+
+
+@keyframes aparecerResumen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    #modal-resumen {
+        padding: 14px;
+    }
+
+
+    #modal-resumen .contenido-resumen {
+        max-width: 100%;
+
+        max-height: 90vh;
+
+        padding: 19px 16px;
+
+        border-radius: 18px;
+    }
+
+
+    #modal-resumen .encabezado-resumen {
+        margin-bottom: 21px;
+    }
+
+
+    #modal-resumen .cerrar-resumen {
+        width: 34px;
+        height: 34px;
+
+        font-size: 18px;
+    }
+
+
+    #modal-resumen .encabezado-resumen > strong {
+        font-size: 18px;
+    }
+
+
+    #modal-resumen .contenido-resumen > h3 {
+        font-size: 17px;
+
+        margin-bottom: 12px;
+    }
+
+
+    #productos-resumen {
+        gap: 7px;
+    }
+
+
+    #productos-resumen .producto-resumen {
+        min-height: 48px;
+
+        padding:
+            11px
+            10px;
+    }
+
+
+    #productos-resumen .producto-resumen span {
+        font-size: 12px;
+    }
+
+
+    #productos-resumen .producto-resumen > strong {
+        font-size: 13px;
+    }
+
+
+    #productos-resumen .descuento-2x1 {
+        padding:
+            13px
+            11px
+            13px
+            15px;
+    }
+
+
+    #productos-resumen .descuento-2x1 > strong {
+        font-size: 15px;
+    }
+
+
+    #modal-resumen .totales-resumen p {
+        padding:
+            9px
+            1px;
+
+        font-size: 12px;
+    }
+
+
+    #modal-resumen .total-cuenta-resumen {
+        padding:
+            15px
+            13px !important;
+    }
+
+
+    #modal-resumen .total-cuenta-resumen > strong {
+        font-size: 22px;
+    }
+
+}

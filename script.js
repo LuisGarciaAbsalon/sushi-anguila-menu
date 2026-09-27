@@ -26,6 +26,14 @@ let direccionValidaCoacalco = false;
 
 let direccionUbicacionActual = "";
 
+// ======================================================
+// PROMOCIÓN 2X1 EN ROLLOS
+// TEMPORALMENTE ACTIVA
+// DESPUÉS LA CONTROLARÁ EL ADMIN
+// ======================================================
+
+let promo2x1Activa = true;
+
 
 // ======================================================
 // PRODUCTO CON OPCIONES - ESTADO ACTUAL
@@ -1053,7 +1061,10 @@ botonesAgregar.forEach(
                     Number(
                         boton.dataset.precio
                     );
-
+                     
+                    const esRollo =
+    boton.closest("#rollos") !== null;
+     
 
                 cantidadCarrito++;
 
@@ -1073,19 +1084,22 @@ botonesAgregar.forEach(
 
                     pedido[nombre] = {
 
-                        nombre:
-                            nombre,
+    nombre:
+        nombre,
 
-                        comentario:
-                            "",
+    comentario:
+        "",
 
-                        precio:
-                            precio,
+    precio:
+        precio,
 
-                        cantidad:
-                            1
+    cantidad:
+        1,
 
-                    };
+    esRollo:
+        esRollo
+
+};
 
                 }
 
@@ -1127,7 +1141,12 @@ document.addEventListener(
         const precio =
             Number(
                 boton.dataset.precio
+
+            
             );
+            const esRollo =
+    boton.closest("#sushi-balls") === null;
+            
 
 
         cantidadCarrito++;
@@ -1148,20 +1167,22 @@ document.addEventListener(
 
             pedido[nombre] = {
 
-                nombre:
-                    nombre,
+    nombre:
+        nombre,
 
-                comentario:
-                    "",
+    comentario:
+        "",
 
-                precio:
-                    precio,
+    precio:
+        precio,
 
-                cantidad:
-                    1
+    cantidad:
+        1,
 
-            };
+    esRollo:
+        esRollo
 
+};
         }
 
 
@@ -1457,19 +1478,22 @@ if (
 
                     pedido[claveProducto] = {
 
-                        nombre:
-                            nombreProducto,
+    nombre:
+        nombreProducto,
 
-                        comentario:
-                            comentarioProducto,
+    comentario:
+        comentarioProducto,
 
-                        precio:
-                            precio,
+    precio:
+        precio,
 
-                        cantidad:
-                            1
+    cantidad:
+        1,
 
-                    };
+    esRollo:
+        true
+
+};
 
                 }
 
@@ -1681,34 +1705,267 @@ const cambiarDireccion =
     document.getElementById(
         "cambiar-direccion"
     );
+function obtenerDescuento2x1() {
+
+    if (!promo2x1Activa) {
+        return 0;
+    }
+
+    const preciosRollos = [];
 
 
-// ======================================================
-// COSTO DE ENTREGA
-// ======================================================
+    // ==============================================
+    // SACAR CADA ROLLO INDIVIDUAL DEL CARRITO
+    // ==============================================
 
-function obtenerCostoEntrega() {
+    for (let claveProducto in pedido) {
 
-    if (
-        servicioSeleccionado ===
-        "domicilio"
-    ) {
+        const producto =
+            pedido[claveProducto];
 
-        return 30;
+        if (!producto.esRollo) {
+            continue;
+        }
+
+
+        for (
+            let i = 0;
+            i < producto.cantidad;
+            i++
+        ) {
+
+            preciosRollos.push(
+                producto.precio
+            );
+
+        }
 
     }
 
 
-    return 0;
+    // ==============================================
+    // ORDENAR DEL MÁS BARATO AL MÁS CARO
+    // ==============================================
+
+    preciosRollos.sort(
+        function(a, b) {
+            return a - b;
+        }
+    );
+
+
+    // ==============================================
+    // CUÁNTOS ROLLOS SON GRATIS
+    // ==============================================
+
+    const cantidadGratis =
+        Math.floor(
+            preciosRollos.length / 2
+        );
+
+
+    // ==============================================
+    // DESCONTAR LOS MÁS BARATOS
+    // ==============================================
+
+    let descuento = 0;
+
+
+    for (
+        let i = 0;
+        i < cantidadGratis;
+        i++
+    ) {
+
+        descuento +=
+            preciosRollos[i];
+
+    }
+
+
+    return descuento;
+
+}
+
+// ======================================================
+// IDENTIFICAR QUÉ ROLLOS QUEDAN GRATIS EN EL 2X1
+// ======================================================
+
+function obtenerRollosGratis2x1() {
+
+    const gratisPorProducto = {};
+
+    if (!promo2x1Activa) {
+        return gratisPorProducto;
+    }
+
+
+    const unidadesRollos = [];
+
+
+    // Convertimos el carrito en rollos individuales
+    for (let claveProducto in pedido) {
+
+        const producto =
+            pedido[claveProducto];
+
+        if (!producto.esRollo) {
+            continue;
+        }
+
+
+        for (
+            let i = 0;
+            i < producto.cantidad;
+            i++
+        ) {
+
+            unidadesRollos.push({
+
+                clave:
+                    claveProducto,
+
+                precio:
+                    producto.precio
+
+            });
+
+        }
+
+    }
+
+
+    // Los más baratos primero
+    unidadesRollos.sort(
+        function(a, b) {
+
+            return (
+                a.precio -
+                b.precio
+            );
+
+        }
+    );
+
+
+    const cantidadGratis =
+        Math.floor(
+            unidadesRollos.length / 2
+        );
+
+
+    // Los N más baratos son gratis
+    for (
+        let i = 0;
+        i < cantidadGratis;
+        i++
+    ) {
+
+        const clave =
+            unidadesRollos[i]
+                .clave;
+
+
+        if (
+            !gratisPorProducto[clave]
+        ) {
+
+            gratisPorProducto[clave] =
+                0;
+
+        }
+
+
+        gratisPorProducto[clave]++;
+
+    }
+
+
+    return gratisPorProducto;
+
+}
+
+// ======================================================
+// TOTAL DE PRODUCTOS DESPUÉS DE PROMOCIÓN
+// ======================================================
+
+function obtenerTotalProductosConPromo() {
+
+    return (
+        totalCarrito -
+        obtenerDescuento2x1()
+    );
 
 }
 
 
 // ======================================================
-// ACTUALIZAR CARRITO
+// TOTAL FINAL DEL PEDIDO
 // ======================================================
 
+function obtenerTotalFinal() {
+
+    return (
+        obtenerTotalProductosConPromo() +
+        obtenerCostoEntrega()
+    );
+
+}
+
+// ======================================================
+// COSTO DE ENTREGA
+// ======================================================
+function obtenerCostoEntrega() {
+
+    if (
+        servicioSeleccionado !==
+        "domicilio"
+    ) {
+
+        return 0;
+
+    }
+
+
+    // Si está activa la promoción 2x1,
+    // el envío cuesta $50
+
+    if (
+        promo2x1Activa
+    ) {
+
+        return 50;
+
+    }
+
+
+    // Día normal
+
+    return 30;
+
+}
+
+// ======================================================
+// ACTUALIZAR CARRITO
+// ======================================================
 function actualizarPedido() {
+
+    const descuento2x1 =
+        obtenerDescuento2x1();
+
+    const totalConPromo =
+        obtenerTotalProductosConPromo();
+
+    const totalFinal =
+        obtenerTotalFinal();
+
+    const gratisPorProducto =
+        obtenerRollosGratis2x1();
+
+
+    // ==================================================
+    // ACTUALIZAR BARRA DEL CARRITO
+    // ==================================================
 
     if (contador) {
 
@@ -1721,7 +1978,7 @@ function actualizarPedido() {
     if (total) {
 
         total.textContent =
-            totalCarrito;
+            totalConPromo;
 
     }
 
@@ -1729,7 +1986,7 @@ function actualizarPedido() {
     if (totalModal) {
 
         totalModal.textContent =
-            totalCarrito;
+            totalConPromo;
 
     }
 
@@ -1745,8 +2002,7 @@ function actualizarPedido() {
     if (resumenTotal) {
 
         resumenTotal.textContent =
-            totalCarrito +
-            obtenerCostoEntrega();
+            totalFinal;
 
     }
 
@@ -1767,7 +2023,21 @@ function actualizarPedido() {
     ) {
 
         detallePedido.innerHTML =
-            "<p>Tu carrito está vacío.</p>";
+            `
+            <div class="carrito-vacio">
+
+                <span>🛒</span>
+
+                <strong>
+                    Tu carrito está vacío
+                </strong>
+
+                <p>
+                    Agrega algo rico del menú.
+                </p>
+
+            </div>
+            `;
 
         return;
 
@@ -1790,11 +2060,6 @@ function actualizarPedido() {
             pedido[claveProducto];
 
 
-        const subtotal =
-            producto.precio *
-            producto.cantidad;
-
-
         const nombreMostrar =
             producto.nombre ||
             claveProducto;
@@ -1804,16 +2069,83 @@ function actualizarPedido() {
             producto.comentario || "";
 
 
+        const unidadesGratis =
+            gratisPorProducto[
+                claveProducto
+            ] || 0;
+
+
+        const unidadesPagadas =
+            producto.cantidad -
+            unidadesGratis;
+
+
+        const subtotalNormal =
+            producto.precio *
+            producto.cantidad;
+
+
+        const subtotalCobrado =
+            producto.precio *
+            unidadesPagadas;
+
+
+        const tienePromo =
+            unidadesGratis > 0;
+
+
         detallePedido.innerHTML +=
             `
 
-            <div class="item-pedido">
+            <div
+                class="
+                    item-pedido
+                    ${
+                        tienePromo
+                            ?
+                            "item-pedido-promo"
+                            :
+                            ""
+                    }
+                "
+            >
 
-                <div>
+                <div class="item-pedido-info">
 
-                    <strong>
-                        ${nombreMostrar}
-                    </strong>
+                    <div class="item-pedido-titulo">
+
+                        <strong>
+                            ${nombreMostrar}
+                        </strong>
+
+
+                        ${
+                            tienePromo
+                                ?
+                                `
+                                <span class="badge-2x1">
+
+                                    🎁 ${
+                                        producto.cantidad ===
+                                        unidadesGratis
+
+                                            ?
+
+                                            "Gratis por 2x1"
+
+                                            :
+
+                                            `${unidadesGratis} gratis de ${producto.cantidad}`
+                                    }
+
+                                </span>
+                                `
+                                :
+                                ""
+                        }
+
+                    </div>
+
 
                     ${
                         comentarioMostrar !== ""
@@ -1827,6 +2159,7 @@ function actualizarPedido() {
                             ""
                     }
 
+
                     <div class="controles-cantidad">
 
                         <button
@@ -1837,9 +2170,11 @@ function actualizarPedido() {
                             −
                         </button>
 
+
                         <span>
                             ${producto.cantidad}
                         </span>
+
 
                         <button
                             type="button"
@@ -1854,8 +2189,87 @@ function actualizarPedido() {
                 </div>
 
 
-                <strong>
-                    $${subtotal}
+                <div class="precio-item-carrito">
+
+                    ${
+                        tienePromo
+                            ?
+                            `
+
+                            <span class="precio-tachado">
+                                $${subtotalNormal}
+                            </span>
+
+                            ${
+                                subtotalCobrado === 0
+                                    ?
+                                    `
+                                    <strong class="texto-gratis">
+                                        GRATIS
+                                    </strong>
+                                    `
+                                    :
+                                    `
+                                    <strong>
+                                        $${subtotalCobrado}
+                                    </strong>
+                                    `
+                            }
+
+                            `
+                            :
+                            `
+
+                            <strong>
+                                $${subtotalNormal}
+                            </strong>
+
+                            `
+                    }
+
+                </div>
+
+            </div>
+
+            `;
+
+    }
+
+
+    // ==================================================
+    // DESCUENTO 2X1
+    // ==================================================
+
+    if (
+        promo2x1Activa &&
+        descuento2x1 > 0
+    ) {
+
+        detallePedido.innerHTML +=
+            `
+
+            <div class="resumen-promo-2x1">
+
+                <div class="icono-promo-2x1">
+                    🎁
+                </div>
+
+
+                <div class="texto-promo-2x1">
+
+                    <strong>
+                        Promoción 2x1
+                    </strong>
+
+                    <small>
+                        Se cobran los rollos de mayor precio
+                    </small>
+
+                </div>
+
+
+                <strong class="cantidad-descuento-2x1">
+                    -$${descuento2x1}
                 </strong>
 
             </div>
@@ -1868,7 +2282,6 @@ function actualizarPedido() {
     activarControles();
 
 }
-
 
 // ======================================================
 // BOTONES + Y - DEL CARRITO
@@ -2004,6 +2417,8 @@ function activarControles() {
 
 function actualizarResumenCuenta() {
 
+    
+
     if (
         !productosResumen
     ) {
@@ -2027,6 +2442,10 @@ function actualizarResumenCuenta() {
 
     }
 
+
+    // ==================================================
+    // MOSTRAR PRODUCTOS
+    // ==================================================
 
     for (
         let claveProducto in pedido
@@ -2087,11 +2506,62 @@ function actualizarResumenCuenta() {
     }
 
 
+    // ==================================================
+    // PROMOCIÓN 2X1
+    // ==================================================
+
+    const descuento2x1 =
+        obtenerDescuento2x1();
+
+
+    if (
+        promo2x1Activa &&
+        descuento2x1 > 0
+    ) {
+
+        productosResumen.innerHTML +=
+            `
+
+            <div class="producto-resumen descuento-2x1">
+
+                <div>
+
+                    <strong>
+                        🎉 Promoción 2x1
+                    </strong>
+
+                    <small>
+                        Descuento en rollos participantes
+                    </small>
+
+                </div>
+
+                <strong>
+                    -$${descuento2x1}
+                </strong>
+
+            </div>
+
+            `;
+
+    }
+
+
+    // ==================================================
+    // TOTALES
+    // ==================================================
+
     const costoEntrega =
         obtenerCostoEntrega();
 
 
-    if (subtotalResumen) {
+    const totalFinal =
+        obtenerTotalFinal();
+
+
+    if (
+        subtotalResumen
+    ) {
 
         subtotalResumen.textContent =
             totalCarrito;
@@ -2099,7 +2569,9 @@ function actualizarResumenCuenta() {
     }
 
 
-    if (entregaResumen) {
+    if (
+        entregaResumen
+    ) {
 
         entregaResumen.textContent =
             costoEntrega;
@@ -2107,11 +2579,12 @@ function actualizarResumenCuenta() {
     }
 
 
-    if (totalCuentaResumen) {
+    if (
+        totalCuentaResumen
+    ) {
 
         totalCuentaResumen.textContent =
-            totalCarrito +
-            costoEntrega;
+            totalFinal;
 
     }
 
@@ -2621,9 +3094,8 @@ if (
                 }
 
 
-                const totalFinal =
-                    totalCarrito +
-                    obtenerCostoEntrega();
+               const totalFinal =
+    obtenerTotalFinal();
 
 
                 if (
@@ -4121,14 +4593,17 @@ function enviarPedidoWhatsApp() {
             :
             "";
 
+const costoEntrega =
+    obtenerCostoEntrega();
 
-    const costoEntrega =
-        obtenerCostoEntrega();
+const descuento2x1 =
+    obtenerDescuento2x1();
 
+const totalProductosConPromo =
+    obtenerTotalProductosConPromo();
 
-    const totalFinal =
-        totalCarrito +
-        costoEntrega;
+const totalFinal =
+    obtenerTotalFinal();
 
 
     // ==================================================
@@ -4365,7 +4840,28 @@ function enviarPedidoWhatsApp() {
         }
 
     }
+// ==================================================
+// PROMOCIÓN 2X1
+// ==================================================
 
+if (
+    promo2x1Activa &&
+    descuento2x1 > 0
+) {
+
+    mensaje +=
+        `\n🎉 *PROMOCIÓN 2X1*\n`;
+
+    mensaje +=
+        `Subtotal productos: $${totalCarrito}\n`;
+
+    mensaje +=
+        `Descuento 2x1: -$${descuento2x1}\n`;
+
+    mensaje +=
+        `Subtotal con promoción: $${totalProductosConPromo}\n`;
+
+}
 
     // ==================================================
     // COSTO DE ENVÍO
