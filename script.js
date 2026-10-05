@@ -1948,6 +1948,8 @@ function obtenerCostoEntrega() {
 // ======================================================
 // ACTUALIZAR CARRITO
 // ======================================================
+
+
 function actualizarPedido() {
 
     const descuento2x1 =
@@ -4787,59 +4789,100 @@ const totalFinal =
     }
 
 
-    // ==================================================
-    // PRODUCTOS
-    // ==================================================
+   // ==================================================
+// PRODUCTOS
+// ==================================================
 
-    mensaje +=
-        "\n🛒 *PEDIDO*\n\n";
+mensaje +=
+    "\n🛒 *PEDIDO*\n\n";
 
 
-    for (
-        let claveProducto in pedido
+// Saber cuáles unidades quedaron gratis por el 2x1
+const gratisPorProductoWhatsApp =
+    obtenerRollosGratis2x1();
+
+
+for (
+    let claveProducto in pedido
+) {
+
+    const producto =
+        pedido[
+            claveProducto
+        ];
+
+
+    const nombreMostrar =
+        producto.nombre ||
+        claveProducto;
+
+
+    // Cuántas unidades de este producto
+    // quedaron gratis por la promoción
+    const unidadesGratis =
+        gratisPorProductoWhatsApp[
+            claveProducto
+        ] || 0;
+
+
+    // Cuántas sí se cobran
+    const unidadesPagadas =
+        producto.cantidad -
+        unidadesGratis;
+
+
+    // ==============================================
+    // UNIDADES GRATIS - PRECIO TACHADO
+    // ==============================================
+
+    if (
+        unidadesGratis > 0
     ) {
 
-        const producto =
-            pedido[
-                claveProducto
-            ];
-
-
-        const subtotal =
+        const subtotalGratis =
             producto.precio *
-            producto.cantidad;
-
-
-        // IMPORTANTE:
-        // usamos producto.nombre porque
-        // algunos productos tienen una clave
-        // interna codificada.
-
-        const nombreMostrar =
-            producto.nombre ||
-            claveProducto;
-
+            unidadesGratis;
 
         mensaje +=
-            `${nombreMostrar} x${producto.cantidad} - $${subtotal}\n`;
-
-
-        // ==============================================
-        // COMENTARIO DEL ROLLO
-        // ==============================================
-
-        if (
-            producto.comentario &&
-            producto.comentario !==
-                ""
-        ) {
-
-            mensaje +=
-                `   📝 Nota: ${producto.comentario}\n`;
-
-        }
+            `🎁 ${nombreMostrar} x${unidadesGratis} - ~$${subtotalGratis}~\n`;
 
     }
+
+
+    // ==============================================
+    // UNIDADES QUE SÍ SE COBRAN
+    // ==============================================
+
+    if (
+        unidadesPagadas > 0
+    ) {
+
+        const subtotalPagado =
+            producto.precio *
+            unidadesPagadas;
+
+        mensaje +=
+            `${nombreMostrar} x${unidadesPagadas} - $${subtotalPagado}\n`;
+
+    }
+
+
+    // ==============================================
+    // COMENTARIO DEL ROLLO
+    // ==============================================
+
+    if (
+        producto.comentario &&
+        producto.comentario !==
+            ""
+    ) {
+
+        mensaje +=
+            `   📝 Nota: ${producto.comentario}\n`;
+
+    }
+
+}
 // ==================================================
 // PROMOCIÓN 2X1
 // ==================================================

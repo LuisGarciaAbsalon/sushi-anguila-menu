@@ -1248,7 +1248,233 @@
 
                 </p>
 
+              <!-- ====================================================== -->
+<!-- EXTRAS DEL PEDIDO -->
+<!-- ====================================================== -->
 
+<section class="extras-pedido">
+
+    <div class="extras-pedido-encabezado">
+
+        <h3>
+            ¿Gustas agregar algún extra?
+        </h3>
+
+        <p>
+            Complementa tu pedido
+        </p>
+
+    </div>
+
+
+    <div class="extras-pedido-lista">
+
+
+       <!-- ============================================= -->
+<!-- SOYA NATURAL -->
+<!-- ============================================= -->
+
+<article class="extra-card">
+
+    <div class="extra-imagen">
+
+        <img
+            src="img/soya-natural.png"
+            alt="Soya natural"
+            onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='flex';
+            "
+        >
+
+        <div class="extra-placeholder">
+            🥢
+        </div>
+
+    </div>
+
+
+    <div class="extra-info">
+
+        <strong>
+            Soya natural
+        </strong>
+
+        <span class="extra-precio">
+            $10
+        </span>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="extra-agregar agregar"
+        data-nombre="Soya natural"
+        data-precio="10"
+        aria-label="Agregar Soya natural"
+    >
+        +
+    </button>
+
+</article>
+
+        <!-- ============================================= -->
+<!-- SOYA CON CHILES -->
+<!-- ============================================= -->
+
+<article class="extra-card">
+
+    <div class="extra-imagen">
+
+        <img
+            src="img/soya-con-chiles.png"
+            alt="Soya con chiles"
+            onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='flex';
+            "
+        >
+
+        <div class="extra-placeholder">
+            🌶️
+        </div>
+
+    </div>
+
+
+    <div class="extra-info">
+
+        <strong>
+            Soya con chiles
+        </strong>
+
+        <span class="extra-precio">
+            $10
+        </span>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="extra-agregar agregar"
+        data-nombre="Soya con chiles"
+        data-precio="10"
+        aria-label="Agregar Soya con chiles"
+    >
+        +
+    </button>
+
+</article>
+
+
+
+        <!-- ============================================= -->
+        <!-- KUSHIAGUE -->
+        <!-- ============================================= -->
+
+        <article class="extra-card">
+
+            <div class="extra-imagen">
+
+                <img
+                    src="img/kushiague.png"
+                    alt="Kushiague"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div class="extra-placeholder">
+                    🍶
+                </div>
+
+            </div>
+
+
+            <div class="extra-info">
+
+                <strong>
+                    Kushiague
+                </strong>
+
+                <span class="extra-precio-pendiente">
+                    Precio por confirmar
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="extra-agregar agregar"
+                data-nombre="Kushiague"
+                data-precio=""
+                disabled
+                aria-label="Kushiague no disponible por ahora"
+            >
+                +
+            </button>
+
+        </article>
+
+
+
+        <!-- ============================================= -->
+        <!-- TAMPICO -->
+        <!-- ============================================= -->
+
+        <article class="extra-card">
+
+            <div class="extra-imagen">
+
+                <img
+                    src="img/tampico.png"
+                    alt="Tampico"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div class="extra-placeholder">
+                    🍣
+                </div>
+
+            </div>
+
+
+            <div class="extra-info">
+
+                <strong>
+                    Tampico
+                </strong>
+
+                <span class="extra-precio">
+                    $45
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="extra-agregar agregar"
+                data-nombre="Tampico"
+                data-precio="45"
+                aria-label="Agregar Tampico"
+            >
+                +
+            </button>
+
+        </article>
+
+
+    </div>
+
+</section>
 
                 <!-- ================================================== -->
                 <!-- TIPO DE SERVICIO -->
@@ -1530,9 +1756,9 @@
                             </option>
 
 
-                            <option value="Soya Light">
-                                Soya Light
-                            </option>
+                            <option value="Soya con chiles">
+    Soya con chiles
+</option>
 
 
                             <option value="Ambas">

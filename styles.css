@@ -6995,3 +6995,378 @@ main {
     }
 
 }
+
+/* =========================================================
+   EXTRAS DEL PEDIDO
+   ========================================================= */
+
+.extras-pedido {
+    width: 100%;
+
+    margin:
+        30px
+        0
+        34px;
+
+    padding-top: 4px;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.extras-pedido-encabezado {
+    margin-bottom: 16px;
+}
+
+
+.extras-pedido-encabezado h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    font-weight: 800;
+}
+
+
+.extras-pedido-encabezado p {
+    margin:
+        4px
+        0
+        0;
+
+    color: #777777;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.extras-pedido-lista {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   TARJETA
+   ========================================================= */
+
+.extra-card {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #151515,
+            #0e0e0e
+        );
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.extra-card:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(255, 40, 50, 0.25);
+}
+
+
+/* =========================================================
+   IMAGEN
+   ========================================================= */
+
+.extra-imagen {
+    position: relative;
+
+    width: 100%;
+    height: 125px;
+
+    overflow: hidden;
+
+    background: #151515;
+}
+
+
+.extra-imagen img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.extra-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #101010
+        );
+
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+   ========================================================= */
+
+.extra-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    min-height: 67px;
+
+    padding:
+        11px
+        12px
+        13px;
+}
+
+
+.extra-info strong {
+    padding-right: 30px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    line-height: 1.25;
+}
+
+
+.extra-precio {
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+.extra-precio-pendiente {
+    color: #777777;
+
+    font-size: 10px;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   BOTÓN +
+   ========================================================= */
+
+.extra-agregar {
+    position: absolute;
+
+    top: 9px;
+    right: 9px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255, 60, 70, 0.45);
+
+    border-radius: 9px;
+
+    background: #e51d2a;
+
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(229, 29, 42, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.extra-agregar:hover:not(:disabled) {
+    transform: scale(1.07);
+
+    background: #f12735;
+}
+
+
+/* =========================================================
+   BOTÓN DESACTIVADO
+   ========================================================= */
+
+.extra-agregar:disabled {
+    border-color:
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color: #666666;
+
+    box-shadow: none;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .extras-pedido {
+        margin:
+            25px
+            0
+            30px;
+    }
+
+
+    .extras-pedido-encabezado h3 {
+        font-size: 17px;
+    }
+
+
+    /*
+       En celular se deslizan horizontalmente,
+       parecido a la sección de complementos
+       que me mostraste.
+    */
+
+    .extras-pedido-lista {
+        display: flex;
+
+        gap: 10px;
+
+        overflow-x: auto;
+
+        padding:
+            0
+            2px
+            8px;
+
+        scroll-snap-type:
+            x proximity;
+
+        scrollbar-width: none;
+    }
+
+
+    .extras-pedido-lista::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .extra-card {
+        flex:
+            0
+            0
+            145px;
+
+        scroll-snap-align: start;
+    }
+
+
+    .extra-imagen {
+        height: 108px;
+    }
+
+
+    .extra-info {
+        min-height: 68px;
+
+        padding:
+            10px
+            10px
+            12px;
+    }
+
+
+    .extra-info strong {
+        font-size: 12px;
+    }
+
+
+    .extra-precio {
+        font-size: 12px;
+    }
+
+
+    .extra-precio-pendiente {
+        font-size: 9px;
+    }
+
+
+    .extra-agregar {
+        width: 31px;
+        height: 31px;
+
+        top: 7px;
+        right: 7px;
+
+        font-size: 19px;
+    }
+
+}
