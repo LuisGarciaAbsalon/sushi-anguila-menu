@@ -1,0 +1,434 @@
+/* =========================================================
+   ANGUILA SUSHI - ADMIN
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+
+    min-height: 100%;
+
+    background: #050505;
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.login-admin {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 35px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #151515,
+            #0b0b0b
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.55);
+}
+
+.logo-admin {
+    width: 100%;
+    max-width: 280px;
+
+    display: block;
+
+    margin:
+        0
+        auto
+        30px;
+}
+
+.login-card h1 {
+    margin:
+        0
+        0
+        8px;
+
+    font-size: 27px;
+}
+
+.login-card > p {
+    margin:
+        0
+        0
+        28px;
+
+    color: #888888;
+
+    line-height: 1.5;
+}
+
+.login-card label {
+    display: block;
+
+    margin:
+        18px
+        0
+        7px;
+
+    font-size: 13px;
+
+    color: #bbbbbb;
+}
+
+.login-card input {
+    width: 100%;
+
+    height: 50px;
+
+    padding:
+        0
+        14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #0b0b0b;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.login-card input:focus {
+    border-color:
+        rgba(235,31,43,0.55);
+}
+
+#iniciar-sesion {
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #e91f2b;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+#iniciar-sesion:hover {
+    background: #ff2d38;
+}
+
+.mensaje-login {
+    min-height: 20px;
+
+    margin:
+        15px
+        0
+        0 !important;
+
+    color: #ff656c !important;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PANEL
+   ========================================================= */
+
+.panel-admin {
+    width: 100%;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding:
+        45px
+        25px
+        80px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.admin-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+.admin-header span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #e91f2b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.admin-header h1 {
+    margin: 0;
+
+    font-size: 30px;
+}
+
+.cerrar-sesion {
+    min-height: 42px;
+
+    padding:
+        0
+        17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 10px;
+
+    background: #111111;
+
+    color: #cccccc;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.admin-card {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 18px;
+
+    padding: 28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0d0d0d
+        );
+}
+
+.admin-etiqueta {
+    color: #777777;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.admin-card h2 {
+    margin:
+        7px
+        0
+        11px;
+
+    font-size: 22px;
+}
+
+.estado-admin {
+    margin: 0;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+.estado-admin.activo {
+    color: #53e783;
+}
+
+.estado-admin.inactivo {
+    color: #ff5b64;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.boton-control {
+    min-width: 180px;
+
+    min-height: 48px;
+
+    padding:
+        0
+        20px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.boton-control:hover {
+    transform:
+        translateY(-1px);
+}
+
+.boton-control:disabled {
+    opacity: 0.45;
+
+    cursor: wait;
+}
+
+.boton-verde {
+    background: #169b50;
+}
+
+.boton-rojo {
+    background: #d9212d;
+}
+
+.mensaje-admin {
+    min-height: 20px;
+
+    margin-top: 22px;
+
+    color: #aaaaaa;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .panel-admin {
+        padding:
+            25px
+            16px
+            60px;
+    }
+
+    .admin-header {
+        align-items: flex-start;
+    }
+
+    .admin-header h1 {
+        font-size: 23px;
+    }
+
+    .cerrar-sesion {
+        padding:
+            0
+            11px;
+
+        font-size: 11px;
+    }
+
+    .admin-card {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 22px;
+
+        padding: 22px;
+    }
+
+    .boton-control {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .login-card {
+        padding:
+            28px
+            20px;
+    }
+
+}

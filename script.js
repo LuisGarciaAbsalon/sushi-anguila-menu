@@ -34,6 +34,236 @@ let direccionUbicacionActual = "";
 
 let promo2x1Activa = true;
 
+let tiendaAbierta = true;
+// ======================================================
+// CONFIGURACIÓN DE LA TIENDA DESDE SUPABASE
+// ======================================================
+
+async function cargarConfiguracionTienda() {
+
+    const { data, error } =
+        await supabaseClient
+            .from("configuracion_tienda")
+            .select(
+                "tienda_abierta, promo_2x1"
+            )
+            .eq("id", 1)
+            .single();
+
+
+    if (error) {
+
+        console.error(
+            "Error al cargar configuración:",
+            error
+        );
+
+        return;
+    }
+
+
+    // ==================================================
+    // GUARDAR ESTADO REAL
+    // ==================================================
+
+    tiendaAbierta =
+        data.tienda_abierta;
+
+    promo2x1Activa =
+        data.promo_2x1;
+
+
+    console.log(
+        "Tienda abierta:",
+        tiendaAbierta
+    );
+
+    console.log(
+        "2x1 activo:",
+        promo2x1Activa
+    );
+
+
+    // ==================================================
+    // ACTUALIZAR ESTADO VISUAL
+    // ==================================================
+
+    const estadoTienda =
+        document.getElementById(
+            "estado-tienda"
+        );
+
+    const textoEstado =
+        document.getElementById(
+            "texto-estado"
+        );
+
+
+    if (
+        estadoTienda &&
+        textoEstado
+    ) {
+
+        if (tiendaAbierta) {
+
+            estadoTienda.classList.remove(
+                "cerrado"
+            );
+
+            estadoTienda.classList.add(
+                "abierto"
+            );
+
+            textoEstado.textContent =
+                "Abierto";
+
+        } else {
+
+            estadoTienda.classList.remove(
+                "abierto"
+            );
+
+            estadoTienda.classList.add(
+                "cerrado"
+            );
+
+            textoEstado.textContent =
+                "Cerrado";
+
+        }
+
+    }
+
+
+    // ==================================================
+    // AVISO DE TIENDA
+    // ==================================================
+
+    actualizarAvisoTienda();
+
+
+    // ==================================================
+    // RECALCULAR CARRITO / PROMOCIÓN
+    // ==================================================
+
+    actualizarPedido();
+
+}
+
+
+// ======================================================
+// AVISO DE TIENDA CERRADA
+// ======================================================
+
+function actualizarAvisoTienda() {
+
+    let aviso =
+        document.getElementById(
+            "aviso-tienda-cerrada"
+        );
+
+
+    if (!tiendaAbierta) {
+
+        if (!aviso) {
+
+            aviso =
+                document.createElement(
+                    "div"
+                );
+
+            aviso.id =
+                "aviso-tienda-cerrada";
+
+            aviso.className =
+                "aviso-tienda-cerrada";
+
+            aviso.innerHTML =
+                `
+                <strong>
+                    🔴 En este momento estamos cerrados
+                </strong>
+
+                <span>
+                    Puedes consultar el menú, pero no estamos recibiendo pedidos.
+                </span>
+                `;
+
+
+            const estadoTienda =
+                document.getElementById(
+                    "estado-tienda"
+                );
+
+
+            if (estadoTienda) {
+
+                estadoTienda.insertAdjacentElement(
+                    "afterend",
+                    aviso
+                );
+
+            }
+
+        }
+
+    } else {
+
+        if (aviso) {
+
+            aviso.remove();
+
+        }
+
+    }
+
+}
+
+
+// ======================================================
+// BLOQUEAR PEDIDOS SI LA TIENDA ESTÁ CERRADA
+// ======================================================
+
+document.addEventListener(
+    "click",
+    function(evento) {
+
+        if (tiendaAbierta) {
+            return;
+        }
+
+
+        const botonBloqueado =
+            evento.target.closest(
+                `
+                .agregar,
+                .agregar-producto-fijo,
+                .sumar,
+                .servicio-btn,
+                #confirmar-opcion-producto
+                `
+            );
+
+
+        if (!botonBloqueado) {
+            return;
+        }
+
+
+        evento.preventDefault();
+
+        evento.stopPropagation();
+
+        evento.stopImmediatePropagation();
+
+
+        alert(
+            "🔴 Anguila Sushi está cerrado en este momento.\n\nPuedes consultar el menú, pero no estamos recibiendo pedidos."
+        );
+
+    },
+    true
+);
 
 // ======================================================
 // PRODUCTO CON OPCIONES - ESTADO ACTUAL
@@ -4512,6 +4742,7 @@ if (
 // ======================================================
 
 function enviarPedidoWhatsApp() {
+    
 
 
     // ==================================================
@@ -4964,6 +5195,14 @@ actualizarDatosEfectivo();
 
 actualizarBotonContinuarDireccion();
 
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        cargarConfiguracionTienda();
+
+    }
+);
 
 // ======================================================
 // FIN DEL SCRIPT

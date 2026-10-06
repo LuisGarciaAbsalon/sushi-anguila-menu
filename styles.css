@@ -7506,3 +7506,69 @@ main {
     }
 
 }
+
+/* =========================================================
+   AVISO TIENDA CERRADA
+   ========================================================= */
+
+.aviso-tienda-cerrada {
+    width: fit-content;
+    max-width: 520px;
+
+    margin:
+        0
+        auto
+        25px;
+
+    padding:
+        13px
+        18px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(255, 55, 65, 0.25);
+
+    border-radius: 13px;
+
+    background:
+        rgba(229, 27, 35, 0.07);
+
+    color: #ffffff;
+}
+
+.aviso-tienda-cerrada strong {
+    color: #ff626a;
+
+    font-size: 13px;
+}
+
+.aviso-tienda-cerrada span {
+    color: #8f8f8f;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+@media (max-width: 650px) {
+
+    .aviso-tienda-cerrada {
+        width: calc(100% - 32px);
+
+        margin-bottom: 20px;
+
+        padding:
+            12px
+            14px;
+    }
+
+}
