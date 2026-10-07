@@ -2007,7 +2007,6 @@ main {
         0.18s ease;
 }
 
-
 .campo-formulario textarea,
 .contenido-informacion textarea {
     min-height: 92px;
@@ -3640,60 +3639,6 @@ main {
 
 
     /* =====================================================
-       CARRITO
-       ===================================================== */
-
-    main {
-        padding-bottom: 105px;
-    }
-
-
-    .carrito {
-        bottom: 9px;
-
-        width:
-            calc(100% - 18px);
-
-        min-height: 64px;
-
-        gap: 8px;
-
-        padding:
-            9px
-            9px
-            9px
-            13px;
-
-        border-radius: 17px;
-    }
-
-
-    .carrito-cantidad {
-        gap: 5px;
-
-        font-size: 11px;
-    }
-
-
-    .carrito-total {
-        gap: 4px;
-
-        font-size: 11px;
-    }
-
-
-    .ver-pedido {
-        min-height: 43px;
-
-        padding:
-            0
-            16px;
-
-        font-size: 11px;
-    }
-
-
-    /* =====================================================
        MODALES EN CELULAR
        ===================================================== */
 
@@ -4070,6 +4015,8 @@ main {
 
 /* =========================================================
    PRODUCTOS DEL PEDIDO
+
+
    ========================================================= */
 
 #detalle-pedido {
@@ -6079,7 +6026,6 @@ main {
         border-color 0.15s ease;
 }
 
-
 .item-pedido .controles-cantidad button:hover {
     transform: translateY(-1px);
 
@@ -7572,3 +7518,1311 @@ main {
     }
 
 }
+
+/* =========================================================
+   BANNER PROMOCIÓN 2X1
+   ========================================================= */
+
+.banner-promo-2x1 {
+    width: min(900px, 92%);
+
+    margin:
+        0
+        auto
+        35px;
+
+    padding:
+        18px
+        22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(229, 27, 35, 0.18),
+            rgba(70, 5, 8, 0.22)
+        );
+
+    border:
+        1px solid
+        rgba(255, 48, 56, 0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(229, 27, 35, 0.10);
+}
+
+
+.banner-promo-2x1::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -60px;
+    top: -80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(229, 27, 35, 0.15);
+
+    filter: blur(35px);
+}
+
+
+.promo-icono {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        #e51b23;
+
+    border-radius: 14px;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(229, 27, 35, 0.28);
+}
+
+
+.promo-texto {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.promo-texto span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #ff666c;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+
+.promo-texto strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    line-height: 1.2;
+}
+
+
+.promo-texto p {
+    margin:
+        5px
+        0
+        0;
+
+    color: #b0b0b0;
+
+    font-size: 11px;
+
+    line-height: 1.45;
+}
+
+
+.promo-badge {
+    position: relative;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PROMO EN CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .banner-promo-2x1 {
+        width: calc(100% - 28px);
+
+        margin-bottom: 30px;
+
+        padding:
+            15px
+            14px;
+
+        gap: 12px;
+
+        border-radius: 16px;
+    }
+
+
+    .promo-icono {
+        width: 43px;
+        height: 43px;
+
+        border-radius: 12px;
+
+        font-size: 20px;
+    }
+
+
+    .promo-texto strong {
+        font-size: 17px;
+    }
+
+
+    .promo-texto p {
+        font-size: 10px;
+    }
+
+
+    .promo-badge {
+        font-size: 20px;
+    }
+
+}
+
+/* =========================================================
+   CARRITO MÓVIL - BARRA INFERIOR FINAL
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    /* Espacio para que la barra no tape el último producto */
+    main {
+        padding-bottom:
+            calc(
+                92px +
+                env(safe-area-inset-bottom)
+            );
+    }
+
+
+    .carrito {
+        position: fixed;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        z-index: 5000;
+
+        transform: none;
+
+        width: 100%;
+        min-height: 70px;
+
+        display: grid;
+
+        /*
+           Aproximadamente 44% para información
+           y 56% para el botón, como la referencia.
+        */
+        grid-template-columns:
+            minmax(0, 0.82fr)
+            minmax(0, 1.18fr);
+
+        grid-template-rows:
+            auto
+            auto;
+
+        align-items: center;
+
+        column-gap: 12px;
+        row-gap: 2px;
+
+        padding:
+            9px
+            14px
+            calc(
+                9px +
+                env(safe-area-inset-bottom)
+            );
+
+        color: #ffffff;
+
+        background:
+            rgba(13, 13, 13, 0.98);
+
+        border: none;
+
+        border-top:
+            1px solid
+            rgba(255, 255, 255, 0.10);
+
+        border-radius: 0;
+
+        box-shadow:
+            0 -8px 28px
+            rgba(0, 0, 0, 0.50);
+
+        backdrop-filter:
+            blur(16px);
+
+        -webkit-backdrop-filter:
+            blur(16px);
+    }
+
+
+    /* =====================================================
+       CANTIDAD DE PRODUCTOS
+       ===================================================== */
+
+    .carrito-cantidad {
+        grid-column: 1;
+        grid-row: 1;
+
+        align-self: end;
+        justify-self: start;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 6px;
+
+        margin: 0;
+
+        color: #d2d2d2;
+
+        font-size: 10px;
+        font-weight: 500;
+
+        line-height: 1.15;
+
+        white-space: nowrap;
+    }
+
+
+    .carrito-cantidad i {
+        color: #a7a7a7;
+
+        font-size: 12px;
+    }
+
+
+    #cantidad-carrito {
+        color: #ffffff;
+
+        font-weight: 700;
+    }
+
+
+    /* =====================================================
+       TOTAL
+       ===================================================== */
+
+    .carrito-total {
+        grid-column: 1;
+        grid-row: 2;
+
+        align-self: start;
+        justify-self: start;
+
+        display: flex;
+
+        align-items: baseline;
+        justify-content: flex-start;
+
+        gap: 6px;
+
+        margin: 0;
+        padding: 0;
+
+        /*
+           Oculta el texto "Total:" del HTML.
+           Nosotros mostramos MXN con ::before.
+        */
+        font-size: 0;
+
+        white-space: nowrap;
+    }
+
+
+    .carrito-total::before {
+        content: "MXN";
+
+        color: #ffffff;
+
+        font-size: 18px;
+        font-weight: 800;
+
+        line-height: 1;
+    }
+
+
+    /*
+       El font-size: 0 también oculta un signo $
+       que todavía pudiera quedar escrito en el HTML.
+    */
+    .carrito-total strong {
+        color: #ffffff;
+
+        font-size: 0;
+        font-weight: 900;
+
+        line-height: 1;
+    }
+
+
+    .carrito-total strong span {
+        color: #ffffff;
+
+        font-size: 22px;
+        font-weight: 900;
+
+        line-height: 1;
+
+        letter-spacing: -0.4px;
+    }
+
+
+    /* =====================================================
+       BOTÓN VER PEDIDO
+       ===================================================== */
+
+    .ver-pedido {
+        grid-column: 2;
+
+        grid-row:
+            1
+            / 3;
+
+        align-self: center;
+
+        width: 100%;
+        height: 46px;
+
+        min-width: 0;
+        min-height: 46px;
+
+        margin: 0;
+        padding:
+            0
+            14px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        color: #ffffff;
+
+        background:
+            linear-gradient(
+                135deg,
+                #ff3038,
+                #d5151c
+            );
+
+        border: none;
+
+        /*
+           Rectangular y alargado, no una cápsula.
+        */
+        border-radius: 6px;
+
+        font-size: 13px;
+        font-weight: 800;
+
+        line-height: 1;
+
+        text-align: center;
+
+        white-space: nowrap;
+
+        box-shadow:
+            0 5px 16px
+            rgba(229, 27, 35, 0.22);
+
+        transition:
+            transform 0.15s ease,
+            filter 0.15s ease;
+    }
+
+
+    .ver-pedido:active {
+        transform:
+            scale(0.98);
+
+        filter:
+            brightness(0.92);
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 370px) {
+
+    .carrito {
+        grid-template-columns:
+            minmax(0, 0.78fr)
+            minmax(0, 1.22fr);
+
+        column-gap: 9px;
+
+        padding-left: 11px;
+        padding-right: 10px;
+    }
+
+
+    .carrito-cantidad {
+        font-size: 9px;
+    }
+
+
+    .carrito-total::before {
+        font-size: 16px;
+    }
+
+
+    .carrito-total strong span {
+        font-size: 20px;
+    }
+
+
+    .ver-pedido {
+        height: 44px;
+        min-height: 44px;
+
+        padding:
+            0
+            10px;
+
+        font-size: 12px;
+    }
+
+}
+
+/* =========================================================
+   VENTANA PROMOCIÓN DEL DÍA
+   ========================================================= */
+
+.modal-promo-dia {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.50);
+
+    backdrop-filter: none;
+
+    -webkit-backdrop-filter: none;
+}
+
+/* CUANDO ESTÁ ABIERTA */
+
+.modal-promo-dia.activa {
+    display: flex;
+}
+
+
+/* =========================================================
+   TARJETA
+   ========================================================= */
+
+.promo-dia-contenido {
+    position: relative;
+
+    width: min(430px, 92vw);
+
+    min-height: 245px;
+
+    padding:
+        52px
+        30px
+        42px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(229, 27, 35, 0.18),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #171717,
+            #090909
+        );
+
+    border:
+        1px solid
+        rgba(255, 48, 56, 0.32);
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0, 0, 0, 0.75),
+        0 0 45px
+        rgba(229, 27, 35, 0.08);
+}
+
+
+/* RESPLANDOR */
+
+.promo-dia-contenido::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    left: 50%;
+    top: -150px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(229, 27, 35, 0.18);
+
+    filter:
+        blur(45px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   X
+   ========================================================= */
+
+.cerrar-promo-dia {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 5;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    color: #aaaaaa;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    transition:
+        0.18s ease;
+}
+
+
+.cerrar-promo-dia:hover {
+    color: #ffffff;
+
+    background:
+        rgba(229, 27, 35, 0.18);
+
+    border-color:
+        rgba(229, 27, 35, 0.45);
+}
+
+
+/* =========================================================
+   FUEGO
+   ========================================================= */
+
+.promo-dia-icono {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3038,
+            #d5151c
+        );
+
+    border-radius: 17px;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(229, 27, 35, 0.30);
+}
+
+
+/* =========================================================
+   PROMOCIÓN DEL DÍA
+   ========================================================= */
+
+.promo-dia-etiqueta {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #ff6067;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   2X1 EN ROLLOS
+   ========================================================= */
+
+.promo-dia-contenido h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 33px;
+
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -0.7px;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .promo-dia-contenido {
+        width: calc(100% - 28px);
+
+        min-height: 220px;
+
+        padding:
+            48px
+            22px
+            36px;
+
+        border-radius: 20px;
+    }
+
+
+    .promo-dia-icono {
+        width: 52px;
+        height: 52px;
+
+        margin-bottom: 16px;
+
+        font-size: 25px;
+    }
+
+
+    .promo-dia-etiqueta {
+        font-size: 11px;
+
+        letter-spacing: 1.7px;
+    }
+
+
+    .promo-dia-contenido h2 {
+        font-size: 28px;
+    }
+
+
+    .cerrar-promo-dia {
+        top: 13px;
+        right: 13px;
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 23px;
+    }
+
+}
+
+/* =========================================================
+   AJUSTE POPUP PROMOCIÓN DEL DÍA
+   ========================================================= */
+
+.modal-promo-dia {
+    background:
+        rgba(0, 0, 0, 0.50);
+
+    backdrop-filter:
+        blur(2px);
+
+    -webkit-backdrop-filter:
+        blur(2px);
+}
+
+
+.promo-dia-contenido {
+    width: min(300px, calc(100% - 36px));
+
+    min-height: 175px;
+
+    padding:
+        40px
+        20px
+        27px;
+
+    border-radius: 18px;
+}
+
+
+.promo-dia-icono {
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 12px;
+
+    border-radius: 13px;
+
+    font-size: 21px;
+}
+
+
+.promo-dia-etiqueta {
+    margin-bottom: 6px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.promo-dia-contenido h2 {
+    font-size: 23px;
+
+    letter-spacing: -0.4px;
+}
+
+
+.cerrar-promo-dia {
+    top: 10px;
+    right: 10px;
+
+    width: 31px;
+    height: 31px;
+
+    font-size: 20px;
+}
+
+/* =========================================================
+   POPUP 2X1 - SIN DESENFOQUE
+   ========================================================= */
+
+.modal-promo-dia {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    background: rgba(0, 0, 0, 0.35) !important;
+}
+
+.promo-dia-contenido {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    filter: none !important;
+}
+
+/* =========================================================
+   CABECERA SUPERIOR - ESTADO + VER PEDIDO
+   ========================================================= */
+
+.barra-superior-negocio {
+    position: absolute;
+
+    top: 18px;
+    left: 50%;
+
+    z-index: 20;
+
+    transform: translateX(-50%);
+
+    width: min(
+        1180px,
+        calc(100% - 36px)
+    );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    pointer-events: none;
+}
+
+
+.barra-superior-negocio > * {
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   ESTADO ARRIBA
+   ========================================================= */
+
+.barra-superior-negocio .estado-negocio {
+    min-height: 38px;
+
+    margin: 0;
+
+    padding:
+        0
+        14px;
+
+    font-size: 12px;
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+}
+
+
+/* =========================================================
+   BOTÓN SUPERIOR VER MI PEDIDO
+   ========================================================= */
+
+.ver-pedido-superior {
+    min-height: 40px;
+
+    padding:
+        0
+        15px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3038,
+            #d5151c
+        );
+
+    border: none;
+
+    border-radius: 11px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 8px 25px
+        rgba(229, 27, 35, 0.28);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.ver-pedido-superior:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 11px 30px
+        rgba(229, 27, 35, 0.38);
+}
+
+
+.ver-pedido-superior i:first-child {
+    font-size: 13px;
+}
+
+
+.ver-pedido-superior i:last-child {
+    font-size: 10px;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   INFORMACIÓN COMPACTA
+   ========================================================= */
+
+.info-negocio.info-negocio-compacta {
+    width: min(900px, 92%);
+
+    margin:
+        0
+        auto
+        38px;
+
+    padding:
+        15px;
+
+    background:
+        rgba(14, 14, 14, 0.88);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 16px;
+
+    text-align: left;
+}
+
+
+/* QUITAMOS LA LÍNEA VIEJA */
+
+.info-negocio.info-negocio-compacta {
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* CONTENIDO */
+
+.datos-negocio-compactos {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   UBICACIÓN
+   ========================================================= */
+
+.ubicacion-compacta {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+.icono-ubicacion-compacta {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ff454c;
+
+    background:
+        rgba(229, 27, 35, 0.11);
+
+    border-radius: 11px;
+
+    font-size: 16px;
+}
+
+
+.texto-ubicacion-compacta {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.texto-ubicacion-compacta strong {
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.texto-ubicacion-compacta span {
+    overflow: hidden;
+
+    color: #999999;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   WHATSAPP COMPACTO
+   ========================================================= */
+
+.whatsapp-compacto {
+    min-height: 42px;
+
+    padding:
+        0
+        15px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    color: #ffffff;
+
+    background:
+        rgba(37, 211, 102, 0.09);
+
+    border:
+        1px solid
+        rgba(37, 211, 102, 0.26);
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.whatsapp-compacto i {
+    color: #25d366;
+
+    font-size: 18px;
+}
+
+
+.whatsapp-compacto:hover {
+    background:
+        rgba(37, 211, 102, 0.15);
+
+    border-color:
+        rgba(37, 211, 102, 0.45);
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .barra-superior-negocio {
+        top: 12px;
+
+        width:
+            calc(100% - 24px);
+    }
+
+
+    .barra-superior-negocio .estado-negocio {
+        min-height: 34px;
+
+        padding:
+            0
+            11px;
+
+        font-size: 10px;
+    }
+
+
+    .barra-superior-negocio .punto-estado {
+        width: 7px;
+        height: 7px;
+    }
+
+
+    .ver-pedido-superior {
+        min-height: 36px;
+
+        padding:
+            0
+            12px;
+
+        gap: 6px;
+
+        border-radius: 9px;
+
+        font-size: 10px;
+    }
+
+
+    .ver-pedido-superior i:first-child {
+        font-size: 11px;
+    }
+
+
+    .info-negocio.info-negocio-compacta {
+        width:
+            calc(100% - 24px);
+
+        margin-bottom: 30px;
+
+        padding:
+            12px;
+
+        border-radius: 14px;
+    }
+
+
+    .datos-negocio-compactos {
+        gap: 9px;
+    }
+
+
+    .icono-ubicacion-compacta {
+        width: 37px;
+        height: 37px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+
+    .texto-ubicacion-compacta strong {
+        font-size: 11px;
+    }
+
+
+    .texto-ubicacion-compacta span {
+        font-size: 9px;
+    }
+
+
+    .whatsapp-compacto {
+        min-height: 39px;
+
+        padding:
+            0
+            11px;
+
+        font-size: 10px;
+    }
+
+
+    .whatsapp-compacto i {
+        font-size: 16px;
+    }
+
+}
+

@@ -61,6 +61,36 @@ async function cargarConfiguracionTienda() {
         return;
     }
 
+    // ======================================================
+// MOSTRAR / OCULTAR BANNER 2X1
+// ======================================================
+
+function actualizarBannerPromo() {
+
+    const bannerPromo =
+        document.getElementById(
+            "banner-promo-2x1"
+        );
+
+
+    if (!bannerPromo) {
+        return;
+    }
+
+
+    if (promo2x1Activa) {
+
+        bannerPromo.style.display =
+            "flex";
+
+    } else {
+
+        bannerPromo.style.display =
+            "none";
+
+    }
+
+}
 
     // ==================================================
     // GUARDAR ESTADO REAL
@@ -72,6 +102,8 @@ async function cargarConfiguracionTienda() {
     promo2x1Activa =
         data.promo_2x1;
 
+      actualizarBannerPromo();
+      actualizarPopupPromo();
 
     console.log(
         "Tienda abierta:",
@@ -5200,6 +5232,124 @@ document.addEventListener(
     function() {
 
         cargarConfiguracionTienda();
+
+    }
+);
+
+// ======================================================
+// VENTANA PROMOCIÓN DEL DÍA
+// ======================================================
+
+function actualizarPopupPromo() {
+
+    const modalPromo =
+        document.getElementById(
+            "modal-promo-dia"
+        );
+
+
+    if (!modalPromo) {
+        return;
+    }
+
+
+    if (
+        tiendaAbierta &&
+        promo2x1Activa
+    ) {
+
+        modalPromo.classList.add(
+            "activa"
+        );
+
+    } else {
+
+        modalPromo.classList.remove(
+            "activa"
+        );
+
+    }
+
+}
+// ======================================================
+// CERRAR VENTANA PROMOCIÓN
+// ======================================================
+
+document.addEventListener(
+    "click",
+    function(evento) {
+
+        const modalPromo =
+            document.getElementById(
+                "modal-promo-dia"
+            );
+
+
+        if (!modalPromo) {
+            return;
+        }
+
+
+        // Cerrar con la X
+        if (
+            evento.target.closest(
+                "#cerrar-promo-dia"
+            )
+        ) {
+
+            modalPromo.classList.remove(
+                "activa"
+            );
+
+            return;
+        }
+
+
+        // Cerrar al hacer clic fuera de la tarjeta
+        if (
+            evento.target === modalPromo
+        ) {
+
+            modalPromo.classList.remove(
+                "activa"
+            );
+
+        }
+
+    }
+);
+
+
+
+
+// ======================================================
+// BOTÓN SUPERIOR - VER MI PEDIDO
+// ======================================================
+
+document.addEventListener(
+    "click",
+    function(evento) {
+
+        const botonSuperior =
+            evento.target.closest(
+                "#ver-pedido-superior"
+            );
+
+
+        if (!botonSuperior) {
+            return;
+        }
+
+
+        actualizarPedido();
+
+
+        if (modalPedido) {
+
+            modalPedido.style.display =
+                "flex";
+
+        }
 
     }
 );
