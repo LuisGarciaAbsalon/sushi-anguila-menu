@@ -62,6 +62,63 @@ async function cargarConfiguracionTienda() {
     }
 
     // ======================================================
+// CONFIGURACIÓN EN TIEMPO REAL
+// ======================================================
+
+let canalConfiguracionTienda = null;
+
+
+function escucharConfiguracionEnTiempoReal() {
+
+    if (canalConfiguracionTienda) {
+        return;
+    }
+
+
+    canalConfiguracionTienda =
+        supabaseClient
+            .channel(
+                "configuracion-tienda-realtime"
+            )
+            .on(
+                "postgres_changes",
+
+                {
+                    event: "UPDATE",
+                    schema: "public",
+                    table: "configuracion_tienda",
+                    filter: "id=eq.1"
+                },
+
+                function(payload) {
+
+                    console.log(
+                        "Cambio recibido en tiempo real:",
+                        payload.new
+                    );
+
+
+                    // Volvemos a cargar el estado
+                    // para actualizar toda la página
+                    cargarConfiguracionTienda();
+
+                }
+            )
+            .subscribe(
+                function(status) {
+
+                    console.log(
+                        "Realtime tienda:",
+                        status
+                    );
+
+                }
+            );
+
+}
+
+
+    // ======================================================
 // MOSTRAR / OCULTAR BANNER 2X1
 // ======================================================
 
@@ -167,12 +224,7 @@ function actualizarBannerPromo() {
     }
 
 
-    // ==================================================
-    // AVISO DE TIENDA
-    // ==================================================
-
-    actualizarAvisoTienda();
-
+    
 
     // ==================================================
     // RECALCULAR CARRITO / PROMOCIÓN
@@ -183,71 +235,106 @@ function actualizarBannerPromo() {
 }
 
 
+
 // ======================================================
-// AVISO DE TIENDA CERRADA
+// CONFIGURACIÓN EN TIEMPO REAL
 // ======================================================
 
-function actualizarAvisoTienda() {
+let canalConfiguracionTienda = null;
 
-    let aviso =
+
+function escucharConfiguracionEnTiempoReal() {
+
+    // Evitar crear el canal más de una vez
+    if (canalConfiguracionTienda) {
+        return;
+    }
+
+
+    canalConfiguracionTienda =
+        supabaseClient
+            .channel(
+                "configuracion-tienda-realtime"
+            )
+            .on(
+                "postgres_changes",
+
+                {
+                    event: "UPDATE",
+                    schema: "public",
+                    table: "configuracion_tienda",
+                    filter: "id=eq.1"
+                },
+
+                function(payload) {
+
+                    console.log(
+                        "🔄 Cambio recibido:",
+                        payload.new
+                    );
+
+
+                    // Actualizar la página
+                    // sin necesidad de recargar
+                    cargarConfiguracionTienda();
+
+                }
+            )
+            .subscribe(
+                function(status) {
+
+                    console.log(
+                        "📡 Realtime tienda:",
+                        status
+                    );
+
+                }
+            );
+
+}
+
+// ======================================================
+// MODAL PERSONALIZADO - TIENDA CERRADA
+// ======================================================
+
+function mostrarModalTiendaCerrada() {
+
+    const modal =
         document.getElementById(
-            "aviso-tienda-cerrada"
+            "modal-tienda-cerrada"
         );
 
-
-    if (!tiendaAbierta) {
-
-        if (!aviso) {
-
-            aviso =
-                document.createElement(
-                    "div"
-                );
-
-            aviso.id =
-                "aviso-tienda-cerrada";
-
-            aviso.className =
-                "aviso-tienda-cerrada";
-
-            aviso.innerHTML =
-                `
-                <strong>
-                    🔴 En este momento estamos cerrados
-                </strong>
-
-                <span>
-                    Puedes consultar el menú, pero no estamos recibiendo pedidos.
-                </span>
-                `;
-
-
-            const estadoTienda =
-                document.getElementById(
-                    "estado-tienda"
-                );
-
-
-            if (estadoTienda) {
-
-                estadoTienda.insertAdjacentElement(
-                    "afterend",
-                    aviso
-                );
-
-            }
-
-        }
-
-    } else {
-
-        if (aviso) {
-
-            aviso.remove();
-
-        }
-
+    if (!modal) {
+        return;
     }
+
+    modal.classList.remove(
+        "oculto"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function cerrarModalTiendaCerrada() {
+
+    const modal =
+        document.getElementById(
+            "modal-tienda-cerrada"
+        );
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.add(
+        "oculto"
+    );
+
+    document.body.style.overflow =
+        "";
 
 }
 
@@ -289,9 +376,7 @@ document.addEventListener(
         evento.stopImmediatePropagation();
 
 
-        alert(
-            "🔴 Anguila Sushi está cerrado en este momento.\n\nPuedes consultar el menú, pero no estamos recibiendo pedidos."
-        );
+       mostrarModalTiendaCerrada();
 
     },
     true
@@ -767,7 +852,7 @@ const productosConOpciones = {
 const especialidadesBarra = [
 
     {
-        nombre: "Kaklagüe Maky",
+        nombre: "Kakiague Maky",
         precio: 135,
         descripcion:
             "XF: Verduras capeadas y salsa dulce. XD: Aguacate, cangrejo y Q. Philadelphia."
@@ -2854,7 +2939,6 @@ function actualizarResumenCuenta() {
 
 }
 
-
 // ======================================================
 // ABRIR CARRITO
 // ======================================================
@@ -2874,11 +2958,24 @@ if (
                 modalPedido.style.display =
                     "flex";
 
+
+                const carritoFijo =
+                    document.querySelector(
+                        ".carrito"
+                    );
+
+
+                if (carritoFijo) {
+
+                    carritoFijo.style.display =
+                        "none";
+
+                }
+
             }
         );
 
 }
-
 
 // ======================================================
 // CERRAR CARRITO
@@ -2896,12 +2993,24 @@ if (
                 modalPedido.style.display =
                     "none";
 
+
+                const carritoFijo =
+                    document.querySelector(
+                        ".carrito"
+                    );
+
+
+                if (carritoFijo) {
+
+                    carritoFijo.style.display =
+                        "flex";
+
+                }
+
             }
         );
 
 }
-
-
 // ======================================================
 // ABRIR RESUMEN DE CUENTA
 // ======================================================
@@ -5231,7 +5340,57 @@ document.addEventListener(
     "DOMContentLoaded",
     function() {
 
+        // Cargar estado inicial
         cargarConfiguracionTienda();
+
+
+        // Escuchar cambios sin recargar
+       escucharConfiguracionEnTiempoReal();
+
+       const botonCerrarTienda =
+    document.getElementById(
+        "cerrar-modal-tienda-cerrada"
+    );
+
+const botonAceptarTienda =
+    document.getElementById(
+        "aceptar-modal-tienda-cerrada"
+    );
+
+const overlayTienda =
+    document.querySelector(
+        ".modal-tienda-cerrada__overlay"
+    );
+
+
+if (botonCerrarTienda) {
+
+    botonCerrarTienda.addEventListener(
+        "click",
+        cerrarModalTiendaCerrada
+    );
+
+}
+
+
+if (botonAceptarTienda) {
+
+    botonAceptarTienda.addEventListener(
+        "click",
+        cerrarModalTiendaCerrada
+    );
+
+}
+
+
+if (overlayTienda) {
+
+    overlayTienda.addEventListener(
+        "click",
+        cerrarModalTiendaCerrada
+    );
+
+}
 
     }
 );

@@ -67,8 +67,9 @@
     <!-- LOGO PRINCIPAL -->
     <!-- ====================================================== -->
     <!-- NO SE MODIFICA TU IMAGEN -->
+<header class="encabezado">
 
-    <header class="encabezado">
+    <div class="encabezado-contenido">
 
         <img
             src="img/Logo.png"
@@ -76,21 +77,8 @@
             class="logo"
         >
 
-    </header>
 
-
-
-
-    <!-- ====================================================== -->
-    <!-- INFORMACIÓN DEL NEGOCIO -->
-    <!-- ====================================================== -->
-
-    <section class="info-negocio">
-
-
-        <!-- ================================================== -->
-        <!-- ESTADO -->
-        <!-- ================================================== -->
+        <!-- ESTADO DE LA TIENDA -->
 
         <div
             class="estado-negocio abierto"
@@ -105,25 +93,30 @@
 
         </div>
 
+    </div>
+
+</header>
+
+<!-- ====================================================== -->
+<!-- INFORMACIÓN DEL NEGOCIO -->
+<!-- ====================================================== -->
+
+<section class="info-negocio">
+
+    <div class="tarjeta-negocio">
 
 
-        <!-- ================================================== -->
-        <!-- DATOS -->
-        <!-- ================================================== -->
+        <!-- FILA PRINCIPAL -->
 
         <div class="datos-negocio">
 
 
-            <!-- ============================================== -->
             <!-- UBICACIÓN -->
-            <!-- ============================================== -->
 
             <div class="ubicacion-negocio">
 
                 <div class="icono-negocio">
-
                     <i class="fa-solid fa-location-dot"></i>
-
                 </div>
 
 
@@ -142,18 +135,10 @@
             </div>
 
 
-
-            <!-- ============================================== -->
             <!-- WHATSAPP -->
-            <!-- ============================================== -->
-
-            <!--
-                IMPORTANTE:
-                CONSERVA AQUÍ TU NÚMERO ACTUAL DE WHATSAPP.
-            -->
 
             <a
-                href="https://wa.me/TU_NUMERO_WHATSAPP"
+                href="TU_LINK_ACTUAL_DE_WHATSAPP"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="whatsapp-negocio"
@@ -167,12 +152,29 @@
 
             </a>
 
+        </div>
+
+
+        <!-- HORARIO -->
+
+        <div class="horario-negocio">
+
+            <i class="fa-regular fa-clock"></i>
+
+            <span>
+                Horario de atención
+            </span>
+
+            <strong>
+                12:00 p. m. – 8:30 p. m.
+            </strong>
 
         </div>
 
 
-    </section>
+    </div>
 
+</section>
 
 
     <!-- ====================================================== -->
@@ -1140,13 +1142,11 @@
 
             <div class="carrito-total">
 
-                <span>
-                    Total:
-                </span>
+                
 
                 <strong>
 
-                    $
+                      MXN 
 
                     <span id="total-carrito">
                         0
@@ -2571,6 +2571,83 @@
         );
 
     </script>
+
+    <!-- ===================================== -->
+<!-- MODAL TIENDA CERRADA -->
+<!-- ===================================== -->
+ <!-- ===================================== -->
+<!-- MODAL TIENDA CERRADA -->
+<!-- ===================================== -->
+
+<div
+    id="modal-tienda-cerrada"
+    class="modal-tienda-cerrada oculto"
+>
+
+    <div class="modal-tienda-cerrada__overlay"></div>
+
+
+    <div class="modal-tienda-cerrada__contenido">
+
+        <button
+            type="button"
+            class="modal-tienda-cerrada__cerrar"
+            id="cerrar-modal-tienda-cerrada"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-tienda-cerrada__estado">
+            <span></span>
+            Cerrado
+        </div>
+
+
+        <h2 class="modal-tienda-cerrada__titulo">
+            Por ahora estamos cerrados
+        </h2>
+
+
+        <p class="modal-tienda-cerrada__texto">
+            En este momento no estamos recibiendo pedidos.
+        </p>
+
+
+        <div class="modal-tienda-cerrada__horario">
+
+            <div class="modal-tienda-cerrada__horario-icono">
+                🕐
+            </div>
+
+            <div>
+                <span>Nuestro horario</span>
+
+                <strong>
+                    12:00 p. m. – 8:30 p. m.
+                </strong>
+            </div>
+
+        </div>
+
+
+        <p class="modal-tienda-cerrada__nota">
+            Puedes consultar nuestro menú mientras tanto.
+        </p>
+
+
+        <button
+            type="button"
+            class="modal-tienda-cerrada__boton"
+            id="aceptar-modal-tienda-cerrada"
+        >
+            Ver menú
+        </button>
+
+    </div>
+
+</div>
     
     
 
