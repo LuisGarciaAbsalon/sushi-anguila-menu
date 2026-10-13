@@ -12,55 +12,78 @@ const loginAdmin =
         "login-admin"
     );
 
+
 const panelAdmin =
     document.getElementById(
         "panel-admin"
     );
+
 
 const emailAdmin =
     document.getElementById(
         "admin-email"
     );
 
+
 const passwordAdmin =
     document.getElementById(
         "admin-password"
     );
+
 
 const iniciarSesion =
     document.getElementById(
         "iniciar-sesion"
     );
 
+
 const cerrarSesion =
     document.getElementById(
         "cerrar-sesion"
     );
+
 
 const mensajeLogin =
     document.getElementById(
         "mensaje-login"
     );
 
+
 const estadoTiendaAdmin =
     document.getElementById(
         "estado-tienda-admin"
     );
+
 
 const estadoPromoAdmin =
     document.getElementById(
         "estado-promo-admin"
     );
 
+
+const estadoPromoCharolaAdmin =
+    document.getElementById(
+        "estado-promo-charola-admin"
+    );
+
+
 const botonEstadoTienda =
     document.getElementById(
         "cambiar-estado-tienda"
     );
 
+
 const botonPromo =
     document.getElementById(
         "cambiar-promo"
     );
+
+
+const botonPromoCharola =
+    document.getElementById(
+        "cambiar-promo-charola"
+    );
+
 
 const mensajeAdmin =
     document.getElementById(
@@ -76,6 +99,8 @@ let tiendaAbiertaAdmin = false;
 
 let promo2x1Admin = false;
 
+let promoCharolaAdmin = false;
+
 
 // ======================================================
 // MOSTRAR LOGIN
@@ -85,6 +110,7 @@ function mostrarLogin() {
 
     loginAdmin.style.display =
         "flex";
+
 
     panelAdmin.style.display =
         "none";
@@ -100,6 +126,7 @@ function mostrarPanel() {
 
     loginAdmin.style.display =
         "none";
+
 
     panelAdmin.style.display =
         "block";
@@ -123,7 +150,7 @@ async function cargarConfiguracionAdmin() {
                 "configuracion_tienda"
             )
             .select(
-                "tienda_abierta, promo_2x1"
+                "tienda_abierta, promo_2x1, promo_charola"
             )
             .eq(
                 "id",
@@ -138,8 +165,10 @@ async function cargarConfiguracionAdmin() {
             error
         );
 
+
         mensajeAdmin.textContent =
             "No se pudo cargar la configuración.";
+
 
         return;
 
@@ -149,11 +178,17 @@ async function cargarConfiguracionAdmin() {
     tiendaAbiertaAdmin =
         data.tienda_abierta;
 
+
     promo2x1Admin =
         data.promo_2x1;
 
 
+    promoCharolaAdmin =
+        data.promo_charola;
+
+
     actualizarPanel();
+
 
     mensajeAdmin.textContent =
         "";
@@ -167,20 +202,26 @@ async function cargarConfiguracionAdmin() {
 
 function actualizarPanel() {
 
+
     // ==================================================
     // TIENDA
     // ==================================================
 
-    if (tiendaAbiertaAdmin) {
+    if (
+        tiendaAbiertaAdmin
+    ) {
 
         estadoTiendaAdmin.textContent =
             "🟢 ABIERTA";
 
+
         estadoTiendaAdmin.className =
             "estado-admin activo";
 
+
         botonEstadoTienda.textContent =
             "Cerrar tienda";
+
 
         botonEstadoTienda.className =
             "boton-control boton-rojo";
@@ -190,11 +231,14 @@ function actualizarPanel() {
         estadoTiendaAdmin.textContent =
             "🔴 CERRADA";
 
+
         estadoTiendaAdmin.className =
             "estado-admin inactivo";
 
+
         botonEstadoTienda.textContent =
             "Abrir tienda";
+
 
         botonEstadoTienda.className =
             "boton-control boton-verde";
@@ -203,19 +247,24 @@ function actualizarPanel() {
 
 
     // ==================================================
-    // PROMOCIÓN
+    // PROMOCIÓN 2X1
     // ==================================================
 
-    if (promo2x1Admin) {
+    if (
+        promo2x1Admin
+    ) {
 
         estadoPromoAdmin.textContent =
             "🔥 ACTIVA";
 
+
         estadoPromoAdmin.className =
             "estado-admin activo";
 
+
         botonPromo.textContent =
             "Desactivar 2x1";
+
 
         botonPromo.className =
             "boton-control boton-rojo";
@@ -225,13 +274,59 @@ function actualizarPanel() {
         estadoPromoAdmin.textContent =
             "⚫ DESACTIVADA";
 
+
         estadoPromoAdmin.className =
             "estado-admin inactivo";
+
 
         botonPromo.textContent =
             "Activar 2x1";
 
+
         botonPromo.className =
+            "boton-control boton-verde";
+
+    }
+
+
+    // ==================================================
+    // PROMOCIÓN CHAROLA
+    // ==================================================
+
+    if (
+        promoCharolaAdmin
+    ) {
+
+        estadoPromoCharolaAdmin.textContent =
+            "🍱 ACTIVA";
+
+
+        estadoPromoCharolaAdmin.className =
+            "estado-admin activo";
+
+
+        botonPromoCharola.textContent =
+            "Desactivar promo charola";
+
+
+        botonPromoCharola.className =
+            "boton-control boton-rojo";
+
+    } else {
+
+        estadoPromoCharolaAdmin.textContent =
+            "⚫ DESACTIVADA";
+
+
+        estadoPromoCharolaAdmin.className =
+            "estado-admin inactivo";
+
+
+        botonPromoCharola.textContent =
+            "Activar promo charola";
+
+
+        botonPromoCharola.className =
             "boton-control boton-verde";
 
     }
@@ -250,6 +345,7 @@ iniciarSesion.addEventListener(
         const email =
             emailAdmin.value.trim();
 
+
         const password =
             passwordAdmin.value;
 
@@ -261,6 +357,7 @@ iniciarSesion.addEventListener(
 
             mensajeLogin.textContent =
                 "Escribe tu correo y contraseña.";
+
 
             return;
 
@@ -291,8 +388,10 @@ iniciarSesion.addEventListener(
                 error
             );
 
+
             mensajeLogin.textContent =
                 "Correo o contraseña incorrectos.";
+
 
             return;
 
@@ -306,6 +405,7 @@ iniciarSesion.addEventListener(
             mensajeLogin.textContent =
                 "No se pudo iniciar sesión.";
 
+
             return;
 
         }
@@ -316,6 +416,7 @@ iniciarSesion.addEventListener(
 
 
         mostrarPanel();
+
 
         await cargarConfiguracionAdmin();
 
@@ -339,8 +440,10 @@ cerrarSesion.addEventListener(
         emailAdmin.value =
             "";
 
+
         passwordAdmin.value =
             "";
+
 
         mostrarLogin();
 
@@ -395,11 +498,14 @@ botonEstadoTienda.addEventListener(
                 error
             );
 
+
             mensajeAdmin.textContent =
                 "No tienes permiso para cambiar la tienda.";
 
+
             botonEstadoTienda.disabled =
                 false;
+
 
             return;
 
@@ -440,12 +546,41 @@ botonPromo.addEventListener(
             true;
 
 
+        botonPromoCharola.disabled =
+            true;
+
+
         mensajeAdmin.textContent =
-            "Actualizando promoción...";
+            "Actualizando promoción 2x1...";
 
 
         const nuevoEstado =
             !promo2x1Admin;
+
+
+        const datosActualizar = {
+
+            promo_2x1:
+                nuevoEstado,
+
+            actualizado_en:
+                new Date()
+                    .toISOString()
+
+        };
+
+
+        // Si activamos 2x1,
+        // apagamos charola automáticamente
+
+        if (
+            nuevoEstado
+        ) {
+
+            datosActualizar.promo_charola =
+                false;
+
+        }
 
 
         const { error } =
@@ -453,16 +588,9 @@ botonPromo.addEventListener(
                 .from(
                     "configuracion_tienda"
                 )
-                .update({
-
-                    promo_2x1:
-                        nuevoEstado,
-
-                    actualizado_en:
-                        new Date()
-                            .toISOString()
-
-                })
+                .update(
+                    datosActualizar
+                )
                 .eq(
                     "id",
                     1
@@ -475,11 +603,18 @@ botonPromo.addEventListener(
                 error
             );
 
+
             mensajeAdmin.textContent =
                 "No tienes permiso para cambiar la promoción.";
 
+
             botonPromo.disabled =
                 false;
+
+
+            botonPromoCharola.disabled =
+                false;
+
 
             return;
 
@@ -488,6 +623,16 @@ botonPromo.addEventListener(
 
         promo2x1Admin =
             nuevoEstado;
+
+
+        if (
+            nuevoEstado
+        ) {
+
+            promoCharolaAdmin =
+                false;
+
+        }
 
 
         actualizarPanel();
@@ -499,6 +644,133 @@ botonPromo.addEventListener(
                 "Promoción 2x1 activada."
                 :
                 "Promoción 2x1 desactivada.";
+
+
+        botonPromo.disabled =
+            false;
+
+
+        botonPromoCharola.disabled =
+            false;
+
+    }
+);
+
+
+// ======================================================
+// ACTIVAR / DESACTIVAR PROMOCIÓN CHAROLA
+// ======================================================
+
+botonPromoCharola.addEventListener(
+    "click",
+    async function() {
+
+        botonPromoCharola.disabled =
+            true;
+
+
+        botonPromo.disabled =
+            true;
+
+
+        mensajeAdmin.textContent =
+            "Actualizando promoción de charola...";
+
+
+        const nuevoEstado =
+            !promoCharolaAdmin;
+
+
+        const datosActualizar = {
+
+            promo_charola:
+                nuevoEstado,
+
+            actualizado_en:
+                new Date()
+                    .toISOString()
+
+        };
+
+
+        // Si activamos promo charola,
+        // apagamos 2x1 automáticamente
+
+        if (
+            nuevoEstado
+        ) {
+
+            datosActualizar.promo_2x1 =
+                false;
+
+        }
+
+
+        const { error } =
+            await supabaseClient
+                .from(
+                    "configuracion_tienda"
+                )
+                .update(
+                    datosActualizar
+                )
+                .eq(
+                    "id",
+                    1
+                );
+
+
+        if (error) {
+
+            console.error(
+                error
+            );
+
+
+            mensajeAdmin.textContent =
+                "No se pudo cambiar la promoción de charola.";
+
+
+            botonPromoCharola.disabled =
+                false;
+
+
+            botonPromo.disabled =
+                false;
+
+
+            return;
+
+        }
+
+
+        promoCharolaAdmin =
+            nuevoEstado;
+
+
+        if (
+            nuevoEstado
+        ) {
+
+            promo2x1Admin =
+                false;
+
+        }
+
+
+        actualizarPanel();
+
+
+        mensajeAdmin.textContent =
+            nuevoEstado
+                ?
+                "Promoción de charola activada."
+                :
+                "Promoción de charola desactivada.";
+
+
+        botonPromoCharola.disabled =
+            false;
 
 
         botonPromo.disabled =
@@ -525,6 +797,7 @@ async function comprobarSesion() {
     ) {
 
         mostrarPanel();
+
 
         await cargarConfiguracionAdmin();
 

@@ -10683,3 +10683,243 @@ main {
     height: 38px !important;
     font-size: 14px !important;
 }
+
+/* =========================================================
+   OPCIÓN DE CHAROLA
+   ========================================================= */
+
+.charola-pedido {
+    margin:
+        20px
+        0;
+
+    padding:
+        16px;
+
+    background:
+        #141414;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius:
+        16px;
+}
+
+
+.charola-pedido-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 13px;
+}
+
+
+.charola-pedido-icono {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background:
+        rgba(229,27,35,0.10);
+
+    border-radius:
+        12px;
+
+    font-size:
+        21px;
+}
+
+
+.charola-pedido-info strong {
+    display: block;
+
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+}
+
+
+.charola-pedido-info small {
+    display: block;
+
+    margin-top:
+        3px;
+
+    color:
+        #929292;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.4;
+}
+
+
+.btn-charola {
+    width: 100%;
+
+    min-height:
+        44px;
+
+    color:
+        #ffffff;
+
+    background:
+        #202020;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius:
+        11px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+}
+
+
+.btn-charola:disabled {
+    opacity:
+        0.35;
+
+    cursor:
+        not-allowed;
+}
+
+
+.btn-charola.activa {
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3038,
+            #d5151c
+        );
+
+    border-color:
+        transparent;
+}
+
+
+/* RESUMEN DE CHAROLA EN EL CARRITO */
+
+.resumen-charola {
+    margin-top:
+        14px;
+
+    padding:
+        14px;
+
+    display:
+        flex;
+
+    gap:
+        11px;
+
+    align-items:
+        flex-start;
+
+    background:
+        rgba(229,27,35,0.07);
+
+    border:
+        1px solid
+        rgba(229,27,35,0.20);
+
+    border-radius:
+        13px;
+}
+
+
+.resumen-charola strong {
+    display:
+        block;
+
+    font-size:
+        13px;
+}
+
+
+.resumen-charola small {
+    display:
+        block;
+
+    margin-top:
+        3px;
+
+    color:
+        #aaaaaa;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.4;
+}
+
+/* =========================================================
+   PROMOCIÓN CHAROLA
+   ========================================================= */
+
+.promo-charola-contenido {
+    width: min(340px, calc(100% - 36px));
+}
+
+
+.promo-charola-texto {
+    margin:
+        14px
+        0
+        8px;
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+.promo-charola-texto strong {
+    color: #ffffff;
+}
+
+
+.promo-charola-vigencia {
+    color: #999999;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+@media (max-width: 650px) {
+
+    .promo-charola-texto {
+        font-size: 13px;
+    }
+
+}

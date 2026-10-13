@@ -26,6 +26,17 @@ let direccionValidaCoacalco = false;
 
 let direccionUbicacionActual = "";
 
+
+// ======================================================
+// CHAROLA
+// ======================================================
+
+let charolaSeleccionada = false;
+
+const MIN_ROLLOS_CHAROLA = 6;
+
+const MAX_ROLLOS_CHAROLA = 10;
+
 // ======================================================
 // PROMOCIÓN 2X1 EN ROLLOS
 // TEMPORALMENTE ACTIVA
@@ -34,7 +45,10 @@ let direccionUbicacionActual = "";
 
 let promo2x1Activa = true;
 
+let promoCharolaActiva = false;
+
 let tiendaAbierta = true;
+
 // ======================================================
 // CONFIGURACIÓN DE LA TIENDA DESDE SUPABASE
 // ======================================================
@@ -45,8 +59,8 @@ async function cargarConfiguracionTienda() {
         await supabaseClient
             .from("configuracion_tienda")
             .select(
-                "tienda_abierta, promo_2x1"
-            )
+    "tienda_abierta, promo_2x1, promo_charola"
+)
             .eq("id", 1)
             .single();
 
@@ -158,6 +172,9 @@ function actualizarBannerPromo() {
 
     promo2x1Activa =
         data.promo_2x1;
+    
+    promoCharolaActiva =
+    data.promo_charola;
 
       actualizarBannerPromo();
       actualizarPopupPromo();
@@ -171,6 +188,10 @@ function actualizarBannerPromo() {
         "2x1 activo:",
         promo2x1Activa
     );
+    console.log(
+    "Promo charola activa:",
+    promoCharolaActiva
+);
 
 
     // ==================================================
@@ -1919,6 +1940,329 @@ if (
 // PARTE 2 DE 3
 // ======================================================
 
+// ======================================================
+// FUNCIONES DE CHAROLA
+// ======================================================
+
+function contarRollosPedido() {
+
+    let cantidadRollos = 0;
+
+
+    for (
+        let claveProducto in pedido
+    ) {
+
+        const producto =
+            pedido[
+                claveProducto
+            ];
+
+
+        if (
+            producto.esRollo
+        ) {
+
+            cantidadRollos +=
+                producto.cantidad;
+
+        }
+
+    }
+
+
+    return cantidadRollos;
+
+}
+
+
+// ======================================================
+// DÍA ACTUAL
+// 0 domingo
+// 4 jueves
+// 5 viernes
+// 6 sábado
+// ======================================================
+
+function obtenerDiaActual() {
+
+    return new Date()
+        .getDay();
+
+}
+
+
+// ======================================================
+// SABER SI PUEDE PEDIR CHAROLA
+// ======================================================
+
+function charolaDisponible() {
+
+    const rollos =
+        contarRollosPedido();
+
+
+    return (
+        rollos >=
+            MIN_ROLLOS_CHAROLA &&
+        rollos <=
+            MAX_ROLLOS_CHAROLA
+    );
+
+}
+
+
+// ======================================================
+// COSTO DE CHAROLA
+// ======================================================
+
+function obtenerCostoCharola() {
+
+    if (
+        !charolaSeleccionada
+    ) {
+
+        return 0;
+
+    }
+
+
+    const dia =
+        obtenerDiaActual();
+
+
+    // JUEVES
+
+    if (
+        dia === 4
+    ) {
+
+        return 30;
+
+    }
+
+
+    return 0;
+
+}
+
+
+// ======================================================
+// ROLLO DE CORTESÍA
+// VIERNES, SÁBADO Y DOMINGO
+// DESDE 8 ROLLOS
+// ======================================================
+
+function tieneRolloCortesiaCharola() {
+
+    if (
+    !charolaSeleccionada ||
+    !promoCharolaActiva
+) {
+
+    return false;
+
+}
+
+
+    const rollos =
+        contarRollosPedido();
+
+
+    if (
+        rollos < 8
+    ) {
+
+        return false;
+
+    }
+
+
+    const dia =
+        obtenerDiaActual();
+
+
+    return (
+        dia === 5 ||
+        dia === 6 ||
+        dia === 0
+    );
+
+}
+
+
+// ======================================================
+// ACTUALIZAR INTERFAZ DE CHAROLA
+// ======================================================
+function actualizarOpcionCharola() {
+
+    const contenedorCharola =
+        document.getElementById(
+            "charola-pedido"
+        );
+
+
+    const boton =
+        document.getElementById(
+            "btn-charola"
+        );
+
+
+    const mensaje =
+        document.getElementById(
+            "mensaje-charola"
+        );
+
+
+    if (
+        !contenedorCharola ||
+        !boton ||
+        !mensaje
+    ) {
+
+        return;
+
+    }
+
+
+    const rollos =
+        contarRollosPedido();
+
+
+    const disponible =
+        charolaDisponible();
+
+
+    // ==================================================
+    // OCULTAR SI NO TIENE ENTRE 6 Y 10 ROLLOS
+    // ==================================================
+
+    if (
+        !disponible
+    ) {
+
+        contenedorCharola.style.display =
+            "none";
+
+
+        charolaSeleccionada =
+            false;
+
+
+        boton.classList.remove(
+            "activa"
+        );
+
+
+        boton.textContent =
+            "Seleccionar charola";
+
+
+        return;
+
+    }
+
+
+    // ==================================================
+    // MOSTRAR CHAROLA
+    // ==================================================
+
+    contenedorCharola.style.display =
+        "";
+
+
+    boton.disabled =
+        false;
+
+
+    const dia =
+        obtenerDiaActual();
+
+
+    // ==================================================
+    // JUEVES
+    // ==================================================
+
+    if (
+        dia === 4
+    ) {
+
+        mensaje.textContent =
+            "Jueves: charola +$30.";
+
+    }
+
+
+    // ==================================================
+    // PROMO CHAROLA - 8 A 10 ROLLOS
+    // ==================================================
+
+    else if (
+        promoCharolaActiva &&
+        (
+            dia === 5 ||
+            dia === 6 ||
+            dia === 0
+        ) &&
+        rollos >= 8
+    ) {
+
+        mensaje.textContent =
+            "🎁 Arma tu charola con 8 rollos y el noveno es de regalo, a decisión del chef.";
+
+    }
+
+
+    // ==================================================
+    // PROMO ACTIVA PERO SOLO TIENE 6 O 7
+    // ==================================================
+
+    else if (
+        promoCharolaActiva &&
+        (
+            dia === 5 ||
+            dia === 6 ||
+            dia === 0
+        )
+    ) {
+
+        mensaje.textContent =
+            "Charola sin costo. Con 8 rollos, el noveno es de regalo.";
+
+    }
+
+
+    // ==================================================
+    // DÍA NORMAL
+    // ==================================================
+
+    else {
+
+        mensaje.textContent =
+            "Charola sin costo adicional.";
+
+    }
+
+
+    // ==================================================
+    // ESTADO DEL BOTÓN
+    // ==================================================
+
+    boton.classList.toggle(
+        "activa",
+        charolaSeleccionada
+    );
+
+
+    boton.textContent =
+        charolaSeleccionada
+            ?
+            "✓ Charola seleccionada"
+            :
+            "Seleccionar charola";
+
+}
+
 
 // ======================================================
 // ELEMENTOS DE INFORMACIÓN DEL PEDIDO
@@ -2057,6 +2401,13 @@ function obtenerDescuento2x1() {
     if (!promo2x1Activa) {
         return 0;
     }
+    if (
+    tieneRolloCortesiaCharola()
+) {
+
+    return 0;
+
+}
 
     const preciosRollos = [];
 
@@ -2145,6 +2496,14 @@ function obtenerRollosGratis2x1() {
     if (!promo2x1Activa) {
         return gratisPorProducto;
     }
+    if (
+    !promo2x1Activa ||
+    tieneRolloCortesiaCharola()
+) {
+
+    return gratisPorProducto;
+
+}
 
 
     const unidadesRollos = [];
@@ -2254,6 +2613,7 @@ function obtenerTotalFinal() {
 
     return (
         obtenerTotalProductosConPromo() +
+        obtenerCostoCharola() +
         obtenerCostoEntrega()
     );
 
@@ -2277,13 +2637,14 @@ function obtenerCostoEntrega() {
     // Si está activa la promoción 2x1,
     // el envío cuesta $50
 
-    if (
-        promo2x1Activa
-    ) {
+   if (
+    promo2x1Activa &&
+    !tieneRolloCortesiaCharola()
+) {
 
-        return 50;
+    return 50;
 
-    }
+}
 
 
     // Día normal
@@ -2296,8 +2657,9 @@ function obtenerCostoEntrega() {
 // ACTUALIZAR CARRITO
 // ======================================================
 
-
 function actualizarPedido() {
+
+    actualizarOpcionCharola();
 
     const descuento2x1 =
         obtenerDescuento2x1();
@@ -2305,12 +2667,18 @@ function actualizarPedido() {
     const totalConPromo =
         obtenerTotalProductosConPromo();
 
+    const costoCharola =
+        obtenerCostoCharola();
+
+    const totalProductosYCharola =
+        totalConPromo +
+        costoCharola;
+
     const totalFinal =
         obtenerTotalFinal();
 
     const gratisPorProducto =
         obtenerRollosGratis2x1();
-
 
     // ==================================================
     // ACTUALIZAR BARRA DEL CARRITO
@@ -2327,15 +2695,15 @@ function actualizarPedido() {
     if (total) {
 
         total.textContent =
-            totalConPromo;
+    totalProductosYCharola;
 
     }
 
 
     if (totalModal) {
 
-        totalModal.textContent =
-            totalConPromo;
+       totalModal.textContent =
+    totalProductosYCharola;
 
     }
 
@@ -2626,7 +2994,72 @@ function actualizarPedido() {
             `;
 
     }
+// ==================================================
+// MOSTRAR CHAROLA EN EL CARRITO
+// ==================================================
 
+if (
+    charolaSeleccionada
+) {
+
+    const costoCharola =
+        obtenerCostoCharola();
+
+
+    const tieneCortesia =
+        tieneRolloCortesiaCharola();
+
+
+    let textoCharola =
+        "Sin costo adicional";
+
+
+    if (
+        costoCharola > 0
+    ) {
+
+        textoCharola =
+            `Costo adicional: $${costoCharola}`;
+
+    }
+
+
+    if (
+        tieneCortesia
+    ) {
+
+        textoCharola =
+            "Incluye 1 rollo de cortesía elegido por cocina";
+
+    }
+
+
+    detallePedido.innerHTML +=
+        `
+
+        <div class="resumen-charola">
+
+            <span>
+                🍱
+            </span>
+
+            <div>
+
+                <strong>
+                    Pedido en charola
+                </strong>
+
+                <small>
+                    ${textoCharola}
+                </small>
+
+            </div>
+
+        </div>
+
+        `;
+
+}
 
     activarControles();
 
@@ -4978,6 +5411,11 @@ const totalProductosConPromo =
 
 const totalFinal =
     obtenerTotalFinal();
+    const costoCharola =
+    obtenerCostoCharola();
+
+const tieneCortesiaCharola =
+    tieneRolloCortesiaCharola();
 
 
     // ==================================================
@@ -5093,7 +5531,43 @@ const totalFinal =
         }
 
     }
+// ==================================================
+// CHAROLA
+// ==================================================
 
+if (
+    charolaSeleccionada
+) {
+
+    mensaje +=
+        "🍱 Presentación: Charola\n";
+
+
+    if (
+        costoCharola > 0
+    ) {
+
+        mensaje +=
+            `💵 Costo de charola: $${costoCharola}\n`;
+
+    } else {
+
+        mensaje +=
+            "💵 Charola: Sin costo adicional\n";
+
+    }
+
+
+    if (
+        tieneCortesiaCharola
+    ) {
+
+        mensaje +=
+            "🎁 Cortesía: 1 rollo elegido por cocina\n";
+
+    }
+
+}
 
     // ==================================================
     // SOYA
@@ -5394,82 +5868,178 @@ if (overlayTienda) {
 
     }
 );
-
 // ======================================================
 // VENTANA PROMOCIÓN DEL DÍA
 // ======================================================
 
 function actualizarPopupPromo() {
 
-    const modalPromo =
+    const modalPromo2x1 =
         document.getElementById(
             "modal-promo-dia"
         );
 
+    const modalPromoCharola =
+        document.getElementById(
+            "modal-promo-charola"
+        );
 
-    if (!modalPromo) {
-        return;
+
+    // Cerrar ambos antes de decidir cuál mostrar
+
+    if (modalPromo2x1) {
+
+        modalPromo2x1.classList.remove(
+            "activa"
+        );
+
     }
 
 
-    if (
-        tiendaAbierta &&
-        promo2x1Activa
-    ) {
+    if (modalPromoCharola) {
 
-        modalPromo.classList.add(
+        modalPromoCharola.classList.remove(
             "activa"
         );
 
-    } else {
+    }
 
-        modalPromo.classList.remove(
-            "activa"
-        );
+
+    // Si la tienda está cerrada,
+    // no mostramos promociones
+
+    if (!tiendaAbierta) {
+
+        return;
+
+    }
+
+
+    // ==================================================
+    // PROMOCIÓN 2X1
+    // ==================================================
+
+    if (promo2x1Activa) {
+
+        if (modalPromo2x1) {
+
+            modalPromo2x1.classList.add(
+                "activa"
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    // ==================================================
+    // PROMOCIÓN CHAROLA
+    // ==================================================
+    // TEMPORALMENTE SIN VALIDAR EL DÍA
+    // PARA QUE PODAMOS PROBARLA AHORA
+
+    if (promoCharolaActiva) {
+
+        if (modalPromoCharola) {
+
+            modalPromoCharola.classList.add(
+                "activa"
+            );
+
+        }
 
     }
 
 }
+
+
 // ======================================================
-// CERRAR VENTANA PROMOCIÓN
+// CERRAR VENTANAS DE PROMOCIÓN
 // ======================================================
 
 document.addEventListener(
     "click",
     function(evento) {
 
-        const modalPromo =
+        const modalPromo2x1 =
             document.getElementById(
                 "modal-promo-dia"
             );
 
+        const modalPromoCharola =
+            document.getElementById(
+                "modal-promo-charola"
+            );
 
-        if (!modalPromo) {
-            return;
-        }
 
+        // CERRAR 2X1 CON LA X
 
-        // Cerrar con la X
         if (
             evento.target.closest(
                 "#cerrar-promo-dia"
             )
         ) {
 
-            modalPromo.classList.remove(
+            if (modalPromo2x1) {
+
+                modalPromo2x1.classList.remove(
+                    "activa"
+                );
+
+            }
+
+            return;
+
+        }
+
+
+        // CERRAR CHAROLA CON LA X
+
+        if (
+            evento.target.closest(
+                "#cerrar-promo-charola"
+            )
+        ) {
+
+            if (modalPromoCharola) {
+
+                modalPromoCharola.classList.remove(
+                    "activa"
+                );
+
+            }
+
+            return;
+
+        }
+
+
+        // CERRAR 2X1 TOCANDO FUERA
+
+        if (
+            modalPromo2x1 &&
+            evento.target === modalPromo2x1
+        ) {
+
+            modalPromo2x1.classList.remove(
                 "activa"
             );
 
             return;
+
         }
 
 
-        // Cerrar al hacer clic fuera de la tarjeta
+        // CERRAR CHAROLA TOCANDO FUERA
+
         if (
-            evento.target === modalPromo
+            modalPromoCharola &&
+            evento.target === modalPromoCharola
         ) {
 
-            modalPromo.classList.remove(
+            modalPromoCharola.classList.remove(
                 "activa"
             );
 
@@ -5477,9 +6047,6 @@ document.addEventListener(
 
     }
 );
-
-
-
 
 // ======================================================
 // BOTÓN SUPERIOR - VER MI PEDIDO
@@ -5513,6 +6080,48 @@ document.addEventListener(
     }
 );
 
+
+// ======================================================
+// BOTÓN DE CHAROLA
+// ======================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const botonCharola =
+            document.getElementById(
+                "btn-charola"
+            );
+
+
+        if (botonCharola) {
+
+            botonCharola.addEventListener(
+                "click",
+                function() {
+
+                    if (!charolaDisponible()) {
+                        return;
+                    }
+
+
+                    charolaSeleccionada =
+                        !charolaSeleccionada;
+
+
+                    actualizarPedido();
+
+                }
+            );
+
+        }
+
+
+        actualizarOpcionCharola();
+
+    }
+);
 // ======================================================
 // FIN DEL SCRIPT
 // ANGUILA SUSHI
