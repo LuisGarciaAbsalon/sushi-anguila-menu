@@ -211,48 +211,55 @@
 
             <nav class="lista-categorias">
 
-
-                <a
-                    href="#entradas"
-                    class="categoria-btn"
-                >
-                    Entradas
-                </a>
-
-
-                <a
-                    href="#rollos"
-                    class="categoria-btn"
-                >
-                    Rollos
-                </a>
+    <a
+        href="#entradas"
+        class="categoria-btn"
+    >
+        Entradas
+    </a>
 
 
-                <a
-                    href="#yakimeshi"
-                    class="categoria-btn"
-                >
-                    Yakimeshi
-                </a>
+    <a
+        href="#sopas"
+        class="categoria-btn"
+    >
+        Sopas
+    </a>
 
 
-                <a
-                    href="#sopas"
-                    class="categoria-btn"
-                >
-                    Sopas
-                </a>
+    <a
+        href="#ensaladas"
+        class="categoria-btn"
+    >
+        Ensaladas
+    </a>
 
 
-                <a
-                    href="#postres"
-                    class="categoria-btn"
-                >
-                    Postres
-                </a>
+    <a
+        href="#arroces"
+        class="categoria-btn"
+    >
+        Cocina y Arroces
+    </a>
 
 
-            </nav>
+    <a
+        href="#sushi"
+        class="categoria-btn"
+    >
+        Sushi y Rollos
+    </a>
+
+
+    <a
+        href="#postres"
+        class="categoria-btn"
+    >
+        Postres
+    </a>
+
+</nav>
+
 
 
         </section>
@@ -263,101 +270,272 @@
         <!-- ENTRADAS -->
         <!-- ================================================== -->
 
-        <section
-            class="menu"
-            id="entradas"
-        >
-
+        <section class="menu" id="entradas">
 
             <div class="titulo-seccion">
-
-                <span>
-                    PARA EMPEZAR
-                </span>
-
-                <h2>
-                    Entradas
-                </h2>
-
+                <span>PARA EMPEZAR</span>
+                <h2>Entradas</h2>
+                <p>Entradas y antojitos para comenzar.</p>
             </div>
 
+            <div
+                id="entradas-menu"
+                class="productos-grid rollos-grid productos-dinamicos"
+            ></div>
+
+        
 
 
-            <div class="productos-grid entradas-grid">
+        <!-- ================================================== -->
+<!-- KUSHIAGUE'S -->
+<!-- DENTRO DE ENTRADAS -->
+<!-- ================================================== -->
+
+<section class="menu-subgrupo">
+
+    <div class="encabezado-grupo-rollos">
+
+        <span class="numero-seccion">
+            01
+        </span>
+
+        <h3>
+            Kushiague's
+        </h3>
+
+    </div>
+
+    <div
+        id="kushiagues-menu"
+        class="productos-grid rollos-grid productos-dinamicos"
+    ></div>
+
+</section>
 
 
-                <!-- ========================================== -->
-                <!-- EDAMAMES -->
-                <!-- ========================================== -->
+<!-- ================================================== -->
+<!-- YAKITORI'S -->
+<!-- DENTRO DE ENTRADAS -->
+<!-- ================================================== -->
 
-                <article class="producto producto-con-imagen">
+<section class="menu-subgrupo">
 
+    <div class="encabezado-grupo-rollos">
 
-                    <!-- INFORMACIÓN -->
+        <span class="numero-seccion">
+            02
+        </span>
 
-                    <div class="producto-info">
+        <h3>
+            Yakitori's
+        </h3>
 
-                        <h3>
-                            Edamames
-                        </h3>
+    </div>
 
-                        <p>
-                            Frijol de soya tierno al vapor o asado.
-                        </p>
+    <div
+        id="yakitoris-menu"
+        class="productos-grid rollos-grid productos-dinamicos"
+    ></div>
 
-                        <span class="precio-producto">
-                            $75
-                        </span>
-
-                    </div>
-
-
-
-                    <!-- FOTO -->
-
-                    <div class="producto-media">
-
-                        <!--
-                            Cuando tengas la fotografía,
-                            guárdala como:
-
-                            img/productos/edamames.jpg
-                        -->
-
-                        <img
-                            src="img/productos/edamames.jpg"
-                            alt="Edamames"
-                            class="producto-imagen"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                        >
+</section>
 
 
-                        <div class="producto-sin-imagen">
-
-                            <i class="fa-solid fa-utensils"></i>
-
-                        </div>
+<!-- CERRAR ENTRADAS -->
+</section>
 
 
+        <!-- ================================================== -->
+        <!-- SOPAS & NOODLES -->
+        <!-- ================================================== -->
 
-                        <button
-                            type="button"
-                            class="agregar"
-                            data-nombre="Edamames"
-                            data-precio="75"
-                            aria-label="Agregar Edamames"
-                        >
-                            +
-                        </button>
+        <section class="menu" id="sopas">
 
-                    </div>
-
-
-                </article>
-
-
+            <div class="titulo-seccion">
+                <span>CALIENTITO</span>
+                <h2>Sopas & Noodles</h2>
+                <p>Caldo, noodles y ramen.</p>
             </div>
 
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">01</span>
+                    <h3>Sopas & Noodles</h3>
+                </div>
+
+                <div
+                    id="sopas-menu"
+                    class="productos-grid rollos-grid productos-dinamicos"
+                ></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">02</span>
+                    <h3>Ramen Fussion</h3>
+                </div>
+
+                <div
+                    id="ramen-fussion-menu"
+                    class="productos-grid rollos-grid productos-dinamicos"
+                ></div>
+            </section>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- ENSALADAS -->
+        <!-- ================================================== -->
+
+        <section class="menu" id="ensaladas">
+
+            <div class="titulo-seccion">
+                <span>FRESCO</span>
+                <h2>Ensaladas</h2>
+            </div>
+
+            <div
+                id="ensaladas-menu"
+                class="productos-grid rollos-grid productos-dinamicos"
+            ></div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- ARROCES -->
+        <!-- ================================================== -->
+
+        <section class="menu" id="arroces">
+
+            <div class="titulo-seccion">
+                <span>ARROZ JAPONÉS</span>
+                <h2>Yakimeshi & Gohan</h2>
+            </div>
+
+            <section class="menu-subgrupo" id="yakimeshi">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">01</span>
+                    <h3>Yakimeshi</h3>
+                </div>
+
+                <div
+                    id="yakimeshi-menu"
+                    class="productos-grid rollos-grid productos-dinamicos"
+                ></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">02</span>
+                    <h3>Gohan</h3>
+                </div>
+
+                <div
+                    id="gohan-menu"
+                    class="productos-grid rollos-grid productos-dinamicos"
+                ></div>
+            </section>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- COCINA JAPONESA -->
+        <!-- ================================================== -->
+
+        <section class="menu" id="cocina">
+
+            <div class="titulo-seccion">
+                <span>DE LA COCINA</span>
+                <h2>Especialidades de Cocina Japonesa</h2>
+            </div>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">01</span>
+                    <h3>Tempuras</h3>
+                </div>
+                <div id="tempuras-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">02</span>
+                    <h3>Teppan Yaki</h3>
+                </div>
+                <div id="teppan-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">03</span>
+                    <h3>Teri Yaki</h3>
+                </div>
+                <div id="teri-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">04</span>
+                    <h3>Yakisoba</h3>
+                </div>
+                <div id="yakisoba-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">05</span>
+                    <h3>Especialidades</h3>
+                </div>
+                <div id="cocina-especialidades-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- SUSHI -->
+        <!-- ================================================== -->
+
+        <section class="menu" id="sushi">
+
+            <div class="titulo-seccion">
+                <span>SUSHI</span>
+                <h2>Sashimi, Temaki, Batera & Niguiri</h2>
+            </div>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">01</span>
+                    <h3>Sashimi's</h3>
+                </div>
+                <div id="sashimis-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">02</span>
+                    <h3>Temaki's</h3>
+                </div>
+                <div id="temakis-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">03</span>
+                    <h3>Batera </h3>
+                </div>
+                <div id="batera-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
+
+            <section class="menu-subgrupo">
+                <div class="encabezado-grupo-rollos">
+                    <span class="numero-seccion">04</span>
+                    <h3>Niguiri's - Sushi por pieza</h3>
+                </div>
+                <div id="niguiris-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
+            </section>
 
         </section>
 
@@ -469,6 +647,53 @@
                 <!-- ============================================== -->
 
                 <div class="productos-grid rollos-grid">
+
+
+
+                    <!-- ========================================== -->
+                    <!-- UME MAKY -->
+                    <!-- ========================================== -->
+
+                    <article class="producto producto-con-imagen">
+
+                        <div class="producto-info">
+
+                            <h3>
+                                Ume Maky
+                            </h3>
+
+                            <p>
+                                Chamoy.
+                            </p>
+
+                            <span class="precio-producto">
+                                $66
+                            </span>
+
+                        </div>
+
+                        <div class="producto-media">
+
+                            <div
+                                class="producto-sin-imagen"
+                                style="display:flex;"
+                            >
+                                🍣
+                            </div>
+
+                            <button
+                                type="button"
+                                class="agregar"
+                                data-nombre="Ume Maky"
+                                data-precio="66"
+                                aria-label="Agregar Ume Maky"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </article>
 
 
                     <!-- ========================================== -->
@@ -1120,6 +1345,113 @@
 
 
 
+        
+        <!-- ================================================== -->
+        <!-- POSTRES -->
+        <!-- ================================================== -->
+
+        <section class="menu" id="postres">
+
+            <div class="titulo-seccion">
+                <span>ALGO DULCE</span>
+                <h2>Postres</h2>
+            </div>
+
+            <div
+                id="postres-menu"
+                class="productos-grid rollos-grid productos-dinamicos"
+            ></div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- ORDEN EXTRA -->
+        <!-- ================================================== -->
+
+        <section class="menu" id="orden-extra">
+
+            <div class="titulo-seccion">
+                <span>COMPLEMENTOS</span>
+                <h2>Orden Extra</h2>
+            </div>
+
+            <div
+                id="orden-extra-menu"
+                class="productos-grid rollos-grid productos-dinamicos"
+            ></div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- MENÚ INFANTIL -->
+        <!-- ================================================== -->
+
+        <section class="menu" id="infantil">
+
+            <div class="titulo-seccion">
+                <span>PARA LOS PEQUES</span>
+                <h2>Menú Infantil</h2>
+                <p>Arma tu paquete. Incluye 1 juguito y 1 dulce sorpresa.</p>
+            </div>
+
+            <div
+                id="infantil-menu"
+                class="productos-grid rollos-grid productos-dinamicos"
+            ></div>
+
+        </section>
+
+
+<!-- ================================================== -->
+<!-- INFORMACIÓN IMPORTANTE -->
+<!-- ================================================== -->
+
+<section class="menu notas-menu">
+
+    <div class="info-importante">
+
+        <div class="info-importante-header">
+
+            <span class="info-icono">
+                <i class="fa-solid fa-circle-info"></i>
+            </span>
+
+            <h3>
+                Información importante
+            </h3>
+
+        </div>
+
+
+        <ul class="info-lista">
+
+            <li>
+                <strong>
+                    Nuestros precios no incluyen I.V.A.
+                </strong>
+            </li>
+
+            <li>
+                Cualquier cambio en algún rollo o platillo puede generar un costo adicional.
+            </li>
+
+            <li>
+                El consumo de alimentos crudos de origen animal puede ser nocivo para la salud y es responsabilidad de quien los consume.
+            </li>
+
+            <li>
+                Si tienes algún tipo de alergia, notifícalo al equipo de Anguila Sushi para poder orientarte en el menú.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
         <!-- ================================================== -->
         <!-- CARRITO FIJO -->
         <!-- ================================================== -->
@@ -1371,57 +1703,7 @@
 
 </article>
 
-
-
-        <!-- ============================================= -->
-        <!-- KUSHIAGUE -->
-        <!-- ============================================= -->
-
-        <article class="extra-card">
-
-            <div class="extra-imagen">
-
-                <img
-                    src="img/kushiague.png"
-                    alt="Kushiague"
-                    onerror="
-                        this.style.display='none';
-                        this.nextElementSibling.style.display='flex';
-                    "
-                >
-
-                <div class="extra-placeholder">
-                    🍶
-                </div>
-
-            </div>
-
-
-            <div class="extra-info">
-
-                <strong>
-                    Kushiague
-                </strong>
-
-                <span class="extra-precio-pendiente">
-                    Precio por confirmar
-                </span>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="extra-agregar agregar"
-                data-nombre="Kushiague"
-                data-precio=""
-                disabled
-                aria-label="Kushiague no disponible por ahora"
-            >
-                +
-            </button>
-
-        </article>
+        
 
 
 
