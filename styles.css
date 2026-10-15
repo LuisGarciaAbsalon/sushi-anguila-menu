@@ -11253,3 +11253,479 @@ main {
     }
 
 }
+
+
+/* =====================================================
+   ANGUILA SUSHI
+   BARRA FLOTANTE DE COCINA JAPONESA
+   ===================================================== */
+
+/*
+   Esta barra reutiliza el diseño de
+   .subcategorias-rollos que ya existe.
+*/
+
+#cocina .subcategorias-cocina {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 60;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    overscroll-behavior-x: contain;
+
+    scroll-snap-type: x proximity;
+
+    scrollbar-width: none;
+
+    background: rgba(5, 5, 5, 0.97);
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+}
+
+
+/* OCULTAR BARRA DE DESPLAZAMIENTO */
+
+#cocina .subcategorias-cocina::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+/* BOTONES DE NAVEGACION */
+
+#cocina .subcategorias-cocina a {
+
+    flex-shrink: 0;
+
+    scroll-snap-align: start;
+
+}
+
+
+/* EFECTO AL INTERACTUAR */
+
+#cocina .subcategorias-cocina a:hover,
+#cocina .subcategorias-cocina a:focus-visible {
+
+    color: #ffffff;
+
+    background: #171717;
+
+    border-color: rgba(229, 29, 42, 0.5);
+
+}
+
+
+/* EVITAR QUE LA BARRA TAPE LOS TITULOS */
+
+#cocina .menu-subgrupo {
+
+    scroll-margin-top: 95px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE PARA CELULARES
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    #cocina .subcategorias-cocina {
+
+        width: calc(100% + 40px);
+
+        margin-left: -20px;
+
+        padding: 12px 20px;
+
+        gap: 8px;
+
+    }
+
+    #cocina .subcategorias-cocina a {
+
+        min-height: 43px;
+
+        padding: 0 17px;
+
+        font-size: 12px;
+
+        white-space: nowrap;
+
+    }
+
+    #cocina .menu-subgrupo {
+
+        scroll-margin-top: 85px;
+
+    }
+
+}
+
+/* =====================================================
+   FIN BARRA COCINA JAPONESA
+   ===================================================== */
+
+   
+/* ==============================================
+   ANGUILA SUSHI - BUSCADOR DEL MENU
+   ============================================== */
+
+/* BARRAS CON LUPA FIJA A LA DERECHA */
+
+.subcategorias-rollos.barra-con-buscador,
+#cocina .subcategorias-cocina.barra-con-buscador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: visible;
+}
+
+/* ENLACES CON DESPLAZAMIENTO HORIZONTAL */
+
+.enlaces-subcategorias {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.enlaces-subcategorias::-webkit-scrollbar {
+    display: none;
+}
+
+/* BOTON LUPA */
+
+.boton-buscar-platillo {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #a9212c;
+    border-radius: 12px;
+
+    background: #c81928;
+    color: white;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.boton-buscar-platillo:hover {
+    background: #ed2636;
+}
+
+/* FONDO DEL BUSCADOR */
+
+.buscador-menu-fondo {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 10vh 16px 24px;
+
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(5px);
+}
+
+.buscador-menu-fondo[hidden] {
+    display: none !important;
+}
+
+/* VENTANA */
+
+.buscador-menu-caja {
+    width: 100%;
+    max-width: 600px;
+    max-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #101010;
+    border: 1px solid #303030;
+    border-radius: 18px;
+
+    padding: 18px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+
+/* CABECERA */
+
+.buscador-menu-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.buscador-menu-cabecera h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+}
+
+#cerrar-buscador-menu {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #252525;
+    color: white;
+
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* ENTRADA DE TEXTO */
+
+.buscador-menu-campo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 15px;
+    min-height: 52px;
+
+    background: #1a1a1a;
+    border: 1px solid #393939;
+    border-radius: 12px;
+
+    color: #aaa;
+}
+
+#entrada-buscador-menu {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #fff;
+
+    font-size: 15px;
+}
+
+#entrada-buscador-menu::placeholder {
+    color: #858585;
+}
+
+/* RESULTADOS */
+
+.resultados-buscador-menu {
+    margin-top: 15px;
+    overflow-y: auto;
+    min-height: 0;
+    scrollbar-width: thin;
+}
+
+.resultado-platillo {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 10px;
+
+    border: none;
+    border-bottom: 1px solid #282828;
+
+    background: transparent;
+    color: white;
+
+    text-align: left;
+    cursor: pointer;
+}
+
+.resultado-platillo:hover {
+    background: #1b1b1b;
+}
+
+.resultado-platillo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.resultado-platillo-info strong {
+    font-size: 14px;
+}
+
+.resultado-platillo-info small {
+    color: #999;
+    font-size: 12px;
+}
+
+.resultado-platillo-precio {
+    color: #ff4148;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.mensaje-buscador-menu {
+    padding: 25px 10px;
+    color: #aaa;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* RESALTAR PRODUCTO ENCONTRADO */
+
+.producto.producto-encontrado {
+    outline: 2px solid #e51d2a;
+    outline-offset: 5px;
+    border-radius: 10px;
+}
+
+/* EVITAR SCROLL DETRAS DEL BUSCADOR */
+
+body.buscador-menu-abierto {
+    overflow: hidden;
+}
+
+/* CELULARES */
+
+@media (max-width: 650px) {
+
+    .buscador-menu-fondo {
+        padding: 7vh 12px 15px;
+    }
+
+    .buscador-menu-caja {
+        max-height: 85vh;
+        padding: 15px;
+    }
+
+    .boton-buscar-platillo {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .buscador-menu-cabecera h2 {
+        font-size: 18px;
+    }
+
+}
+
+/* ==========================================
+   BUSCADOR PRINCIPAL - ANGUILA SUSHI
+   ========================================== */
+
+.categorias .boton-buscar-inicio {
+
+    width: 100%;
+    max-width: 390px;
+    height: 52px;
+
+    margin: 22px auto 0;
+    padding: 0 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
+
+    background: #171717;
+    border: 1px solid #373737;
+    border-radius: 14px;
+
+    color: #a8a8a8;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+/* LUPA ROJA */
+
+.boton-buscar-inicio
+.fa-magnifying-glass {
+
+    color: #ff303c;
+    font-size: 18px;
+}
+
+/* TEXTO */
+
+.boton-buscar-inicio span {
+
+    flex: 1;
+    min-width: 0;
+
+    text-align: left;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* FLECHA */
+
+.boton-buscar-inicio
+.fa-arrow-right {
+
+    color: #777777;
+    font-size: 14px;
+}
+
+/* EFECTO AL PRESIONAR */
+
+.categorias .boton-buscar-inicio:hover {
+
+    background: #222222;
+    border-color: #e51d2a;
+}
+
+/* VERSION CELULAR */
+
+@media (max-width: 650px) {
+
+    .categorias .boton-buscar-inicio {
+
+        max-width: 100%;
+        height: 49px;
+
+        margin-top: 18px;
+        padding: 0 14px;
+
+    }
+
+    .boton-buscar-inicio span {
+
+        font-size: 12px;
+
+    }
+
+}
+

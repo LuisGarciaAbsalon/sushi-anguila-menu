@@ -3,6 +3,7 @@
 <html lang="es">
 
 <head>
+<link rel="stylesheet" href="barra-menu.css">
 
     <meta charset="UTF-8">
 
@@ -258,6 +259,34 @@
                 <h1>
                     ¿Qué se te antoja?
                 </h1>
+                
+                
+<!-- ===================================== -->
+<!-- BUSCADOR PRINCIPAL DEL MENU -->
+<!-- ===================================== -->
+
+<button
+    type="button"
+    class="boton-buscar-platillo boton-buscar-inicio"
+    aria-label="Buscar platillos del menú"
+>
+
+    <i
+        class="fa-solid fa-magnifying-glass"
+        aria-hidden="true"
+    ></i>
+
+    <span>
+        Buscar sushi, ramen, yakimeshi...
+    </span>
+
+    <i
+        class="fa-solid fa-arrow-right"
+        aria-hidden="true"
+    ></i>
+
+</button>
+
 
             </div>
 
@@ -494,58 +523,188 @@
         </section>
 
 
-        <!-- ================================================== -->
-        <!-- COCINA JAPONESA -->
-        <!-- ================================================== -->
+<!-- ================================================== -->
+<!-- COCINA JAPONESA -->
+<!-- ================================================== -->
 
-        <section class="menu" id="cocina">
+<section class="menu" id="cocina">
 
-            <div class="titulo-seccion">
-                <span>DE LA COCINA</span>
-                <h2>Especialidades de Cocina Japonesa</h2>
-            </div>
+    <!-- ============================================== -->
+    <!-- TITULO PRINCIPAL -->
+    <!-- ============================================== -->
 
-            <section class="menu-subgrupo">
-                <div class="encabezado-grupo-rollos">
-                    <span class="numero-seccion">01</span>
-                    <h3>Tempuras</h3>
-                </div>
-                <div id="tempuras-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
-            </section>
+    <div class="titulo-seccion">
+        <span>DE LA COCINA</span>
+        <h2>Especialidades de Cocina Japonesa</h2>
+    </div>
 
-            <section class="menu-subgrupo">
-                <div class="encabezado-grupo-rollos">
-                    <span class="numero-seccion">02</span>
-                    <h3>Teppan Yaki</h3>
-                </div>
-                <div id="teppan-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
-            </section>
 
-            <section class="menu-subgrupo">
-                <div class="encabezado-grupo-rollos">
-                    <span class="numero-seccion">03</span>
-                    <h3>Teri Yaki</h3>
-                </div>
-                <div id="teri-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
-            </section>
+    <!-- ============================================== -->
+    <!-- BARRA DE NAVEGACION COCINA -->
+    <!-- ============================================== -->
 
-            <section class="menu-subgrupo">
-                <div class="encabezado-grupo-rollos">
-                    <span class="numero-seccion">04</span>
-                    <h3>Yakisoba</h3>
-                </div>
-                <div id="yakisoba-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
-            </section>
+   
+<!-- BARRA DE COCINA CON BUSCADOR -->
 
-            <section class="menu-subgrupo">
-                <div class="encabezado-grupo-rollos">
-                    <span class="numero-seccion">05</span>
-                    <h3>Especialidades</h3>
-                </div>
-                <div id="cocina-especialidades-menu" class="productos-grid rollos-grid productos-dinamicos"></div>
-            </section>
+<nav class="subcategorias-rollos subcategorias-cocina barra-con-buscador"
+     aria-label="Categorías de cocina japonesa">
 
-        </section>
+    <div class="enlaces-subcategorias">
+
+        <a href="#cocina-tempuras">Tempuras</a>
+
+        <a href="#cocina-teppan">Teppan Yaki</a>
+
+        <a href="#cocina-teri">Teri Yaki</a>
+
+        <a href="#cocina-yakisoba">Yakisoba</a>
+
+        <a href="#cocina-especialidades">Especialidades</a>
+
+    </div>
+
+    <button
+        type="button"
+        class="boton-buscar-platillo"
+        aria-label="Buscar cualquier platillo"
+        title="Buscar platillos">
+
+        <i class="fa-solid fa-magnifying-glass"
+           aria-hidden="true"></i>
+
+    </button>
+
+</nav>
+
+
+
+    <!-- ============================================== -->
+    <!-- 01 - TEMPURAS -->
+    <!-- ============================================== -->
+
+    <section
+        class="menu-subgrupo"
+        id="cocina-tempuras"
+    >
+
+        <div class="encabezado-grupo-rollos">
+
+            <span class="numero-seccion">01</span>
+
+            <h3>Tempuras</h3>
+
+        </div>
+
+        <div
+            id="tempuras-menu"
+            class="productos-grid rollos-grid productos-dinamicos"
+        ></div>
+
+    </section>
+
+
+    <!-- ============================================== -->
+    <!-- 02 - TEPPAN YAKI -->
+    <!-- ============================================== -->
+
+    <section
+        class="menu-subgrupo"
+        id="cocina-teppan"
+    >
+
+        <div class="encabezado-grupo-rollos">
+
+            <span class="numero-seccion">02</span>
+
+            <h3>Teppan Yaki</h3>
+
+        </div>
+
+        <div
+            id="teppan-menu"
+            class="productos-grid rollos-grid productos-dinamicos"
+        ></div>
+
+    </section>
+
+
+    <!-- ============================================== -->
+    <!-- 03 - TERI YAKI -->
+    <!-- ============================================== -->
+
+    <section
+        class="menu-subgrupo"
+        id="cocina-teri"
+    >
+
+        <div class="encabezado-grupo-rollos">
+
+            <span class="numero-seccion">03</span>
+
+            <h3>Teri Yaki</h3>
+
+        </div>
+
+        <div
+            id="teri-menu"
+            class="productos-grid rollos-grid productos-dinamicos"
+        ></div>
+
+    </section>
+
+
+    <!-- ============================================== -->
+    <!-- 04 - YAKISOBA -->
+    <!-- ============================================== -->
+
+    <section
+        class="menu-subgrupo"
+        id="cocina-yakisoba"
+    >
+
+        <div class="encabezado-grupo-rollos">
+
+            <span class="numero-seccion">04</span>
+
+            <h3>Yakisoba</h3>
+
+        </div>
+
+        <div
+            id="yakisoba-menu"
+            class="productos-grid rollos-grid productos-dinamicos"
+        ></div>
+
+    </section>
+
+
+    <!-- ============================================== -->
+    <!-- 05 - ESPECIALIDADES -->
+    <!-- ============================================== -->
+
+    <section
+        class="menu-subgrupo"
+        id="cocina-especialidades"
+    >
+
+        <div class="encabezado-grupo-rollos">
+
+            <span class="numero-seccion">05</span>
+
+            <h3>Especialidades</h3>
+
+        </div>
+
+        <div
+            id="cocina-especialidades-menu"
+            class="productos-grid rollos-grid productos-dinamicos"
+        ></div>
+
+    </section>
+
+
+</section>
+<!-- FIN COCINA JAPONESA -->
 
          <!-- ================================================== -->
         <!-- MENÚ INFANTIL -->
@@ -670,40 +829,52 @@
             <!-- SUBCATEGORÍAS -->
             <!-- ================================================== -->
 
-            <nav class="subcategorias-rollos">
+<!-- BARRA DE ROLLOS CON BUSCADOR -->
 
+<nav class="subcategorias-rollos barra-con-buscador"
+     aria-label="Categorías de rollos">
 
-                <a href="#rollos-tradicionales">
-                    Tradicionales
-                </a>
+    <div class="enlaces-subcategorias">
 
+        <a href="#rollos-tradicionales">
+            Tradicionales
+        </a>
 
-                <a href="#rollos-clasicos">
-                    Clásicos
-                </a>
+        <a href="#rollos-clasicos">
+            Clásicos
+        </a>
 
+        <a href="#especialidades-rollos">
+            Especialidades
+        </a>
 
-                <a href="#especialidades-rollos">
-                    Especialidades
-                </a>
+        <a href="#empanizados-rollos">
+            Empanizados
+        </a>
 
+        <a href="#capeados-rollos">
+            Capeados
+        </a>
 
-                <a href="#empanizados-rollos">
-                    Empanizados
-                </a>
+        <a href="#sushi-balls-rollos">
+            Sushi Balls
+        </a>
 
+    </div>
 
-                <a href="#capeados-rollos">
-                    Capeados
-                </a>
+    <button
+        type="button"
+        class="boton-buscar-platillo"
+        aria-label="Buscar cualquier platillo"
+        title="Buscar platillos">
 
+        <i class="fa-solid fa-magnifying-glass"
+           aria-hidden="true"></i>
 
-                <a href="#sushi-balls-rollos">
-                    Sushi Balls
-                </a>
+    </button>
 
+</nav>
 
-            </nav>
 
 
 
@@ -3138,6 +3309,67 @@
     </div>
 
 </div>
+
+<!-- =========================================== -->
+<!-- BUSCADOR GENERAL ANGUILA SUSHI -->
+<!-- =========================================== -->
+
+<div
+    id="buscador-menu-fondo"
+    class="buscador-menu-fondo"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="titulo-buscador-menu"
+    hidden
+>
+
+    <div class="buscador-menu-caja">
+
+        <div class="buscador-menu-cabecera">
+
+            <h2 id="titulo-buscador-menu">
+                Buscar platillos
+            </h2>
+
+            <button
+                type="button"
+                id="cerrar-buscador-menu"
+                aria-label="Cerrar buscador">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="buscador-menu-campo">
+
+            <i class="fa-solid fa-magnifying-glass"
+               aria-hidden="true"></i>
+
+            <input
+                type="search"
+                id="entrada-buscador-menu"
+                placeholder="¿Qué se te antoja?"
+                autocomplete="off"
+                aria-label="Nombre del platillo"
+            >
+
+        </div>
+
+        <div
+            id="resultados-buscador-menu"
+            class="resultados-buscador-menu"
+            aria-live="polite"
+        ></div>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT DEL BUSCADOR -->
+<script src="buscador.js"></script>
+
+
+<script src="barra-menu.js" defer></script>
 
 </body>
 
