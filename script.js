@@ -1347,50 +1347,8 @@ Object.assign(
             ]
         },
 
-        "Kushiague's": {
-            descripcion:
-                "Brocheta empanizada. Elige sabor y presentación.",
-            imagen: "img/kushiague.png",
-            esRollo: false,
-            opciones: [
-                { nombre: "Plátano · 1 pza", precio: 25 },
-                { nombre: "Plátano · Orden 3 pzs", precio: 60 },
-                { nombre: "Queso · 1 pza", precio: 37 },
-                { nombre: "Queso · Orden 3 pzs", precio: 98 },
-                { nombre: "Plátano / Queso · 1 pza", precio: 37 },
-                { nombre: "Plátano / Queso · Orden 3 pzs", precio: 98 },
-                { nombre: "Camarón / Queso · 1 pza", precio: 49 },
-                { nombre: "Camarón / Queso · Orden 3 pzs", precio: 129 },
-                { nombre: "Salmón / Queso · 1 pza", precio: 49 },
-                { nombre: "Salmón / Queso · Orden 3 pzs", precio: 129 },
-                { nombre: "Cangrejo / Queso · 1 pza", precio: 49 },
-                { nombre: "Cangrejo / Queso · Orden 3 pzs", precio: 129 },
-                { nombre: "Pollo · 1 pza", precio: 45 },
-                { nombre: "Pollo · Orden 3 pzs", precio: 125 },
-                { nombre: "Queso Philadelphia · 1 pza", precio: 39 },
-                { nombre: "Queso Philadelphia · Orden 3 pzs", precio: 110 }
-            ]
-        },
+        
 
-        "Yakitori's": {
-            descripcion:
-                "Brocheta sazonada a la plancha con salsa agridulce, cebolla y pimientos.",
-            imagen: "",
-            esRollo: false,
-            opciones: [
-                { nombre: "Pollo · 1 pza", precio: 44 },
-                { nombre: "Pollo · Orden 3 pz", precio: 117 },
-                { nombre: "Res · 1 pza", precio: 45 },
-                { nombre: "Res · Orden 3 pz", precio: 120 },
-                { nombre: "Arrachera · 1 pza", precio: 45 },
-                { nombre: "Arrachera · Orden 3 pz", precio: 120 },
-                { nombre: "Camarón · 1 pza", precio: 55 },
-                { nombre: "Camarón · Orden 3 pz", precio: 145 },
-                { nombre: "Salmón · 1 pza", precio: 55 },
-                { nombre: "Salmón · Orden 3 pz", precio: 145 },
-                { nombre: "Mixta (pollo, camarón, res) · Orden 3 pz", precio: 147 }
-            ]
-        },
 
         "Ramen Fussion": {
             descripcion:
@@ -1436,7 +1394,7 @@ Object.assign(
                 { nombre: "Res", precio: 105 },
                 { nombre: "Camarón", precio: 110 },
                 { nombre: "Arrachera", precio: 110 },
-                { nombre: "Especial", precio: 135 }
+                
             ]
         },
 
@@ -1461,7 +1419,7 @@ Object.assign(
                 { nombre: "Verduras", precio: 95 },
                 { nombre: "Pollo", precio: 104 },
                 { nombre: "Camarón", precio: 134 },
-                { nombre: "Mixto", precio: 134 },
+                { nombre: "Mixto (pollo, camarón y robalo)", precio: 134 },
                 { nombre: "Robalo", precio: 140 }
             ]
         },
@@ -1510,49 +1468,91 @@ Object.assign(
             ]
         },
 
-        "Sashimi's": {
-            descripcion:
-                "Cortes de pescado frescos. Corte fino: 90g. Corte grueso: 120g.",
-            imagen: "",
-            esRollo: false,
-            opciones: [
-                { nombre: "Atún · Fino", precio: 113 },
-                { nombre: "Atún · Grueso", precio: 139 },
-                { nombre: "Pulpo · Fino", precio: 123 },
-                { nombre: "Pulpo · Grueso", precio: 153 },
-                { nombre: "Salmón · Fino", precio: 113 },
-                { nombre: "Salmón · Grueso", precio: 139 },
-                { nombre: "Robalo · Fino", precio: 113 },
-                { nombre: "Robalo · Grueso", precio: 139 },
-                { nombre: "Mixto (salmón, pulpo y robalo) · Fino", precio: 123 },
-                { nombre: "Mixto (salmón, pulpo y robalo) · Grueso", precio: 153 }
-            ]
-        },
+"Sashimi corte fino": {
 
-        "Temaki's": {
-            descripcion:
-                "Cono con queso Philadelphia, aguacate y proteína. Elige hoja de alga o pepino.",
-            imagen: "",
-            esRollo: false,
-            opciones: [
-                { nombre: "Vegetariano · Alga", precio: 68 },
-                { nombre: "Vegetariano · Pepino", precio: 63 },
-                { nombre: "Camarón · Alga", precio: 80 },
-                { nombre: "Camarón · Pepino", precio: 75 },
-                { nombre: "Cangrejo · Alga", precio: 80 },
-                { nombre: "Cangrejo · Pepino", precio: 75 },
-                { nombre: "Salmón · Alga", precio: 84 },
-                { nombre: "Salmón · Pepino", precio: 79 },
-                { nombre: "Salmón Ahumado · Alga", precio: 90 },
-                { nombre: "Salmón Ahumado · Pepino", precio: 85 },
-                { nombre: "Tampico Especial · Alga", precio: 99 },
-                { nombre: "Tampico Especial · Pepino", precio: 95 },
-                { nombre: "Anguila · Alga", precio: 104 },
-                { nombre: "Anguila · Pepino", precio: 99 }
-            ]
-        },
+    descripcion:
+        "Cortes frescos de pescado de 90 g. Elige tu proteína.",
 
-        "Batera - Pastel de Sushi": {
+    imagen: "",
+    esRollo: false,
+
+    opciones: [
+        { nombre: "Atún", precio: 113 },
+        { nombre: "Pulpo", precio: 123 },
+        { nombre: "Salmón", precio: 113 },
+        { nombre: "Robalo", precio: 113 },
+        {
+            nombre: "Mixto (salmón, pulpo y robalo)",
+            precio: 123
+        }
+    ]
+
+},
+
+"Sashimi corte grueso": {
+
+    descripcion:
+        "Cortes frescos de pescado de 120 g. Elige tu proteína.",
+
+    imagen: "",
+    esRollo: false,
+
+    opciones: [
+        { nombre: "Atún", precio: 139 },
+        { nombre: "Pulpo", precio: 153 },
+        { nombre: "Salmón", precio: 139 },
+        { nombre: "Robalo", precio: 139 },
+        {
+            nombre: "Mixto (salmón, pulpo y robalo)",
+            precio: 153
+        }
+    ]
+
+},
+
+       
+"Temaki de alga": {
+
+    descripcion:
+        "Cono de hoja de alga con queso Philadelphia, aguacate y proteína a elegir.",
+
+    imagen: "",
+    esRollo: false,
+
+    opciones: [
+        { nombre: "Vegetariano", precio: 68 },
+        { nombre: "Camarón", precio: 80 },
+        { nombre: "Cangrejo", precio: 80 },
+        { nombre: "Salmón", precio: 84 },
+        { nombre: "Salmón ahumado", precio: 90 },
+        { nombre: "Tampico especial", precio: 99 },
+        { nombre: "Anguila", precio: 104 }
+    ]
+
+},
+
+"Temaki de pepino": {
+
+    descripcion:
+        "Cono envuelto en pepino con queso Philadelphia, aguacate y proteína a elegir.",
+
+    imagen: "",
+    esRollo: false,
+
+    opciones: [
+        { nombre: "Vegetariano", precio: 63 },
+        { nombre: "Camarón", precio: 75 },
+        { nombre: "Cangrejo", precio: 75 },
+        { nombre: "Salmón", precio: 79 },
+        { nombre: "Salmón ahumado", precio: 85 },
+        { nombre: "Tampico especial", precio: 95 },
+        { nombre: "Anguila", precio: 99 }
+    ]
+
+},
+
+
+        "Batera": {
             descripcion:
                 "Arroz, queso, masago, aguacate y proteína a elegir.",
             imagen: "",
@@ -1563,7 +1563,7 @@ Object.assign(
                 { nombre: "Cangrejo", precio: 161 },
                 { nombre: "Anguila", precio: 168 },
                 { nombre: "Mixto (salmón, cangrejo y camarón)", precio: 170 },
-                { nombre: "Niguiri Sushi (10 pz de sushi)", precio: 298 }
+                
             ]
         },
 
@@ -1603,13 +1603,13 @@ Object.assign(
 // MENÚ INFANTIL - FORMULARIO DE 3 ELECCIONES
 // ======================================================
 
+
 let seleccionesMenuInfantil = {
 
     principal: "",
-
     acompanamiento: "",
-
-    complemento: ""
+    complemento: "",
+    rollo: ""
 
 };
 
@@ -1628,7 +1628,6 @@ productosConOpciones[
     esMenuInfantil: true,
 
     precioFijo: 179,
-
     grupos: [
 
         {
@@ -1647,6 +1646,20 @@ productosConOpciones[
 
             ]
         },
+
+        
+{
+    clave: "rollo",
+
+    titulo: "¿Qué rollo clásico prefieres?",
+
+    opciones: [
+        "California",
+        "Avocado",
+        "Nevado"
+    ]
+},
+
 
 
         {
@@ -1691,19 +1704,42 @@ productosConOpciones[
 
 
 
+
 // ------------------------------------------------------
 // ENTRADAS
 // ------------------------------------------------------
 
+productosConOpciones["Edamames (80g)"] = {
+
+    descripcion:
+        "Frijol de soya tierno. Elige tu preparación.",
+
+    imagen: "",
+
+    esRollo: false,
+
+    opciones: [
+        { nombre: "Al vapor", precio: 75 },
+        { nombre: "Asados", precio: 75 }
+    ]
+
+};
+
+
 const entradasMenu = [
 
-    {
-        nombre: "Edamames (80g)",
-        precio: 75,
-        descripcion:
-            "Frijol de soya tierno al vapor o asado.",
-        icono: "🫛"
-    },
+   
+{
+    nombre: "Edamames (80g)",
+    conOpciones: true,
+    precioDesde: 75,
+    descripcion:
+        "Frijol de soya tierno. Disponible al vapor o asado.",
+    imagen: "",
+    icono: "🫛",
+    esRollo: false
+},
+
 
     {
         nombre: "Squid Rings",
@@ -1745,33 +1781,221 @@ const entradasMenu = [
 // BROCHETAS
 // ------------------------------------------------------
 
+
 const kushiaguesMenu = [
 
     {
-        nombre: "Kushiague's",
-        conOpciones: true,
-        precioDesde: 25,
-        descripcion:
-            "Brocheta empanizada. Disponible por pieza u orden de 3 piezas.",
-        imagen: "",
-        icono: "🍢"
+        nombre: "Kushiague de plátano",
+        precioPieza: 25,
+        precioOrden: 60
+    },
+
+    {
+        nombre: "Kushiague de queso manchego",
+        precioPieza: 37,
+        precioOrden: 98
+    },
+
+    {
+        nombre: "Kushiague de plátano con queso",
+        precioPieza: 37,
+        precioOrden: 98
+    },
+
+    {
+        nombre: "Kushiague de camarón con queso",
+        precioPieza: 49,
+        precioOrden: 129
+    },
+
+    {
+        nombre: "Kushiague de salmón con queso",
+        precioPieza: 49,
+        precioOrden: 129
+    },
+
+    {
+        nombre: "Kushiague de cangrejo con queso",
+        precioPieza: 49,
+        precioOrden: 129
+    },
+
+    {
+        nombre: "Kushiague de pollo",
+        precioPieza: 45,
+        precioOrden: 125
+    },
+
+    {
+        nombre: "Kushiague de queso Philadelphia",
+        precioPieza: 39,
+        precioOrden: 110
     }
 
-];
+].map(function(producto) {
+
+    return {
+
+        ...producto,
+
+        conOpciones: true,
+
+        precioDesde: producto.precioPieza,
+
+        descripcion:
+            "Brocheta empanizada. Disponible por pieza u orden de 3 piezas.",
+
+        imagen: "",
+
+        icono: "🍢",
+
+        esRollo: false
+
+    };
+
+});
+
+
+// ======================================================
+// REGISTRAR OPCIONES DE CADA KUSHIAGUE
+// ======================================================
+
+kushiaguesMenu.forEach(function(producto) {
+
+    productosConOpciones[producto.nombre] = {
+
+        descripcion: producto.descripcion,
+
+        imagen: "",
+
+        esRollo: false,
+
+        opciones: [
+
+            {
+                nombre: "1 pieza",
+                precio: producto.precioPieza
+            },
+
+            {
+                nombre: "Orden de 3 piezas",
+                precio: producto.precioOrden
+            }
+
+        ]
+
+    };
+
+});
+
 
 
 const yakitorisMenu = [
 
     {
-        nombre: "Yakitori's",
-        conOpciones: true,
-        precioDesde: 44,
-        descripcion:
-            "Brocheta sazonada a la plancha con salsa agridulce, cebolla y pimientos.",
-        icono: "🍢"
+        nombre: "Yakitori de pollo",
+        precioPieza: 44,
+        precioOrden: 117
+    },
+
+    {
+        nombre: "Yakitori de res",
+        precioPieza: 45,
+        precioOrden: 120
+    },
+
+    {
+        nombre: "Yakitori de arrachera",
+        precioPieza: 45,
+        precioOrden: 120
+    },
+
+    {
+        nombre: "Yakitori de camarón",
+        precioPieza: 55,
+        precioOrden: 145
+    },
+
+    {
+        nombre: "Yakitori de salmón",
+        precioPieza: 55,
+        precioOrden: 145
+    },
+
+    {
+        nombre: "Yakitori mixto (pollo, camarón y res)",
+        precioOrden: 147
     }
 
-];
+].map(function(producto) {
+
+    const tienePieza =
+        typeof producto.precioPieza === "number";
+
+    return {
+
+        ...producto,
+
+        conOpciones: true,
+
+        precioDesde: tienePieza
+            ? producto.precioPieza
+            : producto.precioOrden,
+
+        precioTexto: tienePieza
+            ? ""
+            : `Orden (3 pzs) $${producto.precioOrden}`,
+
+        descripcion:
+            "Brocheta sazonada a la plancha con salsa agridulce, cebolla y pimientos.",
+
+        imagen: "",
+
+        icono: "🍢",
+
+        esRollo: false
+
+    };
+
+});
+
+
+// ======================================================
+// REGISTRAR OPCIONES DE CADA YAKITORI
+// ======================================================
+
+yakitorisMenu.forEach(function(producto) {
+
+    const opciones = [];
+
+    if (typeof producto.precioPieza === "number") {
+
+        opciones.push({
+            nombre: "1 pieza",
+            precio: producto.precioPieza
+        });
+
+    }
+
+    opciones.push({
+        nombre: "Orden de 3 piezas",
+        precio: producto.precioOrden
+    });
+
+    productosConOpciones[producto.nombre] = {
+
+        descripcion: producto.descripcion,
+
+        imagen: "",
+
+        esRollo: false,
+
+        opciones: opciones
+
+    };
+
+});
+
 
 
 // ------------------------------------------------------
@@ -1923,6 +2147,7 @@ const ensaladasMenu = [
 // ARROCES
 // ------------------------------------------------------
 
+
 const yakimeshiMenu = [
 
     {
@@ -1930,11 +2155,23 @@ const yakimeshiMenu = [
         conOpciones: true,
         precioDesde: 74,
         descripcion:
-            "Arroz frito con verduras: cebolla, calabaza y zanahoria.",
-        icono: "🍚"
+            "Arroz frito con verduras: cebolla, calabaza y zanahoria. Elige tu proteína.",
+        icono: "🍚",
+        esRollo: false
+    },
+
+    {
+        nombre: "Yakimeshi Especial",
+        precio: 135,
+        descripcion:
+            "Presentación especial de yakimeshi.",
+        imagen: "",
+        icono: "🍚",
+        esRollo: false
     }
 
 ];
+
 
 
 const gohanMenu = [
@@ -2092,38 +2329,71 @@ const cocinaEspecialidadesMenu = [
 // SUSHI
 // ------------------------------------------------------
 
+
 const sashimisMenu = [
 
     {
-        nombre: "Sashimi's",
+        nombre: "Sashimi corte fino",
         conOpciones: true,
         precioDesde: 113,
         descripcion:
-            "Cortes de pescado frescos. Elige proteína y tipo de corte.",
-        icono: "🐟"
+            "Cortes frescos de pescado de 90 g. Elige tu proteína.",
+        imagen: "",
+        icono: "🐟",
+        esRollo: false
+    },
+
+    {
+        nombre: "Sashimi corte grueso",
+        conOpciones: true,
+        precioDesde: 139,
+        descripcion:
+            "Cortes frescos de pescado de 120 g. Elige tu proteína.",
+        imagen: "",
+        icono: "🐟",
+        esRollo: false
     }
 
 ];
 
 
-const temakisMenu = [
+
+
+const temakisAlgaMenu = [
 
     {
-        nombre: "Temaki's",
+        nombre: "Temaki de alga",
+        conOpciones: true,
+        precioDesde: 68,
+        descripcion:
+            "Cono de alga con queso Philadelphia, aguacate y proteína a elegir.",
+        icono: "🍣",
+        esRollo: false
+    }
+
+];
+
+
+const temakisPepinoMenu = [
+
+    {
+        nombre: "Temaki de pepino",
         conOpciones: true,
         precioDesde: 63,
         descripcion:
-            "Cono de hoja de alga o pepino con queso Philadelphia, aguacate y proteína a elegir.",
-        icono: "🍣"
+            "Cono envuelto en pepino con queso Philadelphia, aguacate y proteína a elegir.",
+        icono: "🥒",
+        esRollo: false
     }
 
 ];
+
 
 
 const bateraMenu = [
 
     {
-        nombre: "Batera - Pastel de Sushi",
+        nombre: "Batera",
         conOpciones: true,
         precioDesde: 159,
         descripcion:
@@ -2141,11 +2411,23 @@ const niguirisMenu = [
         conOpciones: true,
         precioDesde: 41,
         descripcion:
-            "Sushi por pieza.",
-        icono: "🍣"
+            "Sushi por pieza. Elige tu variedad.",
+        icono: "🍣",
+        esRollo: false
+    },
+
+    {
+        nombre: "Niguiri Sushi (10 piezas)",
+        precio: 298,
+        descripcion:
+            "Orden de 10 piezas de sushi.",
+        imagen: "",
+        icono: "🍣",
+        esRollo: false
     }
 
 ];
+
 
 
 // ------------------------------------------------------
@@ -2900,6 +3182,8 @@ const session5PostresMenu = [
 // ======================================================
 // CREAR PRODUCTOS FIJOS AUTOMÁTICAMENTE
 // ======================================================
+
+
 function renderizarProductosFijos(
     productos,
     idContenedor,
@@ -3143,10 +3427,17 @@ renderizarProductosFijos(
     "sashimis-menu"
 );
 
+
+
 renderizarProductosFijos(
-    temakisMenu,
+    [
+        ...temakisAlgaMenu,
+        ...temakisPepinoMenu
+    ],
     "temakis-menu"
 );
+
+
 
 renderizarProductosFijos(
     bateraMenu,
@@ -3187,13 +3478,76 @@ renderizarProductosFijos(
 );
 
 
+const postresConSalsa = [
+    ...postresMenu,
+    ...session5PostresMenu
+].map(function(postre) {
+
+    const requiereSalsa = [
+        "Yorokobi",
+        "Banana Maky",
+        "Tempura Helado"
+    ].includes(postre.nombre);
+
+    // Los demás postres se quedan normales
+    if (!requiereSalsa) {
+        return postre;
+    }
+
+    productosConOpciones[postre.nombre] = {
+
+        descripcion: postre.descripcion,
+
+        imagen: postre.imagen || "",
+
+        esRollo: false,
+
+        opciones: [
+            {
+                nombre: "Chocolate",
+                precio: postre.precio
+            },
+            {
+                nombre: "Cajeta",
+                precio: postre.precio
+            },
+            {
+                nombre: "Mermelada",
+                precio: postre.precio
+            }
+        ]
+
+    };
+
+    return {
+        ...postre,
+        conOpciones: true,
+        precioDesde: postre.precio,
+        esRollo: false
+    };
+
+});
+
 renderizarProductosFijos(
-    [
-        ...postresMenu,
-        ...session5PostresMenu
-    ],
+    postresConSalsa,
     "postres-menu"
 );
+
+
+    return {
+        ...postre,
+        conOpciones: true,
+        precioDesde: postre.precio,
+        esRollo: false
+    };
+
+});
+
+renderizarProductosFijos(
+    postresConSalsa,
+    "postres-menu"
+);
+
 
 
 // ORDEN EXTRA
@@ -3449,7 +3803,10 @@ function abrirModalOpcionesProducto(
 
             acompanamiento: "",
 
-            complemento: ""
+            complemento: "",
+
+              rollo: ""
+            
 
         };
 
@@ -3498,8 +3855,19 @@ function abrirModalOpcionesProducto(
                     );
 
 
-                bloqueGrupo.className =
-                    "grupo-menu-infantil";
+bloqueGrupo.className =
+    "grupo-menu-infantil";
+
+if (grupo.clave === "rollo") {
+
+    bloqueGrupo.classList.add(
+        "grupo-rollo-infantil"
+    );
+
+    bloqueGrupo.style.display = "none";
+
+}
+
 
 
                 const tituloGrupo =
@@ -3589,17 +3957,68 @@ function abrirModalOpcionesProducto(
                                 ] =
                                     nombreOpcion;
 
+                                    
+if (grupo.clave === "principal") {
 
-                                const paqueteCompleto =
+    const grupoRollo =
+        listaOpcionesProducto.querySelector(
+            ".grupo-rollo-infantil"
+        );
 
-                                    seleccionesMenuInfantil
-                                        .principal !== "" &&
+    const eligioMedioRollo =
+        nombreOpcion === "Medio rollo clásico";
 
-                                    seleccionesMenuInfantil
-                                        .acompanamiento !== "" &&
+    if (grupoRollo) {
 
-                                    seleccionesMenuInfantil
-                                        .complemento !== "";
+        grupoRollo.style.display =
+            eligioMedioRollo ? "" : "none";
+
+        if (!eligioMedioRollo) {
+
+            seleccionesMenuInfantil.rollo = "";
+
+            grupoRollo.querySelectorAll(
+                'input[type="radio"]'
+            ).forEach(function(radio) {
+
+                radio.checked = false;
+
+            });
+
+            grupoRollo.querySelectorAll(
+                ".opcion-producto"
+            ).forEach(function(item) {
+
+                item.classList.remove(
+                    "seleccionada"
+                );
+
+            });
+
+        }
+
+    }
+
+}
+
+
+
+                                
+const paqueteCompleto =
+
+    seleccionesMenuInfantil.principal !== "" &&
+
+    seleccionesMenuInfantil.acompanamiento !== "" &&
+
+    seleccionesMenuInfantil.complemento !== "" &&
+
+    (
+        seleccionesMenuInfantil.principal !==
+            "Medio rollo clásico" ||
+
+        seleccionesMenuInfantil.rollo !== ""
+    );
+
 
 
                                 if (
@@ -3610,8 +4029,17 @@ function abrirModalOpcionesProducto(
 
                                         nombre:
 
-                                            "Principal: " +
-                                            seleccionesMenuInfantil.principal +
+                                            
+"Principal: " +
+seleccionesMenuInfantil.principal +
+
+(
+    seleccionesMenuInfantil.principal ===
+        "Medio rollo clásico"
+        ? " (" + seleccionesMenuInfantil.rollo + ")"
+        : ""
+) +
+
 
                                             " | Acompaña: " +
                                             seleccionesMenuInfantil.acompanamiento +
