@@ -3534,18 +3534,23 @@ renderizarProductosFijos(
 );
 
 
-    return {
-        ...postre,
-        conOpciones: true,
-        precioDesde: postre.precio,
-        esRollo: false
-    };
-
-});
-
-renderizarProductosFijos(
+   renderizarProductosFijos(
     postresConSalsa,
     "postres-menu"
+);
+
+
+// ORDEN EXTRA
+renderizarProductosFijos(
+    ordenExtraMenu,
+    "orden-extra-menu"
+);
+
+
+// MENÚ INFANTIL
+renderizarProductosFijos(
+    infantilMenu,
+    "infantil-menu"
 );
 
 
