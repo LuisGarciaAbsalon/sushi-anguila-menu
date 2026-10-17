@@ -101,6 +101,12 @@ let promo2x1Admin = false;
 
 let promoCharolaAdmin = false;
 
+// ======================================================
+// CONFIGURACIÓN DE MÉTODOS DE PAGO
+// ======================================================
+
+let metodosPagoAdmin = null;
+
 
 // ======================================================
 // MOSTRAR LOGIN
@@ -150,8 +156,8 @@ async function cargarConfiguracionAdmin() {
                 "configuracion_tienda"
             )
             .select(
-                "tienda_abierta, promo_2x1, promo_charola"
-            )
+    "tienda_abierta, promo_2x1, promo_charola, metodos_pago"
+)
             .eq(
                 "id",
                 1
@@ -185,6 +191,9 @@ async function cargarConfiguracionAdmin() {
 
     promoCharolaAdmin =
         data.promo_charola;
+
+    metodosPagoAdmin =
+    data.metodos_pago;
 
 
     actualizarPanel();
@@ -778,6 +787,269 @@ botonPromoCharola.addEventListener(
 
     }
 );
+
+
+/* ======================================================
+   ANGUILA SUSHI - ADMINISTRAR MÉTODOS DE PAGO
+   ====================================================== */
+
+// ELEMENTOS DE LA VENTANA
+
+const abrirModalPagos =
+    document.getElementById("abrir-modal-pagos");
+
+const modalMetodosPago =
+    document.getElementById("modal-metodos-pago");
+
+const cerrarModalPagos =
+    document.getElementById("cerrar-modal-pagos");
+
+const cancelarModalPagos =
+    document.getElementById("cancelar-modal-pagos");
+
+const guardarMetodosPago =
+    document.getElementById("guardar-metodos-pago");
+
+const mensajeMetodosPago =
+    document.getElementById("mensaje-metodos-pago");
+
+
+// ======================================================
+// MÉTODOS DISPONIBLES
+// ======================================================
+
+const controlesMetodosPago = [
+
+    {
+        id: "pago-llevar-efectivo",
+        servicio: "llevar",
+        metodo: "efectivo"
+    },
+
+    {
+        id: "pago-llevar-transferencia",
+        servicio: "llevar",
+        metodo: "transferencia"
+    },
+
+    {
+        id: "pago-llevar-tarjeta",
+        servicio: "llevar",
+        metodo: "tarjeta"
+    },
+
+    {
+        id: "pago-domicilio-efectivo",
+        servicio: "domicilio",
+        metodo: "efectivo"
+    },
+
+    {
+        id: "pago-domicilio-transferencia",
+        servicio: "domicilio",
+        metodo: "transferencia"
+    }
+
+];
+
+
+// ======================================================
+// MOSTRAR VALORES GUARDADOS
+// ======================================================
+
+function mostrarMetodosPagoGuardados() {
+
+    controlesMetodosPago.forEach(opcion => {
+
+        const checkbox =
+            document.getElementById(opcion.id);
+
+        if (!checkbox) {
+            return;
+        }
+
+        checkbox.checked =
+            metodosPagoAdmin?.[opcion.servicio]?.[opcion.metodo]
+            ?? true;
+
+    });
+
+}
+
+
+// ======================================================
+// ABRIR VENTANA
+// ======================================================
+
+abrirModalPagos.addEventListener("click", function() {
+
+    if (!metodosPagoAdmin) {
+
+        mensajeAdmin.textContent =
+            "Primero debe cargarse la configuración.";
+
+        return;
+    }
+
+    mostrarMetodosPagoGuardados();
+
+    mensajeMetodosPago.textContent = "";
+
+    modalMetodosPago.showModal();
+
+});
+
+
+// ======================================================
+// CERRAR VENTANA
+// ======================================================
+
+cerrarModalPagos.addEventListener("click", function() {
+
+    modalMetodosPago.close();
+
+});
+
+
+cancelarModalPagos.addEventListener("click", function() {
+
+    modalMetodosPago.close();
+
+});
+
+
+// CERRAR AL TOCAR FUERA DE LA VENTANA
+
+modalMetodosPago.addEventListener("click", function(evento) {
+
+    if (evento.target === modalMetodosPago) {
+
+        modalMetodosPago.close();
+
+    }
+
+});
+
+
+// ======================================================
+// GUARDAR MÉTODOS DE PAGO
+// ======================================================
+
+guardarMetodosPago.addEventListener("click", async function() {
+
+    const estaMarcado = id => {
+
+        return document.getElementById(id).checked;
+
+    };
+
+
+    const nuevosMetodos = {
+
+        llevar: {
+
+            efectivo:
+                estaMarcado("pago-llevar-efectivo"),
+
+            transferencia:
+                estaMarcado("pago-llevar-transferencia"),
+
+            tarjeta:
+                estaMarcado("pago-llevar-tarjeta")
+
+        },
+
+        domicilio: {
+
+            efectivo:
+                estaMarcado("pago-domicilio-efectivo"),
+
+            transferencia:
+                estaMarcado("pago-domicilio-transferencia")
+
+        }
+
+    };
+
+
+    // COMPROBAR QUE QUEDE AL MENOS UN MÉTODO
+    // DISPONIBLE PARA CADA TIPO DE SERVICIO
+
+    const llevarDisponible =
+        Object.values(nuevosMetodos.llevar).some(Boolean);
+
+    const domicilioDisponible =
+        Object.values(nuevosMetodos.domicilio).some(Boolean);
+
+
+    if (!llevarDisponible || !domicilioDisponible) {
+
+        mensajeMetodosPago.textContent =
+            "Debe quedar al menos un método activo " +
+            "para cada tipo de servicio.";
+
+        return;
+
+    }
+
+
+    // EVITAR GUARDAR DOS VECES
+
+    guardarMetodosPago.disabled = true;
+
+    mensajeMetodosPago.textContent =
+        "Guardando cambios...";
+
+
+    const { error } = await supabaseClient
+
+        .from("configuracion_tienda")
+
+        .update({
+
+            metodos_pago: nuevosMetodos,
+
+            actualizado_en:
+                new Date().toISOString()
+
+        })
+
+        .eq("id", 1);
+
+
+    if (error) {
+
+        console.error(error);
+
+        mensajeMetodosPago.textContent =
+            "Error al guardar los métodos de pago.";
+
+        guardarMetodosPago.disabled = false;
+
+        return;
+
+    }
+
+
+    // ACTUALIZAR ESTADO LOCAL
+
+    metodosPagoAdmin = nuevosMetodos;
+
+
+    mensajeAdmin.textContent =
+        "Métodos de pago actualizados correctamente.";
+
+
+    guardarMetodosPago.disabled = false;
+
+
+    // CERRAR VENTANA
+
+    modalMetodosPago.close();
+
+});
+
+
 
 
 // ======================================================

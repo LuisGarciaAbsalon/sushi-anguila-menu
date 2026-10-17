@@ -49,6 +49,8 @@ let promoCharolaActiva = false;
 
 let tiendaAbierta = true;
 
+let metodosPagoTienda = null;
+
 // ======================================================
 // CONFIGURACIÓN DE LA TIENDA DESDE SUPABASE
 // ======================================================
@@ -59,7 +61,7 @@ async function cargarConfiguracionTienda() {
         await supabaseClient
             .from("configuracion_tienda")
             .select(
-    "tienda_abierta, promo_2x1, promo_charola"
+    "tienda_abierta, promo_2x1, promo_charola, metodos_pago"
 )
             .eq("id", 1)
             .single();
@@ -175,6 +177,10 @@ function actualizarBannerPromo() {
     
     promoCharolaActiva =
     data.promo_charola;
+
+    metodosPagoTienda = data.metodos_pago;
+
+actualizarMetodosPagoCliente();
 
       actualizarBannerPromo();
       actualizarPopupPromo();
@@ -6068,6 +6074,98 @@ if (
 
 }
 
+/* ======================================================
+   ANGUILA SUSHI
+   MÉTODOS DE PAGO DISPONIBLES PARA CLIENTES
+   ====================================================== */
+
+function actualizarMetodosPagoCliente() {
+
+    if (!metodoPagoSelect || !servicioSeleccionado) {
+        return;
+    }
+
+    const metodoAnterior = metodoPagoSelect.value;
+
+    const configuracion =
+        metodosPagoTienda?.[servicioSeleccionado];
+
+    // LIMPIAR OPCIONES
+
+    metodoPagoSelect.innerHTML = "";
+
+    metodoPagoSelect.add(
+        new Option("Selecciona un método", "")
+    );
+
+    // SI TODAVÍA NO CARGA SUPABASE,
+    // NO PERMITIR ELEGIR UN MÉTODO
+
+    if (!configuracion) {
+
+        metodoPagoSelect.disabled = true;
+
+        metodoPagoSelect.options[0].text =
+            "Métodos de pago no disponibles";
+
+        actualizarDatosEfectivo();
+
+        return;
+    }
+
+    metodoPagoSelect.disabled = false;
+
+    const opciones = [
+        {
+            clave: "efectivo",
+            nombre: "Efectivo"
+        },
+        {
+            clave: "transferencia",
+            nombre: "Transferencia"
+        },
+        {
+            clave: "tarjeta",
+            nombre: "Tarjeta"
+        }
+    ];
+
+    // AGREGAR ÚNICAMENTE MÉTODOS ACTIVOS
+
+    opciones.forEach(opcion => {
+
+        if (
+            configuracion[opcion.clave] === true
+        ) {
+
+            metodoPagoSelect.add(
+                new Option(
+                    opcion.nombre,
+                    opcion.nombre
+                )
+            );
+
+        }
+
+    });
+
+    // CONSERVAR LA SELECCIÓN SOLAMENTE
+    // SI EL MÉTODO SIGUE DISPONIBLE
+
+    const sigueDisponible = [
+        ...metodoPagoSelect.options
+    ].some(opcion =>
+        opcion.value === metodoAnterior &&
+        metodoAnterior !== ""
+    );
+
+    metodoPagoSelect.value =
+        sigueDisponible ? metodoAnterior : "";
+
+    actualizarDatosEfectivo();
+
+}
+
 
 // ======================================================
 // SELECCIONAR TIPO DE SERVICIO
@@ -6192,7 +6290,7 @@ botonesServicio.forEach(
 
                 }
 
-
+                actualizarMetodosPagoCliente();
                 actualizarDatosEfectivo();
 
 

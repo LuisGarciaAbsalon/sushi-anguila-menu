@@ -1,0 +1,135 @@
+/* Barra principal estilo BAGO'S: permanece arriba durante el menú.
+   CSS independiente para no tocar las reglas del diseño existente. */
+
+main > .categorias {
+    margin-bottom: 0 !important;
+}
+
+main > .lista-categorias.barra-menu-fija {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1200 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    width: 100%;
+    max-width: none;
+    min-height: 58px;
+    margin: 0 0 30px !important;
+    padding: 6px max(12px, calc((100vw - 1180px) / 2)) !important;
+    overflow: visible !important;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    background: rgba(7,7,7,.98);
+    box-shadow: 0 8px 22px rgba(0,0,0,.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.barra-menu-fija .barra-menu-lupa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.barra-menu-fija .barra-menu-lupa:hover,
+.barra-menu-fija .barra-menu-lupa:focus-visible {
+    color: #ff4148;
+    border-color: #ff4148;
+}
+
+.barra-menu-fija .barra-menu-enlaces {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 4px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.barra-menu-fija .barra-menu-enlaces::-webkit-scrollbar {
+    display: none;
+}
+
+.barra-menu-fija .categoria-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-width: 0 !important;
+    min-height: 44px !important;
+    padding: 0 13px !important;
+    border: 0 !important;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    color: #cfcfcf !important;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.barra-menu-fija .categoria-btn.active,
+.barra-menu-fija .categoria-btn[aria-current="location"] {
+    color: #ff4148 !important;
+    border-bottom-color: #e51b23 !important;
+}
+
+.barra-menu-fija .categoria-btn:hover {
+    color: #fff !important;
+}
+
+/* Solo hay UNA barra fija principal. Las subcategorías de Cocina
+   y Rollos siguen siendo pulsables, pero ya no la tapan. */
+.subcategorias-rollos,
+#cocina .subcategorias-cocina {
+    position: relative !important;
+    top: auto !important;
+    z-index: 1 !important;
+}
+
+/* Compensa la altura de la barra al usar enlaces #categoria. */
+html {
+    scroll-padding-top: 84px;
+}
+
+main section.menu[id] {
+    scroll-margin-top: 84px;
+}
+
+@media (max-width: 650px) {
+    main > .lista-categorias.barra-menu-fija {
+        min-height: 54px;
+        padding: 5px 10px !important;
+        margin-bottom: 24px !important;
+        gap: 5px !important;
+    }
+
+    .barra-menu-fija .barra-menu-lupa {
+        width: 39px;
+        height: 39px;
+        flex-basis: 39px;
+    }
+
+    .barra-menu-fija .categoria-btn {
+        min-height: 42px !important;
+        padding: 0 11px !important;
+        font-size: 12px !important;
+    }
+}

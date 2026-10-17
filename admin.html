@@ -17,6 +17,13 @@
     <link
         rel="stylesheet"
         href="admin.css"
+        
+<!-- ESTILOS DEL ADMINISTRADOR -->
+<link rel="stylesheet" href="admin.css">
+
+<!-- ESTILOS DE LA VENTANA DE PAGOS -->
+<link rel="stylesheet" href="admin-pagos.css">
+
     >
 
     <link
@@ -261,6 +268,184 @@
 
             </article>
 
+            
+<!-- ========================================= -->
+<!-- ADMINISTRAR MÉTODOS DE PAGO -->
+<!-- ========================================= -->
+
+<article class="admin-card">
+
+    <div>
+        <span class="admin-etiqueta">
+            CONFIGURACIÓN
+        </span>
+
+        <h2>
+            Métodos de pago
+        </h2>
+
+        <p class="estado-admin">
+            Administra los métodos disponibles
+            para domicilio y para llevar.
+        </p>
+    </div>
+
+    
+<button
+    type="button"
+    id="abrir-modal-pagos"
+    class="boton-control boton-rojo"
+>
+    Configurar pagos
+</button>
+
+
+</article>
+
+
+<!-- ========================================= -->
+<!-- VENTANA DE MÉTODOS DE PAGO -->
+<!-- ========================================= -->
+
+<dialog
+    id="modal-metodos-pago"
+    class="modal-metodos-pago"
+    aria-labelledby="titulo-metodos-pago"
+>
+
+    <div class="modal-pagos-contenido">
+
+        <div class="modal-pagos-encabezado">
+
+            <h2 id="titulo-metodos-pago">
+                Métodos de pago
+            </h2>
+
+            <button
+                type="button"
+                id="cerrar-modal-pagos"
+                class="cerrar-modal-pagos"
+                aria-label="Cerrar ventana"
+            >
+                &times;
+            </button>
+
+        </div>
+
+        <p>
+            Activa o desactiva los métodos de pago
+            que podrán utilizar tus clientes.
+        </p>
+
+
+        <!-- ============================== -->
+        <!-- PARA LLEVAR -->
+        <!-- ============================== -->
+
+        <fieldset class="grupo-metodos-pago">
+
+            <legend>
+                🛍️ Para llevar
+            </legend>
+
+            <label class="opcion-metodo-pago">
+                <span>Efectivo</span>
+
+                <input
+                    type="checkbox"
+                    id="pago-llevar-efectivo"
+                    checked
+                >
+            </label>
+
+            <label class="opcion-metodo-pago">
+                <span>Transferencia</span>
+
+                <input
+                    type="checkbox"
+                    id="pago-llevar-transferencia"
+                    checked
+                >
+            </label>
+
+            <label class="opcion-metodo-pago">
+                <span>Tarjeta</span>
+
+                <input
+                    type="checkbox"
+                    id="pago-llevar-tarjeta"
+                    checked
+                >
+            </label>
+
+        </fieldset>
+
+
+        <!-- ============================== -->
+        <!-- A DOMICILIO -->
+        <!-- ============================== -->
+
+        <fieldset class="grupo-metodos-pago">
+
+            <legend>
+                🛵 A domicilio
+            </legend>
+
+            <label class="opcion-metodo-pago">
+                <span>Efectivo</span>
+
+                <input
+                    type="checkbox"
+                    id="pago-domicilio-efectivo"
+                    checked
+                >
+            </label>
+
+            <label class="opcion-metodo-pago">
+                <span>Transferencia</span>
+
+                <input
+                    type="checkbox"
+                    id="pago-domicilio-transferencia"
+                    checked
+                >
+            </label>
+
+        </fieldset>
+
+
+        <!-- ============================== -->
+        <!-- BOTONES DE LA VENTANA -->
+        <!-- ============================== -->
+
+        <div class="acciones-modal-pagos">
+
+            <button
+                type="button"
+                id="cancelar-modal-pagos"
+            >
+                Cancelar
+            </button>
+
+            <button
+                type="button"
+                id="guardar-metodos-pago"
+                class="boton-control"
+            >
+                Guardar cambios
+            </button>
+
+        </div>
+
+        <p
+            id="mensaje-metodos-pago"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+    </div>
+
+</dialog>
 
 
             <!-- ========================================= -->
