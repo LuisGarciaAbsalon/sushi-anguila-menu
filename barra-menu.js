@@ -9,11 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ".lista-categorias"
     );
 
-    const secciones = [
-        ...document.querySelectorAll(
-            "main section.menu[id]"
-        )
-    ];
+    
+const secciones = [
+    ...document.querySelectorAll(
+        "main section.menu[id], " +
+        "#sushi > section.menu-subgrupo[id], " +
+        "#rollos > section.grupo-rollos[id]"
+    )
+];
+
 
     if (!bloqueInicio || !barra || !secciones.length) {
         return;
@@ -21,18 +25,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // NOMBRES DE LAS CATEGORÍAS
 
-    const nombres = {
-        entradas: "Entradas",
-        sopas: "Sopas",
-        ensaladas: "Ensaladas",
-        arroces: "Arroces",
-        cocina: "Cocina",
-        infantil: "Menú Infantil",
-        sushi: "Sushi",
-        rollos: "Rollos",
-        postres: "Postres",
-        "orden-extra": "Extras"
-    };
+    
+const nombres = {
+    entradas: "Entradas",
+    sopas: "Sopas",
+    ensaladas: "Ensaladas",
+    arroces: "Arroces",
+    cocina: "Cocina",
+    infantil: "Menú Infantil",
+
+    sushi: "Sushi",
+    sashimis: "Sashimis",
+    temakis: "Temakis",
+    batera: "Batera",
+    niguiris: "Niguiris",
+
+    "rollos-tradicionales": "Tradicionales",
+    "rollos-clasicos": "Clásicos",
+    "especialidades-rollos": "Especialidades",
+    "empanizados-rollos": "Empanizados",
+    "capeados-rollos": "Capeados",
+    "sushi-balls-rollos": "Sushi Balls",
+
+    postres: "Postres",
+    "orden-extra": "Extras"
+};
+
 
     // RECUPERAR LOS ENLACES EXISTENTES
 
@@ -50,6 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
     enlaces.className = "barra-menu-enlaces";
 
     secciones.forEach(seccion => {
+
+            // No mostrar el enlace general de Rollos
+    if (seccion.id === "rollos") {
+        return;
+    }
 
         const ancla = `#${seccion.id}`;
 
@@ -72,37 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    // =====================================
-    // LUPA DEL BUSCADOR GENERAL
-    // =====================================
-
-    const lupa = document.createElement("button");
-
-    lupa.type = "button";
-
-    lupa.className = "barra-menu-lupa";
-
-    lupa.setAttribute(
-        "aria-label",
-        "Buscar platillos"
-    );
-
-    lupa.innerHTML =
-        '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>';
-
-    lupa.addEventListener("click", () => {
-
-        const buscador =
-            document.querySelector(
-                ".boton-buscar-inicio"
-            ) ||
-            document.querySelector(
-                ".boton-buscar-platillo"
-            );
-
-        buscador?.click();
-
-    });
 
     // =====================================
     // ACTIVAR LA BARRA FIJA
@@ -115,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Categorías del menú"
     );
 
-    barra.replaceChildren(lupa, enlaces);
+    barra.replaceChildren(enlaces);
 
     bloqueInicio.insertAdjacentElement(
         "afterend",
@@ -218,7 +210,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        marcarCategoria(seccionActual.id);
+        marcarCategoria(
+    seccionActual.id === "rollos"
+        ? "rollos-tradicionales"
+        : seccionActual.id
+);
 
     }
 

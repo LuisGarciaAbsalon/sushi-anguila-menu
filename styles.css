@@ -11729,3 +11729,609 @@ body.buscador-menu-abierto {
 
 }
 
+
+/* ======================================================
+   ANGUILA SUSHI
+   NUEVO ENCABEZADO COMPACTO
+   ====================================================== */
+
+.encabezado.anguila-hero {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 0;
+
+    padding: 78px 20px 34px;
+
+    background: #000000;
+
+    border-bottom: none;
+}
+
+
+/* ======================================================
+   CONTENIDO CENTRADO
+   ====================================================== */
+
+.anguila-hero__contenido {
+    position: relative;
+    z-index: 2;
+
+    width: min(780px, 100%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 14px;
+
+    text-align: center;
+}
+
+
+/* ======================================================
+   ESTADO DE LA TIENDA
+   ARRIBA A LA IZQUIERDA
+   ====================================================== */
+
+.encabezado.anguila-hero .estado-negocio {
+    position: absolute;
+
+    top: 18px;
+    left: max(18px, calc((100% - 780px) / 2));
+
+    z-index: 4;
+
+    margin: 0;
+
+    min-height: 42px;
+
+    padding: 0 17px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* ======================================================
+   WHATSAPP
+   ARRIBA A LA DERECHA
+   ====================================================== */
+
+.encabezado.anguila-hero .whatsapp-negocio {
+    position: absolute;
+
+    top: 16px;
+    right: max(18px, calc((100% - 780px) / 2));
+
+    z-index: 4;
+
+    width: auto;
+    min-height: 38px;
+
+    padding: 0 15px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    background: rgba(37, 211, 102, 0.10);
+    color: #25d366;
+
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    border-radius: 20px;
+
+    box-shadow: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.encabezado.anguila-hero .whatsapp-negocio:hover {
+    background: rgba(37, 211, 102, 0.18);
+    box-shadow: none;
+}
+
+.encabezado.anguila-hero .whatsapp-negocio i {
+    font-size: 17px;
+}
+
+
+/* ======================================================
+   LOGO ORIGINAL
+   ====================================================== */
+
+.anguila-hero .logo {
+    width: min(100%, 620px);
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto 2px;
+
+    object-fit: contain;
+}
+
+
+/* ======================================================
+   UBICACIÓN DEBAJO DEL LOGO
+   ====================================================== */
+
+.anguila-hero__ubicacion {
+    max-width: 100%;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #ededed;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    text-align: center;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.anguila-hero__ubicacion i {
+    flex-shrink: 0;
+
+    color: #ff3038;
+
+    font-size: 15px;
+}
+
+.anguila-hero__ubicacion:hover {
+    color: #ff777d;
+}
+
+
+/* ======================================================
+   HORARIO DE ATENCIÓN
+   ====================================================== */
+
+.anguila-hero__horario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: #bcbcbc;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+.anguila-hero__horario i {
+    color: #e4e4e4;
+
+    font-size: 15px;
+}
+
+.anguila-hero__horario strong {
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   CELULARES
+   ====================================================== */
+
+@media (max-width: 650px) {
+
+    .encabezado.anguila-hero {
+        min-height: 0;
+
+        padding: 69px 16px 27px;
+    }
+
+    .anguila-hero__contenido {
+        width: 100%;
+        gap: 12px;
+    }
+
+    /* ESTADO PEQUEÑO A LA IZQUIERDA */
+
+    #estado-tienda.anguila-hero__estado {
+    top: 14px;
+    left: 14px;
+
+    margin: 0;
+
+    min-height: 38px;
+    padding: 0 14px;
+
+    font-size: 12.5px !important;
+}
+
+    /* WHATSAPP ARRIBA A LA DERECHA */
+
+    .encabezado.anguila-hero .whatsapp-negocio {
+        top: 12px;
+        right: 14px;
+
+        width: auto;
+        min-height: 36px;
+
+        padding: 0 12px;
+
+        font-size: 11px !important;
+    }
+
+    /* LOGO */
+
+    .anguila-hero .logo {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* UBICACIÓN */
+
+    .anguila-hero__ubicacion {
+    font-size: 12.5px;
+    gap: 8px;
+    line-height: 1.45;
+}
+
+.anguila-hero__ubicacion i {
+    font-size: 14px;
+}
+
+    /* HORARIO */
+
+    .anguila-hero__horario {
+    font-size: 12.5px;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.anguila-hero__horario strong {
+    font-size: 12.5px;
+}
+}
+
+
+
+/* ======================================================
+   CELULARES PEQUEÑOS
+   ====================================================== */
+
+@media (max-width: 380px) {
+
+    .encabezado.anguila-hero {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .anguila-hero__ubicacion {
+        font-size: 10px;
+    }
+
+    .anguila-hero__horario {
+        font-size: 10px;
+    }
+
+}
+
+
+/* ================================================
+   ANGUILA SUSHI
+   MEJORA VISUAL DE UBICACIÓN Y HORARIO
+   ================================================ */
+
+/* ACERCAR LA INFORMACIÓN AL LOGO */
+
+.anguila-hero__contenido {
+    gap: 9px;
+}
+
+.anguila-hero .logo {
+    margin-bottom: 0;
+}
+/* UBICACIÓN MÁS GRANDE Y PROTAGONISTA */
+
+.anguila-hero__ubicacion {
+    max-width: 440px;
+    gap: 10px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+/* ÍCONO DE UBICACIÓN */
+
+.anguila-hero__ubicacion i {
+    color: #ff3038;
+    font-size: 19px;
+}
+
+/* HORARIO, UN POCO MÁS DISCRETO */
+
+.anguila-hero__horario {
+    gap: 8px;
+
+    color: #bbbbbb;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.anguila-hero__horario i {
+    font-size: 15px;
+}
+
+.anguila-hero__horario strong {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* ================================================
+   VERSIÓN CELULAR
+   ================================================ */
+
+@media (max-width: 650px) {
+
+    .anguila-hero__contenido {
+        gap: 8px;
+    }
+
+    .anguila-hero .logo {
+    margin-bottom: 0;
+}
+
+    .anguila-hero__ubicacion {
+        max-width: 370px;
+
+        gap: 9px;
+
+        font-size: 15.5px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    .anguila-hero__ubicacion i {
+        font-size: 17px;
+    }
+
+    .anguila-hero__horario {
+        font-size: 13px;
+        gap: 7px;
+    }
+
+    .anguila-hero__horario strong {
+        font-size: 13px;
+    }
+
+}
+
+/* CELULARES MÁS PEQUEÑOS */
+
+@media (max-width: 380px) {
+
+    .anguila-hero__ubicacion {
+        font-size: 14px;
+    }
+
+    .anguila-hero__horario,
+    .anguila-hero__horario strong {
+        font-size: 12px;
+    }
+
+}
+
+
+/* ======================================================
+   ANGUILA SUSHI
+   MEJORA DEL TÍTULO Y BARRA DE CATEGORÍAS
+   ====================================================== */
+
+/* BAJAR EL TÍTULO Y QUITAR ESPACIO INNECESARIO */
+
+main > .categorias {
+    padding-top: 32px !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 0 !important;
+}
+
+/* BARRA HORIZONTAL PRINCIPAL */
+
+main > .lista-categorias.barra-menu-fija {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1200 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+
+    width: 100%;
+    min-height: 62px;
+
+    gap: 10px !important;
+
+    margin: 0 0 24px !important;
+    padding: 8px 14px !important;
+
+    
+background: #101010 !important;
+
+border: none !important;
+
+box-shadow: none !important;
+
+backdrop-filter: none !important;
+-webkit-backdrop-filter: none !important;
+
+
+    overflow: visible !important;
+}
+
+/* LUPA A LA IZQUIERDA */
+
+.barra-menu-fija .barra-menu-lupa {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 40px !important;
+
+    width: 40px !important;
+    height: 40px !important;
+
+    color: #ff3038 !important;
+    background: #1b1b1b !important;
+
+    border: 1px solid #383838 !important;
+    border-radius: 12px !important;
+}
+
+/* CONTENEDOR DESLIZABLE DE CATEGORÍAS */
+
+.barra-menu-fija .barra-menu-enlaces {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+
+    flex: 1;
+    min-width: 0;
+
+    gap: 8px !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    white-space: nowrap;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.barra-menu-fija .barra-menu-enlaces::-webkit-scrollbar {
+    display: none;
+}
+
+/* BOTONES DE CATEGORÍAS */
+
+.barra-menu-fija .categoria-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto !important;
+
+    min-width: 0 !important;
+    min-height: 39px !important;
+
+    padding: 0 14px !important;
+
+    color: #dddddd !important;
+    background: #1b1b1b !important;
+
+    border: 1px solid #353535 !important;
+    border-radius: 12px !important;
+
+    box-shadow: none !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transform: none !important;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* CATEGORÍA SELECCIONADA */
+
+.barra-menu-fija .categoria-btn.active,
+.barra-menu-fija .categoria-btn[aria-current="location"] {
+    color: #ffffff !important;
+
+    background: #e51b23 !important;
+
+    border: 1px solid #e51b23 !important;
+    border-radius: 12px !important;
+
+    box-shadow: 0 3px 12px rgba(229,27,35,0.20) !important;
+}
+
+/* EFECTO AL TOCAR */
+
+.barra-menu-fija .categoria-btn:hover {
+    color: #ffffff !important;
+    border-color: #e51b23 !important;
+}
+
+/* VERSIÓN CELULAR */
+
+@media (max-width: 650px) {
+
+    main > .categorias {
+        padding-top: 34px !important;
+        padding-bottom: 14px !important;
+    }
+
+    main > .lista-categorias.barra-menu-fija {
+        min-height: 58px;
+
+        gap: 8px !important;
+        padding: 7px 12px !important;
+
+        margin-bottom: 22px !important;
+    }
+
+    .barra-menu-fija .categoria-btn {
+        min-height: 38px !important;
+        padding: 0 12px !important;
+        font-size: 12px !important;
+    }
+
+}
+
+/* ==========================================
+   OCULTAR LUPA DE LA BARRA DE CATEGORÍAS
+   ========================================== */
+
+.barra-menu-fija .barra-menu-lupa {
+    display: none !important;
+}
+
+
+
+
+
