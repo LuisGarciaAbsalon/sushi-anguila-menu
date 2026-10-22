@@ -837,10 +837,7 @@ const productosConOpciones = {
                 precio: 99
             },
 
-            {
-                nombre: "Especial",
-                precio: 117
-            },
+           
 
             {
                 nombre: "Camarón",
@@ -1321,26 +1318,22 @@ Object.assign(
     productosConOpciones,
     {
 
-        "California Maky": {
-            descripcion:
-                "Rollo de arroz con un toque de ajonjolí, aguacate, pepino y queso Philadelphia. La versión especial lleva masago.",
-            imagen: "",
-            esRollo: true,
-            opciones: [
-                { nombre: "Vegetariano · Normal", precio: 99 },
-                { nombre: "Vegetariano · Especial", precio: 117 },
-                { nombre: "Camarón · Normal", precio: 119 },
-                { nombre: "Camarón · Especial", precio: 137 },
-                { nombre: "Salmón ahumado · Normal", precio: 129 },
-                { nombre: "Salmón ahumado · Especial", precio: 140 },
-                { nombre: "Cangrejo · Normal", precio: 119 },
-                { nombre: "Cangrejo · Especial", precio: 137 },
-                { nombre: "Salmón · Normal", precio: 119 },
-                { nombre: "Salmón · Especial", precio: 137 },
-                { nombre: "Anguila · Normal", precio: 135 },
-                { nombre: "Anguila · Especial", precio: 150 }
-            ]
-        },
+        
+"California Maky Especial": {
+    descripcion:
+        "Rollo de arroz con ajonjolí, aguacate, pepino, queso Philadelphia y masago.",
+    imagen: "",
+    esRollo: true,
+    opciones: [
+        { nombre: "Vegetariano", precio: 117 },
+        { nombre: "Camarón", precio: 137 },
+        { nombre: "Salmón ahumado", precio: 140 },
+        { nombre: "Cangrejo", precio: 137 },
+        { nombre: "Salmón", precio: 137 },
+        { nombre: "Anguila", precio: 150 }
+    ]
+},
+
 
         "Gyoza (4 pz)": {
             descripcion:
@@ -7965,7 +7958,16 @@ if (
 // ENVIAR PEDIDO A WHATSAPP
 // ======================================================
 
-function enviarPedidoWhatsApp() {
+async function enviarPedidoWhatsApp() {
+    // Confirmar ante Supabase que productos y variantes estén disponibles.
+    if (typeof window.validarProductosActivosAntesDeEnviar !== 'function') {
+        alert('No se pudo cargar el control de productos. Recarga la página.');
+        return;
+    }
+    if (!(await window.validarProductosActivosAntesDeEnviar())) {
+        return;
+    }
+
     
 
 
@@ -8442,12 +8444,16 @@ if (
         );
 
 
-    window.open(
-        urlWhatsApp,
-        "_blank"
-    );
+    // Si el navegador bloquea la pestaña por la validación asíncrona,
+    // abrir WhatsApp en la pestaña actual como alternativa.
+    const ventanaWhatsApp = window.open(urlWhatsApp, "_blank");
+    if (!ventanaWhatsApp) {
+        window.location.href = urlWhatsApp;
+    }
+    }
 
-}
+
+
 
 
 // ======================================================

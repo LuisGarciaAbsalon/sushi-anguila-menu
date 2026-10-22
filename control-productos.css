@@ -1,0 +1,905 @@
+
+/* =====================================================
+   ANGUILA SUSHI
+   CONTROL DE PRODUCTOS — DISEÑO DEFINITIVO
+   Mobile First
+   ===================================================== */
+
+/* CONFIGURACIÓN GENERAL */
+
+.admin-productos-modal,
+.admin-productos-modal *,
+.admin-productos-modal *::before,
+.admin-productos-modal *::after {
+    box-sizing: border-box;
+}
+
+/* VENTANA PRINCIPAL */
+
+dialog.admin-productos-modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    width: min(760px, calc(100vw - 28px));
+    max-width: calc(100vw - 28px);
+
+    height: min(700px, 90dvh);
+    max-height: 90dvh;
+
+    margin: auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    color: #ffffff;
+    background: #111114;
+
+    border: 1px solid #34343b;
+    border-radius: 20px;
+
+    box-shadow: 0 25px 75px rgba(0, 0, 0, .7);
+}
+
+dialog.admin-productos-modal[open] {
+    display: block;
+}
+
+.admin-productos-modal::backdrop {
+    background: rgba(0, 0, 0, .82);
+    backdrop-filter: blur(4px);
+}
+
+/* ESTRUCTURA INTERIOR */
+
+.admin-productos-interior {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+    min-width: 0;
+
+    padding: 22px;
+
+    overflow: hidden;
+}
+
+/* =====================================================
+   ENCABEZADO
+   ===================================================== */
+
+.admin-productos-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex: 0 0 auto;
+
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.admin-productos-heading {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.admin-productos-kicker {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #ff4757;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.admin-productos-cabecera h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.admin-productos-cerrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 1px solid #414149;
+    border-radius: 12px;
+
+    background: #26262b;
+    color: #ffffff;
+
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.admin-productos-cerrar:hover {
+    background: #3a262a;
+    border-color: #e8293c;
+}
+
+.admin-productos-cerrar:focus-visible {
+    outline: 2px solid #ff6370;
+    outline-offset: 2px;
+}
+
+/* OCULTAR TEXTO DESCRIPTIVO */
+
+.admin-productos-ayuda {
+    display: none;
+}
+
+/* =====================================================
+   BUSCADOR
+   ===================================================== */
+
+.admin-productos-filtros {
+    display: block;
+
+    flex: 0 0 auto;
+
+    width: 100%;
+    margin: 0 0 14px;
+}
+
+.admin-productos-busqueda {
+    position: relative;
+    display: block;
+
+    width: 100%;
+}
+
+.admin-productos-busqueda svg {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 19px;
+    height: 19px;
+
+    color: #ff4655;
+    pointer-events: none;
+}
+
+.admin-productos-filtros
+.admin-productos-busqueda input {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+
+    margin: 0;
+    padding: 0 14px 0 45px;
+
+    border: 1px solid #414149;
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #202024;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.admin-productos-busqueda input::placeholder {
+    color: #9797a1;
+}
+
+.admin-productos-busqueda input:focus {
+    border-color: #ef3447;
+    box-shadow: 0 0 0 3px rgba(239, 52, 71, .12);
+}
+
+/* =====================================================
+   LISTA DE PRODUCTOS
+   ===================================================== */
+
+.admin-productos-lista {
+    display: block;
+
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    max-height: none;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 2px 5px 8px 0;
+
+    scrollbar-width: thin;
+    scrollbar-color: #47474d transparent;
+
+    overscroll-behavior: contain;
+}
+
+.admin-productos-lista::-webkit-scrollbar {
+    width: 5px;
+}
+
+.admin-productos-lista::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-productos-lista::-webkit-scrollbar-thumb {
+    background: #47474d;
+    border-radius: 10px;
+}
+
+/* =====================================================
+   TARJETAS DE PRODUCTOS
+   ===================================================== */
+
+.admin-producto-grupo {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0 0 11px;
+
+    border: 1px solid #37373e;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #1c1c20;
+}
+
+.admin-producto-grupo:hover {
+    border-color: #54444a;
+}
+
+/* FILA GENERAL */
+
+.admin-producto-fila {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+    padding: 14px;
+
+    border: 1px solid #35353b;
+    border-radius: 10px;
+
+    background: #222226;
+
+    cursor: pointer;
+}
+
+.admin-producto-grupo > .admin-producto-fila {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+/* TEXTOS */
+
+.admin-producto-texto {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    gap: 5px;
+}
+
+.admin-producto-texto strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+.admin-producto-texto small {
+    display: block;
+
+    color: #a3a3ad;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   ESTADOS DE DISPONIBILIDAD
+   ===================================================== */
+
+.admin-producto-controles {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    flex: 0 0 auto;
+    min-width: 0;
+
+    gap: 10px;
+}
+
+.admin-producto-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 76px;
+
+    padding: 6px 10px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+/* DISPONIBLE */
+
+.admin-producto-badge.disponible {
+    color: #42e28a;
+    background: rgba(25, 180, 95, .13);
+    border-color: rgba(40, 200, 110, .23);
+}
+
+/* AGOTADO */
+
+.admin-producto-badge.no-disponible {
+    color: #ff818a;
+    background: rgba(225, 40, 60, .12);
+    border-color: rgba(225, 40, 60, .22);
+}
+
+.admin-producto-fila.agotado {
+    border-color: rgba(225, 40, 60, .3);
+}
+
+.admin-producto-fila.agotado
+.admin-producto-texto small {
+    color: #ff939b;
+}
+
+/* CASILLAS */
+
+.admin-producto-fila input[type="checkbox"] {
+    display: block;
+
+    flex: 0 0 23px;
+
+    width: 23px;
+    height: 23px;
+
+    min-width: 23px;
+
+    margin: 0;
+    padding: 0;
+
+    accent-color: #24c868;
+
+    cursor: pointer;
+}
+
+.admin-producto-fila input[type="checkbox"]:disabled {
+    opacity: .5;
+    cursor: wait;
+}
+
+.admin-producto-fila input[type="checkbox"]:focus-visible {
+    outline: 2px solid #ff6370;
+    outline-offset: 3px;
+}
+
+/* =====================================================
+   OPCIONES INDIVIDUALES
+   ===================================================== */
+
+.admin-producto-opciones {
+    display: block;
+
+    border-top: 1px solid #35353c;
+
+    background: #151518;
+}
+
+.admin-producto-opciones summary {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    min-height: 48px;
+    padding: 11px 14px;
+
+    color: #eeeeF1;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+    user-select: none;
+
+    list-style: none;
+}
+
+.admin-producto-opciones summary::marker {
+    content: "";
+}
+
+.admin-producto-opciones summary::-webkit-details-marker {
+    display: none;
+}
+
+.admin-producto-opciones summary:hover {
+    background: #222126;
+}
+
+.admin-producto-opciones summary::after {
+    content: "⌄";
+
+    display: inline-block;
+
+    margin-left: auto;
+
+    color: #ff4b59;
+
+    font-size: 20px;
+    line-height: 1;
+
+    transition: transform .18s ease;
+}
+
+.admin-producto-opciones[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.admin-producto-opciones summary:focus-visible {
+    outline: 2px solid #ff6370;
+    outline-offset: -2px;
+}
+
+/* NÚMERO DE OPCIONES */
+
+.admin-opciones-numero {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 23px;
+    height: 24px;
+
+    padding: 2px 7px;
+
+    border-radius: 7px;
+
+    color: #ff6b77;
+    background: rgba(240, 65, 80, .12);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* SUBLISTA DE PROTEÍNAS */
+
+.admin-producto-sublista {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 5px 12px 13px;
+}
+
+.admin-producto-fila.admin-producto-variante {
+    min-width: 0;
+    padding: 12px;
+
+    border: 1px solid #37373d;
+    border-radius: 10px;
+
+    background: #222226;
+}
+
+.admin-producto-variante
+.admin-producto-texto strong {
+    font-size: 13px;
+}
+
+.admin-producto-variante
+.admin-producto-texto small {
+    font-size: 10px;
+}
+
+/* =====================================================
+   MENSAJES DE GUARDADO
+   ===================================================== */
+
+/* Ocultar el contador de productos */
+
+.admin-productos-contador {
+    display: none;
+}
+
+.admin-productos-pie {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    flex: 0 0 auto;
+
+    margin-top: 8px;
+    padding-top: 7px;
+
+    border-top: 1px solid #29292e;
+}
+
+.admin-productos-estado {
+    margin: 0;
+
+    min-height: 0;
+
+    color: #c2c2c9;
+
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: right;
+}
+
+.admin-productos-estado:empty {
+    display: none;
+}
+
+/* Si el mensaje está vacío, ocultar el pie */
+
+.admin-productos-pie:has(.admin-productos-estado:empty) {
+    display: none;
+}
+
+.admin-productos-estado[data-tipo="exito"] {
+    color: #45dd89;
+}
+
+.admin-productos-estado[data-tipo="error"] {
+    color: #ff777f;
+}
+
+/* CATÁLOGO VACÍO */
+
+.admin-productos-vacio {
+    padding: 24px 12px;
+
+    text-align: center;
+
+    color: #b8b8c0;
+
+    font-size: 13px;
+}
+
+/* =====================================================
+   DISEÑO PARA CELULARES
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    /* Ventana a pantalla completa */
+
+    dialog.admin-productos-modal {
+        position: fixed;
+        inset: 0;
+
+        width: 100vw;
+        max-width: 100vw;
+
+        height: 100dvh;
+        max-height: 100dvh;
+
+        margin: 0;
+        padding: 0;
+
+        border: none;
+        border-radius: 0;
+
+        overflow: hidden;
+    }
+
+    .admin-productos-interior {
+        width: 100%;
+        height: 100%;
+
+        padding:
+            max(16px, env(safe-area-inset-top))
+            14px
+            max(14px, env(safe-area-inset-bottom));
+
+        overflow: hidden;
+    }
+
+    /* Encabezado compacto */
+
+    .admin-productos-cabecera {
+        align-items: center;
+        margin-bottom: 19px;
+    }
+
+    .admin-productos-kicker {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+    }
+
+    .admin-productos-cabecera h2 {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .admin-productos-cerrar {
+        width: 44px;
+        height: 44px;
+
+        flex-basis: 44px;
+    }
+
+    /* Buscador */
+
+    .admin-productos-filtros {
+        margin-bottom: 13px;
+    }
+
+    .admin-productos-filtros
+    .admin-productos-busqueda input {
+        height: 48px;
+
+        font-size: 13px;
+
+        border-radius: 12px;
+    }
+
+    /* Lista desplazable */
+
+    .admin-productos-lista {
+        flex: 1 1 auto;
+        min-height: 0;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        padding-right: 3px;
+    }
+
+    /* Tarjetas */
+
+    .admin-producto-grupo {
+        margin-bottom: 11px;
+        border-radius: 13px;
+    }
+
+    /* Dos filas para evitar elementos encimados */
+
+    .admin-producto-grupo > .admin-producto-fila,
+    .admin-producto-fila.admin-producto-variante {
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr);
+
+        align-items: stretch;
+
+        gap: 12px;
+
+        padding: 13px 12px;
+    }
+
+    /* Nombre y categoría arriba */
+
+    .admin-producto-texto {
+        width: 100%;
+        min-width: 0;
+
+        gap: 4px;
+    }
+
+    .admin-producto-texto strong {
+        font-size: 14px;
+    }
+
+    .admin-producto-texto small {
+        font-size: 11px;
+    }
+
+    /* Disponibilidad debajo */
+
+    .admin-producto-controles {
+        display: flex;
+
+        width: 100%;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 10px;
+    }
+
+    .admin-producto-badge {
+        min-width: 0;
+
+        padding: 5px 9px;
+
+        font-size: 10px;
+    }
+
+    .admin-producto-fila input[type="checkbox"] {
+        width: 23px;
+        height: 23px;
+    }
+
+    /* Desplegables */
+
+    .admin-producto-opciones summary {
+        min-height: 48px;
+
+        padding: 12px;
+
+        font-size: 12px;
+    }
+
+    .admin-producto-sublista {
+        gap: 8px;
+
+        padding: 7px 10px 12px;
+    }
+
+    /* Mensajes */
+
+    .admin-productos-estado {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .admin-productos-pie {
+        justify-content: center;
+    }
+}
+
+/* =====================================================
+   PANTALLAS MUY PEQUEÑAS
+   ===================================================== */
+
+@media (max-width: 340px) {
+
+    .admin-productos-interior {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .admin-productos-cabecera h2 {
+        font-size: 20px;
+    }
+
+    .admin-productos-kicker {
+        font-size: 9px;
+    }
+
+    .admin-producto-texto strong {
+        font-size: 13px;
+    }
+
+    .admin-producto-opciones summary {
+        font-size: 11px;
+    }
+}
+
+/* =====================================================
+   ESTILOS DEL MENÚ DEL CLIENTE
+   SE CONSERVAN SIN ALTERACIONES
+   ===================================================== */
+
+/* Etiqueta de producto agotado */
+
+main section.menu article.producto.producto-agotado,
+.extras-pedido .extra-card.producto-agotado {
+    position: relative;
+}
+
+main section.menu article.producto.producto-agotado::before,
+.extras-pedido .extra-card.producto-agotado::before {
+    content: "AGOTADO";
+
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    z-index: 12;
+
+    padding: 5px 9px;
+
+    color: #ffffff;
+    background: #c71e28;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .7px;
+
+    border-radius: 6px;
+}
+
+main section.menu article.producto.producto-agotado
+.producto-info,
+.extras-pedido .extra-card.producto-agotado
+.extra-info {
+    opacity: .55;
+}
+
+main section.menu article.producto.producto-agotado
+button:disabled,
+.extras-pedido .extra-card.producto-agotado
+button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+/* Opciones agotadas dentro del menú */
+
+#lista-opciones-producto
+.opcion-producto.opcion-agotada {
+    opacity: .58;
+    cursor: not-allowed;
+}
+
+#lista-opciones-producto
+.opcion-producto.opcion-agotada
+.estado-opcion-agotada {
+    color: #ff5a65;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    margin-left: 7px;
+}
+
+#lista-opciones-producto
+.opcion-producto.opcion-agotada input {
+    pointer-events: none;
+}

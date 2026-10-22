@@ -1,0 +1,1507 @@
+[
+  {
+    "clave": "kakiague-maky",
+    "nombre": "Kakiague Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "pynta-maky",
+    "nombre": "Pynta Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "nevado-maky-especial",
+    "nombre": "Nevado Maky Especial",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "eby-maky",
+    "nombre": "Eby Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "tampico-maky-especial",
+    "nombre": "Tampico Maky Especial",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "strawberry",
+    "nombre": "Strawberry",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "manchego-fry-especial",
+    "nombre": "Manchego Fry Especial",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "spyder-roll",
+    "nombre": "Spyder Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "banana-roll",
+    "nombre": "Banana Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "frutal-sushi",
+    "nombre": "Frutal Sushi",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "mango-extreme-solo-por-temporada",
+    "nombre": "Mango Extreme (solo por temporada)",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "meshi-roll",
+    "nombre": "Meshi Roll",
+    "categoria": "Rollos • Especialidades",
+    "opciones": [
+      {
+        "nombre": "Aderezo Tampico",
+        "clave": "meshi-roll--aderezo-tampico"
+      },
+      {
+        "nombre": "Salsa de anguila",
+        "clave": "meshi-roll--salsa-de-anguila"
+      },
+      {
+        "nombre": "Ambos aderezos",
+        "clave": "meshi-roll--ambos-aderezos"
+      }
+    ]
+  },
+  {
+    "clave": "hawaiano-roll",
+    "nombre": "Hawaiano Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "sake-maky",
+    "nombre": "Sake Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "kany-maky",
+    "nombre": "Kany Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "tako-maky",
+    "nombre": "Tako Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "kamikaze",
+    "nombre": "Kamikaze",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "flamin-roll",
+    "nombre": "Flamin Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "bonsay",
+    "nombre": "Bonsay",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "sapporo",
+    "nombre": "Sapporo",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "shary-maky",
+    "nombre": "Shary Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "samuray",
+    "nombre": "Samuray",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "unagui-sushi-especial",
+    "nombre": "Unagui Sushi Especial",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "carrussel-maky",
+    "nombre": "Carrussel Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "baby-roll",
+    "nombre": "Baby Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "hot-spicy",
+    "nombre": "Hot Spicy",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "anguilla-sushi",
+    "nombre": "Anguilla Sushi",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "sanje-roll",
+    "nombre": "Sanje Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "hade-roll",
+    "nombre": "Hade Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "aguachile-maky",
+    "nombre": "Aguachile Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "maguro-maky",
+    "nombre": "Maguro Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "gyo-roll",
+    "nombre": "Gyo Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "ibiza",
+    "nombre": "Ibiza",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "tokio-roll",
+    "nombre": "Tokio Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "miyazaki",
+    "nombre": "Miyazaki",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "spel-maky",
+    "nombre": "Spel Maky",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "ninja",
+    "nombre": "Ninja",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "bacon-roll",
+    "nombre": "Bacon Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "suzuki-roll",
+    "nombre": "Suzuki Roll",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "manchego-maky",
+    "nombre": "Manchego Maky",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "beef-maky",
+    "nombre": "Beef Maky",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "tory-maky-especial",
+    "nombre": "Tory Maky Especial",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "queso-maky-fry",
+    "nombre": "Queso Maky Fry",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "gelsha-maky",
+    "nombre": "Gelsha Maky",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "sake-maky-especial",
+    "nombre": "Sake Maky Especial",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "cheese-hot",
+    "nombre": "Cheese Hot",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "ostion-maky",
+    "nombre": "Ostión Maky",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "dragon-roll",
+    "nombre": "Dragón Roll",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "dali-roll",
+    "nombre": "Dali Roll",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "crunchy-roll",
+    "nombre": "Crunchy Roll",
+    "categoria": "Rollos • Empanizados"
+  },
+  {
+    "clave": "tempura-maky",
+    "nombre": "Tempura Maky",
+    "categoria": "Rollos • Capeados"
+  },
+  {
+    "clave": "tempura-maky-fry",
+    "nombre": "Tempura Maky Fry",
+    "categoria": "Rollos • Capeados"
+  },
+  {
+    "clave": "saturno",
+    "nombre": "Saturno",
+    "categoria": "Rollos • Sushi Balls"
+  },
+  {
+    "clave": "cosmo",
+    "nombre": "Cosmo",
+    "categoria": "Rollos • Sushi Balls"
+  },
+  {
+    "clave": "polo",
+    "nombre": "Polo",
+    "categoria": "Rollos • Sushi Balls"
+  },
+  {
+    "clave": "alpha",
+    "nombre": "Alpha",
+    "categoria": "Rollos • Sushi Balls"
+  },
+  {
+    "clave": "edamames-80g",
+    "nombre": "Edamames (80g)",
+    "categoria": "Entradas",
+    "opciones": [
+      {
+        "nombre": "Al vapor",
+        "clave": "edamames-80g--al-vapor"
+      },
+      {
+        "nombre": "Asados",
+        "clave": "edamames-80g--asados"
+      }
+    ]
+  },
+  {
+    "clave": "squid-rings",
+    "nombre": "Squid Rings",
+    "categoria": "Entradas"
+  },
+  {
+    "clave": "tacos-de-rib-eye-150g",
+    "nombre": "Tacos de Rib Eye (150g)",
+    "categoria": "Entradas"
+  },
+  {
+    "clave": "camarones-rokka",
+    "nombre": "Camarones Rokka",
+    "categoria": "Entradas"
+  },
+  {
+    "clave": "gyoza-4-pz",
+    "nombre": "Gyoza (4 pz)",
+    "categoria": "Entradas",
+    "opciones": [
+      {
+        "nombre": "Cerdo",
+        "clave": "gyoza-4-pz--cerdo"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "gyoza-4-pz--camaron"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-platano",
+    "nombre": "Kushiague de plátano",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-platano--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-platano--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-queso-manchego",
+    "nombre": "Kushiague de queso manchego",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-queso-manchego--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-queso-manchego--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-platano-con-queso",
+    "nombre": "Kushiague de plátano con queso",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-platano-con-queso--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-platano-con-queso--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-camaron-con-queso",
+    "nombre": "Kushiague de camarón con queso",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-camaron-con-queso--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-camaron-con-queso--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-salmon-con-queso",
+    "nombre": "Kushiague de salmón con queso",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-salmon-con-queso--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-salmon-con-queso--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-cangrejo-con-queso",
+    "nombre": "Kushiague de cangrejo con queso",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-cangrejo-con-queso--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-cangrejo-con-queso--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-pollo",
+    "nombre": "Kushiague de pollo",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-pollo--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-pollo--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "kushiague-de-queso-philadelphia",
+    "nombre": "Kushiague de queso Philadelphia",
+    "categoria": "Entradas • Kushiagues",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "kushiague-de-queso-philadelphia--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "kushiague-de-queso-philadelphia--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "yakitori-de-pollo",
+    "nombre": "Yakitori de pollo",
+    "categoria": "Entradas • Yakitoris",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "yakitori-de-pollo--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "yakitori-de-pollo--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "yakitori-de-res",
+    "nombre": "Yakitori de res",
+    "categoria": "Entradas • Yakitoris",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "yakitori-de-res--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "yakitori-de-res--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "yakitori-de-arrachera",
+    "nombre": "Yakitori de arrachera",
+    "categoria": "Entradas • Yakitoris",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "yakitori-de-arrachera--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "yakitori-de-arrachera--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "yakitori-de-camaron",
+    "nombre": "Yakitori de camarón",
+    "categoria": "Entradas • Yakitoris",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "yakitori-de-camaron--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "yakitori-de-camaron--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "yakitori-de-salmon",
+    "nombre": "Yakitori de salmón",
+    "categoria": "Entradas • Yakitoris",
+    "opciones": [
+      {
+        "nombre": "1 pieza",
+        "clave": "yakitori-de-salmon--1-pieza"
+      },
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "yakitori-de-salmon--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "yakitori-mixto-pollo-camaron-y-res",
+    "nombre": "Yakitori mixto (pollo, camarón y res)",
+    "categoria": "Entradas • Yakitoris",
+    "opciones": [
+      {
+        "nombre": "Orden de 3 piezas",
+        "clave": "yakitori-mixto-pollo-camaron-y-res--orden-de-3-piezas"
+      }
+    ]
+  },
+  {
+    "clave": "udon-especial",
+    "nombre": "Udon Especial",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "misoshiro",
+    "nombre": "Misoshiro",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "ramen",
+    "nombre": "Ramen",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "sumashi",
+    "nombre": "Sumashi",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "tempura-udon",
+    "nombre": "Tempura Udón",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "miso-especial",
+    "nombre": "Miso Especial",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "tori-spicy",
+    "nombre": "Tori Spicy",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "shiitake-udon",
+    "nombre": "Shiitake Udon",
+    "categoria": "Sopas"
+  },
+  {
+    "clave": "ramen-fussion",
+    "nombre": "Ramen Fussion",
+    "categoria": "Sopas • Ramen",
+    "opciones": [
+      {
+        "nombre": "Vegetariano",
+        "clave": "ramen-fussion--vegetariano"
+      },
+      {
+        "nombre": "Cerdo 120g",
+        "clave": "ramen-fussion--cerdo-120g"
+      },
+      {
+        "nombre": "Pollo 120g",
+        "clave": "ramen-fussion--pollo-120g"
+      },
+      {
+        "nombre": "Res 120g",
+        "clave": "ramen-fussion--res-120g"
+      },
+      {
+        "nombre": "Camarón 5 pz",
+        "clave": "ramen-fussion--camaron-5-pz"
+      },
+      {
+        "nombre": "Salmón 120g",
+        "clave": "ramen-fussion--salmon-120g"
+      },
+      {
+        "nombre": "Gyoza 5 pz",
+        "clave": "ramen-fussion--gyoza-5-pz"
+      }
+    ]
+  },
+  {
+    "clave": "yasai",
+    "nombre": "Yasai",
+    "categoria": "Ensaladas",
+    "opciones": [
+      {
+        "nombre": "Variedad de verduras",
+        "clave": "yasai--variedad-de-verduras"
+      },
+      {
+        "nombre": "Con salmón fresco",
+        "clave": "yasai--con-salmon-fresco"
+      },
+      {
+        "nombre": "Con cangrejo fresco",
+        "clave": "yasai--con-cangrejo-fresco"
+      },
+      {
+        "nombre": "Con pollo en salsa yakitori",
+        "clave": "yasai--con-pollo-en-salsa-yakitori"
+      }
+    ]
+  },
+  {
+    "clave": "sunomono",
+    "nombre": "Sunomono",
+    "categoria": "Ensaladas"
+  },
+  {
+    "clave": "primavera",
+    "nombre": "Primavera",
+    "categoria": "Ensaladas"
+  },
+  {
+    "clave": "yakusa-tropical",
+    "nombre": "Yakusa Tropical",
+    "categoria": "Ensaladas"
+  },
+  {
+    "clave": "ensalada-mixta",
+    "nombre": "Ensalada Mixta",
+    "categoria": "Ensaladas"
+  },
+  {
+    "clave": "yasai-fry",
+    "nombre": "Yasai Fry",
+    "categoria": "Ensaladas"
+  },
+  {
+    "clave": "yakimeshi",
+    "nombre": "Yakimeshi",
+    "categoria": "Arroces • Yakimeshi",
+    "opciones": [
+      {
+        "nombre": "Verduras",
+        "clave": "yakimeshi--verduras"
+      },
+      {
+        "nombre": "Pollo",
+        "clave": "yakimeshi--pollo"
+      },
+      {
+        "nombre": "Pulpo y Ajo",
+        "clave": "yakimeshi--pulpo-y-ajo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "yakimeshi--salmon"
+      },
+      {
+        "nombre": "Mixto",
+        "clave": "yakimeshi--mixto"
+      },
+      {
+        "nombre": "Tampico",
+        "clave": "yakimeshi--tampico"
+      },
+      {
+        "nombre": "Res",
+        "clave": "yakimeshi--res"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "yakimeshi--camaron"
+      },
+      {
+        "nombre": "Arrachera",
+        "clave": "yakimeshi--arrachera"
+      }
+    ]
+  },
+  {
+    "clave": "yakimeshi-especial",
+    "nombre": "Yakimeshi Especial",
+    "categoria": "Arroces • Yakimeshi"
+  },
+  {
+    "clave": "gohan",
+    "nombre": "Gohan",
+    "categoria": "Arroces • Gohan",
+    "opciones": [
+      {
+        "nombre": "Blanco",
+        "clave": "gohan--blanco"
+      },
+      {
+        "nombre": "Tampico",
+        "clave": "gohan--tampico"
+      },
+      {
+        "nombre": "Furikake",
+        "clave": "gohan--furikake"
+      }
+    ]
+  },
+  {
+    "clave": "tempuras",
+    "nombre": "Tempuras",
+    "categoria": "Cocina • Tempuras",
+    "opciones": [
+      {
+        "nombre": "Verduras",
+        "clave": "tempuras--verduras"
+      },
+      {
+        "nombre": "Pollo",
+        "clave": "tempuras--pollo"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "tempuras--camaron"
+      },
+      {
+        "nombre": "Mixto (pollo, camarón y robalo)",
+        "clave": "tempuras--mixto-pollo-camaron-y-robalo"
+      },
+      {
+        "nombre": "Robalo",
+        "clave": "tempuras--robalo"
+      }
+    ]
+  },
+  {
+    "clave": "teppan-yaki",
+    "nombre": "Teppan Yaki",
+    "categoria": "Cocina • Teppan Yaki",
+    "opciones": [
+      {
+        "nombre": "Verduras",
+        "clave": "teppan-yaki--verduras"
+      },
+      {
+        "nombre": "Pollo",
+        "clave": "teppan-yaki--pollo"
+      },
+      {
+        "nombre": "Arrachera",
+        "clave": "teppan-yaki--arrachera"
+      },
+      {
+        "nombre": "Filete de Res",
+        "clave": "teppan-yaki--filete-de-res"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "teppan-yaki--camaron"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "teppan-yaki--salmon"
+      },
+      {
+        "nombre": "Mixto Normal",
+        "clave": "teppan-yaki--mixto-normal"
+      },
+      {
+        "nombre": "Mixto Especial",
+        "clave": "teppan-yaki--mixto-especial"
+      }
+    ]
+  },
+  {
+    "clave": "teri-yaki",
+    "nombre": "Teri Yaki",
+    "categoria": "Cocina • Teri Yaki",
+    "opciones": [
+      {
+        "nombre": "Pollo",
+        "clave": "teri-yaki--pollo"
+      },
+      {
+        "nombre": "Filete de Res",
+        "clave": "teri-yaki--filete-de-res"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "teri-yaki--camaron"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "teri-yaki--salmon"
+      },
+      {
+        "nombre": "Mixto (camarón, pollo y res)",
+        "clave": "teri-yaki--mixto-camaron-pollo-y-res"
+      }
+    ]
+  },
+  {
+    "clave": "yakisoba",
+    "nombre": "Yakisoba",
+    "categoria": "Cocina • Yakisoba",
+    "opciones": [
+      {
+        "nombre": "Pollo",
+        "clave": "yakisoba--pollo"
+      },
+      {
+        "nombre": "Filete de Res",
+        "clave": "yakisoba--filete-de-res"
+      },
+      {
+        "nombre": "Mixto (camarón, pollo y res)",
+        "clave": "yakisoba--mixto-camaron-pollo-y-res"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "yakisoba--camaron"
+      }
+    ]
+  },
+  {
+    "clave": "tori-fry",
+    "nombre": "Tori Fry",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "tori-katsu",
+    "nombre": "Tori Katsu",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "sakana-fry",
+    "nombre": "Sakana Fry",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "tori-katsu-especial",
+    "nombre": "Tori Katsu Especial",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "yaki-udon",
+    "nombre": "Yaki-Udón",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "katsudon",
+    "nombre": "KatsuDon",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "eby-cheese",
+    "nombre": "Eby Cheese",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "sake-fry",
+    "nombre": "Sake Fry",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "chicken-katsuo",
+    "nombre": "Chicken Katsuo",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "sashimi-corte-fino",
+    "nombre": "Sashimi corte fino",
+    "categoria": "Sushi • Sashimis",
+    "opciones": [
+      {
+        "nombre": "Atún",
+        "clave": "sashimi-corte-fino--atun"
+      },
+      {
+        "nombre": "Pulpo",
+        "clave": "sashimi-corte-fino--pulpo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "sashimi-corte-fino--salmon"
+      },
+      {
+        "nombre": "Robalo",
+        "clave": "sashimi-corte-fino--robalo"
+      },
+      {
+        "nombre": "Mixto (salmón, pulpo y robalo)",
+        "clave": "sashimi-corte-fino--mixto-salmon-pulpo-y-robalo"
+      }
+    ]
+  },
+  {
+    "clave": "sashimi-corte-grueso",
+    "nombre": "Sashimi corte grueso",
+    "categoria": "Sushi • Sashimis",
+    "opciones": [
+      {
+        "nombre": "Atún",
+        "clave": "sashimi-corte-grueso--atun"
+      },
+      {
+        "nombre": "Pulpo",
+        "clave": "sashimi-corte-grueso--pulpo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "sashimi-corte-grueso--salmon"
+      },
+      {
+        "nombre": "Robalo",
+        "clave": "sashimi-corte-grueso--robalo"
+      },
+      {
+        "nombre": "Mixto (salmón, pulpo y robalo)",
+        "clave": "sashimi-corte-grueso--mixto-salmon-pulpo-y-robalo"
+      }
+    ]
+  },
+  {
+    "clave": "temaki-de-alga",
+    "nombre": "Temaki de alga",
+    "categoria": "Sushi • Temakis",
+    "opciones": [
+      {
+        "nombre": "Vegetariano",
+        "clave": "temaki-de-alga--vegetariano"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "temaki-de-alga--camaron"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "temaki-de-alga--cangrejo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "temaki-de-alga--salmon"
+      },
+      {
+        "nombre": "Salmón ahumado",
+        "clave": "temaki-de-alga--salmon-ahumado"
+      },
+      {
+        "nombre": "Tampico especial",
+        "clave": "temaki-de-alga--tampico-especial"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "temaki-de-alga--anguila"
+      }
+    ]
+  },
+  {
+    "clave": "temaki-de-pepino",
+    "nombre": "Temaki de pepino",
+    "categoria": "Sushi • Temakis",
+    "opciones": [
+      {
+        "nombre": "Vegetariano",
+        "clave": "temaki-de-pepino--vegetariano"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "temaki-de-pepino--camaron"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "temaki-de-pepino--cangrejo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "temaki-de-pepino--salmon"
+      },
+      {
+        "nombre": "Salmón ahumado",
+        "clave": "temaki-de-pepino--salmon-ahumado"
+      },
+      {
+        "nombre": "Tampico especial",
+        "clave": "temaki-de-pepino--tampico-especial"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "temaki-de-pepino--anguila"
+      }
+    ]
+  },
+  {
+    "clave": "batera",
+    "nombre": "Batera",
+    "categoria": "Sushi • Batera",
+    "opciones": [
+      {
+        "nombre": "Salmón",
+        "clave": "batera--salmon"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "batera--camaron"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "batera--cangrejo"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "batera--anguila"
+      },
+      {
+        "nombre": "Mixto (salmón, cangrejo y camarón)",
+        "clave": "batera--mixto-salmon-cangrejo-y-camaron"
+      }
+    ]
+  },
+  {
+    "clave": "niguiri-s",
+    "nombre": "Niguiri's",
+    "categoria": "Sushi • Niguiris",
+    "opciones": [
+      {
+        "nombre": "Camarón",
+        "clave": "niguiri-s--camaron"
+      },
+      {
+        "nombre": "Robalo",
+        "clave": "niguiri-s--robalo"
+      },
+      {
+        "nombre": "Pulpo",
+        "clave": "niguiri-s--pulpo"
+      },
+      {
+        "nombre": "Masago",
+        "clave": "niguiri-s--masago"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "niguiri-s--cangrejo"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "niguiri-s--anguila"
+      },
+      {
+        "nombre": "Atún",
+        "clave": "niguiri-s--atun"
+      },
+      {
+        "nombre": "Salmón ahumado",
+        "clave": "niguiri-s--salmon-ahumado"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "niguiri-s--salmon"
+      }
+    ]
+  },
+  {
+    "clave": "niguiri-sushi-10-piezas",
+    "nombre": "Niguiri Sushi (10 piezas)",
+    "categoria": "Sushi • Niguiris"
+  },
+  {
+    "clave": "caffe-jelly",
+    "nombre": "Caffé Jelly",
+    "categoria": "Postres"
+  },
+  {
+    "clave": "yorokobi",
+    "nombre": "Yorokobi",
+    "categoria": "Postres",
+    "opciones": [
+      {
+        "nombre": "Chocolate",
+        "clave": "yorokobi--chocolate"
+      },
+      {
+        "nombre": "Cajeta",
+        "clave": "yorokobi--cajeta"
+      },
+      {
+        "nombre": "Mermelada",
+        "clave": "yorokobi--mermelada"
+      }
+    ]
+  },
+  {
+    "clave": "banana-maky",
+    "nombre": "Banana Maky",
+    "categoria": "Postres",
+    "opciones": [
+      {
+        "nombre": "Chocolate",
+        "clave": "banana-maky--chocolate"
+      },
+      {
+        "nombre": "Cajeta",
+        "clave": "banana-maky--cajeta"
+      },
+      {
+        "nombre": "Mermelada",
+        "clave": "banana-maky--mermelada"
+      }
+    ]
+  },
+  {
+    "clave": "tempura-helado",
+    "nombre": "Tempura Helado",
+    "categoria": "Postres",
+    "opciones": [
+      {
+        "nombre": "Chocolate",
+        "clave": "tempura-helado--chocolate"
+      },
+      {
+        "nombre": "Cajeta",
+        "clave": "tempura-helado--cajeta"
+      },
+      {
+        "nombre": "Mermelada",
+        "clave": "tempura-helado--mermelada"
+      }
+    ]
+  },
+  {
+    "clave": "salsa-chipotle-2oz",
+    "nombre": "Salsa chipotle (2oz)",
+    "categoria": "Orden extra"
+  },
+  {
+    "clave": "hojuelas-de-ajo-frito",
+    "nombre": "Hojuelas de ajo frito",
+    "categoria": "Orden extra"
+  },
+  {
+    "clave": "salsa-de-ajonjoli-2oz",
+    "nombre": "Salsa de ajonjolí (2oz)",
+    "categoria": "Orden extra"
+  },
+  {
+    "clave": "queso-philadelphia-2oz",
+    "nombre": "Queso Philadelphia (2oz)",
+    "categoria": "Orden extra"
+  },
+  {
+    "clave": "masago-1oz",
+    "nombre": "Masago (1oz)",
+    "categoria": "Orden extra"
+  },
+  {
+    "clave": "salsa-de-anguila-2oz",
+    "nombre": "Salsa de anguila (2oz)",
+    "categoria": "Orden extra"
+  },
+  {
+    "clave": "tampico",
+    "nombre": "Tampico",
+    "categoria": "Extras del pedido"
+  },
+  {
+    "clave": "menu-infantil-arma-tu-paquete",
+    "nombre": "Menú Infantil - Arma tu paquete",
+    "categoria": "Menú infantil"
+  },
+  {
+    "clave": "eby-rockefeller",
+    "nombre": "Eby Rockefeller",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "tori-tori",
+    "nombre": "Tori Tori",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "golden-ika",
+    "nombre": "Golden Ika",
+    "categoria": "Cocina • Especialidades"
+  },
+  {
+    "clave": "katana-roll",
+    "nombre": "Katana Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "mango-passion-roll",
+    "nombre": "Mango Passion Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "ebi-rock-roll",
+    "nombre": "Ebi Rock Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "yokohama-roll",
+    "nombre": "Yokohama Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "dragon-green-roll",
+    "nombre": "Dragon Green Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "tuna-eureka-roll",
+    "nombre": "Tuna Eureka Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "kazan-roll",
+    "nombre": "Kazan Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "nishiki-roll",
+    "nombre": "Nishiki Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "crab-roll",
+    "nombre": "Crab Roll",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "roll-veggie",
+    "nombre": "Roll Veggie",
+    "categoria": "Rollos • Especialidades"
+  },
+  {
+    "clave": "nube-de-queso",
+    "nombre": "Nube de Queso",
+    "categoria": "Postres"
+  },
+  {
+    "clave": "cream-tapioca",
+    "nombre": "Cream Tapioca",
+    "categoria": "Postres"
+  },
+  {
+    "clave": "ume-maky",
+    "nombre": "Ume Maky",
+    "categoria": "Rollos • Tradicionales"
+  },
+  {
+    "clave": "kappa-maky",
+    "nombre": "Kappa Maky",
+    "categoria": "Rollos • Tradicionales"
+  },
+  {
+    "clave": "tekka-maky",
+    "nombre": "Tekka Maky",
+    "categoria": "Rollos • Tradicionales"
+  },
+  {
+    "clave": "tampico-maky",
+    "nombre": "Tampico Maky",
+    "categoria": "Rollos • Tradicionales"
+  },
+  {
+    "clave": "avocado-maky",
+    "nombre": "Avocado Maky",
+    "categoria": "Rollos • Clásicos",
+    "opciones": [
+      {
+        "nombre": "Vegetariano",
+        "clave": "avocado-maky--vegetariano"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "avocado-maky--cangrejo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "avocado-maky--salmon"
+      },
+      {
+        "nombre": "Salmón ahumado",
+        "clave": "avocado-maky--salmon-ahumado"
+      },
+      {
+        "nombre": "Tampico",
+        "clave": "avocado-maky--tampico"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "avocado-maky--camaron"
+      },
+      {
+        "nombre": "Pulpo",
+        "clave": "avocado-maky--pulpo"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "avocado-maky--anguila"
+      }
+    ]
+  },
+  {
+    "clave": "nevado-maky",
+    "nombre": "Nevado Maky",
+    "categoria": "Rollos • Clásicos",
+    "opciones": [
+      {
+        "nombre": "Vegetariano",
+        "clave": "nevado-maky--vegetariano"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "nevado-maky--cangrejo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "nevado-maky--salmon"
+      },
+      {
+        "nombre": "Salmón ahumado",
+        "clave": "nevado-maky--salmon-ahumado"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "nevado-maky--camaron"
+      },
+      {
+        "nombre": "Pulpo",
+        "clave": "nevado-maky--pulpo"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "nevado-maky--anguila"
+      }
+    ]
+  },
+  {
+    "clave": "arcoiris-roll",
+    "nombre": "Arcoíris Roll",
+    "categoria": "Rollos • Clásicos",
+    "opciones": [
+      {
+        "nombre": "Camarón",
+        "clave": "arcoiris-roll--camaron"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "arcoiris-roll--cangrejo"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "arcoiris-roll--anguila"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "arcoiris-roll--salmon"
+      },
+      {
+        "nombre": "Salmón ahumado",
+        "clave": "arcoiris-roll--salmon-ahumado"
+      }
+    ]
+  },
+  {
+    "clave": "kiury-maky",
+    "nombre": "Kiury Maky",
+    "categoria": "Rollos • Clásicos",
+    "opciones": [
+      {
+        "nombre": "Vegetariano",
+        "clave": "kiury-maky--vegetariano"
+      },
+      {
+        "nombre": "Cangrejo",
+        "clave": "kiury-maky--cangrejo"
+      },
+      {
+        "nombre": "Salmón",
+        "clave": "kiury-maky--salmon"
+      },
+      {
+        "nombre": "Salmón ahumado",
+        "clave": "kiury-maky--salmon-ahumado"
+      },
+      {
+        "nombre": "Tampico",
+        "clave": "kiury-maky--tampico"
+      },
+      {
+        "nombre": "Camarón",
+        "clave": "kiury-maky--camaron"
+      },
+      {
+        "nombre": "Pulpo",
+        "clave": "kiury-maky--pulpo"
+      },
+      {
+        "nombre": "Anguila",
+        "clave": "kiury-maky--anguila"
+      }
+    ]
+  },
+  
+{
+  "clave": "california-maky",
+  "nombre": "California Maky",
+  "categoria": "Rollos • Clásicos",
+  "opciones": [
+    {
+      "nombre": "Vegetariano",
+      "clave": "california-maky--vegetariano"
+    },
+    {
+      "nombre": "Camarón",
+      "clave": "california-maky--camaron"
+    },
+    {
+      "nombre": "Salmón",
+      "clave": "california-maky--salmon"
+    },
+    {
+      "nombre": "Salmón ahumado",
+      "clave": "california-maky--salmon-ahumado"
+    },
+    {
+      "nombre": "Cangrejo",
+      "clave": "california-maky--cangrejo"
+    },
+    {
+      "nombre": "Anguila",
+      "clave": "california-maky--anguila"
+    }
+  ]
+},
+{
+  "clave": "california-maky-especial",
+  "nombre": "California Maky Especial",
+  "categoria": "Rollos • Clásicos",
+  "opciones": [
+    {
+      "nombre": "Vegetariano",
+      "clave": "california-maky-especial--vegetariano"
+    },
+    {
+      "nombre": "Camarón",
+      "clave": "california-maky-especial--camaron"
+    },
+    {
+      "nombre": "Salmón ahumado",
+      "clave": "california-maky-especial--salmon-ahumado"
+    },
+    {
+      "nombre": "Cangrejo",
+      "clave": "california-maky-especial--cangrejo"
+    },
+    {
+      "nombre": "Salmón",
+      "clave": "california-maky-especial--salmon"
+    },
+    {
+      "nombre": "Anguila",
+      "clave": "california-maky-especial--anguila"
+    }
+  ]
+},
+  {
+    "clave": "soya-natural",
+    "nombre": "Soya natural",
+    "categoria": "Extras del pedido"
+  },
+  {
+    "clave": "soya-con-chiles",
+    "nombre": "Soya con chiles",
+    "categoria": "Extras del pedido"
+  }
+]
