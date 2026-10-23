@@ -1779,20 +1779,30 @@
 
 <section class="extras-pedido">
 
-    <div class="extras-pedido-encabezado">
+    
+<div class="extras-pedido-encabezado">
 
-        <h3>
-            ¿Gustas agregar algún extra?
-        </h3>
+    <h3>¿Quisieras agregar algún extra?</h3>
 
-        <p>
-            Complementa tu pedido
-        </p>
+    <p class="aviso-soya">
+        <button
+            type="button"
+            id="info-soya-btn"
+            class="info-soya-btn"
+            aria-label="Ver información sobre las soyas"
+            aria-haspopup="dialog"
+        >
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        </button>
 
-    </div>
+        <span id="texto-soya-info">
+            Ten en cuenta que cada rollo ya incluye una soya.
+        </span>
+    </p>
 
+</div>
 
-    <div class="extras-pedido-lista">
+<div class="extras-pedido-lista">
 
 
        <!-- ============================================= -->
@@ -1950,6 +1960,28 @@
     </div>
 
 </section>
+
+
+<dialog id="modal-info-soya" class="modal-info-soya"
+        aria-labelledby="titulo-info-soya">
+
+    <button type="button" id="cerrar-info-soya"
+            class="cerrar-info-soya"
+            aria-label="Cerrar información">×</button>
+
+    <h4 id="titulo-info-soya">🥢 Soyas incluidas</h4>
+
+    <p>¡No necesitas comprar soya adicional!</p>
+
+    <p><strong>Sin promoción:</strong> cada rollo incluye 1 soya.</p>
+
+    <p><strong>Con promoción 2x1:</strong> se incluye 1 soya por cada 2 rollos en promoción.</p>
+
+    <p><strong>Ejemplos:</strong> 2 rollos = 1 soya, 3 rollos = 2 soyas y 4 rollos en 2x1 = 2 soyas.</p>
+
+    <p>Las soyas que aparecen como extras son opcionales y tienen costo adicional.</p>
+
+</dialog>
 
 
 <!-- ================================================== -->

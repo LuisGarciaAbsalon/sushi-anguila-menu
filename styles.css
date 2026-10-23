@@ -12332,6 +12332,72 @@ backdrop-filter: none !important;
 }
 
 
+/* ANGUILA SUSHI — AVISO DE SOYA */
+
+.extras-pedido-encabezado .aviso-soya {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.4;
+    color: #aaa;
+}
+
+.info-soya-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #b7b7bd;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-info-soya {
+    width: min(340px, calc(100vw - 32px));
+    max-width: 100%;
+    padding: 22px 18px;
+    border: 1px solid #38383c;
+    border-radius: 16px;
+    background: #151517;
+    color: #fff;
+    box-shadow: 0 15px 50px #0009;
+}
+
+.modal-info-soya::backdrop {
+    background: rgba(0, 0, 0, .75);
+}
+
+.modal-info-soya h4 {
+    margin: 0 30px 14px 0;
+    font-size: 17px;
+}
+
+.modal-info-soya p {
+    margin: 0 0 12px;
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.cerrar-info-soya {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #29292d;
+    color: white;
+    font-size: 20px;
+}
+
+
 
 
 

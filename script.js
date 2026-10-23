@@ -45,6 +45,17 @@ const MAX_ROLLOS_CHAROLA = 10;
 
 let promo2x1Activa = true;
 
+
+function actualizarTextoSoya() {
+    const texto = document.getElementById("texto-soya-info");
+    if (!texto) return;
+
+    texto.textContent = promo2x1Activa
+        ? "La soya ya está incluida: 1 por rollo o 1 por promoción 2x1."
+        : "Ten en cuenta que cada rollo ya incluye una soya.";
+}
+
+
 let promoCharolaActiva = false;
 
 let tiendaAbierta = true;
@@ -174,6 +185,8 @@ function actualizarBannerPromo() {
 
     promo2x1Activa =
         data.promo_2x1;
+    
+    actualizarTextoSoya();
     
     promoCharolaActiva =
     data.promo_charola;
@@ -8778,6 +8791,18 @@ document.addEventListener(
 
     }
 );
+
+
+// Abrir y cerrar la información sobre las soyas
+document.addEventListener("DOMContentLoaded", () => {
+    const ventana = document.getElementById("modal-info-soya");
+    const abrir = document.getElementById("info-soya-btn");
+    const cerrar = document.getElementById("cerrar-info-soya");
+
+    abrir?.addEventListener("click", () => ventana?.showModal());
+    cerrar?.addEventListener("click", () => ventana?.close());
+});
+
 // ======================================================
 // FIN DEL SCRIPT
 // ANGUILA SUSHI
