@@ -2518,7 +2518,7 @@ especialidadesBarra.splice(
     },
 
     {
-        nombre: "Mango Extreme - solo por temporada",
+       nombre: "Mango Extreme (solo por temporada)",
         precio: 149,
         descripcion:
             "XF: Q. Philadelphia, mango, salsa de tamarindo. XD: Camarón empanizado.",

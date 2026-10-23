@@ -16,11 +16,26 @@
   }
 
   function activo(clave) { return listo && estados.get(clave) !== false; }
-  function encontrarProducto(nombre) {
-    const texto = String(nombre || '');
-    return catalogo.find(p => p.nombre === texto) ||
-      catalogo.find(p => texto.startsWith(p.nombre + ' (')) || null;
-  }
+  
+function encontrarProducto(nombre) {
+    const texto = String(nombre || '').trim();
+    const nombreNormalizado = normalizar(texto);
+
+    return (
+        catalogo.find(p => p.nombre === texto) ||
+
+        catalogo.find(p =>
+            normalizar(p.nombre) === nombreNormalizado
+        ) ||
+
+        catalogo.find(p =>
+            texto.startsWith(p.nombre + ' (')
+        ) ||
+
+        null
+    );
+}
+
   function permitido(nombreProducto, nombreOpcion = '') {
     const p = encontrarProducto(nombreProducto);
     if (!listo || (p && !activo(p.clave))) return false;
