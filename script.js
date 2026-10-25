@@ -1022,7 +1022,8 @@ const especialidadesBarra = [
         nombre: "Flamin Roll",
         precio: 141,
         descripcion:
-            "XF: Philadelphia, chetos flamin hot y salsa spicy. XD: Pollo a la plancha y aguacate."
+            "XF: Philadelphia, chetos flamin hot y salsa spicy. XD: Pollo a la plancha y aguacate.",
+            
     },
 
     {
@@ -1373,16 +1374,16 @@ Object.assign(
         "Ramen Fussion": {
             descripcion:
                 "Ramen bowl con calabaza, zanahoria, champiñón, cebollín, naruto, huevo y un toque de shichimi y ajonjolí.",
-            imagen: "",
+            imagen: "img/ramen-fuciont.jpg",
             esRollo: false,
             opciones: [
                 { nombre: "Vegetariano", precio: 99 },
                 { nombre: "Cerdo 120g", precio: 139 },
-                { nombre: "Pollo 120g", precio: 139 },
+                { nombre: "Pollo 120g", precio: 139, imagen: "img/ramen-fucion.jpg" },
                 { nombre: "Res 120g", precio: 159 },
                 { nombre: "Camarón 5 pz", precio: 165 },
                 { nombre: "Salmón 120g", precio: 165 },
-                { nombre: "Gyoza 5 pz", precio: 159 }
+                { nombre: "Gyoza 5 pz", precio: 159, imagen: "img/Ramen-gyosas.jpg" }
             ]
         },
 
@@ -2105,7 +2106,7 @@ const ramenFussionMenu = [
         precioDesde: 99,
         descripcion:
             "Ramen bowl con calabaza, zanahoria, champiñón, cebollín, naruto, huevo y un toque de shichimi y ajonjolí.",
-        icono: "🍜"
+         imagen: "img/ramen-fucion.jpg"
     }
 
 ];
@@ -2346,7 +2347,7 @@ const cocinaEspecialidadesMenu = [
         precio: 219,
         descripcion:
             "Pechuga de pollo salteada, marinada con jugo de limón, rellena de queso manchego y camarones a la mantequilla, guarnición de arroz al vapor, zanahoria y espárrago balsámico con salsa pantaï.",
-        icono: "🍗"
+        imagen: "img/chiken-katsu.jpg"
     }
 
 ];
@@ -2610,7 +2611,8 @@ especialidadesBarra.splice(
         precio: 141,
         descripcion:
             "XF: Philadelphia, Cheetos Flamin Hot y salsa spicy. XD: Pollo a la plancha y aguacate.",
-        esRollo: true
+        imagen: "img/Flemin.jpg",
+            esRollo: true
     },
 
     {
@@ -2700,7 +2702,8 @@ especialidadesBarra.splice(
         precio: 155,
         descripcion:
             "XF: Mango, aguacate, nuez caramelizada y salsa dulce. XD: Q. Philadelphia, camarón empanizado y aguacate.",
-        esRollo: true
+       imagen: "img/Hade.jpg",
+            esRollo: true
     },
 
     {
@@ -3085,7 +3088,7 @@ const session5CocinaMenu = [
         precio: 209,
         descripcion:
             "Camarones salteados a la mantequilla con ajo, bañados en salsa Rockefeller, servidos sobre una cama de arroz al vapor y ensalada de guarnición.",
-        icono: "🍤"
+        imagen: "img/eby-rockefeler.jpg"
     },
 
     {
@@ -3132,7 +3135,8 @@ const session5BarraMenu = [
         precio: 180,
         descripcion:
             "Rollo empanizado. XF: Camarones salteados a la mantequilla, bañados en salsa Rockefeller. XD: Camarón empanizado y queso Philadelphia.",
-        esRollo: true
+          imagen: "img/eby-rock-roll.jpg",
+            esRollo: true
     },
 
     {
@@ -3173,7 +3177,8 @@ const session5BarraMenu = [
         precio: 165,
         descripcion:
             "XF: Queso Philadelphia, pera fresca, salsa Bora y flores comestibles. XD: Salmón ahumado y mango.",
-        esRollo: true
+        imagen: "img/Nishiki.jpg",
+            esRollo: true
     },
 
     {
