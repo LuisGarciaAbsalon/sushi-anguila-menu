@@ -1504,7 +1504,8 @@ Object.assign(
         { nombre: "Robalo", precio: 113 },
         {
             nombre: "Mixto (salmón, pulpo y robalo)",
-            precio: 123
+            precio: 123, 
+            
         }
     ]
 
@@ -1515,7 +1516,7 @@ Object.assign(
     descripcion:
         "Cortes frescos de pescado de 120 g. Elige tu proteína.",
 
-    imagen: "",
+    imagen: "img/Sashimi-mixto.jpg",
     esRollo: false,
 
     opciones: [
@@ -1525,7 +1526,9 @@ Object.assign(
         { nombre: "Robalo", precio: 139 },
         {
             nombre: "Mixto (salmón, pulpo y robalo)",
-            precio: 153
+            precio: 153,
+            imagen: "img/Sashimi-mixto.jpg"
+           
         }
     ]
 
@@ -1767,7 +1770,8 @@ const entradasMenu = [
         precio: 81,
         descripcion:
             "Aros de calamar en pasta tempura, con pimiento morrón, cebolla y un toque de pimienta limón y salsa dragón.",
-        icono: "🦑"
+            imagen: "img/Squids-rings.jpg"
+       
     },
 
     {
@@ -1937,7 +1941,8 @@ const yakitorisMenu = [
     {
         nombre: "Yakitori de camarón",
         precioPieza: 55,
-        precioOrden: 145
+        precioOrden: 145,
+        imagen: "img/Yakitoris-camaron.jpg",
     },
 
     {
@@ -2291,6 +2296,7 @@ const cocinaEspecialidadesMenu = [
         precio: 196,
         descripcion:
             "Pechuga empanizada rellena de verduras sazonadas, queso manchego gratinado, ensalada y arroz blanco.",
+            imagen: "img/Torikatsu.jpg"
         
     },
 
@@ -2315,7 +2321,7 @@ const cocinaEspecialidadesMenu = [
         precio: 209,
         descripcion:
             "Verduras salteadas con pasta udón y salsa yakitori.",
-        icono: "🍜"
+        imagen: "img/yaki-udon.jpg"
     },
 
     {
@@ -2537,6 +2543,7 @@ especialidadesBarra.splice(
         precio: 141,
         descripcion:
             "XF: Plátano frito y salsa de chipotle. XD: Q. Philadelphia, aguacate y camarón tempura.",
+            imagen: "img/Banana.jpg",
         esRollo: true
     },
 
@@ -2694,6 +2701,7 @@ especialidadesBarra.splice(
         precio: 149,
         descripcion:
             "XF: Plátano frito, chiles tempura y salsa chipotle. XD: Q. Philadelphia, kakiague, aguacate y camarón empanizado.",
+            imagen: "img/Sanje.jpg",
         esRollo: true
     },
 
@@ -2744,6 +2752,7 @@ especialidadesBarra.splice(
         precio: 170,
         descripcion:
             "XF: Anguila, salmón ahumado, aguacate y salsa dulce. XD: Aguacate, kakiague y Q. Philadelphia.",
+            imagen: "img/Tokio.jpg",
         esRollo: true
     },
 
@@ -2828,6 +2837,7 @@ rollosEmpanizados.splice(
         precio: 165,
         descripcion:
             "XF: Q. Philadelphia y tampico. XD: Camarón empanizado y aguacate.",
+            imagen: "img/Queso-maky.jpg",
         esRollo: true
     },
 
@@ -3096,7 +3106,7 @@ const session5CocinaMenu = [
         precio: 185,
         descripcion:
             "Rollos empanizados de pollo rellenos de kanikama y queso Philadelphia, acompañados de arroz al vapor, aguacate y salsa chipotle artesanal.",
-        icono: "🍗"
+        imagen: "img/Tori-tori.jpg"
     },
 
     {
