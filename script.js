@@ -629,13 +629,14 @@ const productosConOpciones = {
         descripcion:
             "Rollo envuelto en aguacate.",
 
-        imagen: "",
+        imagen: "img/Avocado-roll.jpg",
 
         opciones: [
 
             {
                 nombre: "Vegetariano",
-                precio: 119
+                precio: 119,
+                imagen: "img/Avocado-roll.jpg"
             },
 
             {
@@ -645,7 +646,8 @@ const productosConOpciones = {
 
             {
                 nombre: "Salmón",
-                precio: 131
+                precio: 131,
+                imagen: "img/Avocado-salmon.jpg"
             },
 
             {
@@ -783,7 +785,7 @@ const productosConOpciones = {
         descripcion:
             "Rollo envuelto en hoja de pepino.",
 
-        imagen: "",
+        imagen: "img/Kiury.jpg",
 
         opciones: [
 
@@ -859,12 +861,14 @@ const productosConOpciones = {
 
             {
                 nombre: "Salmón",
-                precio: 119
+                precio: 119,
+                imagen: "img/California-Salmon.jpg"
             },
 
             {
                 nombre: "Salmón ahumado",
-                precio: 129
+                precio: 129,
+                
             },
 
             {
@@ -894,8 +898,9 @@ const especialidadesBarra = [
         nombre: "Kakiague Maky",
         precio: 135,
         descripcion:
-            "XF: Verduras capeadas y salsa dulce. XD: Aguacate, cangrejo y Q. Philadelphia."
-    },
+            "XF: Verduras capeadas y salsa dulce. XD: Aguacate, cangrejo y Q. Philadelphia.",
+        imagen: "img/kakiague-roll.jpg",
+        },
 
     {
         nombre: "Pynta Maky",
@@ -1024,7 +1029,8 @@ const especialidadesBarra = [
         nombre: "Bonsay",
         precio: 135,
         descripcion:
-            "XF: Lechuga fresca, tampico y masago. XD: Q. Philadelphia, aguacate, cangrejo y piel de salmón."
+            "XF: Lechuga fresca, tampico y masago. XD: Q. Philadelphia, aguacate, cangrejo y piel de salmón.",
+            imagen: "img/Bonsay.jpg"
     },
 
     {
@@ -1109,7 +1115,8 @@ const especialidadesBarra = [
         nombre: "Maguro Maky",
         precio: 147,
         descripcion:
-            "XF: Atún fresco, aguacate y masago. XD: Pepino y Q. Philadelphia."
+            "XF: Atún fresco, aguacate y masago. XD: Pepino y Q. Philadelphia.",
+        imagen: "img/Maguro.jpg",
     },
 
     {
@@ -1195,7 +1202,8 @@ const rollosEmpanizados = [
         nombre: "Tory Maky Especial",
         precio: 160,
         descripcion:
-            "XF: Pollo empanizado. XD: Q. Manchego, aguacate, espárrago y chiles toreados."
+            "XF: Pollo empanizado. XD: Q. Manchego, aguacate, espárrago y chiles toreados.",
+            imagen: "img/Tory-roll.jpg",
     },
 
     {
@@ -1394,15 +1402,15 @@ Object.assign(
         "Yakimeshi": {
             descripcion:
                 "Arroz frito con verduras: cebolla, calabaza y zanahoria.",
-            imagen: "",
+            imagen: "img/Yakimeshi-Verduras.png",
             esRollo: false,
             opciones: [
                 { nombre: "Verduras", precio: 74 },
                 { nombre: "Pollo", precio: 94 },
                 { nombre: "Pulpo y Ajo", precio: 127 },
                 { nombre: "Salmón", precio: 110 },
-                { nombre: "Mixto", precio: 110 },
-                { nombre: "Tampico", precio: 99 },
+                { nombre: "Mixto", precio: 110, imagen: "img/Yakimeshi-Mixto.png" },
+                { nombre: "Tampico", precio: 99, imagen: "img/Yakimeshi-tampico.png" },
                 { nombre: "Res", precio: 105 },
                 { nombre: "Camarón", precio: 110 },
                 { nombre: "Arrachera", precio: 110 },
@@ -1533,9 +1541,9 @@ Object.assign(
 
     opciones: [
         { nombre: "Vegetariano", precio: 68 },
-        { nombre: "Camarón", precio: 80 },
-        { nombre: "Cangrejo", precio: 80 },
-        { nombre: "Salmón", precio: 84 },
+       { nombre: "Camarón", precio: 80, imagen: "img/Temaki-Camaron.jpg" },
+       { nombre: "Cangrejo", precio: 80 }, 
+       { nombre: "Salmón", precio: 84 },
         { nombre: "Salmón ahumado", precio: 90 },
         { nombre: "Tampico especial", precio: 99 },
         { nombre: "Anguila", precio: 104 }
@@ -1817,7 +1825,8 @@ const kushiaguesMenu = [
     {
         nombre: "Kushiague de camarón con queso",
         precioPieza: 49,
-        precioOrden: 129
+        precioOrden: 129,
+       imagen: "img/Kushiagues-Camaron.jpeg"
     },
 
     {
@@ -1857,9 +1866,9 @@ const kushiaguesMenu = [
         descripcion:
             "Brocheta empanizada. Disponible por pieza u orden de 3 piezas.",
 
-        imagen: "",
+        imagen: producto.imagen || "",
 
-        icono: "🍢",
+        icono: "",
 
         esRollo: false
 
@@ -1874,13 +1883,15 @@ const kushiaguesMenu = [
 
 kushiaguesMenu.forEach(function(producto) {
 
-    productosConOpciones[producto.nombre] = {
+    
+productosConOpciones[producto.nombre] = {
 
-        descripcion: producto.descripcion,
+    descripcion: producto.descripcion,
 
-        imagen: "",
+    imagen: producto.imagen || "",
 
-        esRollo: false,
+    esRollo: false,
+
 
         opciones: [
 
@@ -1931,7 +1942,10 @@ const yakitorisMenu = [
     {
         nombre: "Yakitori de salmón",
         precioPieza: 55,
-        precioOrden: 145
+        precioOrden: 145,
+        imagen: "img/Yakitoris-Salmon.jpg"
+
+
     },
 
     {
@@ -1961,7 +1975,7 @@ const yakitorisMenu = [
         descripcion:
             "Brocheta sazonada a la plancha con salsa agridulce, cebolla y pimientos.",
 
-        imagen: "",
+        imagen: producto.imagen || "",
 
         icono: "🍢",
 
@@ -1998,7 +2012,7 @@ yakitorisMenu.forEach(function(producto) {
 
         descripcion: producto.descripcion,
 
-        imagen: "",
+        imagen: producto.imagen || "",
 
         esRollo: false,
 
@@ -2029,7 +2043,7 @@ const sopasMenu = [
         precio: 79,
         descripcion:
             "Caldo miso, tofu, alga y cebollín.",
-        icono: "🍲"
+        imagen: "img/Miso.jpg"
     },
 
     {
@@ -2069,7 +2083,7 @@ const sopasMenu = [
         precio: 139,
         descripcion:
             "120 gr de pollo a la plancha, chicoria, hongo shiitake, zanahoria, fideo harusame y un toque de salsa dragón.",
-        icono: "🌶️"
+        imagen: "img/TORY-Spycy.jpg"
     },
 
     {
@@ -2133,7 +2147,7 @@ const ensaladasMenu = [
         precio: 118,
         descripcion:
             "Lechugas mixtas, pepino, fruta de temporada, zanahoria, espinacas, camarones glaseados con teriyaki y salsa dulce.",
-        icono: "🥗"
+        imagen: "img/Yakusa-Tropical.jpg"
     },
 
     {
@@ -2149,7 +2163,7 @@ const ensaladasMenu = [
         precio: 139,
         descripcion:
             "Lechugas mixtas, zanahoria, aguacate, jitomate, pepino, espárrago, pollo, camarón y cangrejo empanizado.",
-        icono: "🥗"
+        imagen: "img/Yasai-Fry.png"
     }
 
 ];
@@ -2168,7 +2182,8 @@ const yakimeshiMenu = [
         precioDesde: 74,
         descripcion:
             "Arroz frito con verduras: cebolla, calabaza y zanahoria. Elige tu proteína.",
-        icono: "🍚",
+        imagen: "img/Yakimeshi-Verduras.png",
+            icono: "",
         esRollo: false
     },
 
@@ -2267,7 +2282,7 @@ const cocinaEspecialidadesMenu = [
         precio: 164,
         descripcion:
             "Tiras de pollo empanizado con ensalada mixta y arroz al vapor.",
-        icono: "🍗"
+        imagen: "img/Tory-Fry.jpg"
     },
 
     {
@@ -2275,7 +2290,7 @@ const cocinaEspecialidadesMenu = [
         precio: 196,
         descripcion:
             "Pechuga empanizada rellena de verduras sazonadas, queso manchego gratinado, ensalada y arroz blanco.",
-        icono: "🍗"
+        
     },
 
     {
@@ -2291,7 +2306,7 @@ const cocinaEspecialidadesMenu = [
         precio: 209,
         descripcion:
             "Pechuga empanizada rellena de queso Philadelphia y verduras sazonadas, ensalada de cangrejo, tampico, aguacate y queso Philadelphia.",
-        icono: "🍗"
+        imagen: "img/Torikatsu-especial.jpg"
     },
 
     {
@@ -2307,7 +2322,7 @@ const cocinaEspecialidadesMenu = [
         precio: 145,
         descripcion:
             "80g de lomo de cerdo empanizado, cebollín, champiñón, espinaca y clara de huevo, fondeados sobre una cama de arroz al vapor.",
-        icono: "🍚"
+        imagen: "img/Katsu-don.jpg"
     },
 
     {
@@ -2323,7 +2338,7 @@ const cocinaEspecialidadesMenu = [
         precio: 225,
         descripcion:
             "Salmón relleno de verduras selectas, queso crema y espinaca. Guarnición de verduras con tallarines orientales y arroz al vapor.",
-        icono: "🐟"
+        imagen: "img/Sake-Fry.png"
     },
 
     {
@@ -2455,7 +2470,8 @@ especialidadesBarra.splice(
         precio: 135,
         descripcion:
             "XF: Verduras capeadas y salsa dulce. XD: Aguacate, cangrejo y Q. Philadelphia.",
-        esRollo: true
+        imagen: "img/kakiague-roll.jpg",
+            esRollo: true
     },
 
     {
@@ -2502,8 +2518,9 @@ especialidadesBarra.splice(
         nombre: "Manchego Fry Especial",
         precio: 141,
         descripcion:
-            "XF: Q. manchego, chiles toreados y salsa chipotle. XD: Cangrejo empanizado, aguacate y cebollín.",
-        esRollo: true
+           "XF: Q. Philadelphia, chiles toreados y salsa chipotle. XD: Cangrejo empanizado, aguacate y cebollín.",
+    imagen: "img/Manchego-Fry.jpg",
+            esRollo: true
     },
 
     {
@@ -2601,7 +2618,8 @@ especialidadesBarra.splice(
         precio: 135,
         descripcion:
             "XF: Lechuga fresca, tampico y masago. XD: Q. Philadelphia, aguacate, cangrejo y piel de salmón.",
-        esRollo: true
+        imagen: "img/Bonsay.jpg",
+            esRollo: true
     },
 
     {
@@ -2698,7 +2716,8 @@ especialidadesBarra.splice(
         precio: 147,
         descripcion:
             "XF: Atún fresco, aguacate y masago. XD: Pepino y Q. Philadelphia.",
-        esRollo: true
+        imagen: "img/Maguro.jpg",
+            esRollo: true
     },
 
     {
@@ -2772,6 +2791,7 @@ rollosEmpanizados.splice(
         precio: 155,
         descripcion:
             "XF: Pescado, tampico y pasta de champiñón. XD: Q. Philadelphia y aguacate.",
+           imagen: "img/Susuki.jpg",
         esRollo: true
     },
 
@@ -2796,7 +2816,8 @@ rollosEmpanizados.splice(
         precio: 160,
         descripcion:
             "XF: Pollo empanizado. XD: Q. Manchego, aguacate, espárrago y chiles toreados.",
-        esRollo: true
+        imagen: "img/Tory-roll.jpg",
+            esRollo: true
     },
 
     {
@@ -2836,7 +2857,8 @@ rollosEmpanizados.splice(
         precio: 170,
         descripcion:
             "XF: Salsa Rockefeller. XD: Ostión, aguacate, Q. Manchego, espárrago y chiles toreados.",
-        esRollo: true
+        imagen: "img/Ostion-roll.jpg",
+            esRollo: true
     },
 
     {
@@ -3092,7 +3114,8 @@ const session5BarraMenu = [
         precio: 180,
         descripcion:
             "XF: Atún flameado, aceite de ajonjolí, chile seco y un toque de salsa spicy. XD: Camarón empanizado, queso Philadelphia y aguacate.",
-        esRollo: true
+        imagen: "img/Katana.jpg",
+            esRollo: true
     },
 
     {
@@ -3100,7 +3123,8 @@ const session5BarraMenu = [
         precio: 165,
         descripcion:
             "XF: Queso Philadelphia, láminas de mango, salsa de maracuyá y flores comestibles. XD: Salmón fresco y aguacate.",
-        esRollo: true
+        imagen: "img/Mango-passion.jpg",
+            esRollo: true
     },
 
     {
@@ -3124,7 +3148,8 @@ const session5BarraMenu = [
         precio: 170,
         descripcion:
             "XF: Aguacate, salsa spicy y gotas de aceite de chile japonés. XD: Camarón empanizado, queso Philadelphia y tampico.",
-        esRollo: true
+        imagen: "img/Dragon.green.jpg",
+            esRollo: true
     },
 
     {
@@ -3164,7 +3189,8 @@ const session5BarraMenu = [
         precio: 144,
         descripcion:
             "XF: Aguacate, aderezo de ajonjolí con limón eureka y flores comestibles. XD: Espárragos, champiñones salteados y zanahoria.",
-        esRollo: true
+        imagen: "img/Veggie.roll.jpg",
+            esRollo: true
     }
 
 ];
@@ -3757,6 +3783,7 @@ function abrirModalOpcionesProducto(
     opcionProductoActual =
         null;
 
+       
 
     tituloOpcionesProducto
         .textContent =
@@ -4244,13 +4271,20 @@ seleccionesMenuInfantil.principal +
                         );
 
 
-                    opcionProductoActual =
-                        opcion;
+                    
+opcionProductoActual =
+    opcion;
 
+// Cambiar la fotografía según la opción elegida
+if (imagenOpcionesProducto) {
+    imagenOpcionesProducto.src =
+        opcion.imagen || producto.imagen || "";
+}
 
-                    precioOpcionesProducto
-                        .textContent =
-                        `MXN $${opcion.precio}`;
+precioOpcionesProducto
+    .textContent =
+    `MXN $${opcion.precio}`;
+
 
 
                     confirmarOpcionProducto

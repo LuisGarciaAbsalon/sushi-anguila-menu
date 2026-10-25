@@ -12397,7 +12397,33 @@ backdrop-filter: none !important;
     font-size: 20px;
 }
 
+/* Ocultar el pez cuando el producto tiene fotografía */
 
+.imagen-opciones-producto-box img:not([src=""]) + .placeholder-imagen-producto {
+    display: none;
+}
+/* BOTÓN + MÁS PEQUEÑO EN CELULARES */
 
+@media (max-width: 600px) {
 
+    .producto-media button.abrir-opciones,
+    .producto-media button.abrir-opciones-dinamico,
+    .producto-media button.agregar-producto-fijo {
 
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px;
+        min-height: 34px;
+
+        padding: 0 !important;
+        box-sizing: border-box;
+        font-size: 18px;
+
+        border-radius: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
