@@ -2049,7 +2049,7 @@ const sopasMenu = [
         precio: 79,
         descripcion:
             "Caldo miso, tofu, alga y cebollín.",
-        imagen: "img/Miso.jpg"
+        
     },
 
     {
@@ -2065,7 +2065,7 @@ const sopasMenu = [
         precio: 104,
         descripcion:
             "Caldo de soya, camarón, pulpo, robalo, fideo harusame y alga.",
-        icono: "🍲"
+        imagen: "img/Sumashi.jpg"
     },
 
     {
@@ -8138,7 +8138,8 @@ const tieneCortesiaCharola =
     // ==================================================
 
     let mensaje =
-        "🍣 *PEDIDO ANGUILA SUSHI*\n\n";
+        "⛩️ *ANGUILA SUSHI*\n" +
+    `🍣 *NUEVO PEDIDO · ${servicioSeleccionado === "domicilio" ? "DOMICILIO" : "PARA LLEVAR"}*\n\n`;
 
 
     mensaje +=
@@ -8488,6 +8489,7 @@ if (
 
     mensaje +=
         `\n💰 *Total: $${totalFinal}*`;
+         "🕒 Pendiente de confirmación del restaurante.";
 
 
     // ==================================================

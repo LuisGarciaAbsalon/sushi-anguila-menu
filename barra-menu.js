@@ -44,7 +44,7 @@ const nombres = {
     "rollos-clasicos": "Clásicos",
     "especialidades-rollos": "Especialidades",
     "empanizados-rollos": "Empanizados",
-    "capeados-rollos": "Capeados",
+"capeados-rollos": "Capeados",
     "sushi-balls-rollos": "Sushi Balls",
 
     postres: "Postres",
@@ -70,9 +70,12 @@ const nombres = {
     secciones.forEach(seccion => {
 
             // No mostrar el enlace general de Rollos
-    if (seccion.id === "rollos") {
-        return;
-    }
+    if (
+    seccion.id === "rollos" ||
+    seccion.id === "capeados-rollos"
+) {
+    return;
+}
 
         const ancla = `#${seccion.id}`;
 
@@ -184,39 +187,44 @@ const nombres = {
 
     let pendiente = false;
 
-    function actualizar() {
+    
+function actualizar() {
 
-        pendiente = false;
+    pendiente = false;
 
-        const limite =
-            barra.getBoundingClientRect().bottom + 24;
+    let id = decodeURIComponent(
+        window.location.hash.slice(1)
+    ) || "entradas";
 
-        let seccionActual = secciones[0];
+    if (id === "capeados-rollos") {
+    id = "empanizados-rollos";
+}
 
-        for (const seccion of secciones) {
+    // Comprobar si la categoría existe en la barra
+    const existe = links.some(link =>
+        link.getAttribute("href") === `#${id}`
+    );
 
-            if (
-                seccion.getBoundingClientRect().top <=
-                limite
-            ) {
+    // Si es una subcategoría, localizar su categoría principal
+    if (!existe) {
 
-                seccionActual = seccion;
+        const elemento = document.getElementById(id);
 
-            } else {
+        const principal = elemento?.closest(
+            "section.menu[id]"
+        );
 
-                break;
-
-            }
-
-        }
-
-        marcarCategoria(
-    seccionActual.id === "rollos"
-        ? "rollos-tradicionales"
-        : seccionActual.id
-);
-
+        id = principal?.id || "entradas";
     }
+
+    // Rollos no tiene pestaña general en la barra
+    if (id === "rollos") {
+        id = "rollos-tradicionales";
+    }
+
+    marcarCategoria(id);
+}
+
 
     // =====================================
     // ACTUALIZAR DURANTE EL SCROLL
@@ -249,6 +257,16 @@ const nombres = {
         "hashchange",
         programarActualizacion
     );
+
+    
+// ACTUALIZAR AL SELECCIONAR OTRA CATEGORÍA
+
+enlaces.addEventListener("click", () => {
+
+    requestAnimationFrame(actualizar);
+
+});
+
 
     // ACTIVACIÓN INICIAL
 
