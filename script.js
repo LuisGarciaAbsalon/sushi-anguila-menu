@@ -1770,7 +1770,7 @@ const entradasMenu = [
         precio: 81,
         descripcion:
             "Aros de calamar en pasta tempura, con pimiento morrón, cebolla y un toque de pimienta limón y salsa dragón.",
-            imagen: "img/Squids-rings.jpg"
+              
        
     },
 
@@ -3114,7 +3114,8 @@ const session5CocinaMenu = [
         precio: 190,
         descripcion:
             "Calamar squid (150gr) salteado a la mantequilla con ajo, champiñones, espárragos y brócoli, acompañado de arroz al vapor y ensalada fresca.",
-        icono: "🦑"
+        imagen: "img/Golden Ika.jpg"
+          
     }
 
 ];
