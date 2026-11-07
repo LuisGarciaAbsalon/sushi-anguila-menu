@@ -49,6 +49,25 @@ function encontrarProducto(nombre) {
     }
     return true;
   }
+  
+function permitidoEnTarjeta(nombre) {
+
+    const producto = encontrarProducto(nombre);
+
+    if (!producto) {
+        return permitido(nombre);
+    }
+
+    const prefijo = producto.nombre + " (";
+
+    const opcion =
+        nombre.startsWith(prefijo) && nombre.endsWith(")")
+            ? nombre.slice(prefijo.length, -1)
+            : "";
+
+    return permitido(producto.nombre, opcion);
+}
+
 
   function tarjetas() {
     return document.querySelectorAll('main section.menu article.producto, .extras-pedido .extra-card');
@@ -59,7 +78,7 @@ function encontrarProducto(nombre) {
       const nombre = boton?.dataset.producto || boton?.dataset.nombre ||
         tarjeta.querySelector('.producto-info h3, .extra-info strong')?.textContent.trim();
       if (!nombre) return;
-      const permitidoProducto = permitido(nombre);
+      const permitidoProducto = permitidoEnTarjeta(nombre);
       tarjeta.classList.toggle('producto-agotado', listo && !permitidoProducto);
       tarjeta.classList.toggle('producto-verificando', !listo);
       tarjeta.querySelectorAll('button.agregar, button.abrir-opciones, button.abrir-opciones-dinamico')
@@ -173,7 +192,7 @@ function encontrarProducto(nombre) {
     if (boton) {
       const nombre = boton.dataset.producto || boton.dataset.nombre ||
         boton.closest('article.producto')?.querySelector('.producto-info h3')?.textContent.trim();
-      if (nombre && !permitido(nombre)) {
+      if (nombre && !permitidoEnTarjeta(nombre)) {
         evento.preventDefault(); evento.stopImmediatePropagation();
         alert('Este producto está agotado.');
         return;

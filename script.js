@@ -1406,15 +1406,15 @@ Object.assign(
             imagen: "img/Yakimeshi-Verduras.png",
             esRollo: false,
             opciones: [
-                { nombre: "Verduras", precio: 74 },
+             { nombre: "Verduras", precio: 74, imagen: "img/Yakimeshi-Verduras.png" },
                 { nombre: "Pollo", precio: 94 },
                 { nombre: "Pulpo y Ajo", precio: 127 },
                 { nombre: "Salmón", precio: 110 },
                 { nombre: "Mixto", precio: 110, imagen: "img/Yakimeshi-Mixto.png" },
                 { nombre: "Tampico", precio: 99, imagen: "img/Yakimeshi-tampico.png" },
-                { nombre: "Res", precio: 105, imagen: "img/yakimeshi-arrachera.jpg" },
+                { nombre: "Res", precio: 105, imagen: "img/yakimeshi-res.jpg" },
                 { nombre: "Camarón", precio: 110 },
-                { nombre: "Arrachera", precio: 110 },
+               { nombre: "Arrachera", precio: 110 },
                 
             ]
         },
@@ -2182,24 +2182,45 @@ const ensaladasMenu = [
 // ------------------------------------------------------
 
 
+
+
+const descripcionesYakimeshi = {
+    "Verduras": "Arroz frito con verduras: cebolla, calabaza y zanahoria.",
+    "Pollo": "Arroz frito con verduras y pollo.",
+    "Res": "Arroz frito con verduras y res.",
+    "Camarón": "Arroz frito con verduras y camarón.",
+    "Salmón": "Arroz frito con verduras y salmón.",
+    "Pulpo y Ajo": "Arroz frito con verduras, pulpo y ajo.",
+    "Mixto": "Arroz frito con verduras y proteínas mixtas.",
+    "Tampico": "Arroz frito con verduras y tampico.",
+    "Arrachera": "Arroz frito con verduras y arrachera."
+};
+
 const yakimeshiMenu = [
 
-    {
-        nombre: "Yakimeshi",
-        conOpciones: true,
-        precioDesde: 74,
-        descripcion:
-            "Arroz frito con verduras: cebolla, calabaza y zanahoria. Elige tu proteína.",
-        imagen: "img/Yakimeshi-Verduras.png",
-            icono: "",
-        esRollo: false
-    },
+    ...productosConOpciones["Yakimeshi"].opciones.map(
+        (opcion) => ({
+
+            nombre: `Yakimeshi (${opcion.nombre})`,
+
+            precio: opcion.precio,
+
+            descripcion: descripcionesYakimeshi[opcion.nombre]
+                || "Arroz frito con verduras.",
+
+            imagen: opcion.imagen || "",
+
+            icono: "🍚",
+
+            esRollo: false
+
+        })
+    ),
 
     {
         nombre: "Yakimeshi Especial",
         precio: 135,
-        descripcion:
-            "Presentación especial de yakimeshi.",
+        descripcion: "Presentación especial de yakimeshi.",
         imagen: "",
         icono: "🍚",
         esRollo: false
