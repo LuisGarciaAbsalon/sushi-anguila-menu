@@ -1377,10 +1377,10 @@ Object.assign(
             imagen: "img/ramen-fuciont.jpg",
             esRollo: false,
             opciones: [
-                { nombre: "Vegetariano", precio: 99 },
+                { nombre: "Vegetariano", precio: 99, imagen : "img/Ramen-vege.jpg"},
                 { nombre: "Cerdo 120g", precio: 139 },
                 { nombre: "Pollo 120g", precio: 139, imagen: "img/ramen-fucion.jpg" },
-                { nombre: "Res 120g", precio: 159 },
+                { nombre: "Res 120g", precio: 159, imagen: "img/Ramen-res.jpg"},
                 { nombre: "Camarón 5 pz", precio: 165 },
                 { nombre: "Salmón 120g", precio: 165 },
                 { nombre: "Gyoza 5 pz", precio: 159, imagen: "img/Ramen-gyosas.jpg" }
@@ -1412,7 +1412,7 @@ Object.assign(
                 { nombre: "Salmón", precio: 110 },
                 { nombre: "Mixto", precio: 110, imagen: "img/Yakimeshi-Mixto.png" },
                 { nombre: "Tampico", precio: 99, imagen: "img/Yakimeshi-tampico.png" },
-                { nombre: "Res", precio: 105 },
+                { nombre: "Res", precio: 105, imagen: "img/yakimeshi-arrachera.jpg" },
                 { nombre: "Camarón", precio: 110 },
                 { nombre: "Arrachera", precio: 110 },
                 
@@ -1787,7 +1787,8 @@ const entradasMenu = [
         precio: 139,
         descripcion:
             "100g de camarones crujientes, bañados en salsa de chipotle sobre una fresca ensalada.",
-        icono: "🍤"
+        imagen: "img/Camarones-roka.jpg",
+            
     },
 
     {
@@ -1818,7 +1819,8 @@ const kushiaguesMenu = [
     {
         nombre: "Kushiague de queso manchego",
         precioPieza: 37,
-        precioOrden: 98
+        precioOrden: 98,
+        imagen: "img/Kushiagues-Queso.jpg"
     },
 
     {
@@ -2586,6 +2588,7 @@ especialidadesBarra.splice(
         precio: 144,
         descripcion:
             "XF: Salmón fresco. XD: Aguacate, pepino y Q. Philadelphia.",
+            imagen: "img/sake-maki.jpg",
         esRollo: true
     },
 
@@ -2820,6 +2823,7 @@ rollosEmpanizados.splice(
         precio: 155,
         descripcion:
             "XF: Filete de res y salsa chipotle. XD: Q. Manchego y aguacate.",
+        imagen: "img/beef.jpg",
         esRollo: true
     },
 
