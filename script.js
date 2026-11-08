@@ -7979,6 +7979,29 @@ if (
             "click",
             function() {
 
+                
+                // ==========================================
+                // VALIDAR REFERENCIAS OBLIGATORIAS
+                // ==========================================
+
+                const referenciasInput =
+                    document.getElementById("referencias-domicilio");
+
+                const referencias =
+                    referenciasInput?.value.trim() || "";
+
+                if (referencias === "") {
+
+                    alert(
+                        "Por favor, escribe una referencia de tu domicilio para continuar."
+                    );
+
+                    referenciasInput?.focus();
+
+                    return;
+                }
+
+
                 const direccionManual =
                     calleInput
                         ?
@@ -8055,6 +8078,24 @@ async function enviarPedidoWhatsApp() {
     if (!(await window.validarProductosActivosAntesDeEnviar())) {
         return;
     }
+
+    
+    // Referencias obligatorias en pedidos a domicilio
+
+    if (servicioSeleccionado === "domicilio") {
+
+        const referencias =
+            document.getElementById("referencias-domicilio")
+                ?.value.trim() || "";
+
+        if (!referencias) {
+
+            alert("Debes escribir las referencias de tu domicilio.");
+
+            return;
+        }
+    }
+
 
     
 
@@ -8194,84 +8235,63 @@ const tieneCortesiaCharola =
     // A DOMICILIO
     // ==================================================
 
-    if (
-        servicioSeleccionado ===
-        "domicilio"
-    ) {
+    if (servicioSeleccionado === "domicilio") {
 
-        mensaje +=
-            "🛵 Servicio: A domicilio\n";
-
+        mensaje += "🛵 Servicio: A domicilio\n";
 
         // ==============================================
-        // GPS
+        // GPS - UBICACIÓN ACTUAL
         // ==============================================
 
-        if (
-            usoUbicacionActual
-        ) {
+        if (usoUbicacionActual) {
 
-            if (
-                direccionUbicacionActual !==
-                ""
-            ) {
-
+            if (direccionUbicacionActual !== "") {
                 mensaje +=
                     `📍 Dirección: ${direccionUbicacionActual}\n`;
-
             }
-
 
             if (
-                latitudCliente !==
-                    null &&
-                longitudCliente !==
-                    null
+                latitudCliente !== null &&
+                longitudCliente !== null
             ) {
-
                 mensaje +=
                     `🗺️ Ubicación: https://www.google.com/maps?q=${latitudCliente},${longitudCliente}\n`;
-
             }
 
-        }
+        } else {
 
-
-        // ==============================================
-        // GOOGLE PLACES
-        // ==============================================
-
-        else {
+            // ==============================================
+            // DIRECCIÓN MANUAL - GOOGLE PLACES
+            // ==============================================
 
             const direccionManual =
-                calleInput
-                    ?
-                    calleInput
-                        .value
-                        .trim()
-                    :
-                    "";
-
+                calleInput ? calleInput.value.trim() : "";
 
             mensaje +=
                 `📍 Dirección: ${direccionManual}\n`;
 
-
             if (
-                latitudCliente !==
-                    null &&
-                longitudCliente !==
-                    null
+                latitudCliente !== null &&
+                longitudCliente !== null
             ) {
-
                 mensaje +=
                     `🗺️ Ubicación: https://www.google.com/maps?q=${latitudCliente},${longitudCliente}\n`;
-
             }
-
         }
 
+        // ==============================================
+        // REFERENCIAS DE ENTREGA
+        // ==============================================
+
+        const referenciasDomicilio =
+            document.getElementById("referencias-domicilio")
+                ?.value.trim() || "";
+
+        mensaje +=
+            `🏠 Referencias: ${referenciasDomicilio}\n`;
+
     }
+
 // ==================================================
 // CHAROLA
 // ==================================================
@@ -8512,9 +8532,9 @@ if (
     // TOTAL
     // ==================================================
 
-    mensaje +=
-        `\n💰 *Total: $${totalFinal}*`;
-         "🕒 Pendiente de confirmación del restaurante.";
+   mensaje +=
+    `\n💰 *Total: $${totalFinal}*\n\n` +
+    "🕒 Pendiente de confirmación del restaurante.";
 
 
     // ==================================================
@@ -8534,12 +8554,24 @@ if (
         );
 
 
-    // Si el navegador bloquea la pestaña por la validación asíncrona,
-    // abrir WhatsApp en la pestaña actual como alternativa.
-    const ventanaWhatsApp = window.open(urlWhatsApp, "_blank");
-    if (!ventanaWhatsApp) {
-        window.location.href = urlWhatsApp;
-    }
+  
+const ventanaWhatsApp = window.open(urlWhatsApp, "_blank");
+
+if (ventanaWhatsApp) {
+
+    // WhatsApp se abrió en otra pestaña.
+    // Reiniciar la página y volver al inicio.
+    window.location.replace(window.location.pathname);
+
+} else {
+
+    // Si el navegador bloqueó la pestaña nueva,
+    // abrir WhatsApp en la pestaña actual.
+    sessionStorage.setItem("anguila-reiniciar-pedido", "1");
+
+    window.location.href = urlWhatsApp;
+}
+
     }
 
 
@@ -8868,6 +8900,24 @@ document.addEventListener(
 
     }
 );
+
+
+// ==========================================
+// REINICIAR PEDIDO AL REGRESAR DE WHATSAPP
+// ==========================================
+
+window.addEventListener("pageshow", function() {
+
+    if (
+        sessionStorage.getItem("anguila-reiniciar-pedido") === "1"
+    ) {
+
+        sessionStorage.removeItem("anguila-reiniciar-pedido");
+
+        window.location.replace(window.location.pathname);
+    }
+
+});
 
 
 // Abrir y cerrar la información sobre las soyas

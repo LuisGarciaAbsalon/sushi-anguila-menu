@@ -12427,3 +12427,52 @@ backdrop-filter: none !important;
     }
 
 }
+
+
+/* ==========================================
+   REFERENCIAS DE ENTREGA A DOMICILIO
+   ========================================== */
+
+.campo-referencias-domicilio {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.campo-referencias-domicilio label {
+    display: block;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.campo-referencias-domicilio label span {
+    color: #999999;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.campo-referencias-domicilio textarea {
+    display: block;
+    width: 100%;
+    min-height: 90px;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    background: #161616;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.5;
+    resize: vertical;
+    outline: none;
+}
+
+.campo-referencias-domicilio textarea:focus {
+    border-color: #ed1c24;
+}
+
+.campo-referencias-domicilio textarea::placeholder {
+    color: #777777;
+}
