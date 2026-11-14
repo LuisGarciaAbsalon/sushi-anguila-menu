@@ -28,9 +28,7 @@
     const gruposRollos = rollos ? [...rollos.querySelectorAll(':scope > .grupo-rollos')] : [];
 
     const elegir = (id, desplazar = true) => {
-      if (id === "capeados-rollos") {
-    id = "empanizados-rollos";
-}
+      
       const destino = mapa.get(id) || mapa.get('entradas') || { seccion: secciones[0], grupo: null };
       const { seccion, grupo } = destino;
 
@@ -50,18 +48,10 @@
       
 gruposRollos.forEach((item) => {
 
-    const mostrarJuntos =
-        grupo?.id === "empanizados-rollos" &&
-        (
-            item.id === "empanizados-rollos" ||
-            item.id === "capeados-rollos"
-        );
-
     if (
         seccion === rollos &&
         grupo &&
-        item !== grupo &&
-        !mostrarJuntos
+        item !== grupo
     ) {
         item.style.setProperty(
             "display",
@@ -74,15 +64,49 @@ gruposRollos.forEach((item) => {
 
 });
 
+      
+      // Seleccionar y centrar la categoría principal
+      const carril = document.querySelector(
+        '.barra-redisenada .carril-categorias'
+      );
 
-      // Actualiza una marca accesible en la barra horizontal (sin cambiar su diseño).
-      document.querySelectorAll('.lista-categorias a[href^="#"], .barra-menu-fija a[href^="#"]').forEach((link) => {
-        if (link.getAttribute('href') === `#${id}`) {
-          link.setAttribute('aria-current', 'true');
+      const botones = [
+        ...document.querySelectorAll(
+          '.barra-redisenada .categoria-btn'
+        )
+      ];
+
+      const seleccionada = botones.find(
+        boton => boton.getAttribute('href') === `#${seccion.id}`
+      );
+
+      botones.forEach(boton => {
+        const activa = boton === seleccionada;
+
+        boton.classList.toggle('active', activa);
+
+        if (activa) {
+          boton.setAttribute('aria-current', 'true');
         } else {
-          link.removeAttribute('aria-current');
+          boton.removeAttribute('aria-current');
         }
       });
+
+      if (carril && seleccionada) {
+        requestAnimationFrame(() => {
+          const rectBoton = seleccionada.getBoundingClientRect();
+          const rectCarril = carril.getBoundingClientRect();
+
+          const diferencia =
+            (rectBoton.left + rectBoton.width / 2) -
+            (rectCarril.left + rectCarril.width / 2);
+
+          carril.scrollTo({
+            left: carril.scrollLeft + diferencia,
+            behavior: 'smooth'
+          });
+        });
+      }
 
       // Sitúa al usuario en el encabezado del apartado, bajo la barra fija.
       if (desplazar) {
@@ -128,3 +152,99 @@ gruposRollos.forEach((item) => {
     iniciar();
   }
 })();
+
+
+/* ==========================================
+   FLECHAS Y SUBCATEGORÍAS ANGUILA SUSHI
+   ========================================== */
+
+(() => {
+    const iniciarBarra = () => {
+
+        const barra = document.querySelector('.barra-redisenada');
+        if (!barra) return;
+
+        const carril = barra.querySelector('.carril-categorias');
+        const izquierda = barra.querySelector('.flecha-izquierda');
+        const derecha = barra.querySelector('.flecha-derecha');
+
+        // Mover la barra con las flechas
+        izquierda.addEventListener('click', () => {
+            carril.scrollBy({ left: -180, behavior: 'smooth' });
+        });
+
+        derecha.addEventListener('click', () => {
+            carril.scrollBy({ left: 180, behavior: 'smooth' });
+        });
+
+        const actualizarFlechas = () => {
+            izquierda.disabled = carril.scrollLeft <= 2;
+            derecha.disabled =
+                carril.scrollLeft >= carril.scrollWidth - carril.clientWidth - 2;
+        };
+
+        carril.addEventListener('scroll', actualizarFlechas, { passive: true });
+        window.addEventListener('resize', actualizarFlechas);
+
+        // Agregar las subcategorías dentro de Rollos
+        const tituloRollos = document.querySelector('#rollos .titulo-rollos');
+
+        if (tituloRollos && !document.querySelector('#rollos .submenu-rollos')) {
+            const submenu = document.createElement('nav');
+            submenu.className = 'submenu-rollos';
+            submenu.setAttribute('aria-label', 'Tipos de rollos');
+
+            submenu.innerHTML = `
+                <a href="#rollos">Todos</a>
+                <a href="#rollos-tradicionales">Tradicionales</a>
+                <a href="#rollos-clasicos">Clásicos</a>
+                <a href="#especialidades-rollos">Especialidades</a>
+                <a href="#empanizados-rollos">Empanizados</a>
+                <a href="#capeados-rollos">Capeados</a>
+                <a href="#sushi-balls-rollos">Sushi Balls</a>
+            `;
+
+            tituloRollos.insertAdjacentElement('afterend', submenu);
+        }
+
+        // Mantener resaltada la categoría seleccionada
+        const actualizarActivos = () => {
+            const id = decodeURIComponent(location.hash.slice(1)) || 'entradas';
+            const seccion = document.getElementById(id)?.closest('section.menu[id]');
+            const principal = seccion?.id || 'entradas';
+
+            barra.querySelectorAll('.categoria-btn').forEach(enlace => {
+                enlace.classList.toggle(
+                    'active',
+                    enlace.getAttribute('href') === `#${principal}`
+                );
+            });
+
+            document.querySelectorAll('.submenu-rollos a').forEach(enlace => {
+                enlace.classList.toggle(
+                    'active',
+                    enlace.getAttribute('href') === `#${id}`
+                );
+            });
+        };
+
+        document.addEventListener('click', evento => {
+            if (evento.target.closest('a[href^="#"]')) {
+                requestAnimationFrame(actualizarActivos);
+            }
+        });
+
+        window.addEventListener('hashchange', actualizarActivos);
+        window.addEventListener('popstate', actualizarActivos);
+
+        actualizarActivos();
+        actualizarFlechas();
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', iniciarBarra, { once: true });
+    } else {
+        iniciarBarra();
+    }
+})();
+

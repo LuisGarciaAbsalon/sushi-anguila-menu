@@ -198,29 +198,6 @@ img {
 }
 
 
-/* =========================================================
-   INFORMACIÓN DEL NEGOCIO
-   ========================================================= */
-
-.info-negocio {
-    width: min(900px, 92%);
-
-    margin:
-        0
-        auto
-        45px;
-
-    padding:
-        26px
-        0;
-
-    text-align: center;
-
-    border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-}
-
 
 /* =========================================================
    ESTADO ABIERTO / CERRADO
@@ -299,83 +276,6 @@ img {
         currentColor;
 }
 
-
-/* =========================================================
-   DIRECCIÓN + WHATSAPP
-   ========================================================= */
-
-.datos-negocio {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 28px;
-}
-
-
-/* UBICACIÓN */
-
-.ubicacion-negocio {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    text-align: left;
-}
-
-
-/* ICONO */
-
-.icono-negocio {
-    width: 43px;
-    height: 43px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    color: var(--rojo-claro);
-
-    background:
-        rgba(229, 27, 35, 0.10);
-
-    border-radius: 12px;
-
-    font-size: 17px;
-}
-
-
-/* TEXTO */
-
-.texto-negocio {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 2px;
-}
-
-
-.texto-negocio strong {
-    color: #ffffff;
-
-    font-size: 13px;
-
-    font-weight: 700;
-}
-
-
-.texto-negocio span {
-    color: #a7a7a7;
-
-    font-size: 12px;
-}
 
 
 /* =========================================================
@@ -679,114 +579,6 @@ main {
 }
 
 
-/* ENTRADAS */
-
-.entradas-grid {
-    max-width: 560px;
-
-    grid-template-columns: 1fr;
-}
-
-
-/* =========================================================
-   SUBCATEGORÍAS DE ROLLOS
-   ========================================================= */
-
-.subcategorias-rollos {
-    position: sticky;
-
-    top: 0;
-
-    z-index: 50;
-
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    overflow-x: auto;
-
-    margin-bottom: 44px;
-
-    padding:
-        11px
-        3px;
-
-    background:
-        rgba(5, 5, 5, 0.95);
-
-    backdrop-filter:
-        blur(16px);
-
-    -webkit-backdrop-filter:
-        blur(16px);
-
-    border-top:
-        1px solid
-        rgba(255, 255, 255, 0.055);
-
-    border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-    scrollbar-width: none;
-}
-
-
-.subcategorias-rollos::-webkit-scrollbar {
-    display: none;
-}
-
-
-.subcategorias-rollos a {
-    flex-shrink: 0;
-
-    min-height: 42px;
-
-    padding:
-        0
-        18px;
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #b8b8b8;
-
-    background: transparent;
-
-    border:
-        1px solid
-        transparent;
-
-    border-radius: 11px;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    white-space: nowrap;
-
-    transition:
-        all
-        0.18s ease;
-}
-
-
-.subcategorias-rollos a:hover {
-    color: #ffffff;
-
-    background: #151515;
-
-    border-color:
-        rgba(229, 27, 35, 0.40);
-}
 
 
 /* =========================================================
@@ -3463,43 +3255,6 @@ main {
 
         column-gap: 0;
     }
-
-
-    .entradas-grid {
-        max-width: none;
-    }
-
-
-    /* =====================================================
-       SUBCATEGORÍAS DE ROLLOS
-       ===================================================== */
-
-    .subcategorias-rollos {
-        width:
-            calc(100% + 40px);
-
-        margin-left: -20px;
-
-        margin-bottom: 31px;
-
-        padding:
-            12px
-            20px;
-
-        gap: 8px;
-    }
-
-
-    .subcategorias-rollos a {
-        min-height: 43px;
-
-        padding:
-            0
-            17px;
-
-        font-size: 12px;
-    }
-
 
     /* =====================================================
        ENCABEZADO DE GRUPO
@@ -7400,9 +7155,7 @@ main {
         width: 100% !important;
 
         min-width: 0 !important;
-
-        min-height: 72px !important;
-
+        min-height: 98px !important;
         margin: 0 !important;
 
         padding:
@@ -8542,186 +8295,6 @@ main {
 }
 
 
-/* =========================================================
-   INFORMACIÓN COMPACTA
-   ========================================================= */
-
-.info-negocio.info-negocio-compacta {
-    width: min(900px, 92%);
-
-    margin:
-        0
-        auto
-        38px;
-
-    padding:
-        15px;
-
-    background:
-        rgba(14, 14, 14, 0.88);
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-    border-radius: 16px;
-
-    text-align: left;
-}
-
-
-/* QUITAMOS LA LÍNEA VIEJA */
-
-.info-negocio.info-negocio-compacta {
-    border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-}
-
-
-/* CONTENIDO */
-
-.datos-negocio-compactos {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        auto;
-
-    align-items: center;
-
-    gap: 12px;
-}
-
-
-/* =========================================================
-   UBICACIÓN
-   ========================================================= */
-
-.ubicacion-compacta {
-    min-width: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 11px;
-}
-
-
-.icono-ubicacion-compacta {
-    width: 40px;
-    height: 40px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #ff454c;
-
-    background:
-        rgba(229, 27, 35, 0.11);
-
-    border-radius: 11px;
-
-    font-size: 16px;
-}
-
-
-.texto-ubicacion-compacta {
-    min-width: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 2px;
-}
-
-
-.texto-ubicacion-compacta strong {
-    color: #ffffff;
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-.texto-ubicacion-compacta span {
-    overflow: hidden;
-
-    color: #999999;
-
-    font-size: 10px;
-
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
-}
-
-
-/* =========================================================
-   WHATSAPP COMPACTO
-   ========================================================= */
-
-.whatsapp-compacto {
-    min-height: 42px;
-
-    padding:
-        0
-        15px;
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 7px;
-
-    color: #ffffff;
-
-    background:
-        rgba(37, 211, 102, 0.09);
-
-    border:
-        1px solid
-        rgba(37, 211, 102, 0.26);
-
-    border-radius: 11px;
-
-    text-decoration: none;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    transition:
-        background 0.18s ease,
-        border-color 0.18s ease;
-}
-
-
-.whatsapp-compacto i {
-    color: #25d366;
-
-    font-size: 18px;
-}
-
-
-.whatsapp-compacto:hover {
-    background:
-        rgba(37, 211, 102, 0.15);
-
-    border-color:
-        rgba(37, 211, 102, 0.45);
-}
-
 
 /* =========================================================
    CELULAR
@@ -8772,63 +8345,7 @@ main {
     .ver-pedido-superior i:first-child {
         font-size: 11px;
     }
-
-
-    .info-negocio.info-negocio-compacta {
-        width:
-            calc(100% - 24px);
-
-        margin-bottom: 30px;
-
-        padding:
-            12px;
-
-        border-radius: 14px;
-    }
-
-
-    .datos-negocio-compactos {
-        gap: 9px;
-    }
-
-
-    .icono-ubicacion-compacta {
-        width: 37px;
-        height: 37px;
-
-        border-radius: 10px;
-
-        font-size: 15px;
-    }
-
-
-    .texto-ubicacion-compacta strong {
-        font-size: 11px;
-    }
-
-
-    .texto-ubicacion-compacta span {
-        font-size: 9px;
-    }
-
-
-    .whatsapp-compacto {
-        min-height: 39px;
-
-        padding:
-            0
-            11px;
-
-        font-size: 10px;
-    }
-
-
-    .whatsapp-compacto i {
-        font-size: 16px;
-    }
-
 }
-
 /* =========================================================
    CARRITO INFERIOR - CELULAR
    ========================================================= */
@@ -12475,4 +11992,230 @@ backdrop-filter: none !important;
 
 .campo-referencias-domicilio textarea::placeholder {
     color: #777777;
+}
+
+
+/* ==========================================
+   NUEVA BARRA DE CATEGORÍAS ANGUILA SUSHI
+   ========================================== */
+
+.categorias .barra-redisenada {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+}
+
+/* CONTENEDOR DESLIZABLE */
+
+.barra-redisenada .carril-categorias {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+
+    padding: 16px 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.barra-redisenada .carril-categorias::-webkit-scrollbar {
+    display: none;
+}
+
+/* Espacio para centrar la primera y última categoría */
+
+.barra-redisenada .carril-categorias::before,
+.barra-redisenada .carril-categorias::after {
+    content: "";
+    flex: 0 0 max(0px, calc(50% - 39px));
+    pointer-events: none;
+}
+
+
+
+
+/* CATEGORÍAS */
+.barra-redisenada .categoria-btn {
+    position: relative;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    flex: 0 0 78px;
+    min-width: 78px !important;
+    min-height: 100px !important;
+    padding: 10px 4px !important;
+
+    background: #151515 !important;
+    border: 1px solid #2a2a2a !important;
+    border-radius: 16px !important;
+
+    color: #d9d9d9 !important;
+    font-size: 10px !important;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.22) !important;
+
+   
+transform: scale(0.92) !important;
+opacity: 0.72;
+
+transition:
+    transform 0.32s ease,
+    opacity 0.32s ease,
+    background 0.32s ease,
+    box-shadow 0.32s ease !important;
+
+}
+/* ICONOS */
+
+.barra-redisenada .categoria-btn i {
+    font-size: 23px;
+}
+
+.barra-redisenada .categoria-btn svg {
+    flex-shrink: 0;
+}
+
+
+/* FOTOGRAFÍAS CIRCULARES DE LAS CATEGORÍAS */
+
+.barra-redisenada .categoria-foto {
+    display: block;
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+
+    border: 1px solid #383838;
+
+    filter:
+        contrast(1.08)
+        saturate(1.05)
+        brightness(1.03);
+}
+
+
+.barra-redisenada .categoria-btn span {
+    white-space: nowrap;
+}
+
+/* CATEGORÍA ACTIVA */
+
+.barra-redisenada .categoria-btn.active,
+.barra-redisenada .categoria-btn[aria-current="true"] {
+    z-index: 2;
+
+    color: #ffffff !important;
+    background: #262626 !important;
+
+    border-color: #444444 !important;
+
+    opacity: 1;
+    transform: scale(1.12) !important;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.38),
+        inset 0 -3px 0 #e51b23 !important;
+}
+
+/* FLECHAS LATERALES */
+
+.barra-redisenada .flecha-categoria {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 32px;
+    width: 32px;
+    height: 52px;
+
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    color: #ffffff;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+.barra-redisenada .flecha-categoria:hover:not(:disabled) {
+    opacity: 0.75;
+}
+
+.barra-redisenada .flecha-categoria:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+
+/* SUBCATEGORÍAS DE ROLLOS */
+
+#rollos .submenu-rollos {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    margin: 12px 0 24px;
+    padding: 5px 0 10px;
+    scrollbar-width: none;
+}
+
+#rollos .submenu-rollos a {
+    flex-shrink: 0;
+    padding: 10px 13px;
+    border: 1px solid #383838;
+    border-radius: 20px;
+    background: #171717;
+    color: #dddddd;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#rollos .submenu-rollos a.active {
+    background: #292929;
+    border-color: #666666;
+    color: #ffffff;
+    box-shadow: inset 0 -2px 0 #e51b23;
+}
+
+/* CELULARES */
+
+@media (max-width: 430px) {
+    .barra-redisenada .categoria-btn {
+        flex-basis: 70px;
+        min-width: 70px !important;
+    }
+
+    .barra-redisenada .carril-categorias {
+        gap: 5px;
+    }
 }

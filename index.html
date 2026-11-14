@@ -53,6 +53,8 @@
         href="styles.css"
     >
 
+
+
     <link
     rel="icon"
     type="image/png"
@@ -251,54 +253,85 @@
 
 
 
-            <nav class="lista-categorias">
+    
+<!-- BARRA DE CATEGORÍAS ANGUILA SUSHI -->
+<nav class="lista-categorias barra-redisenada" aria-label="Categorías del menú">
 
-    <a
-        href="#entradas"
-        class="categoria-btn"
+    <button type="button" class="flecha-categoria flecha-izquierda" aria-label="Categorías anteriores">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="carril-categorias">
+
+        <!-- ENTRADAS -->
+        <a href="#entradas" class="categoria-btn">
+            <img src="img/Camarones-roka.jpg" class="categoria-foto" alt="">
+            <span>Entradas</span>
+        </a>
+
+        <!-- SOPAS -->
+        <a href="#sopas" class="categoria-btn">
+            <img src="img/Ramen-res.jpg" class="categoria-foto" alt="">
+            <span>Sopas</span>
+        </a>
+
+        <!-- ENSALADAS -->
+<a href="#ensaladas" class="categoria-btn">
+    <img
+        src="img/Yasai-Fry.png"
+        class="categoria-foto"
+        alt=""
     >
-        Entradas
-    </a>
+    <span>Ensaladas</span>
+</a>
 
+        <!-- ARROCES -->
+        <a href="#arroces" class="categoria-btn">
+            <img src="img/yakimeshi-res.jpg" class="categoria-foto" alt="">
+            <span>Arroces</span>
+        </a>
 
-    <a
-        href="#sopas"
-        class="categoria-btn"
-    >
-        Sopas
-    </a>
+        <!-- COCINA -->
+        <a href="#cocina" class="categoria-btn">
+            <img src="img/Torikatsu.jpg" class="categoria-foto" alt="">
+            <span>Cocina</span>
+        </a>
 
+        <!-- MENÚ INFANTIL -->
+        <a href="#infantil" class="categoria-btn">
+            <i class="fa-solid fa-child-reaching"></i>
+            <span>Infantil</span>
+        </a>
 
-    <a
-        href="#ensaladas"
-        class="categoria-btn"
-    >
-        Ensaladas
-    </a>
+        <!-- SUSHI -->
+        <a href="#sushi" class="categoria-btn">
+            <img src="img/Sashimi-mixto.jpg" class="categoria-foto" alt="">
+            <span>Sushi</span>
+        </a>
 
+        <!-- ROLLOS -->
+        <a href="#rollos" class="categoria-btn">
+            <img src="img/California-Salmon.jpg" class="categoria-foto" alt="">
+            <span>Rollos</span>
+        </a>
 
-    <a
-        href="#arroces"
-        class="categoria-btn"
-    >
-        Cocina y Arroces
-    </a>
+        <!-- POSTRES -->
+        <a href="#postres" class="categoria-btn">
+            <i class="fa-solid fa-ice-cream"></i>
+            <span>Postres</span>
+        </a>
 
+        <!-- EXTRAS -->
+        <a href="#orden-extra" class="categoria-btn">
+            <i class="fa-solid fa-plus"></i>
+            <span>Extras</span>
+        </a>
 
-    <a
-        href="#sushi"
-        class="categoria-btn"
-    >
-        Sushi y Rollos
-    </a>
+    </div>
 
-
-    <a
-        href="#postres"
-        class="categoria-btn"
-    >
-        Postres
-    </a>
+    <button type="button" class="flecha-categoria flecha-derecha" aria-label="Categorías siguientes">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
 
 </nav>
 
@@ -3334,7 +3367,7 @@
 <script src="buscador.js"></script>
 
 
-<script src="barra-menu.js" defer></script>
+
 
 <script src="control-productos-cliente.js"></script>
 <script src="navegacion-categorias.js" defer></script>
