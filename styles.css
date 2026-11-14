@@ -56,13 +56,10 @@ body {
 
     color: var(--blanco);
 
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            #111111 0%,
-            #080808 30%,
-            #050505 70%
-        );
+    
+background: #080808;
+
+        
 }
 
 
@@ -12273,4 +12270,46 @@ transition:
     }
 
 }
+
+
+/* ==========================================
+   PORTADA COMPACTA EN CELULARES
+   Mostrar encabezado y categorías al entrar
+   ========================================== */
+
+@media (max-width: 650px) and (max-height: 700px) {
+
+    /* Acercar el logo a los botones superiores */
+    .encabezado.anguila-hero {
+        padding: 55px 12px 18px;
+    }
+
+    /* Reducir separación de logo, dirección y horario */
+    .anguila-hero__contenido {
+        gap: 7px;
+    }
+
+    /* Acercar el título al encabezado */
+    main > .categorias {
+        padding-top: 22px !important;
+        padding-bottom: 8px !important;
+    }
+
+    /* Reducir espacio después del buscador */
+    .categorias-encabezado {
+        margin-bottom: 14px;
+    }
+
+    /* Buscador un poco más compacto */
+    .categorias .boton-buscar-inicio {
+        height: 46px;
+        margin-top: 14px;
+    }
+
+    /* Quitar espacio vertical innecesario del carrusel */
+    .barra-redisenada .carril-categorias {
+        padding: 8px 0;
+    }
+}
+
 
