@@ -12085,14 +12085,15 @@ backdrop-filter: none !important;
         0 4px 12px rgba(0, 0, 0, 0.22) !important;
 
    
-transform: scale(0.92) !important;
-opacity: 0.72;
+
+transform: none !important;
+opacity: 1 !important;
 
 transition:
-    transform 0.32s ease,
-    opacity 0.32s ease,
-    background 0.32s ease,
-    box-shadow 0.32s ease !important;
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease !important;
+
 
 }
 /* ICONOS */
@@ -12133,22 +12134,30 @@ transition:
 
 /* CATEGORÍA ACTIVA */
 
+
+/* CATEGORÍA SELECCIONADA - ROJO ANGUILA SUSHI */
+
+.barra-redisenada .categoria-btn.active,
+
 .barra-redisenada .categoria-btn.active,
 .barra-redisenada .categoria-btn[aria-current="true"] {
-    z-index: 2;
+    z-index: 1;
 
     color: #ffffff !important;
-    background: #262626 !important;
+    background: #151515 !important;
 
-    border-color: #444444 !important;
+    border-color: #2a2a2a !important;
 
-    opacity: 1;
-    transform: scale(1.12) !important;
+    opacity: 1 !important;
+    transform: none !important;
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.38),
+        0 4px 12px rgba(0, 0, 0, 0.22),
+        0 5px 12px rgba(229, 27, 35, 0.12),
         inset 0 -3px 0 #e51b23 !important;
 }
+
+
 
 /* FLECHAS LATERALES */
 
