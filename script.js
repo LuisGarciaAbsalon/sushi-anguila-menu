@@ -5300,6 +5300,18 @@ function actualizarPedido() {
 
     actualizarOpcionCharola();
 
+
+// Mostrar el carrito solo cuando tiene productos
+const barraCarritoFijo = document.querySelector(".carrito");
+
+if (barraCarritoFijo) {
+    barraCarritoFijo.classList.toggle(
+        "carrito-oculto",
+        cantidadCarrito <= 0
+    );
+}
+
+
     const descuento2x1 =
         obtenerDescuento2x1();
 

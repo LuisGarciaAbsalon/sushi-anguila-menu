@@ -1064,6 +1064,13 @@ main {
 }
 
 
+/* Ocultar barra de pedido cuando el carrito está vacío */
+
+.carrito.carrito-oculto {
+    display: none !important;
+}
+
+
 /* CANTIDAD */
 
 .carrito-cantidad {
@@ -12039,12 +12046,13 @@ backdrop-filter: none !important;
 
 /* Espacio para centrar la primera y última categoría */
 
+
 .barra-redisenada .carril-categorias::before,
 .barra-redisenada .carril-categorias::after {
-    content: "";
-    flex: 0 0 max(0px, calc(50% - 39px));
-    pointer-events: none;
+    content: none !important;
+    display: none !important;
 }
+
 
 
 
@@ -12145,7 +12153,7 @@ transition:
 /* FLECHAS LATERALES */
 
 .barra-redisenada .flecha-categoria {
-    display: grid;
+    display: none !important;
     place-items: center;
 
     flex: 0 0 32px;
@@ -12219,3 +12227,41 @@ transition:
         gap: 5px;
     }
 }
+
+
+/* ==========================================
+   AJUSTE DE CATEGORÍAS PARA COMPUTADORA
+   ========================================== */
+
+@media (min-width: 1024px) {
+
+    .barra-redisenada .carril-categorias::before,
+    .barra-redisenada .carril-categorias::after {
+        content: none;
+        display: none;
+    }
+
+    .barra-redisenada .carril-categorias {
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 0;
+        overflow: visible;
+    }
+
+    .barra-redisenada .categoria-btn {
+        flex: 0 0 78px;
+        min-width: 78px !important;
+        min-height: 100px !important;
+    }
+
+    .barra-redisenada .flecha-categoria {
+        display: none !important;
+    }
+
+    .categorias {
+        margin-bottom: 100px;
+    }
+
+}
+
