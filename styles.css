@@ -11268,9 +11268,32 @@ body.buscador-menu-abierto {
 
     padding: 78px 20px 34px;
 
-    background: #000000;
+    
+/* Fondo japonés para computadora */
+background-color: #050505;
+
+background-image:
+    linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0.18) 50%,
+        rgba(0, 0, 0, 0.08)
+    ),
+    url("./img/fondo-japones-anguila-pc.webp");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
 
     border-bottom: none;
+}
+
+
+/* Evitar que los adornos anteriores tapen el fondo japonés */
+.encabezado.anguila-hero::before,
+.encabezado.anguila-hero::after {
+    content: none;
 }
 
 
@@ -11388,6 +11411,149 @@ body.buscador-menu-abierto {
 }
 
 
+/* ==========================================
+   NUEVO LOGOTIPO ANGUILA SUSHI
+   SIN FONDO RECTANGULAR
+   ========================================== */
+
+.marca-anguila {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto 10px;
+    padding: 0 4px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+}
+
+/* EMBLEMA JAPONÉS */
+
+.marca-anguila__emblema {
+    display: block;
+
+    width: clamp(52px, 11vw, 82px);
+    height: auto;
+
+    margin-bottom: 3px;
+
+    object-fit: contain;
+
+    mix-blend-mode: screen;
+
+    filter:
+        drop-shadow(0 0 12px rgba(229, 27, 35, 0.20));
+}
+
+/* NOMBRE */
+
+.marca-anguila__nombre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    line-height: 0.95;
+    text-align: center;
+}
+
+/* ANGUILA EN BLANCO */
+
+.marca-anguila__anguila {
+    color: #ffffff;
+
+    font-size: clamp(39px, 10vw, 76px);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.55);
+}
+
+/* SUSHI EN ROJO */
+
+.marca-anguila__sushi {
+    position: relative;
+
+    color: #e51b23;
+
+    font-size: clamp(41px, 10.3vw, 77px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 18px rgba(229, 27, 35, 0.16);
+}
+
+/* PINCELADA ROJA DEBAJO */
+
+.marca-anguila__sushi::after {
+    content: "";
+
+    display: block;
+
+    width: 108%;
+    height: 4px;
+
+    margin: 5px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e51b23 18%,
+            #ff3038 50%,
+            #bd1017 85%,
+            transparent
+        );
+
+    border-radius: 50%;
+    transform: translateX(-4%);
+}
+
+/* LEMA */
+
+.marca-anguila__lema {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #e5e5e5;
+
+    font-size: clamp(7px, 1.5vw, 11px);
+    font-weight: 500;
+    letter-spacing: 0.17em;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+/* AJUSTES PARA CELULAR */
+
+@media (max-width: 650px) {
+
+    .marca-anguila {
+        margin-bottom: 5px;
+    }
+
+    .marca-anguila__emblema {
+        width: 53px;
+    }
+
+    .marca-anguila__lema {
+        margin-top: 9px;
+        letter-spacing: 0.12em;
+    }
+
+}
+
 /* ======================================================
    UBICACIÓN DEBAJO DEL LOGO
    ====================================================== */
@@ -11464,11 +11630,26 @@ body.buscador-menu-abierto {
 
 @media (max-width: 650px) {
 
-    .encabezado.anguila-hero {
-        min-height: 0;
+   
+.encabezado.anguila-hero {
+    min-height: 0;
 
-        padding: 69px 16px 27px;
-    }
+    padding: 69px 16px 27px;
+
+    /* Fondo japonés para celular */
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.16)
+        ),
+        url("./img/fondo-japones-anguila.webp");
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
 
     .anguila-hero__contenido {
         width: 100%;
@@ -12273,43 +12454,350 @@ transition:
 
 
 /* ==========================================
-   PORTADA COMPACTA EN CELULARES
-   Mostrar encabezado y categorías al entrar
+   CORRECCIÓN DEL ENCABEZADO JAPONÉS
+   ANGUILA SUSHI
    ========================================== */
 
-@media (max-width: 650px) and (max-height: 700px) {
+.encabezado.anguila-hero .anguila-hero__contenido {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 
-    /* Acercar el logo a los botones superiores */
+    width: 100% !important;
+    max-width: 780px !important;
+
+    margin: 0 auto !important;
+    gap: 12px !important;
+
+    text-align: center !important;
+}
+
+/* LOGOTIPO CENTRADO */
+
+.encabezado.anguila-hero .marca-anguila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    max-width: 600px !important;
+
+    margin: 0 auto 8px !important;
+
+    text-align: center !important;
+}
+
+/* NOMBRE DEL RESTAURANTE */
+
+.marca-anguila__nombre {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    width: 100%;
+    text-align: center;
+}
+
+.marca-anguila__anguila {
+    font-size: clamp(30px, 11vw, 68px) !important;
+    white-space: nowrap;
+}
+
+.marca-anguila__sushi {
+    font-size: clamp(32px, 11vw, 68px) !important;
+    white-space: nowrap;
+}
+
+/* DIRECCIÓN CENTRADA */
+
+.encabezado.anguila-hero .anguila-hero__ubicacion {
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    max-width: 440px !important;
+
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* HORARIO CENTRADO */
+
+.encabezado.anguila-hero .anguila-hero__horario {
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    max-width: 440px !important;
+
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* ==========================================
+   CORRECCIÓN DE DISTRIBUCIÓN DEL ENCABEZADO
+   ========================================== */
+
+.encabezado.anguila-hero {
+    flex-direction: column !important;
+}
+
+/* ==========================================
+   AJUSTE FINO DEL LOGO ANGUILA SUSHI
+   Y BOTONES SUPERIORES EN MÓVIL
+   ========================================== */
+
+/* ---------- NUEVO SÍMBOLO DEL LOGO ---------- */
+
+.marca-anguila__simbolo {
+    position: relative;
+
+    width: 120px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 8px;
+}
+
+.marca-anguila__sol {
+    position: absolute;
+
+    width: 92px;
+    height: 92px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(circle at 50% 50%, #ff3038 0%, #e51b23 70%, #bd1017 100%);
+
+    box-shadow:
+        0 0 28px rgba(229, 27, 35, 0.22);
+}
+
+.marca-anguila__torii {
+    position: relative;
+    z-index: 2;
+
+    color: #ffffff;
+    font-size: 42px;
+
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+
+.marca-anguila__nombre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    line-height: 0.92;
+    text-align: center;
+}
+
+.marca-anguila__anguila {
+    color: #ffffff;
+
+    font-size: clamp(42px, 8vw, 76px);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+
+    text-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+.marca-anguila__sushi {
+    color: #e51b23;
+
+    font-size: clamp(44px, 8.2vw, 78px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+
+    text-shadow: 0 8px 18px rgba(0, 0, 0, 0.40);
+}
+
+.marca-anguila__sushi::after {
+    content: "";
+
+    display: block;
+
+    width: 104%;
+    height: 4px;
+
+    margin: 8px auto 0;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #e51b23 18%,
+        #ff3038 50%,
+        #bd1017 82%,
+        transparent 100%
+    );
+}
+
+.marca-anguila__lema {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #ededed;
+
+    font-size: clamp(8px, 1.3vw, 12px);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+/* ---------- AJUSTE GENERAL DEL HERO ---------- */
+
+.encabezado.anguila-hero {
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.encabezado.anguila-hero .anguila-hero__contenido {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+    text-align: center;
+}
+
+.encabezado.anguila-hero .anguila-hero__ubicacion,
+.encabezado.anguila-hero .anguila-hero__horario {
+    justify-content: center;
+    text-align: center;
+}
+
+/* ---------- BOTONES SUPERIORES ---------- */
+
+.estado-negocio,
+.whatsapp-negocio {
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   SOLO MÓVIL
+   ========================================== */
+
+@media (max-width: 768px) {
+
     .encabezado.anguila-hero {
-        padding: 55px 12px 18px;
-    }
-
-    /* Reducir separación de logo, dirección y horario */
-    .anguila-hero__contenido {
-        gap: 7px;
-    }
-
-    /* Acercar el título al encabezado */
-    main > .categorias {
         padding-top: 22px !important;
-        padding-bottom: 8px !important;
+        padding-bottom: 22px !important;
+        min-height: auto !important;
     }
 
-    /* Reducir espacio después del buscador */
-    .categorias-encabezado {
-        margin-bottom: 14px;
+    .marca-anguila__simbolo {
+        width: 92px;
+        height: 66px;
+        margin-bottom: 4px;
     }
 
-    /* Buscador un poco más compacto */
-    .categorias .boton-buscar-inicio {
-        height: 46px;
-        margin-top: 14px;
+    .marca-anguila__sol {
+        width: 64px;
+        height: 64px;
     }
 
-    /* Quitar espacio vertical innecesario del carrusel */
-    .barra-redisenada .carril-categorias {
-        padding: 8px 0;
+    .marca-anguila__torii {
+        font-size: 28px;
+    }
+
+    .marca-anguila__anguila {
+        font-size: 34px !important;
+        letter-spacing: -0.05em;
+    }
+
+    .marca-anguila__sushi {
+        font-size: 33px !important;
+        letter-spacing: -0.04em;
+    }
+
+    .marca-anguila__sushi::after {
+        height: 3px;
+        margin-top: 6px;
+    }
+
+    .marca-anguila__lema {
+        margin-top: 9px;
+        font-size: 8px;
+        letter-spacing: 0.10em;
+        line-height: 1.4;
+    }
+
+    .estado-negocio,
+    .whatsapp-negocio {
+        min-height: 38px !important;
+        padding: 0 14px !important;
+        font-size: 11px !important;
+        border-radius: 999px !important;
+    }
+
+    .estado-negocio i,
+    .whatsapp-negocio i,
+    .punto-estado {
+        transform: scale(0.90);
+    }
+
+    .encabezado.anguila-hero .anguila-hero__ubicacion {
+        max-width: 280px;
+        margin: 10px auto 0;
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
+    .encabezado.anguila-hero .anguila-hero__horario {
+        max-width: 290px;
+        margin: 6px auto 0;
+        font-size: 12px;
+        line-height: 1.35;
     }
 }
 
+
+/* ==========================================
+   LOGOTIPO COMPLETO ANGUILA SUSHI
+   ========================================== */
+
+.encabezado.anguila-hero .anguila-hero__logo-imagen {
+    display: block;
+
+    width: min(100%, 360px);
+    max-width: 100%;
+    height: auto;
+
+    margin: 0 auto 8px;
+
+    object-fit: contain;
+}
+
+/* AJUSTE DEL LOGOTIPO PARA CELULAR */
+
+@media (max-width: 650px) {
+
+    .encabezado.anguila-hero .anguila-hero__logo-imagen {
+        width: min(68vw, 235px);
+        margin: 0 auto 5px;
+    }
+
+    .encabezado.anguila-hero {
+        padding-top: 65px !important;
+        padding-bottom: 20px !important;
+    }
+
+}
 
